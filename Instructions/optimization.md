@@ -8,7 +8,7 @@ indexing implemented via mongodb atlas platform
 
 ### Connection Pooling (already implemeneted)
 
-## Phase 2: Middleware Optimization
+## Phase 2: Middleware Optimization (already implemeneted)
 
 ### Optimize Middleware
 
@@ -19,7 +19,7 @@ indexing implemented via mongodb atlas platform
 1. Review each middleware for synchronous operations and refactor to asynchronous where possible.
 2. Test the middleware performance to ensure no significant overhead.
 
-### Conditional Middleware Application
+### Conditional Middleware Application (already implemeneted)
 
 **Task:** Apply middlewares conditionally to reduce overhead.
 **File:** `app.js`
@@ -28,7 +28,7 @@ indexing implemented via mongodb atlas platform
 1. Identify middlewares that can be applied conditionally.
 2. Use conditional logic to apply these middlewares only when necessary.
 
-## Phase 3: Rate Limiting Optimization
+## Phase 3: Rate Limiting Optimization (already implemeneted)
 
 ### Optimize Rate Limiting
 
@@ -40,9 +40,9 @@ indexing implemented via mongodb atlas platform
 2. Consider using in-memory stores like Redis for rate limiting.
 3. Test the rate limiting performance under load.
 
-## Phase 4: Logging Optimization
+## Phase 4: Logging Optimization (already implemeneted)
 
-### Asynchronous Logging
+### Asynchronous Logging (already implemeneted)
 
 **Task:** Implement asynchronous logging to avoid blocking the main thread.
 **File:** `logger.js`
