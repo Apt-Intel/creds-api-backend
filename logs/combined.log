@@ -859,3 +859,338 @@
 {"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}
 {"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T05:44:19.069Z"}
 {"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T06:25:42.183Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T06:25:42.186Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T06:25:42.190Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T06:25:44.205Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T06:25:44.212Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:25:46.710Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:25:46.710Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:25:46.711Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T06:25:46.713Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T06:25:46.714Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T06:25:48.140Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T06:25:48.141Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T06:25:48.145Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T06:25:48.146Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T06:25:48.147Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T06:25:48.147Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T06:25:48.149Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T06:25:48.150Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T06:25:48.150Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T06:39:38.009Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T06:39:38.012Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T06:39:38.018Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T06:39:40.369Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T06:39:40.372Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:39:43.851Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:39:43.852Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:39:43.852Z"}
+{"level":"error","message":"Error in rate limit middleware: asyncRedis.multi is not a function","stack":"TypeError: asyncRedis.multi is not a function\n    at checkRateLimit (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:41:28)\n    at complexRateLimitMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:13:7)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:20:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T06:39:43.853Z"}
+{"level":"error","message":"TypeError: asyncRedis.multi is not a function\n    at checkRateLimit (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:41:28)\n    at complexRateLimitMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:13:7)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:20:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T06:39:43.854Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:39:47.135Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:39:47.136Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:39:47.137Z"}
+{"level":"error","message":"Error in rate limit middleware: asyncRedis.multi is not a function","stack":"TypeError: asyncRedis.multi is not a function\n    at checkRateLimit (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:41:28)\n    at complexRateLimitMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:13:7)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:20:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T06:39:47.138Z"}
+{"level":"error","message":"TypeError: asyncRedis.multi is not a function\n    at checkRateLimit (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:41:28)\n    at complexRateLimitMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/complexRateLimitMiddleware.js:13:7)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:20:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T06:39:47.139Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T06:41:11.432Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T06:41:11.440Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:41:18.515Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:41:18.516Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:41:18.517Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T06:41:18.520Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T06:41:18.520Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T06:41:19.971Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T06:41:19.971Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T06:41:19.976Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T06:41:19.978Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T06:41:19.979Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T06:41:19.979Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T06:41:19.981Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T06:41:19.981Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T06:41:19.982Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T06:41:19.983Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:41:26.485Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:41:26.485Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:41:26.485Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T06:41:26.486Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T06:41:26.486Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T06:41:27.447Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T06:41:27.448Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T06:41:27.449Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T06:41:27.450Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T06:41:27.450Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T06:41:27.450Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T06:41:27.451Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:41:34.937Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:41:34.938Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:41:34.942Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T06:41:34.943Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T06:41:34.943Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T06:41:35.895Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T06:41:35.895Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T06:41:35.896Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T06:41:35.896Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T06:41:35.896Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T06:41:35.896Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T06:41:35.897Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T06:48:51.811Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T06:48:51.819Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:48:57.101Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:48:57.102Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:48:57.103Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T06:48:57.108Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T06:48:57.108Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T06:48:58.518Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T06:48:58.519Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T06:48:58.524Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T06:48:58.526Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T06:48:58.527Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T06:48:58.528Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T06:48:58.531Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T06:49:03.555Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T06:49:03.556Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T06:49:03.557Z"}
+{"level":"info","message":"Searching for login: admin","timestamp":"2024-10-21T06:49:03.559Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=desc, page=1, installed_software=false","timestamp":"2024-10-21T06:49:03.559Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T06:49:07.242Z"}
+{"level":"info","message":"Normalizing result 1/50","timestamp":"2024-10-21T06:49:07.242Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 21 2022 23:19:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.242Z"}
+{"level":"info","message":"Normalizing result 2/50","timestamp":"2024-10-21T06:49:07.245Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 21 2022 17:57:46 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.245Z"}
+{"level":"info","message":"Normalizing result 3/50","timestamp":"2024-10-21T06:49:07.246Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 23:05:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.246Z"}
+{"level":"info","message":"Normalizing result 4/50","timestamp":"2024-10-21T06:49:07.246Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 23:01:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.246Z"}
+{"level":"info","message":"Normalizing result 5/50","timestamp":"2024-10-21T06:49:07.246Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 21:42:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"info","message":"Normalizing result 6/50","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 21:33:21 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"info","message":"Normalizing result 7/50","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 21:13:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"info","message":"Normalizing result 8/50","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 20:58:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"info","message":"Normalizing result 9/50","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 20:58:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"info","message":"Normalizing result 10/50","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 19:18:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"info","message":"Normalizing result 11/50","timestamp":"2024-10-21T06:49:07.247Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 18:49:52 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"info","message":"Normalizing result 12/50","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 18:35:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"info","message":"Normalizing result 13/50","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 18:30:53 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"info","message":"Normalizing result 14/50","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 16:56:36 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"info","message":"Normalizing result 15/50","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 16:52:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.248Z"}
+{"level":"info","message":"Normalizing result 16/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 15:35:02 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 17/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 15:14:47 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 18/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 15:10:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 19/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 14:50:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 20/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 14:27:54 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 21/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 14:14:38 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 22/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 13:41:45 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 23/50","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 13:03:35 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.249Z"}
+{"level":"info","message":"Normalizing result 24/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 12:56:14 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 25/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 12:07:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 26/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 10:55:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 27/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 10:24:48 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 28/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:32:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 29/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:19:58 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 30/50","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:11:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.250Z"}
+{"level":"info","message":"Normalizing result 31/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:05:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"info","message":"Normalizing result 32/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 08:39:39 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"info","message":"Normalizing result 33/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 06:37:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"info","message":"Normalizing result 34/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 05:42:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"info","message":"Normalizing result 35/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 00:43:18 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"info","message":"Normalizing result 36/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 00:14:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"info","message":"Normalizing result 37/50","timestamp":"2024-10-21T06:49:07.251Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 16:28:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"info","message":"Normalizing result 38/50","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 06:51:04 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"info","message":"Normalizing result 39/50","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 06:15:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"info","message":"Normalizing result 40/50","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 05:58:34 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"info","message":"Normalizing result 41/50","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 05:03:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"info","message":"Normalizing result 42/50","timestamp":"2024-10-21T06:49:07.252Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 01:50:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 43/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 26 2022 18:25:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 44/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 20:45:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 45/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 19:31:13 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 46/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 19:21:12 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 47/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 11:54:29 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 48/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 08:17:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 49/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 00:50:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"info","message":"Normalizing result 50/50","timestamp":"2024-10-21T06:49:07.253Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 05 2022 16:50:49 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.254Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 21 2022 17:57:46 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.257Z"}
+{"level":"info","message":"Normalized Date: 2023-08-12 07:17:55","timestamp":"2024-10-21T06:49:07.257Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 23:05:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.257Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.257Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 21 2022 23:19:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.257Z"}
+{"level":"info","message":"Normalized Date: 2023-08-12 07:17:55","timestamp":"2024-10-21T06:49:07.257Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 23:01:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 21:33:21 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 02:18:23","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 21:42:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 21:13:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.258Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 20:58:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 20:58:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 19:18:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 18:49:52 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 18:35:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.259Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 18:30:53 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 16:56:36 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 16:52:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 15:35:02 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.260Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 15:14:47 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 15:10:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 14:50:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 14:27:54 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 02:18:23","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 14:14:38 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.261Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 13:03:35 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:47:08","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 12:56:14 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 02:18:23","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 13:41:45 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 10:55:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 10:24:48 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.262Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 12:07:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:32:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:19:58 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:11:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:05:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 08:39:39 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 06:37:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.263Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 05:42:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 00:43:18 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 00:14:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 16:28:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 06:51:04 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.264Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 06:15:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 05:58:34 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 05:03:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 01:50:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T06:49:07.265Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 26 2022 18:25:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 20:45:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 19:31:13 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-22 17:40:00","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 19:21:12 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 08:17:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 00:50:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 11:54:29 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 05 2022 16:50:49 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.268Z"}
+{"level":"info","message":"Normalized Date: 2023-07-22 10:07:17","timestamp":"2024-10-21T06:49:07.268Z"}
