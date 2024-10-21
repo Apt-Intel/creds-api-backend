@@ -35,7 +35,15 @@ app.use(/^(?!\/health$).*/, complexRateLimitMiddleware);
 app.use("/api", dateNormalizationMiddleware);
 
 // Routes
-app.use("/api/json/v1", require("./routes/api/v1/searchByLogin"));
+const searchByLoginRoutes = require("./routes/api/v1/searchByLogin");
+app.use("/api/json/v1", searchByLoginRoutes);
+
+// Log all routes
+app._router.stack.forEach(function (r) {
+  if (r.route && r.route.path) {
+    console.log(r.route.path);
+  }
+});
 
 // Health check route
 app.get("/health", (req, res) => res.status(200).json({ status: "OK" }));
@@ -44,6 +52,17 @@ app.get("/health", (req, res) => res.status(200).json({ status: "OK" }));
 app.use((err, req, res, next) => {
   logger.error(err.stack);
   res.status(500).json({ error: "Something went wrong!" });
+});
+
+// Test route
+app.get("/api/json/v1/test-date-normalization", (req, res) => {
+  res.json({
+    testLogDate1: "17.05.2022 5:28:48",
+    testLogDate2: "2022-05-17T05:28:48.375Z",
+    testLogDate3: "5/17/2022 5:28:48 AM",
+    Date: "2023-10-21 14:30:00", // This should remain unchanged
+    nonDateField: "This is not a date",
+  });
 });
 
 const PORT = process.env.PORT || 3000;

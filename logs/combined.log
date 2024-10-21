@@ -360,3 +360,502 @@
 {"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:15:43.412Z"}
 {"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T01:15:43.414Z"}
 {"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:15:43.414Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T02:27:06.995Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T02:27:06.999Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T02:27:07.004Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T02:27:10.676Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T02:27:10.680Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:27:12.657Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:27:12.657Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:27:12.658Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T02:27:12.660Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T02:27:12.660Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:27:16.486Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:27:16.486Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:27:16.487Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T02:27:16.488Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T02:27:16.488Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:28:10.450Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:28:10.450Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:28:10.452Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:28:10.453Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:28:10.454Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:28:10.454Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:28:10.455Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:28:10.456Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:28:41.525Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:28:41.525Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:28:41.526Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T02:28:41.527Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T02:28:41.527Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:30:02.344Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:30:02.344Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:30:02.344Z"}
+{"level":"info","message":"Searching for login: naomicassidy","timestamp":"2024-10-21T02:30:02.345Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T02:30:02.345Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:30:05.815Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:30:05.815Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:30:05.816Z"}
+{"level":"info","message":"Searching for login: admin","timestamp":"2024-10-21T02:30:05.816Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T02:30:05.816Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:30:16.972Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:30:16.973Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:30:16.973Z"}
+{"level":"info","message":"Searching for login: admin","timestamp":"2024-10-21T02:30:16.973Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T02:30:16.973Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:31:23.624Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:31:23.624Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:31:23.625Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:31:23.625Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:31:23.627Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:31:23.627Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:31:23.684Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:31:23.684Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:31:30.230Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:31:30.231Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:31:48.217Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:31:48.217Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:31:48.217Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:32:06.442Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:32:06.443Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:32:06.443Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:32:07.490Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:32:07.490Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:32:07.491Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:32:10.782Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:32:10.782Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:32:10.784Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:32:23.353Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:32:23.362Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:32:23.365Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:32:23.365Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:32:23.368Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:32:23.368Z"}
+{"level":"info","message":"Received API key: undefined","timestamp":"2024-10-21T02:32:23.400Z"}
+{"level":"warn","message":"No API key provided","timestamp":"2024-10-21T02:32:23.400Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T02:33:16.759Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T02:33:16.770Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T02:33:16.775Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T02:33:21.736Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T02:33:21.740Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T02:33:23.055Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T02:33:23.055Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T02:33:23.056Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:05:22.273Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:05:22.275Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:05:22.276Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:09:58.477Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:09:58.477Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:09:58.478Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:10:39.596Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:10:39.596Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:10:39.598Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:10:39.599Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T03:10:39.600Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:14:29.509Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:14:29.510Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:14:29.511Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:14:29.511Z"}
+{"level":"info","message":"Query params: sortby=date_uploaded, page=1, installed_software=false","timestamp":"2024-10-21T03:14:29.512Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T03:17:39.545Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T03:17:39.548Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T03:17:39.554Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T03:17:41.839Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T03:17:41.844Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:17:45.028Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:17:45.029Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:17:45.030Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:17:45.031Z"}
+{"level":"info","message":"Query params: sortby=date_uploaded, page=1, installed_software=false","timestamp":"2024-10-21T03:17:45.032Z"}
+{"level":"error","message":"Error in searchByLogin: normalizeDate is not a function","stack":"TypeError: normalizeDate is not a function\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/loginController.js:47:19\n    at Array.map (<anonymous>)\n    at searchByLogin (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/loginController.js:44:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T03:17:46.463Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:17:48.576Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:17:48.576Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:17:48.576Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:17:48.577Z"}
+{"level":"info","message":"Query params: sortby=date_uploaded, page=1, installed_software=false","timestamp":"2024-10-21T03:17:48.577Z"}
+{"level":"error","message":"Error in searchByLogin: normalizeDate is not a function","stack":"TypeError: normalizeDate is not a function\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/loginController.js:47:19\n    at Array.map (<anonymous>)\n    at searchByLogin (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/loginController.js:44:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T03:17:49.527Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:18:53.863Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:18:53.863Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:18:53.864Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:18:53.864Z"}
+{"level":"info","message":"Query params: sortby=date_uploaded, page=1, installed_software=false","timestamp":"2024-10-21T03:18:53.864Z"}
+{"level":"error","message":"Error in searchByLogin: normalizeDate is not a function","stack":"TypeError: normalizeDate is not a function\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/loginController.js:47:19\n    at Array.map (<anonymous>)\n    at searchByLogin (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/loginController.js:44:39)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2024-10-21T03:18:54.824Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T03:21:50.952Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T03:21:50.955Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T03:21:50.959Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T03:21:53.088Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T03:21:53.091Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:21:57.660Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:21:57.661Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:21:57.662Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:21:57.664Z"}
+{"level":"info","message":"Query params: sortby=date_uploaded, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T03:21:57.665Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T03:21:59.097Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T03:21:59.097Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T03:21:59.101Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T03:21:59.102Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:21:59.103Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T03:21:59.103Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T03:21:59.104Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T03:21:59.104Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T03:21:59.104Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:21:59.105Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T03:21:59.105Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T03:21:59.105Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:22:12.813Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:22:12.813Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:22:12.814Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:22:12.815Z"}
+{"level":"info","message":"Query params: sortby=date_uploaded, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T03:22:12.815Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T03:22:13.770Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T03:22:13.771Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T03:22:13.772Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T03:22:13.772Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:22:13.772Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T03:22:13.772Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T03:22:13.773Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T03:22:13.773Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T03:22:13.773Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:22:13.773Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T03:22:13.773Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T03:22:13.773Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:24:05.950Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:24:05.950Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:24:05.951Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:24:05.951Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T03:24:05.951Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T03:24:06.893Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T03:24:06.893Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:24:06.894Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T03:24:06.894Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T03:24:06.895Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T03:24:06.895Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T03:24:06.895Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:24:06.899Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T03:24:06.900Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T03:24:06.900Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T03:24:06.900Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T03:24:06.900Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T03:26:27.315Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T03:26:27.315Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T03:26:27.326Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T03:26:27.326Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T03:26:27.327Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T03:26:28.274Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T03:26:28.275Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T03:26:28.275Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T03:26:28.275Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T03:26:28.276Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:33:07.916Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:33:07.916Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:33:07.917Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:33:07.919Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T04:33:07.919Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:33:10.148Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:33:10.149Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:33:10.150Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:33:10.150Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:33:10.150Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:33:10.150Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:33:10.151Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:33:10.151Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:33:10.151Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:33:10.151Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:33:10.151Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:33:10.151Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:35:33.698Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:35:33.698Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:35:33.698Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:35:33.699Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T04:35:33.699Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:35:34.662Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:35:34.662Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:35:34.663Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:35:34.663Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:35:34.663Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:35:34.663Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:35:34.664Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:35:34.664Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:35:34.664Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:35:34.664Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:35:34.664Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:35:34.664Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:38:03.416Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:38:03.417Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:38:03.417Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:38:03.418Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T04:38:03.418Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:38:04.366Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:38:04.366Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:38:04.369Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:38:04.369Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:38:04.370Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:38:54.214Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:38:54.214Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:38:54.215Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:38:54.215Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T04:38:54.215Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:38:55.178Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:38:55.179Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:38:55.179Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:38:55.179Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:38:55.179Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:38:55.180Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:39:16.200Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:39:16.200Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:39:16.201Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:39:16.201Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T04:39:16.201Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:39:17.147Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:39:17.147Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:39:17.149Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:39:17.149Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:39:17.150Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:39:17.150Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:39:17.152Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:39:17.152Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:39:17.152Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:39:17.153Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:39:17.153Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:39:17.153Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:45:02.549Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:45:02.549Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:45:02.550Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:45:02.551Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T04:45:02.551Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:45:03.514Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:45:03.514Z"}
+{"level":"warn","message":"Unable to parse date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:45:03.515Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:45:03.516Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:45:03.517Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:45:03.517Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:45:03.517Z"}
+{"level":"info","message":"Normalized date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:45:03.517Z"}
+{"level":"info","message":"Normalized date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:45:03.518Z"}
+{"level":"info","message":"Normalized date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:45:03.518Z"}
+{"level":"info","message":"Normalized date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:45:03.518Z"}
+{"level":"info","message":"Normalized date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:45:03.518Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T04:45:39.652Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T04:45:39.656Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T04:45:39.663Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T04:45:41.662Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T04:45:41.665Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:45:46.546Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:45:46.547Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:45:46.550Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:45:46.552Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T04:45:46.552Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:45:48.031Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:45:48.032Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:45:48.036Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:45:48.037Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:45:48.038Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:45:48.038Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:45:48.040Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T04:45:48.040Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T04:45:48.041Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:46:17.902Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:46:17.903Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:46:17.903Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:46:17.904Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T04:46:17.904Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:46:18.888Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:46:18.888Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:46:18.889Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:46:18.890Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:46:18.890Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:46:18.891Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:46:18.892Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T04:46:18.892Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T04:46:18.893Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:52:59.604Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:52:59.605Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:52:59.608Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:52:59.608Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T04:52:59.609Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:53:00.590Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:53:00.590Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:53:00.591Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:53:00.592Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:53:00.592Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:53:00.592Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:53:00.594Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T04:53:00.595Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T04:53:17.019Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T04:53:17.019Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T04:53:17.019Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T04:53:17.020Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T04:53:17.020Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T04:53:17.994Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T04:53:17.995Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T04:53:17.995Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T04:53:17.995Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T04:53:17.995Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T04:53:17.996Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T04:53:17.997Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T05:02:33.233Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T05:02:33.236Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T05:02:33.243Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T05:02:35.552Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T05:02:35.555Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T05:02:40.717Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T05:02:40.717Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T05:02:40.718Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T05:02:40.720Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T05:02:40.720Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T05:02:42.202Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T05:02:42.203Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T05:02:42.207Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T05:02:42.208Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T05:02:42.208Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T05:02:42.209Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T05:02:42.211Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T05:42:45.956Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T05:42:45.959Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T05:42:45.965Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T05:42:48.273Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T05:42:48.277Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T05:42:57.314Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T05:42:57.315Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T05:42:57.317Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T05:42:57.319Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T05:42:57.320Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T05:42:58.787Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T05:42:58.788Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T05:42:58.796Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T05:42:58.796Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T05:42:58.797Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T05:42:58.798Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T05:42:58.800Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T05:43:24.804Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T05:43:24.804Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T05:43:24.806Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T05:43:24.808Z"}
+{"level":"info","message":"Query params: sortby=date_updated, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T05:43:24.808Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T05:43:25.777Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T05:43:25.777Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T05:43:25.778Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T05:43:25.778Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T05:43:25.778Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T05:43:25.778Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T05:43:25.779Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T05:43:25.779Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T05:43:25.780Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T05:43:51.941Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T05:43:51.941Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T05:43:51.941Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T05:43:51.943Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T05:43:51.943Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T05:43:52.956Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T05:43:52.956Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T05:43:52.957Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T05:43:52.957Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T05:43:52.957Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T05:43:52.957Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T05:43:52.958Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T05:44:18.083Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T05:44:18.083Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T05:44:18.083Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T05:44:18.085Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T05:44:18.086Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T05:44:19.066Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T05:44:19.067Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T05:44:19.067Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T05:44:19.067Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T05:44:19.067Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T05:44:19.068Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T05:44:19.069Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T05:44:19.069Z"}

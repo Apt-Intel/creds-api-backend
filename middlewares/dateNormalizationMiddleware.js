@@ -1,28 +1,33 @@
 const { parseDate } = require("../services/dateService");
 const logger = require("../config/logger");
 
-function dateNormalizationMiddleware(req, res, next) {
+const dateNormalizationMiddleware = (req, res, next) => {
   const originalJson = res.json;
 
-  res.json = function (data) {
-    if (Array.isArray(data)) {
-      data = data.map(normalizeDate);
-    } else if (typeof data === "object" && data !== null) {
-      data = normalizeDate(data);
-    }
+  res.json = async function (data) {
+    try {
+      if (Array.isArray(data)) {
+        data = await Promise.all(data.map(normalizeLogDate));
+      } else if (typeof data === "object" && data !== null) {
+        data = await normalizeLogDate(data);
+      }
 
-    return originalJson.call(this, data);
+      return originalJson.call(this, data);
+    } catch (error) {
+      logger.error("Error in date normalization middleware:", error);
+      return originalJson.call(this, { error: "Internal server error" });
+    }
   };
 
   next();
-}
+};
 
-function normalizeDate(obj) {
-  if (obj.Date) {
+async function normalizeLogDate(obj) {
+  if (obj["Log date"]) {
     try {
-      obj.Date = parseDate(obj.Date);
+      obj["Log date"] = await parseDate(obj["Log date"]);
     } catch (error) {
-      logger.error(`Error parsing date: ${obj.Date}`, error);
+      logger.error(`Error parsing Log date: ${obj["Log date"]}`, error);
     }
   }
   return obj;
