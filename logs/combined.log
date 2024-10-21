@@ -303,3 +303,60 @@
 {"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T00:08:06.988Z"}
 {"level":"info","message":"Searching for login: medminezd3@gmail.com","timestamp":"2024-10-21T00:08:06.989Z"}
 {"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T00:08:06.989Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T01:01:55.787Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T01:01:55.795Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T01:01:55.796Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T01:01:55.797Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T01:01:55.798Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T01:03:38.765Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T01:03:38.774Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T01:03:38.775Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T01:03:38.776Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T01:03:38.777Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:03:42.202Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:03:42.202Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:03:42.204Z"}
+{"level":"info","message":"Searching for login: medminezd3@gmail.com","timestamp":"2024-10-21T01:03:42.207Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:03:42.208Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T01:03:42.208Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T01:03:42.214Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T01:03:42.214Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T01:03:42.215Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:03:47.101Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:03:47.102Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:03:47.102Z"}
+{"level":"info","message":"Searching for login: medminezd3@gmail.com","timestamp":"2024-10-21T01:03:47.104Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:03:47.107Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:03:54.641Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:03:54.642Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:03:54.642Z"}
+{"level":"info","message":"Searching for login: test","timestamp":"2024-10-21T01:03:54.643Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:03:54.643Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:04:13.891Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:04:13.891Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:04:13.892Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T01:04:13.893Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:04:13.893Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T01:13:53.062Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T01:13:53.065Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T01:13:53.065Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T01:13:55.950Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T01:13:55.955Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:13:59.773Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:13:59.774Z"}
+{"level":"error","message":"Error in auth middleware: redisClient.setexAsync is not a function","stack":"TypeError: redisClient.setexAsync is not a function\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:18:25)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/body-parser/lib/read.js:137:5\n    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)\n    at invokeCallback (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/raw-body/index.js:238:16)\n    at done (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/raw-body/index.js:227:7)","timestamp":"2024-10-21T01:13:59.775Z"}
+{"level":"info","message":"Connected to Redis","timestamp":"2024-10-21T01:15:29.938Z"}
+{"level":"info","message":"Redis is ready","timestamp":"2024-10-21T01:15:29.941Z"}
+{"level":"info","message":"Redis cache cleared","timestamp":"2024-10-21T01:15:29.947Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T01:15:32.169Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2024-10-21T01:15:32.173Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:15:39.706Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:15:39.707Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:15:39.707Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T01:15:39.709Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:15:39.710Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T01:15:43.409Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T01:15:43.410Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T01:15:43.412Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T01:15:43.414Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, page=1, installed_software=false","timestamp":"2024-10-21T01:15:43.414Z"}

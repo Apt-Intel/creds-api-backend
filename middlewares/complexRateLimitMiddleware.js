@@ -1,10 +1,5 @@
-const redis = require("redis");
-const { promisify } = require("util");
+const { asyncRedis } = require("../config/redisClient");
 const logger = require("../config/logger");
-
-const redisClient = redis.createClient(process.env.REDIS_URL);
-const incrAsync = promisify(redisClient.incr).bind(redisClient);
-const expireAsync = promisify(redisClient.expire).bind(redisClient);
 
 const WINDOW_SIZE_IN_SECONDS = 10;
 const MAX_REQUESTS_PER_WINDOW = 50;
@@ -34,9 +29,9 @@ const complexRateLimitMiddleware = async (req, res, next) => {
 };
 
 async function incrementAndGetRequests(key) {
-  const requests = await incrAsync(key);
+  const requests = await asyncRedis.incr(key);
   if (requests === 1) {
-    await expireAsync(key, WINDOW_SIZE_IN_SECONDS);
+    await asyncRedis.expire(key, WINDOW_SIZE_IN_SECONDS);
   }
   return requests;
 }

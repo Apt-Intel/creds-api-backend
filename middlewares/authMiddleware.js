@@ -1,5 +1,5 @@
-const { promisify } = require("util");
 const logger = require("../config/logger");
+const { asyncRedis } = require("../config/redisClient");
 
 const authMiddleware = async (req, res, next) => {
   try {
@@ -11,18 +11,15 @@ const authMiddleware = async (req, res, next) => {
       return res.status(401).json({ error: "API key is required" });
     }
 
-    // Validate API key
     const isValid = apiKey === process.env.API_KEY;
     logger.info(`API key validation result: ${isValid}`);
 
     if (isValid) {
-      // Cache the valid result for 1 hour (3600 seconds)
-      await global.redisClient.setex(`api_key:${apiKey}`, 3600, "valid");
+      await asyncRedis.setex(`api_key:${apiKey}`, 3600, "valid");
       logger.info("Valid API key cached");
       next();
     } else {
-      // Cache the invalid result for a shorter time (e.g., 5 minutes)
-      await global.redisClient.setex(`api_key:${apiKey}`, 300, "invalid");
+      await asyncRedis.setex(`api_key:${apiKey}`, 300, "invalid");
       logger.warn("Invalid API key cached");
       res.status(401).json({ error: "Invalid API key" });
     }
