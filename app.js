@@ -87,18 +87,15 @@ const startServer = () => {
       server.on("error", (error) => {
         if (error.code === "EADDRINUSE") {
           logger.logWithRequestId(
-            "warn",
-            `Port ${PORT} is already in use. Trying ${PORT + 1}...`
+            "error",
+            `Port ${PORT} is already in use. Please check your environment configuration and ensure the port is available.`
           );
-          setTimeout(() => {
-            server.close();
-            startServer(PORT + 1);
-          }, 1000);
         } else {
           logger.logWithRequestId("error", "Error starting server:", {
             error: error.message,
           });
         }
+        process.exit(1);
       });
     })
     .catch((error) => {
