@@ -1194,3 +1194,59 @@
 {"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T06:49:07.266Z"}
 {"level":"info","message":"Normalized Log date: Wed Oct 05 2022 16:50:49 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T06:49:07.268Z"}
 {"level":"info","message":"Normalized Date: 2023-07-22 10:07:17","timestamp":"2024-10-21T06:49:07.268Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:17:25.984Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:18:13.677Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:19:03.596Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:19:05.216Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:19:49.146Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:19:51.327Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:20:09.851Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:20:11.401Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:21:06.701Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:21:06.711Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T07:21:13.832Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T07:21:13.833Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T07:21:13.834Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T07:21:13.838Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=desc, page=1, installed_software=false","timestamp":"2024-10-21T07:21:13.838Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T07:21:15.669Z"}
+{"level":"info","message":"Normalizing result 1/4","timestamp":"2024-10-21T07:21:15.670Z"}
+{"level":"warn","message":"Unable to parse date: 7/20/2022 1:24:30 AM","timestamp":"2024-10-21T07:21:15.673Z"}
+{"level":"info","message":"Normalizing result 2/4","timestamp":"2024-10-21T07:21:15.679Z"}
+{"level":"warn","message":"Unable to parse date: 6/30/2022 10:51:30 PM","timestamp":"2024-10-21T07:21:15.680Z"}
+{"level":"info","message":"Normalizing result 3/4","timestamp":"2024-10-21T07:21:15.681Z"}
+{"level":"warn","message":"Unable to parse date: 5/6/2022 0:0:41","timestamp":"2024-10-21T07:21:15.681Z"}
+{"level":"info","message":"Normalizing result 4/4","timestamp":"2024-10-21T07:21:15.682Z"}
+{"level":"info","message":"Normalized Log date: 2022-05-17 19:25:50","timestamp":"2024-10-21T07:21:15.685Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 07:00:24","timestamp":"2024-10-21T07:21:15.685Z"}
+{"level":"info","message":"Normalized Log date: 6/30/2022 10:51:30 PM","timestamp":"2024-10-21T07:21:15.687Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 07:38:42","timestamp":"2024-10-21T07:21:15.688Z"}
+{"level":"info","message":"Normalized Log date: 5/6/2022 0:0:41","timestamp":"2024-10-21T07:21:15.688Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 08:20:01","timestamp":"2024-10-21T07:21:15.688Z"}
+{"level":"info","message":"Normalized Log date: 7/20/2022 1:24:30 AM","timestamp":"2024-10-21T07:21:15.688Z"}
+{"level":"info","message":"Normalized Date: 2023-07-21 01:30:58","timestamp":"2024-10-21T07:21:15.688Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:31:54.282Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:31:54.291Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:49:46.259Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:49:46.266Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T07:50:10.260Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T07:50:10.261Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T07:50:10.261Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T07:50:10.265Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=desc, page=1, installed_software=false","timestamp":"2024-10-21T07:50:10.266Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T07:50:12.010Z"}
+{"level":"info","message":"Normalizing result 1/4","timestamp":"2024-10-21T07:50:12.011Z"}
+{"level":"warn","message":"Unable to parse date: 7/20/2022 1:24:30 AM","timestamp":"2024-10-21T07:50:12.017Z"}
+{"level":"info","message":"Normalizing result 2/4","timestamp":"2024-10-21T07:50:12.022Z"}
+{"level":"warn","message":"Unable to parse date: 6/30/2022 10:51:30 PM","timestamp":"2024-10-21T07:50:12.023Z"}
+{"level":"info","message":"Normalizing result 3/4","timestamp":"2024-10-21T07:50:12.023Z"}
+{"level":"warn","message":"Unable to parse date: 5/6/2022 0:0:41","timestamp":"2024-10-21T07:50:12.024Z"}
+{"level":"info","message":"Normalizing result 4/4","timestamp":"2024-10-21T07:50:12.026Z"}
+{"level":"info","message":"Normalized Log date: 2022-05-17 19:25:50","timestamp":"2024-10-21T07:50:12.034Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 07:00:24","timestamp":"2024-10-21T07:50:12.035Z"}
+{"level":"info","message":"Normalized Log date: 6/30/2022 10:51:30 PM","timestamp":"2024-10-21T07:50:12.037Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 07:38:42","timestamp":"2024-10-21T07:50:12.037Z"}
+{"level":"info","message":"Normalized Log date: 5/6/2022 0:0:41","timestamp":"2024-10-21T07:50:12.038Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 08:20:01","timestamp":"2024-10-21T07:50:12.038Z"}
+{"level":"info","message":"Normalized Log date: 7/20/2022 1:24:30 AM","timestamp":"2024-10-21T07:50:12.038Z"}
+{"level":"info","message":"Normalized Date: 2023-07-21 01:30:58","timestamp":"2024-10-21T07:50:12.038Z"}

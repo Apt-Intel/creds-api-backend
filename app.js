@@ -6,6 +6,7 @@ const { connectToDatabase } = require("./config/database");
 const authMiddleware = require("./middlewares/authMiddleware");
 const complexRateLimitMiddleware = require("./middlewares/complexRateLimitMiddleware");
 const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMiddleware");
+const { requestIdMiddleware } = require("./middlewares/requestIdMiddleware");
 const logger = require("./config/logger");
 
 // Add this near the top of the file, after loading environment variables
@@ -13,7 +14,7 @@ if (!process.env.API_KEY) {
   console.error("API_KEY is not set in the environment variables");
   process.exit(1);
 }
-console.log("API_KEY from env:", process.env.API_KEY);
+logger.logWithRequestId("info", `API_KEY from env: ${process.env.API_KEY}`);
 
 const app = express();
 
@@ -21,8 +22,17 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 
+// Add request ID middleware
+app.use(requestIdMiddleware);
+
 // Logging middleware
-app.use(morgan("combined"));
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()),
+    },
+  })
+);
 
 // Parse JSON bodies
 app.use(express.json());
@@ -67,21 +77,44 @@ app.get("/api/json/v1/test-date-normalization", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-connectToDatabase()
-  .then(() => {
-    app.listen(PORT, () => {
-      logger.info(`Server running on port ${PORT}`);
+const startServer = () => {
+  connectToDatabase()
+    .then(() => {
+      const server = app.listen(PORT, () => {
+        logger.logWithRequestId("info", `Server is running on port ${PORT}`);
+      });
+
+      server.on("error", (error) => {
+        if (error.code === "EADDRINUSE") {
+          logger.logWithRequestId(
+            "warn",
+            `Port ${PORT} is already in use. Trying ${PORT + 1}...`
+          );
+          setTimeout(() => {
+            server.close();
+            startServer(PORT + 1);
+          }, 1000);
+        } else {
+          logger.logWithRequestId("error", "Error starting server:", {
+            error: error.message,
+          });
+        }
+      });
+    })
+    .catch((error) => {
+      logger.logWithRequestId("error", "Failed to connect to the database", {
+        error: error.message,
+      });
+      process.exit(1);
     });
-  })
-  .catch((error) => {
-    logger.error("Failed to connect to the database", error);
-    process.exit(1);
-  });
+};
+
+startServer();
 
 module.exports = app;
 
 // Graceful shutdown
 process.on("SIGINT", async () => {
-  logger.info("Shutting down gracefully");
+  logger.logWithRequestId("info", "Shutting down gracefully");
   await connectToDatabase().then(() => process.exit(0));
 });

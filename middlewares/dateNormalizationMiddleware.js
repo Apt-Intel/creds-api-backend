@@ -14,7 +14,11 @@ const dateNormalizationMiddleware = (req, res, next) => {
 
       return originalJson.call(this, data);
     } catch (error) {
-      logger.error("Error in date normalization middleware:", error);
+      logger.logWithRequestId(
+        "error",
+        "Error in date normalization middleware:",
+        { error: error.message }
+      );
       return originalJson.call(this, { error: "Internal server error" });
     }
   };
@@ -27,7 +31,11 @@ async function normalizeLogDate(obj) {
     try {
       obj["Log date"] = await parseDate(obj["Log date"]);
     } catch (error) {
-      logger.error(`Error parsing Log date: ${obj["Log date"]}`, error);
+      logger.logWithRequestId(
+        "error",
+        `Error parsing Log date: ${obj["Log date"]}`,
+        { error: error.message }
+      );
     }
   }
   return obj;

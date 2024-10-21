@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cls-hooked": "^4.2.2",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
@@ -23,7 +24,9 @@
     "morgan": "^1.10.0",
     "punycode": "^2.3.1",
     "redis": "^3.1.2",
-    "winston": "^3.9.0"
+    "uuid": "^10.0.0",
+    "winston": "^3.9.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "jest": "^29.5.0",

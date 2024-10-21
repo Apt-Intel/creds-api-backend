@@ -13,11 +13,13 @@ async function connectToDatabase() {
     await mongoose.connect(MONGODB_URI, {
       serverSelectionTimeoutMS: POOL_TIMEOUT_MS,
     });
-    logger.info("Connected to MongoDB");
+    logger.logWithRequestId("info", "Connected to MongoDB");
 
     // No need to set global.redisClient here anymore
   } catch (error) {
-    logger.error("Database connection error:", error);
+    logger.logWithRequestId("error", "Database connection error:", {
+      error: error.message,
+    });
     throw error;
   }
 }
@@ -32,11 +34,11 @@ async function getDatabase() {
 async function closeDatabase() {
   if (mongoose.connection.readyState !== 0) {
     await mongoose.connection.close();
-    logger.info("Disconnected from MongoDB");
+    logger.logWithRequestId("info", "Disconnected from MongoDB");
   }
   if (redisClient) {
     redisClient.quit();
-    logger.info("Disconnected from Redis");
+    logger.logWithRequestId("info", "Disconnected from Redis");
   }
 }
 
