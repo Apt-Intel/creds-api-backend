@@ -31,7 +31,10 @@ function guessPossibleFormat(dateString) {
 }
 
 async function logUnrecognizedFormat(dateString) {
-  const logPath = path.join(__dirname, "../logs/new_date_formats.log");
+  const logPath = path.join(
+    __dirname,
+    "../logs/new_date_formats/new_date_formats.log"
+  );
   const guessedFormat = guessPossibleFormat(dateString);
   const logEntry = `${new Date().toISOString()}: Unrecognized format - ${dateString} (Possible format: ${guessedFormat})\n`;
 

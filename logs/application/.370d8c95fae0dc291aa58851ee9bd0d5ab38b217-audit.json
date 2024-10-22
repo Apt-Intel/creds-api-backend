@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/application/.370d8c95fae0dc291aa58851ee9bd0d5ab38b217-audit.json",
+    "files": [
+        {
+            "date": 1729565281722,
+            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/application/application-2024-10-22.log",
+            "hash": "2ef2afb0f9fd75362290cb462ccb99c98d280ff582dfd4cca76cd739f8ae2e60"
+        }
+    ],
+    "hashType": "sha256"
+}

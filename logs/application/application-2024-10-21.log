@@ -1,0 +1,527 @@
+{"level":"info","message":"Connected to MongoDB","timestamp":"2024-10-21T07:52:22.274Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2024-10-21T07:52:22.281Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T07:52:30.133Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T07:52:30.134Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T07:52:30.135Z"}
+{"level":"info","message":"Searching for login: hacker","timestamp":"2024-10-21T07:52:30.139Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=desc, page=1, installed_software=false","timestamp":"2024-10-21T07:52:30.139Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T07:52:31.652Z"}
+{"level":"info","message":"Normalizing result 1/4","timestamp":"2024-10-21T07:52:31.652Z"}
+{"level":"warn","message":"Unable to parse date: 7/20/2022 1:24:30 AM","timestamp":"2024-10-21T07:52:31.655Z"}
+{"level":"info","message":"Normalizing result 2/4","timestamp":"2024-10-21T07:52:31.658Z"}
+{"level":"warn","message":"Unable to parse date: 6/30/2022 10:51:30 PM","timestamp":"2024-10-21T07:52:31.659Z"}
+{"level":"info","message":"Normalizing result 3/4","timestamp":"2024-10-21T07:52:31.660Z"}
+{"level":"warn","message":"Unable to parse date: 5/6/2022 0:0:41","timestamp":"2024-10-21T07:52:31.661Z"}
+{"level":"info","message":"Normalizing result 4/4","timestamp":"2024-10-21T07:52:31.662Z"}
+{"level":"info","message":"Normalized Log date: 2022-05-17 19:25:50","timestamp":"2024-10-21T07:52:31.664Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 07:00:24","timestamp":"2024-10-21T07:52:31.664Z"}
+{"level":"info","message":"Normalized Log date: 7/20/2022 1:24:30 AM","timestamp":"2024-10-21T07:52:31.665Z"}
+{"level":"info","message":"Normalized Date: 2023-07-21 01:30:58","timestamp":"2024-10-21T07:52:31.666Z"}
+{"level":"info","message":"Normalized Log date: 6/30/2022 10:51:30 PM","timestamp":"2024-10-21T07:52:31.666Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 07:38:42","timestamp":"2024-10-21T07:52:31.666Z"}
+{"level":"info","message":"Normalized Log date: 5/6/2022 0:0:41","timestamp":"2024-10-21T07:52:31.667Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 08:20:01","timestamp":"2024-10-21T07:52:31.667Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T07:52:38.512Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T07:52:38.512Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T07:52:38.514Z"}
+{"level":"info","message":"Searching for login: admin","timestamp":"2024-10-21T07:52:38.516Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=desc, page=1, installed_software=false","timestamp":"2024-10-21T07:52:38.516Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T07:52:46.100Z"}
+{"level":"info","message":"Normalizing result 1/50","timestamp":"2024-10-21T07:52:46.100Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 21 2022 23:19:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.100Z"}
+{"level":"info","message":"Normalizing result 2/50","timestamp":"2024-10-21T07:52:46.100Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 21 2022 17:57:46 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.100Z"}
+{"level":"info","message":"Normalizing result 3/50","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 23:05:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"info","message":"Normalizing result 4/50","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 23:01:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"info","message":"Normalizing result 5/50","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 21:42:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"info","message":"Normalizing result 6/50","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 21:33:21 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"info","message":"Normalizing result 7/50","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 21:13:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"info","message":"Normalizing result 8/50","timestamp":"2024-10-21T07:52:46.101Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 20:58:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"info","message":"Normalizing result 9/50","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 20:58:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"info","message":"Normalizing result 10/50","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 19:18:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"info","message":"Normalizing result 11/50","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 18:49:52 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"info","message":"Normalizing result 12/50","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 18:35:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.102Z"}
+{"level":"info","message":"Normalizing result 13/50","timestamp":"2024-10-21T07:52:46.103Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 18:30:53 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.103Z"}
+{"level":"info","message":"Normalizing result 14/50","timestamp":"2024-10-21T07:52:46.103Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 16:56:36 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.103Z"}
+{"level":"info","message":"Normalizing result 15/50","timestamp":"2024-10-21T07:52:46.103Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 16:52:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.103Z"}
+{"level":"info","message":"Normalizing result 16/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 15:35:02 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 17/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 15:14:47 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 18/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 15:10:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 19/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 14:50:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 20/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 14:27:54 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 21/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 14:14:38 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 22/50","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 13:41:45 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.104Z"}
+{"level":"info","message":"Normalizing result 23/50","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 13:03:35 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"info","message":"Normalizing result 24/50","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 12:56:14 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"info","message":"Normalizing result 25/50","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 12:07:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"info","message":"Normalizing result 26/50","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 10:55:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"info","message":"Normalizing result 27/50","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 10:24:48 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"info","message":"Normalizing result 28/50","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:32:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.105Z"}
+{"level":"info","message":"Normalizing result 29/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:19:58 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 30/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:11:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 31/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 09:05:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 32/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 08:39:39 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 33/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 06:37:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 34/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 05:42:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 35/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 00:43:18 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 36/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 14 2022 00:14:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 37/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 16:28:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"info","message":"Normalizing result 38/50","timestamp":"2024-10-21T07:52:46.106Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 06:51:04 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.107Z"}
+{"level":"info","message":"Normalizing result 39/50","timestamp":"2024-10-21T07:52:46.107Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 06:15:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.107Z"}
+{"level":"info","message":"Normalizing result 40/50","timestamp":"2024-10-21T07:52:46.107Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 05:58:34 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 41/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 05:03:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 42/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Sep 07 2022 01:50:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 43/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 26 2022 18:25:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 44/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 20:45:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 45/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 19:31:13 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 46/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 19:21:12 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 47/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 11:54:29 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 48/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 08:17:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"info","message":"Normalizing result 49/50","timestamp":"2024-10-21T07:52:46.108Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 19 2022 00:50:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.109Z"}
+{"level":"info","message":"Normalizing result 50/50","timestamp":"2024-10-21T07:52:46.109Z"}
+{"level":"warn","message":"Unable to parse date: Wed Oct 05 2022 16:50:49 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.109Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 21 2022 17:57:46 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Date: 2023-08-12 07:17:55","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 21 2022 23:19:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Date: 2023-08-12 07:17:55","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 23:05:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 23:01:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.111Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 21:42:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 21:33:21 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 02:18:23","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 21:13:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 20:58:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 20:58:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 19:18:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.112Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 18:49:52 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 18:35:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 18:30:53 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 16:56:36 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 16:52:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 15:35:02 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 15:14:47 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.113Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 15:10:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 14:27:54 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 02:18:23","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 14:50:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 14:14:38 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 13:41:45 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 13:03:35 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:47:08","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 12:56:14 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 02:18:23","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 12:07:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.114Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 10:55:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 10:24:48 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:32:24 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:19:58 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:11:31 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 09:05:51 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 08:39:39 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.115Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 06:37:56 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 05:42:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 00:43:18 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 14 2022 00:14:23 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 16:28:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 06:15:03 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 05:58:34 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 05:03:43 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.116Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 01:50:20 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 26 2022 18:25:08 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 20:45:57 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Sep 07 2022 06:51:04 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-08-09 03:27:59","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 19:31:13 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-07-22 17:40:00","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 19:21:12 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 11:54:29 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 08:17:44 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T07:52:46.117Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 19 2022 00:50:00 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.118Z"}
+{"level":"info","message":"Normalized Date: 2023-07-02 05:50:53","timestamp":"2024-10-21T07:52:46.118Z"}
+{"level":"info","message":"Normalized Log date: Wed Oct 05 2022 16:50:49 GMT+0200 (Central European Summer Time)","timestamp":"2024-10-21T07:52:46.118Z"}
+{"level":"info","message":"Normalized Date: 2023-07-22 10:07:17","timestamp":"2024-10-21T07:52:46.118Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T07:52:50.593Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T07:52:50.593Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T07:52:50.594Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T07:52:50.596Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=asc, page=1, installed_software=false","timestamp":"2024-10-21T07:52:50.596Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T07:52:51.581Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T07:52:51.581Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T07:52:51.581Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T07:52:51.582Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T07:52:51.582Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T07:52:51.583Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T07:52:51.584Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T07:52:51.584Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T07:52:51.584Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T07:52:51.584Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T07:52:51.584Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T07:52:51.584Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T07:52:51.585Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T07:52:51.585Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T07:52:51.585Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T07:52:51.585Z"}
+{"level":"info","message":"Received API key: test","timestamp":"2024-10-21T07:53:01.073Z"}
+{"level":"info","message":"API key validation result: true","timestamp":"2024-10-21T07:53:01.073Z"}
+{"level":"info","message":"Valid API key cached","timestamp":"2024-10-21T07:53:01.074Z"}
+{"level":"info","message":"Searching for login: leo_sonnek@hotmail.com","timestamp":"2024-10-21T07:53:01.075Z"}
+{"level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","timestamp":"2024-10-21T07:53:01.075Z"}
+{"level":"info","message":"Normalizing results...","timestamp":"2024-10-21T07:53:02.053Z"}
+{"level":"info","message":"Normalizing result 1/5","timestamp":"2024-10-21T07:53:02.053Z"}
+{"level":"info","message":"Normalizing result 2/5","timestamp":"2024-10-21T07:53:02.053Z"}
+{"level":"info","message":"Normalizing result 3/5","timestamp":"2024-10-21T07:53:02.054Z"}
+{"level":"info","message":"Normalizing result 4/5","timestamp":"2024-10-21T07:53:02.054Z"}
+{"level":"info","message":"Normalizing result 5/5","timestamp":"2024-10-21T07:53:02.054Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Date: 2023-07-25 05:51:00","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Date: 2023-07-28 05:51:00","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Date: 2023-07-26 05:51:00","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","timestamp":"2024-10-21T07:53:02.055Z"}
+{"level":"info","message":"Normalized Date: 2023-07-24 05:51:00","timestamp":"2024-10-21T07:53:02.056Z"}
+{"level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","timestamp":"2024-10-21T07:53:02.056Z"}
+{"level":"info","message":"Normalized Date: 2023-07-23 05:51:00","timestamp":"2024-10-21T07:53:02.056Z"}
+{"timestamp":"2024-10-21T07:57:18.171Z","level":"info","message":"Connected to MongoDB","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:18.178Z","level":"info","message":"Server is running on port 3000","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:24.675Z","level":"info","message":"Received API key: test","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:24.676Z","level":"info","message":"API key validation result: true","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:24.677Z","level":"info","message":"Valid API key cached","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:24.680Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:24.680Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.146Z","level":"info","message":"Normalizing results...","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.147Z","level":"info","message":"Normalizing result 1/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.152Z","level":"info","message":"Normalizing result 2/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.153Z","level":"info","message":"Normalizing result 3/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.154Z","level":"info","message":"Normalizing result 4/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.154Z","level":"info","message":"Normalizing result 5/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.156Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.157Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.157Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.157Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:26.169Z","level":"info","message":"::1 - - [21/Oct/2024:07:57:26 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"HTTP"}
+{"timestamp":"2024-10-21T07:57:35.426Z","level":"info","message":"Received API key: test","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:35.426Z","level":"info","message":"API key validation result: true","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:35.427Z","level":"info","message":"Valid API key cached","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:35.429Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:35.429Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.395Z","level":"info","message":"Normalizing results...","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.396Z","level":"info","message":"Normalizing result 1/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.399Z","level":"info","message":"Normalizing result 2/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.400Z","level":"info","message":"Normalizing result 3/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.400Z","level":"info","message":"Normalizing result 4/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.401Z","level":"info","message":"Normalizing result 5/5","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.402Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:57:36.405Z","level":"info","message":"::1 - - [21/Oct/2024:07:57:36 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"HTTP"}
+{"timestamp":"2024-10-21T07:59:37.375Z","level":"info","message":"Connected to MongoDB","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:59:37.384Z","level":"info","message":"Server is running on port 3000","requestId":"N/A"}
+{"timestamp":"2024-10-21T07:59:43.497Z","level":"info","message":"Received API key: test","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:43.498Z","level":"info","message":"API key validation result: true","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:43.511Z","level":"info","message":"Valid API key cached","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:43.515Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:43.516Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.968Z","level":"info","message":"Normalizing results...","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.969Z","level":"info","message":"Normalizing result 1/5","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.973Z","level":"info","message":"Normalizing result 2/5","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.975Z","level":"info","message":"Normalizing result 3/5","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.975Z","level":"info","message":"Normalizing result 4/5","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.975Z","level":"info","message":"Normalizing result 5/5","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.977Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.977Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.978Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.978Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.978Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.978Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.978Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.978Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.979Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.979Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T07:59:44.987Z","level":"info","message":"::1 - - [21/Oct/2024:07:59:44 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"4d181b10-cde6-4238-94f9-f692c5145bbb"}
+{"timestamp":"2024-10-21T08:00:52.004Z","level":"info","message":"API_KEY from env: test","requestId":"c9575a03-8855-4949-a6a4-a09a2d2e4cbc"}
+{"timestamp":"2024-10-21T08:00:53.557Z","level":"info","message":"Connected to MongoDB","requestId":"c9575a03-8855-4949-a6a4-a09a2d2e4cbc"}
+{"timestamp":"2024-10-21T08:00:53.562Z","level":"info","message":"Server is running on port 3000","requestId":"c9575a03-8855-4949-a6a4-a09a2d2e4cbc"}
+{"timestamp":"2024-10-21T08:01:00.814Z","level":"info","message":"Received API key: test","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:00.815Z","level":"info","message":"API key validation result: true","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:00.816Z","level":"info","message":"Valid API key cached","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:00.819Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:00.820Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.718Z","level":"info","message":"Normalizing results...","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.720Z","level":"info","message":"Normalizing result 1/5","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.725Z","level":"info","message":"Normalizing result 2/5","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.726Z","level":"info","message":"Normalizing result 3/5","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.726Z","level":"info","message":"Normalizing result 4/5","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.727Z","level":"info","message":"Normalizing result 5/5","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.729Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:01:02.735Z","level":"info","message":"::1 - - [21/Oct/2024:08:01:02 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"645b98a5-54ab-446e-bc83-e372d8d54658"}
+{"timestamp":"2024-10-21T08:07:57.659Z","level":"info","message":"API_KEY from env: test","requestId":"44ed2b61-248e-4c19-a1a9-931b34792056"}
+{"timestamp":"2024-10-21T08:07:59.736Z","level":"info","message":"Connected to MongoDB","requestId":"44ed2b61-248e-4c19-a1a9-931b34792056"}
+{"timestamp":"2024-10-21T08:07:59.741Z","level":"info","message":"Server is running on port 3000","requestId":"44ed2b61-248e-4c19-a1a9-931b34792056"}
+{"timestamp":"2024-10-21T08:08:57.061Z","level":"info","message":"API_KEY from env: test","requestId":"6823b699-4f87-406a-9473-1d834fb9765b"}
+{"timestamp":"2024-10-21T08:08:58.552Z","level":"info","message":"Connected to MongoDB","requestId":"6823b699-4f87-406a-9473-1d834fb9765b"}
+{"timestamp":"2024-10-21T08:08:58.558Z","level":"info","message":"Server is running on port 3000","requestId":"6823b699-4f87-406a-9473-1d834fb9765b"}
+{"timestamp":"2024-10-21T08:09:04.367Z","level":"info","message":"Received API key: test","requestId":"0088dc05-f645-4493-9415-45f2f5640d69"}
+{"timestamp":"2024-10-21T08:09:04.368Z","level":"info","message":"API key validation result: valid","requestId":"0088dc05-f645-4493-9415-45f2f5640d69"}
+{"timestamp":"2024-10-21T08:09:04.372Z","level":"info","message":"::1 - - [21/Oct/2024:08:09:04 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 401 27 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"0088dc05-f645-4493-9415-45f2f5640d69","source":"morgan"}
+{"timestamp":"2024-10-21T08:09:29.354Z","level":"info","message":"Received API key: test","requestId":"2e58c549-c123-4cd7-9d5c-6575f7d495ff"}
+{"timestamp":"2024-10-21T08:09:29.356Z","level":"info","message":"API key validation result: valid","requestId":"2e58c549-c123-4cd7-9d5c-6575f7d495ff"}
+{"timestamp":"2024-10-21T08:09:29.357Z","level":"info","message":"::1 - - [21/Oct/2024:08:09:29 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 401 27 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"2e58c549-c123-4cd7-9d5c-6575f7d495ff","source":"morgan"}
+{"timestamp":"2024-10-21T08:11:02.637Z","level":"info","message":"API_KEY from env: test","requestId":"d5b8f2b1-1b8a-4abf-9871-e527e9dd355f"}
+{"timestamp":"2024-10-21T08:11:04.831Z","level":"info","message":"Connected to MongoDB","requestId":"d5b8f2b1-1b8a-4abf-9871-e527e9dd355f"}
+{"timestamp":"2024-10-21T08:11:04.835Z","level":"info","message":"Server is running on port 3000","requestId":"d5b8f2b1-1b8a-4abf-9871-e527e9dd355f"}
+{"timestamp":"2024-10-21T08:11:07.438Z","level":"info","message":"Received API key: test","requestId":"14a9a6ac-0d0e-4ebf-b128-461e6cdf574f"}
+{"timestamp":"2024-10-21T08:11:07.442Z","level":"info","message":"API key validation result: valid","requestId":"14a9a6ac-0d0e-4ebf-b128-461e6cdf574f"}
+{"timestamp":"2024-10-21T08:11:41.597Z","level":"info","message":"API_KEY from env: test","requestId":"a67044c0-7d6e-45d0-b856-6db93d477dc9"}
+{"timestamp":"2024-10-21T08:11:43.190Z","level":"info","message":"Connected to MongoDB","requestId":"a67044c0-7d6e-45d0-b856-6db93d477dc9"}
+{"timestamp":"2024-10-21T08:11:43.195Z","level":"info","message":"Server is running on port 3000","requestId":"a67044c0-7d6e-45d0-b856-6db93d477dc9"}
+{"timestamp":"2024-10-21T08:11:48.362Z","level":"info","message":"Received API key: test","requestId":"4adaea17-b166-4340-af07-1c800b1dea81"}
+{"timestamp":"2024-10-21T08:11:48.366Z","level":"info","message":"API key validation result: valid","requestId":"4adaea17-b166-4340-af07-1c800b1dea81"}
+{"timestamp":"2024-10-21T08:11:48.369Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"4adaea17-b166-4340-af07-1c800b1dea81"}
+{"timestamp":"2024-10-21T08:11:48.369Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=undefined","requestId":"4adaea17-b166-4340-af07-1c800b1dea81"}
+{"timestamp":"2024-10-21T08:11:48.607Z","level":"info","message":"Normalizing results...","requestId":"4adaea17-b166-4340-af07-1c800b1dea81"}
+{"timestamp":"2024-10-21T08:11:48.612Z","level":"info","message":"::1 - - [21/Oct/2024:08:11:48 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 2 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"4adaea17-b166-4340-af07-1c800b1dea81","source":"morgan"}
+{"timestamp":"2024-10-21T08:12:52.746Z","level":"info","message":"API_KEY from env: test","requestId":"61a5d0c7-99ab-47e8-9ed7-c235836472cc"}
+{"timestamp":"2024-10-21T08:12:54.901Z","level":"info","message":"Connected to MongoDB","requestId":"61a5d0c7-99ab-47e8-9ed7-c235836472cc"}
+{"timestamp":"2024-10-21T08:12:54.906Z","level":"info","message":"Server is running on port 3000","requestId":"61a5d0c7-99ab-47e8-9ed7-c235836472cc"}
+{"timestamp":"2024-10-21T08:12:58.653Z","level":"info","message":"Received API key: test","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7"}
+{"timestamp":"2024-10-21T08:12:58.655Z","level":"info","message":"API key validation result: valid","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7"}
+{"timestamp":"2024-10-21T08:12:58.661Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7"}
+{"timestamp":"2024-10-21T08:12:58.661Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=undefined","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7"}
+{"timestamp":"2024-10-21T08:12:58.663Z","level":"error","message":"Error searching for login:","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:12:58.665Z","level":"info","message":"::1 - - [21/Oct/2024:08:12:58 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 500 59 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7","source":"morgan"}
+{"timestamp":"2024-10-21T08:13:54.604Z","level":"info","message":"API_KEY from env: test","requestId":"4fc7d69c-b64f-429d-aa5a-1311a84d9f24"}
+{"timestamp":"2024-10-21T08:13:56.121Z","level":"info","message":"Connected to MongoDB","requestId":"4fc7d69c-b64f-429d-aa5a-1311a84d9f24"}
+{"timestamp":"2024-10-21T08:13:56.125Z","level":"info","message":"Server is running on port 3000","requestId":"4fc7d69c-b64f-429d-aa5a-1311a84d9f24"}
+{"timestamp":"2024-10-21T08:13:58.378Z","level":"info","message":"Received API key: test","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.379Z","level":"info","message":"API key validation result: valid","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.383Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.383Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=undefined","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.383Z","level":"info","message":"Getting database connection","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.384Z","level":"info","message":"Database connection successful","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.385Z","level":"info","message":"Accessing credentials collection","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"info","message":"Credentials collection accessed successfully","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"error","message":"Error getting collection stats:","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"info","message":"Query: {\"login\":\"leo_sonnek@hotmail.com\"}","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"info","message":"Projection: {\"_id\":0,\"installed_software\":0}","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"info","message":"Sort: {\"date_compromised\":-1}","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"info","message":"Executing database query","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.621Z","level":"info","message":"Database query executed successfully","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.622Z","level":"info","message":"Number of results: 0","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.622Z","level":"info","message":"No results found for the given login","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01"}
+{"timestamp":"2024-10-21T08:13:58.632Z","level":"info","message":"::1 - - [21/Oct/2024:08:13:58 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 404 50 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01","source":"morgan"}
+{"timestamp":"2024-10-21T08:14:06.018Z","level":"info","message":"Received API key: test","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.020Z","level":"info","message":"API key validation result: valid","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.022Z","level":"info","message":"Searching for login: admin","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.022Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=undefined, page=1, installed_software=undefined","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Getting database connection","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Database connection successful","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Accessing credentials collection","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Credentials collection accessed successfully","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"error","message":"Error getting collection stats:","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Query: {\"login\":\"admin\"}","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Projection: {\"_id\":0,\"installed_software\":0}","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"info","message":"Sort: {\"date_compromised\":-1}","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.024Z","level":"info","message":"Executing database query","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.256Z","level":"info","message":"Database query executed successfully","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.256Z","level":"info","message":"Number of results: 0","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.256Z","level":"info","message":"No results found for the given login","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a"}
+{"timestamp":"2024-10-21T08:14:06.258Z","level":"info","message":"::1 - - [21/Oct/2024:08:14:06 +0000] \"GET /api/json/v1/search-by-login HTTP/1.1\" 404 50 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a","source":"morgan"}
+{"timestamp":"2024-10-21T08:15:29.457Z","level":"info","message":"API_KEY from env: test","requestId":"8768ecdf-8cc7-47a8-bf19-2cdcaa90f8f8"}
+{"timestamp":"2024-10-21T08:15:31.712Z","level":"info","message":"Connected to MongoDB","requestId":"8768ecdf-8cc7-47a8-bf19-2cdcaa90f8f8"}
+{"timestamp":"2024-10-21T08:15:31.717Z","level":"info","message":"Server is running on port 3000","requestId":"8768ecdf-8cc7-47a8-bf19-2cdcaa90f8f8"}
+{"timestamp":"2024-10-21T08:15:39.701Z","level":"info","message":"Received API key: test","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.702Z","level":"info","message":"API key validation result: valid","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.708Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.708Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=undefined","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.709Z","level":"info","message":"Getting database connection","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.709Z","level":"info","message":"Database connection successful","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.709Z","level":"info","message":"Accessing credentials collection","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"info","message":"Credentials collection accessed successfully","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"error","message":"Error getting collection stats:","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"info","message":"Query: {\"login\":\"leo_sonnek@hotmail.com\"}","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"info","message":"Projection: {\"_id\":0,\"installed_software\":0}","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"info","message":"Sort: {\"date_compromised\":-1}","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"info","message":"Executing database query","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.953Z","level":"info","message":"Database query executed successfully. Raw results: []","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.954Z","level":"info","message":"Number of results: 0","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.954Z","level":"info","message":"No results found for the given login","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c"}
+{"timestamp":"2024-10-21T08:15:39.960Z","level":"info","message":"::1 - - [21/Oct/2024:08:15:39 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 404 50 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c","source":"morgan"}
+{"timestamp":"2024-10-21T08:17:48.068Z","level":"info","message":"API_KEY from env: test","requestId":"1fceeb1f-a602-4e2b-baf2-f357f3bacb19"}
+{"timestamp":"2024-10-21T08:17:50.400Z","level":"info","message":"Connected to MongoDB","requestId":"1fceeb1f-a602-4e2b-baf2-f357f3bacb19"}
+{"timestamp":"2024-10-21T08:17:50.404Z","level":"info","message":"Server is running on port 3000","requestId":"1fceeb1f-a602-4e2b-baf2-f357f3bacb19"}
+{"timestamp":"2024-10-21T08:17:52.828Z","level":"info","message":"Received API key: test","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.829Z","level":"info","message":"API key validation result: valid","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.830Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=undefined","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Getting database connection","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Database connection successful","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Accessing credentials collection","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Credentials collection accessed successfully","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Query: {\"login\":{\"$regex\":{}}}","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Projection: {\"_id\":0,\"installed_software\":0}","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Sort: {\"date_compromised\":-1}","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:52.831Z","level":"info","message":"Executing database query","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:53.079Z","level":"info","message":"Database query executed successfully. Raw results: []","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:53.079Z","level":"info","message":"Number of results: 0","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:53.079Z","level":"info","message":"No results found for the given login","requestId":"13733f52-9b52-4912-8058-ccce79c7b802"}
+{"timestamp":"2024-10-21T08:17:53.083Z","level":"info","message":"::1 - - [21/Oct/2024:08:17:53 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 404 50 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"13733f52-9b52-4912-8058-ccce79c7b802","source":"morgan"}
+{"timestamp":"2024-10-21T08:18:47.998Z","level":"info","message":"API_KEY from env: test","requestId":"7a518716-47ab-4d04-a166-af1e6d7b1db0"}
+{"timestamp":"2024-10-21T08:18:49.605Z","level":"info","message":"Connected to MongoDB","requestId":"7a518716-47ab-4d04-a166-af1e6d7b1db0"}
+{"timestamp":"2024-10-21T08:18:49.609Z","level":"info","message":"Server is running on port 3000","requestId":"7a518716-47ab-4d04-a166-af1e6d7b1db0"}
+{"timestamp":"2024-10-21T08:18:51.861Z","level":"info","message":"Received API key: test","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:51.861Z","level":"info","message":"API key validation result: true","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:51.862Z","level":"info","message":"Valid API key cached","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:51.866Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:51.867Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.452Z","level":"info","message":"Normalizing results...","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.454Z","level":"info","message":"Normalizing result 1/5","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.458Z","level":"info","message":"Normalizing result 2/5","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.459Z","level":"info","message":"Normalizing result 3/5","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.460Z","level":"info","message":"Normalizing result 4/5","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.460Z","level":"info","message":"Normalizing result 5/5","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.463Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.463Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.464Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:18:53.474Z","level":"info","message":"::1 - - [21/Oct/2024:08:18:53 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"feffc5a5-e184-4580-94d4-d19093589c9a"}
+{"timestamp":"2024-10-21T08:31:50.456Z","level":"info","message":"API_KEY from env: test","requestId":"20a3261d-97e1-4897-b4e8-351869767a9f"}
+{"timestamp":"2024-10-21T08:31:52.836Z","level":"info","message":"Connected to MongoDB","requestId":"20a3261d-97e1-4897-b4e8-351869767a9f"}
+{"timestamp":"2024-10-21T08:31:52.841Z","level":"info","message":"Server is running on port 3000","requestId":"20a3261d-97e1-4897-b4e8-351869767a9f"}
+{"timestamp":"2024-10-21T08:31:54.955Z","level":"info","message":"Received API key: test","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:54.956Z","level":"info","message":"API key validation result: true","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:54.957Z","level":"info","message":"Valid API key cached","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:54.961Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:54.961Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.520Z","level":"info","message":"Normalizing results...","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.521Z","level":"info","message":"Normalizing result 1/5","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.527Z","level":"info","message":"Normalizing result 2/5","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.528Z","level":"info","message":"Normalizing result 3/5","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.529Z","level":"info","message":"Normalizing result 4/5","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.529Z","level":"info","message":"Normalizing result 5/5","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.532Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}
+{"timestamp":"2024-10-21T08:31:56.540Z","level":"info","message":"::1 - - [21/Oct/2024:08:31:56 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\"","requestId":"62c7149a-a669-4d91-955c-e4c84fbc6a5e"}

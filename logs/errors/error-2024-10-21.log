@@ -1,0 +1,4 @@
+{"timestamp":"2024-10-21T08:12:58.663Z","level":"error","message":"Error searching for login:","requestId":"917a747f-1aea-4bab-9c79-9f4ebcd6c8c7","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:13:58.386Z","level":"error","message":"Error getting collection stats:","requestId":"2ac83547-aa25-4692-85ee-1a61ab515e01","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:14:06.023Z","level":"error","message":"Error getting collection stats:","requestId":"8fb2ffa2-d07c-4ef9-9a46-bd3e588e841a","error":"collection.stats is not a function"}
+{"timestamp":"2024-10-21T08:15:39.710Z","level":"error","message":"Error getting collection stats:","requestId":"d36d3aef-20aa-4f15-8214-03e9a519329c","error":"collection.stats is not a function"}

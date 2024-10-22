@@ -46,8 +46,12 @@ async function checkRateLimit(key) {
 
   const results = await new Promise((resolve, reject) => {
     multi.exec((err, results) => {
-      if (err) reject(err);
-      else resolve(results);
+      if (err) {
+        logger.error("Error in rate limit check:", { error: err.message });
+        reject(err);
+      } else {
+        resolve(results);
+      }
     });
   });
 

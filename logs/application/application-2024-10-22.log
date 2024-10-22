@@ -1,0 +1,25 @@
+{"timestamp":"2024-10-22T02:48:01.936Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-22T02:48:04.398Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-22T02:48:04.404Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-22T02:48:09.476Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-22T02:48:09.477Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-22T02:48:09.479Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-22T02:48:09.481Z","level":"info","message":"Searching for login: leo_sonnek@hotmail.com"}
+{"timestamp":"2024-10-22T02:48:09.481Z","level":"info","message":"Query params: sortby=date_compromised, sortorder=dsc, page=1, installed_software=false"}
+{"timestamp":"2024-10-22T02:48:10.943Z","level":"info","message":"Normalizing results..."}
+{"timestamp":"2024-10-22T02:48:10.944Z","level":"info","message":"Normalizing result 1/5"}
+{"timestamp":"2024-10-22T02:48:10.950Z","level":"info","message":"Normalizing result 2/5"}
+{"timestamp":"2024-10-22T02:48:10.952Z","level":"info","message":"Normalizing result 3/5"}
+{"timestamp":"2024-10-22T02:48:10.953Z","level":"info","message":"Normalizing result 4/5"}
+{"timestamp":"2024-10-22T02:48:10.953Z","level":"info","message":"Normalizing result 5/5"}
+{"timestamp":"2024-10-22T02:48:10.955Z","level":"info","message":"Normalized Log date: 2022-04-18 16:22:45"}
+{"timestamp":"2024-10-22T02:48:10.955Z","level":"info","message":"Normalized Date: 2023-07-25 05:51:00"}
+{"timestamp":"2024-10-22T02:48:10.955Z","level":"info","message":"Normalized Log date: 2022-04-20 16:22:45"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Date: 2023-07-28 05:51:00"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Log date: 2022-04-19 16:22:45"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Date: 2023-07-26 05:51:00"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Log date: 2022-04-17 16:22:45"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Date: 2023-07-24 05:51:00"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Log date: 2022-04-16 16:22:45"}
+{"timestamp":"2024-10-22T02:48:10.956Z","level":"info","message":"Normalized Date: 2023-07-23 05:51:00"}
+{"timestamp":"2024-10-22T02:48:10.963Z","level":"info","message":"::1 - - [22/Oct/2024:02:48:10 +0000] \"GET /api/json/v1/search-by-login?sortby=date_compromised&page=1&sortorder=dsc HTTP/1.1\" 200 112786 \"-\" \"PostmanRuntime/7.39.0\""}
