@@ -10,30 +10,35 @@ Our API uses versioning to ensure backward compatibility as we evolve the API. T
 
 API endpoints and routes are defined in the `routes` directory. Each route file corresponds to a specific feature or resource.
 
+#### 2.1 Search By Login Endpoint
+
 Example: `searchByLogin.js`
 
 ```js
 const express = require("express");
 const router = express.Router();
 const { searchByLogin } = require("../../../controllers/loginController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
-router.get("/search-by-login", searchByLogin);
-router.post("/search-by-login", searchByLogin);
-
-// Make sure this test route is present
-router.get("/test-date-normalization", (req, res) => {
-  res.json({
-    testDate1: "2023-07-23 09:38:30",
-    testDate2: "17.05.2022 5:28:48",
-    testDate3: "2022-05-17T05:28:48.375Z",
-    nonDateField: "This is not a date",
-  });
-});
+router.get(
+  "/search-by-login",
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+router.post(
+  "/search-by-login",
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
 
 module.exports = router;
 ```
-
-#### 2.1 Search By Login Endpoint
 
 - **URL**: `/api/v1/search-by-login`
 - **Methods**: GET, POST
@@ -45,33 +50,47 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: 1
   - `installed_software` (optional): Boolean flag for installed software. Default: false
 
-**Example Request:**
+#### 2.2 Search By Login Bulk Endpoint
 
-```
-GET /api/v1/search-by-login?login=johndoe&sortby=date_uploaded&sortorder=asc&page=1
+Example: `searchByLoginBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByLoginBulk,
+} = require("../../../controllers/loginBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.post(
+  "/search-by-login/bulk",
+  searchByLoginBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
 ```
 
-**Example Response:**
-
-```json
-{
-  "total": 100,
-  "page": 1,
-  "results": [
-    {
-      "Usernames": "johndoe",
-      "Log date": "2023-07-23T09:38:30.000Z",
-      "Date": "2023-07-23T09:38:30.000Z"
-      // Other fields...
-    }
-    // More results...
-  ]
-}
-```
+- **URL**: `/api/v1/search-by-login/bulk`
+- **Method**: POST
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
+  - `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
+  - `page` (optional): Page number for pagination. Default: 1
+  - `installed_software` (optional): Boolean flag for installed software. Default: false
+- **Request Body**:
+  - `logins` (required): Array of email addresses to search for (max 10)
 
 ### 3. Middlewares Implementation
 
-Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, and logging.
+Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, logging, date normalization, and sorting.
+
+#### 3.1 Authentication Middleware
 
 Example: `authMiddleware.js`
 
@@ -110,41 +129,150 @@ const authMiddleware = async (req, res, next) => {
 module.exports = authMiddleware;
 ```
 
-#### 3.1 Authentication
+#### 3.2 Date Normalization Middleware
 
-The `authMiddleware` checks for a valid API key in the request headers. To use the API, clients must include their API key in the `api-key` header of each request.
+Example: `dateNormalizationMiddleware.js`
 
-**Example:**
+```js
+const { parseDate } = require("../services/dateService");
+const logger = require("../config/logger");
 
+const normalizeData = async (data) => {
+  if (Array.isArray(data)) {
+    return Promise.all(data.map(normalizeData));
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("Log date" in newData) {
+      newData["Log date"] = await parseDate(newData["Log date"]);
+    }
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = await Promise.all(newData.data.map(normalizeData));
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      newData.results = await Promise.all(newData.results.map(normalizeData));
+    }
+    return newData;
+  }
+  return data;
+};
+
+const dateNormalizationMiddleware = async (req, res, next) => {
+  logger.info("Date normalization middleware called");
+  try {
+    if (req.searchResults) {
+      req.searchResults = await normalizeData(req.searchResults);
+      logger.info("Date normalization completed");
+    }
+    next();
+  } catch (error) {
+    logger.error("Error in date normalization middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = dateNormalizationMiddleware;
 ```
-Headers:
-api-key: your_api_key_here
+
+#### 3.3 Sorting Middleware
+
+Example: `sortingMiddleware.js`
+
+```js
+const logger = require("../config/logger");
+
+const sortData = (data, sortBy, sortOrder) => {
+  if (Array.isArray(data)) {
+    return data.sort((a, b) => {
+      const dateA = new Date(a[sortBy]);
+      const dateB = new Date(b[sortBy]);
+      const comparison = dateA - dateB;
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = sortData(newData.data, sortBy, sortOrder);
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      if (newData.results.length > 0 && "data" in newData.results[0]) {
+        // Bulk search results
+        newData.results = newData.results.map((result) => ({
+          ...result,
+          data: sortData(result.data, sortBy, sortOrder),
+        }));
+      } else {
+        // Single search results
+        newData.results = sortData(newData.results, sortBy, sortOrder);
+      }
+    }
+    return newData;
+  }
+  return data;
+};
+
+const sortingMiddleware = (req, res, next) => {
+  logger.info("Sorting middleware called");
+  try {
+    const sortBy = req.query.sortby || "date_compromised";
+    const sortOrder = req.query.sortorder || "desc";
+    const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
+
+    logger.info(
+      `Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`
+    );
+
+    if (req.searchResults) {
+      req.searchResults = sortData(req.searchResults, sortField, sortOrder);
+      logger.info("Sorting completed");
+    }
+
+    next();
+  } catch (error) {
+    logger.error("Error in sorting middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = sortingMiddleware;
 ```
 
-If the API key is missing or invalid, the middleware will return a 401 Unauthorized response.
+#### 3.4 Send Response Middleware
+
+Example: `sendResponseMiddleware.js`
+
+```js
+const logger = require("../config/logger");
+
+const sendResponseMiddleware = (req, res) => {
+  logger.info("Sending response");
+  res.json(req.searchResults);
+};
+
+module.exports = sendResponseMiddleware;
+```
 
 ### 4. Controllers Implementation
 
 Controllers are implemented in the `controllers` directory. They handle the business logic for each route.
+
+#### 4.1 Login Controller
 
 Example: `loginController.js`
 
 ```js
 const { getDatabase } = require("../config/database");
 const logger = require("../config/logger");
-const { parseDate } = require("../services/dateService");
 const { getPaginationParams } = require("../utils/paginationUtils");
 
-async function searchByLogin(req, res) {
+async function searchByLogin(req, res, next) {
   const login = req.body.login || req.query.login;
-  const sortBy = req.query.sortby || "date_compromised";
-  const sortOrder = req.query.sortorder || "desc";
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
 
-  logger.info(`Searching for login: ${login}`);
   logger.info(
-    `Query params: sortby=${sortBy}, sortorder=${sortOrder}, page=${page}, installed_software=${installedSoftware}`
+    `Search initiated for login: ${login}, page: ${page}, installed_software: ${installedSoftware}`
   );
 
   if (!login) {
@@ -159,52 +287,25 @@ async function searchByLogin(req, res) {
     const collection = db.collection("logs");
 
     const query = { Usernames: login };
-    const sort = {};
-    if (sortBy === "date_uploaded") {
-      sort.Date = sortOrder === "asc" ? 1 : -1;
-    } else {
-      sort["Log date"] = sortOrder === "asc" ? 1 : -1;
-    }
-
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
-      collection.find(query).sort(sort).skip(skip).limit(limit).toArray(),
+      collection.find(query).skip(skip).limit(limit).toArray(),
       collection.countDocuments(query),
     ]);
-
-    logger.info("Normalizing results...");
-    const normalizedResults = await Promise.all(
-      results.map(async (result, index) => {
-        logger.info(`Normalizing result ${index + 1}/${results.length}`);
-        const normalizedLogDate = await parseDate(result["Log date"]);
-        const normalizedDate = await parseDate(result.Date);
-        logger.info(`Normalized Log date: ${normalizedLogDate}`);
-        logger.info(`Normalized Date: ${normalizedDate}`);
-        return {
-          ...result,
-          "Log date": normalizedLogDate,
-          Date: normalizedDate,
-        };
-      })
-    );
-
-    // Sort the normalized results in memory to ensure correct ordering
-    normalizedResults.sort((a, b) => {
-      const dateA = sortBy === "date_uploaded" ? a.Date : a["Log date"];
-      const dateB = sortBy === "date_uploaded" ? b.Date : b["Log date"];
-      return sortOrder === "asc"
-        ? new Date(dateA) - new Date(dateB)
-        : new Date(dateB) - new Date(dateA);
-    });
 
     const response = {
       total,
       page,
-      results: normalizedResults,
+      results,
     };
 
-    res.json(response);
+    logger.info(
+      `Search completed for login: ${login}, total results: ${total}`
+    );
+
+    req.searchResults = response;
+    next();
   } catch (error) {
     logger.error("Error in searchByLogin:", error);
     res
@@ -218,30 +319,112 @@ module.exports = {
 };
 ```
 
-### 5. Error Handling
+#### 4.2 Login Bulk Controller
 
-The API uses standard HTTP status codes to indicate the success or failure of requests. Common error codes include:
+Example: `loginBulkController.js`
 
-- 400 Bad Request: Invalid input parameters
-- 401 Unauthorized: Missing or invalid API key
-- 500 Internal Server Error: Unexpected server error
+```js
+const { getDatabase } = require("../config/database");
+const logger = require("../config/logger");
+const { getPaginationParams } = require("../utils/paginationUtils");
+const { performance } = require("perf_hooks");
 
-Error responses include a JSON body with an `error` field describing the error.
+async function searchByLoginBulk(req, res, next) {
+  const startTime = performance.now();
+  const { logins } = req.body;
+  const page = parseInt(req.query.page) || 1;
+  const installedSoftware = req.query.installed_software === "true";
 
-### 6. Pagination
+  logger.info(
+    `Bulk search request received for ${logins.length} logins, page: ${page}, installed_software: ${installedSoftware}`
+  );
 
-The API supports pagination for endpoints that return multiple results. Use the `page` query parameter to specify the desired page. The response includes `total` (total number of results) and `page` (current page number) fields.
+  if (!Array.isArray(logins) || logins.length === 0 || logins.length > 10) {
+    logger.warn("Invalid input: logins array", { loginCount: logins.length });
+    return res.status(400).json({
+      error: "Invalid logins array. Must contain 1-10 email addresses.",
+    });
+  }
 
-### 7. Data Normalization
+  try {
+    const db = await getDatabase();
+    if (!db) {
+      throw new Error("Database connection not established");
+    }
+    const collection = db.collection("logs");
 
-The API normalizes date fields ("Log date" and "Date") to ensure consistent formatting. Dates are returned in ISO 8601 format (e.g., "2023-07-23T09:38:30.000Z").
+    const searchPromises = logins.map(async (login) => {
+      const query = { Usernames: login };
+      const { limit, skip } = getPaginationParams(page);
 
-### 8. Guidelines for Implementing New API Routes
+      const [results, total] = await Promise.all([
+        collection.find(query).skip(skip).limit(limit).toArray(),
+        collection.countDocuments(query),
+      ]);
+
+      return {
+        login,
+        total,
+        data: results,
+      };
+    });
+
+    const searchResults = await Promise.all(searchPromises);
+
+    const totalResults = searchResults.reduce(
+      (sum, result) => sum + result.total,
+      0
+    );
+    const response = {
+      total: totalResults,
+      page,
+      results: searchResults,
+    };
+
+    const endTime = performance.now();
+    const totalTime = endTime - startTime;
+
+    logger.info(
+      `Bulk search completed for ${
+        logins.length
+      } logins, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+        2
+      )}ms`
+    );
+
+    req.searchResults = response;
+    next();
+  } catch (error) {
+    logger.error("Error in searchByLoginBulk:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error", details: error.message });
+  }
+}
+
+module.exports = {
+  searchByLoginBulk,
+};
+```
+
+### 5. New Date Normalization and Sorting Flow
+
+The new flow for date normalization and sorting follows these steps:
+
+1. Controller fetches raw data from the database.
+2. Date Normalization Middleware normalizes the "Log date" fields.
+3. Sorting Middleware sorts the normalized data based on query parameters.
+4. Send Response Middleware sends the final response.
+
+This new flow allows for better separation of concerns and makes the code more modular and maintainable.
+
+### 6. Guidelines for Implementing New API Routes
 
 1. Create a new file in the `routes/api/v1` directory.
 2. Define the route using Express.
-3. Apply necessary middlewares (e.g., authentication).
+3. Apply necessary middlewares (e.g., authentication, date normalization, sorting).
 4. Call the appropriate controller function.
+5. Use the sendResponseMiddleware as the last middleware in the chain.
 
 Example:
 
@@ -250,58 +433,97 @@ const express = require("express");
 const router = express.Router();
 const { newController } = require("../../../controllers/newController");
 const authMiddleware = require("../../../middlewares/authMiddleware");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
-router.get("/new-route", authMiddleware, newController);
+router.get(
+  "/new-route",
+  authMiddleware,
+  newController,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
 
 module.exports = router;
 ```
 
-### 9. Code Structure
-
-The code follows a modular structure with separate directories for routes, controllers, middlewares, and configuration files.
-
-```
-├── config/
-│   ├── database.js
-│   ├── logger.js
-│   └── redisClient.js
-├── controllers/
-│   └── loginController.js
-├── middlewares/
-│   ├── authMiddleware.js
-│   └── rateLimitMiddleware.js
-├── routes/
-│   └── api/
-│       └── v1/
-│           └── searchByLogin.js
-├── app.js
-└── package.json
-```
-
-### 10. Best Practices
+### 7. Best Practices
 
 - Use meaningful HTTP methods (GET, POST, PUT, DELETE) for different operations.
 - Implement proper error handling and logging in all controllers and middlewares.
 - Use environment variables for configuration and sensitive information.
 - Follow RESTful naming conventions for endpoints.
 - Implement input validation for all incoming data.
-- Use the logger for consistent logging across the application:
-  ```js
-  const logger = require("../config/logger");
-  logger.info("This is an info message");
-  ```
-- Store sensitive information like API keys in the `.env` file:
-  ```
-  API_KEY=your_api_key
-  ```
-- Ensure proper error handling in controllers and middlewares:
-  ```js
-  try {
-    // Business logic
-  } catch (error) {
-    logger.error("Error message:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-  ```
+- Use the logger for consistent logging across the application.
+- Store sensitive information like API keys in the `.env` file.
+- Ensure proper error handling in controllers and middlewares.
+- Use the new middleware chain (dateNormalizationMiddleware, sortingMiddleware, sendResponseMiddleware) for consistent data processing and response handling.
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
+
+### 8. Current File Structure
+
+The following file structure represents the organization of the codebase, highlighting the key components related to API endpoint implementations:
+
+```
+project-root/
+├── app.js
+├── config/
+│   ├── database.js
+│   ├── logger.js
+│   └── redisClient.js
+├── controllers/
+│   ├── loginController.js
+│   └── loginBulkController.js
+├── middlewares/
+│   ├── authMiddleware.js
+│   ├── complexRateLimitMiddleware.js
+│   ├── dateNormalizationMiddleware.js
+│   ├── rateLimitMiddleware.js
+│   ├── requestIdMiddleware.js
+│   ├── sendResponseMiddleware.js
+│   └── sortingMiddleware.js
+├── routes/
+│   └── api/
+│       └── v1/
+│           ├── searchByLogin.js
+│           └── searchByLoginBulk.js
+├── services/
+│   └── dateService.js
+├── utils/
+│   └── paginationUtils.js
+├── Docs/
+│   ├── API Documentation.md
+│   ├── API Endpoints Implementation.md
+│   └── Date Normatization Implementation.md
+└── .env
+```
+
+Key components:
+
+- `app.js`: The main application file that sets up the Express server and imports routes.
+- `config/`: Contains configuration files for database, logging, and Redis.
+- `controllers/`: Houses the controller functions that handle the business logic for each route.
+- `middlewares/`: Contains various middleware functions used across the application.
+- `routes/api/v1/`: Defines the API routes for version 1 of the API.
+- `services/`: Contains utility services, such as the date parsing service.
+- `utils/`: Holds utility functions used across the application.
+- `Docs/`: Contains documentation files for the API and its implementation.
+
+When implementing a new API endpoint:
+
+1. Create a new route file in `routes/api/v1/` if it's a completely new feature.
+2. Implement the controller function in a new or existing file in the `controllers/` directory.
+3. Use existing middlewares from the `middlewares/` directory or create new ones as needed.
+4. Update the `app.js` file to include the new route if necessary.
+5. Add or update documentation in the `Docs/` directory.
+
+This structure promotes modularity and separation of concerns, making it easier to maintain and extend the API as the project grows.
+
+```
+
+This file structure overview will help new engineers quickly understand where different components of the API are located and how they relate to each other. It also provides guidance on where to add new files when implementing new API endpoints.
+
+```

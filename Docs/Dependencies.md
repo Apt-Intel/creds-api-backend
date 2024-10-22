@@ -155,3 +155,8 @@ This document provides an overview of the packages, libraries, and technologies 
 
 - **Usage**: Integrated Development Environment (IDE) for writing and editing code.
 - **Location**: `.vscode` directory (if any) and VS Code-specific configuration files.
+
+### 9. **Node.js Performance Hooks**
+
+- **Usage**: Built-in Node.js module for measuring the performance of operations.
+- **Location**: Used in `loginBulkController.js` to measure the processing time of bulk search operations.

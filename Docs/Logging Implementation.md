@@ -117,6 +117,43 @@ logger.error("This is an error message");
 logger.debug("This is a debug message");
 ```
 
+#### Example: Logging in Controllers
+
+In the `loginBulkController.js`, we use logging to track the progress of bulk search operations:
+
+```javascript
+logger.info(
+  `Bulk search request received for ${logins.length} logins, page: ${page}, installed_software: ${installedSoftware}`
+);
+
+// ... (after processing)
+
+logger.info(
+  `Bulk search completed for ${
+    logins.length
+  } logins, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+    2
+  )}ms`
+);
+```
+
+#### Example: Logging in Middlewares
+
+In middlewares like `dateNormalizationMiddleware.js` and `sortingMiddleware.js`, we use logging to track the execution of these middleware functions:
+
+```javascript
+// dateNormalizationMiddleware.js
+logger.info("Date normalization middleware called");
+// ... (after processing)
+logger.info("Date normalization completed");
+
+// sortingMiddleware.js
+logger.info("Sorting middleware called");
+logger.info(`Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`);
+// ... (after processing)
+logger.info("Sorting completed");
+```
+
 ### Logging with Request ID
 
 To log messages with a request ID, use the `logWithRequestId` method:

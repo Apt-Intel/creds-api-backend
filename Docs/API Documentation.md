@@ -52,7 +52,88 @@ GET /api/json/v1/search-by-login?login=example@email.com&sortby=date_uploaded&so
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
 
-## 2. Test Date Normalization
+## 2. Search by Login (Bulk)
+
+### Endpoint
+
+`POST /api/json/v1/search-by-login/bulk`
+
+### Description
+
+Search for multiple user logins in a single request.
+
+### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: 1                                     |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: false                                   |
+
+### Request Body
+
+| Parameter | Type     | Required | Description                                           |
+| --------- | -------- | -------- | ----------------------------------------------------- |
+| `logins`  | String[] | Yes      | Array of login usernames to search for (max 10 items) |
+
+### Example Request
+
+POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+
+```json
+{
+  "logins": ["example1@email.com", "example2@email.com"]
+}
+```
+
+### Example Response
+
+```json
+{
+  "total": 150,
+  "page": 1,
+  "results": [
+    {
+      "login": "example1@email.com",
+      "total": 100,
+      "data": [
+        {
+          "Usernames": "example1@email.com",
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    },
+    {
+      "login": "example2@email.com",
+      "total": 50,
+      "data": [
+        {
+          "Usernames": "example2@email.com",
+          "Log date": "2023-07-24T10:15:45.000Z",
+          "Date": "2023-07-24T10:15:45.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    }
+  ]
+}
+```
+
+### Errors
+
+| Status Code | Description                                                 |
+| ----------- | ----------------------------------------------------------- |
+| 400         | Bad Request - Invalid logins array or exceeds maximum limit |
+| 401         | Unauthorized - Invalid or missing API key                   |
+| 429         | Too Many Requests - Rate limit exceeded                     |
+| 500         | Internal Server Error                                       |
+
+## 3. Test Date Normalization
 
 ### Endpoint
 
@@ -132,7 +213,3 @@ Check the health status of the API.
 ```
 
 This endpoint does not require authentication and is not subject to rate limiting.
-
-## Conclusion
-
-This documentation covers the main endpoints, authentication, rate limiting, pagination, date normalization, and error handling based on the provided code files. It includes the search by login functionality, the test date normalization endpoint, and the health check endpoint. The format follows the structure you provided, with additional sections for general API features.

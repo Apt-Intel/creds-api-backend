@@ -33,6 +33,7 @@ When adding new features that require Redis, follow these guidelines:
 4. **TTL (Time to Live)**: Set appropriate TTL values for cached data.
 5. **Asynchronous Operations**: Use asynchronous methods for Redis operations.
 6. **Choose Appropriate Data Structures**: Select the most suitable Redis data structure for your use case.
+7. **Bulk Operations**: When implementing bulk operations like the new bulk search functionality, consider using Redis for caching frequently requested data or storing intermediate results to improve performance.
 
 ## 4. Implementation Details and Code Snippets
 

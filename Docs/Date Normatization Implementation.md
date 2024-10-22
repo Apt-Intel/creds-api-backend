@@ -31,7 +31,7 @@ The new flow for date normalization and sorting follows these steps:
 1. Controller fetches raw data from the database.
 2. Date Normalization Middleware normalizes the "Log date" fields.
 3. Sorting Middleware sorts the normalized data based on query parameters.
-4. Response is sent with normalized and sorted data.
+4. Send Response Middleware sends the final response.
 
 ### 1. Controller (e.g., loginController.js)
 
@@ -64,8 +64,6 @@ async function searchByLogin(req, res, next) {
 
 ### 2. Date Normalization Middleware (dateNormalizationMiddleware.js)
 
-This middleware normalizes the "Log date" fields in the response:### 2. Date Normalization Middleware (dateNormalizationMiddleware.js)
-
 This middleware normalizes the "Log date" fields in the response:
 
 ```javascript
@@ -88,14 +86,18 @@ const normalizeData = async (data) => {
   }
   return data;
 };
+
 const dateNormalizationMiddleware = async (req, res, next) => {
+  logger.info("Date normalization middleware called");
   try {
     if (req.searchResults) {
       req.searchResults = await normalizeData(req.searchResults);
+      logger.info("Date normalization completed");
     }
     next();
   } catch (error) {
-    // ... (error handling)
+    logger.error("Error in date normalization middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 ```
@@ -135,60 +137,27 @@ const sortData = (data, sortBy, sortOrder) => {
   }
   return data;
 };
+
 const sortingMiddleware = (req, res, next) => {
+  logger.info("Sorting middleware called");
   try {
     const sortBy = req.query.sortby || "date_compromised";
     const sortOrder = req.query.sortorder || "desc";
     const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
+
+    logger.info(
+      `Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`
+    );
+
     if (req.searchResults) {
       req.searchResults = sortData(req.searchResults, sortField, sortOrder);
+      logger.info("Sorting completed");
     }
+
     next();
   } catch (error) {
-    // ... (error handling)
-  }
-};
-const sortData = (data, sortBy, sortOrder) => {
-  if (Array.isArray(data)) {
-    return data.sort((a, b) => {
-      const dateA = new Date(a[sortBy]);
-      const dateB = new Date(b[sortBy]);
-      const comparison = dateA - dateB;
-      return sortOrder === "asc" ? comparison : -comparison;
-    });
-  }
-  if (typeof data === "object" && data !== null) {
-    const newData = { ...data };
-    if ("data" in newData && Array.isArray(newData.data)) {
-      newData.data = sortData(newData.data, sortBy, sortOrder);
-    }
-    if ("results" in newData && Array.isArray(newData.results)) {
-      if (newData.results.length > 0 && "data" in newData.results[0]) {
-        // Bulk search results
-        newData.results = newData.results.map((result) => ({
-          ...result,
-          data: sortData(result.data, sortBy, sortOrder),
-        }));
-      } else {
-        // Single search results
-        newData.results = sortData(newData.results, sortBy, sortOrder);
-      }
-    }
-    return newData;
-  }
-  return data;
-};
-const sortingMiddleware = (req, res, next) => {
-  try {
-    const sortBy = req.query.sortby || "date_compromised";
-    const sortOrder = req.query.sortorder || "desc";
-    const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
-    if (req.searchResults) {
-      req.searchResults = sortData(req.searchResults, sortField, sortOrder);
-    }
-    next();
-  } catch (error) {
-    // ... (error handling)
+    logger.error("Error in sorting middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 ```
@@ -243,17 +212,17 @@ Output (after date normalization):
 {
   "results": [
     {
-      "Log date": "2022-05-17 05:28:48",
+      "Log date": "2022-05-17T05:28:48.000Z",
       "Date": "2022-05-17",
       "other_field": "some value"
     },
     {
-      "Log date": "2022-05-18 10:15:30",
+      "Log date": "2022-05-18T10:15:30.000Z",
       "Date": "2022-05-18",
       "other_field": "another value"
     },
     {
-      "Log date": "2022-05-19 14:45:00",
+      "Log date": "2022-05-19T14:45:00.000Z",
       "Date": "2022-05-19",
       "other_field": "third value"
     }
@@ -269,17 +238,17 @@ Input (normalized data):
 {
   "results": [
     {
-      "Log date": "2022-05-17 05:28:48",
+      "Log date": "2022-05-17T05:28:48.000Z",
       "Date": "2022-05-17",
       "other_field": "some value"
     },
     {
-      "Log date": "2022-05-18 10:15:30",
+      "Log date": "2022-05-18T10:15:30.000Z",
       "Date": "2022-05-18",
       "other_field": "another value"
     },
     {
-      "Log date": "2022-05-19 14:45:00",
+      "Log date": "2022-05-19T14:45:00.000Z",
       "Date": "2022-05-19",
       "other_field": "third value"
     }
@@ -293,17 +262,17 @@ Output (sorted by "Log date" in descending order):
 {
   "results": [
     {
-      "Log date": "2022-05-19 14:45:00",
+      "Log date": "2022-05-19T14:45:00.000Z",
       "Date": "2022-05-19",
       "other_field": "third value"
     },
     {
-      "Log date": "2022-05-18 10:15:30",
+      "Log date": "2022-05-18T10:15:30.000Z",
       "Date": "2022-05-18",
       "other_field": "another value"
     },
     {
-      "Log date": "2022-05-17 05:28:48",
+      "Log date": "2022-05-17T05:28:48.000Z",
       "Date": "2022-05-17",
       "other_field": "some value"
     }
@@ -311,7 +280,7 @@ Output (sorted by "Log date" in descending order):
 }
 ```
 
-These examples demonstrate how the `dateNormalizationMiddleware` normalizes the "Log date" field to a consistent format (YYYY-MM-DD HH:mm:ss), and how the `sortingMiddleware` can then sort the normalized dates based on the specified order.
+These examples demonstrate how the `dateNormalizationMiddleware` normalizes the "Log date" field to a consistent format (ISO 8601), and how the `sortingMiddleware` can then sort the normalized dates based on the specified order.
 
 Note that the "Date" field remains unchanged as it's already in a standardized format. The sorting can be applied to either the "Log date" or "Date" field, depending on the `sortby` parameter passed to the API.
 
@@ -369,12 +338,12 @@ For bulk searches, the structure is slightly different:
       "total": 2,
       "data": [
         {
-          "Log date": "2022-05-18 10:15:30",
+          "Log date": "2022-05-18T10:15:30.000Z",
           "Date": "2022-05-18",
           "other_field": "user1 value2"
         },
         {
-          "Log date": "2022-05-17 05:28:48",
+          "Log date": "2022-05-17T05:28:48.000Z",
           "Date": "2022-05-17",
           "other_field": "user1 value1"
         }
@@ -385,7 +354,7 @@ For bulk searches, the structure is slightly different:
       "total": 1,
       "data": [
         {
-          "Log date": "2022-05-19 14:45:00",
+          "Log date": "2022-05-19T14:45:00.000Z",
           "Date": "2022-05-19",
           "other_field": "user2 value1"
         }
@@ -415,6 +384,7 @@ async function newSearchFunction(req, res, next) {
   req.searchResults = { results: fetchedData };
   next();
 }
+
 // routes/api/v1/newSearch.js
 const express = require("express");
 const router = express.Router();
@@ -422,6 +392,7 @@ const { newSearchFunction } = require("../../../controllers/newController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.get(
   "/new-search",
   newSearchFunction,
@@ -429,6 +400,8 @@ router.get(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
+module.exports = router;
 ```
 
 ## Handling Unrecognized Date Formats
@@ -456,3 +429,8 @@ To add support for new date formats:
 3. Monitor the `logs/new_date_formats.log` file for new, unsupported formats.
 4. When adding new date formats, ensure thorough testing across the application.
 5. Consider the performance impact of adding too many date formats.
+6. Use logging in the date normalization and sorting middlewares to track their execution and help with debugging.
+7. When implementing new features that involve dates, ensure they work correctly with the existing date normalization and sorting flow.
+8. For bulk operations, make sure the date normalization and sorting are applied correctly to nested data structures.
+
+By following these guidelines and using the updated middleware chain, you can ensure consistent date handling across the application, improving data quality and user experience.

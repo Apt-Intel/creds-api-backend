@@ -4,7 +4,7 @@
 
 You are building a continuously augmented cybercrime API composed of millions of machine credentials compromised by info-stealers in global malware-spreading campaigns. It provides clients the ability to query a MongoDB database of over **29,919,523** computers compromised through global info-stealer campaigns performed by threat actors. The database is updated daily with new compromised computers, offering cybersecurity providers the ability to alert security teams ahead of imminent attacks when users get compromised and have their credentials stolen.
 
-## Dependencies and Technologies
+## Project Dependencies and Technologies
 
 This document provides an overview of the packages, libraries, and technologies used in the project, along with a brief description of their usage and where they are implemented.
 
@@ -88,79 +88,86 @@ This document provides an overview of the packages, libraries, and technologies 
 - **Usage**: Redis client for Node.js.
 - **Location**: Used in `redisClient.js` for caching and other Redis operations.
 
-### 14. `uuid`
+#### 14. `uuid`
 
 - **Version**: ^10.0.0
 - **Usage**: Generates RFC-compliant UUIDs.
 - **Location**: Used in various parts of the application for generating unique identifiers.
 
-### 15. `winston`
+#### 15. `winston`
 
 - **Version**: ^3.9.0
 - **Usage**: Logging library for Node.js.
 - **Location**: Configured in `logger.js` for logging application events.
 
-### 16. `winston-daily-rotate-file`
+#### 16. `winston-daily-rotate-file`
 
 - **Version**: ^5.0.0
 - **Usage**: Transport for winston that logs to a rotating file each day.
 - **Location**: Used in `logger.js` to manage log files.
 
-## DevDependencies
+### DevDependencies
 
-### 1. `jest`
+#### 1. `jest`
 
 - **Version**: ^29.5.0
 - **Usage**: JavaScript testing framework.
 - **Location**: Used in the `__tests__` directory for writing and running unit tests.
 
-### 2. `nodemon`
+#### 2. `nodemon`
 
 - **Version**: ^3.1.7
 - **Usage**: Utility that monitors for changes in the source code and automatically restarts the server.
 - **Location**: Used during development to automatically restart the server on code changes.
 
-## Technologies
+### Technologies
 
-### 1. **Node.js**
+#### 1. **Node.js**
 
 - **Usage**: JavaScript runtime environment used to build the backend of the application.
 - **Location**: Core technology for the entire project.
 
-### 2. **MongoDB**
+#### 2. **MongoDB**
 
 - **Usage**: NoSQL database used to store application data.
 - **Location**: Configured in `database.js` and connected using Mongoose.
 
-### 3. **Redis**
+#### 3. **Redis**
 
 - **Usage**: In-memory data structure store used for caching and other purposes.
 - **Location**: Configured in `redisClient.js`
 
-### 4. **Express**
+#### 4. **Express**
 
 - **Usage**: Web framework for building the API.
 - **Location**: Core framework used in `app.js`
 
-### 5. **Jest**
+#### 5. **Jest**
 
 - **Usage**: Testing framework for writing and running tests.
 - **Location**: Used in the `__tests__` directory.
 
-### 6. **Docker**
+#### 6. **Docker**
 
 - **Usage**: Containerization platform to package the application and its dependencies.
 - **Location**: Docker configuration files (if any) and Docker commands used in deployment scripts.
 
-### 7. **Git**
+#### 7. **Git**
 
 - **Usage**: Version control system for tracking changes in the source code.
 - **Location**: `.gitignore` file and Git commands used for version control.
 
-### 8. **VS Code**
+#### 8. **VS Code**
 
 - **Usage**: Integrated Development Environment (IDE) for writing and editing code.
 - **Location**: `.vscode` directory (if any) and VS Code-specific configuration files.
+
+#### 9. **Node.js Performance Hooks**
+
+- **Usage**: Built-in Node.js module for measuring the performance of operations.
+- **Location**: Used in `loginBulkController.js` to measure the processing time of bulk search operations.
+
+——
 
 ## Current File Structure
 
@@ -170,8 +177,11 @@ creds-api-backend/
 │   ├── API Documentation.md
 │   ├── API Endpoints Implementation.md
 │   ├── Date Normatization Implementation.md
+│   ├── Dependencies.md
 │   ├── Logging Implementation.md
 │   └── Redis Implementation.md
+├── Project Requirement Document.md
+├── Project Specification Document.md
 ├── __tests__
 │   ├── dateService.test.js
 │   └── loginController.test.js
@@ -181,11 +191,13 @@ creds-api-backend/
 │   ├── logger.js
 │   └── redisClient.js
 ├── controllers
+│   ├── loginBulkController.js
 │   └── loginController.js
 ├── database.js
 ├── logs
 │   ├── application
 │   │   ├── application-2024-10-21.log
+│   │   ├── application-2024-10-21.log.gz
 │   │   └── application-2024-10-22.log
 │   ├── combined
 │   │   └── combined.log
@@ -201,13 +213,16 @@ creds-api-backend/
 │   ├── complexRateLimitMiddleware.js
 │   ├── dateNormalizationMiddleware.js
 │   ├── rateLimitMiddleware.js
-│   └── requestIdMiddleware.js
+│   ├── requestIdMiddleware.js
+│   ├── sendResponseMiddleware.js
+│   └── sortingMiddleware.js
 ├── package-lock.json
 ├── package.json
 ├── routes
 │   └── api
 │       └── v1
-│           └── searchByLogin.js
+│           ├── searchByLogin.js
+│           └── searchByLoginBulk.js
 ├── sample.json
 ├── services
 │   └── dateService.js
@@ -215,6 +230,7 @@ creds-api-backend/
 ├── tests
 │   └── loadTest.js
 └── utils
+    ├── dataProcessing.js
     └── paginationUtils.js
 ```
 
@@ -268,9 +284,15 @@ Note: The `Usernames` array is now used for searching instead of `Credentials.Us
 2. **Authentication**: API key-based authentication implemented in `middlewares/authMiddleware.js`.
 3. **Rate Limiting**: Implemented in `middlewares/complexRateLimitMiddleware.js`.
 4. **Search by Login**: Implemented in `controllers/loginController.js`.
-5. **Date Normalization**: Implemented in `services/dateService.js` and `middlewares/dateNormalizationMiddleware.js`.
-6. **Pagination**: Implemented in `utils/paginationUtils.js`.
-7. **Logging**: Implemented using Winston in `config/logger.js`.
+5. **Bulk Search by Login**: Implemented in `controllers/loginBulkController.js`.
+6. **Date Normalization**: Implemented in `services/dateService.js` and `middlewares/dateNormalizationMiddleware.js`.
+7. **Sorting**: Implemented in `middlewares/sortingMiddleware.js`.
+8. **Pagination**: Implemented in `utils/paginationUtils.js`.
+9. **Logging**: Implemented using Winston in `config/logger.js`.
+10. **Redis Caching**: Implemented for API key validation and rate limiting in `config/redisClient.js`.
+11. **Error Handling**: Consistent error handling implemented across controllers and middlewares.
+12. **Request ID Tracking**: Implemented in `middlewares/requestIdMiddleware.js` for better traceability.
+13. **Performance Monitoring**: Basic performance monitoring implemented in bulk search operations using Node.js Performance Hooks.
 
 ## Relevant Documentations
 
@@ -328,7 +350,88 @@ GET /api/json/v1/search-by-login?login=example@email.com&sortby=date_uploaded&so
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
 
-#### 2. Test Date Normalization
+#### 2. Search by Login (Bulk)
+
+##### Endpoint
+
+`POST /api/json/v1/search-by-login/bulk`
+
+##### Description
+
+Search for multiple user logins in a single request.
+
+##### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: 1                                     |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: false                                   |
+
+##### Request Body
+
+| Parameter | Type     | Required | Description                                           |
+| --------- | -------- | -------- | ----------------------------------------------------- |
+| `logins`  | String[] | Yes      | Array of login usernames to search for (max 10 items) |
+
+##### Example Request
+
+POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+
+```json
+{
+  "logins": ["example1@email.com", "example2@email.com"]
+}
+```
+
+##### Example Response
+
+```json
+{
+  "total": 150,
+  "page": 1,
+  "results": [
+    {
+      "login": "example1@email.com",
+      "total": 100,
+      "data": [
+        {
+          "Usernames": "example1@email.com",
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    },
+    {
+      "login": "example2@email.com",
+      "total": 50,
+      "data": [
+        {
+          "Usernames": "example2@email.com",
+          "Log date": "2023-07-24T10:15:45.000Z",
+          "Date": "2023-07-24T10:15:45.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    }
+  ]
+}
+```
+
+##### Errors
+
+| Status Code | Description                                                 |
+| ----------- | ----------------------------------------------------------- |
+| 400         | Bad Request - Invalid logins array or exceeds maximum limit |
+| 401         | Unauthorized - Invalid or missing API key                   |
+| 429         | Too Many Requests - Rate limit exceeded                     |
+| 500         | Internal Server Error                                       |
+
+#### 3. Test Date Normalization
 
 ##### Endpoint
 
@@ -409,10 +512,6 @@ Check the health status of the API.
 
 This endpoint does not require authentication and is not subject to rate limiting.
 
-#### Conclusion
-
-This documentation covers the main endpoints, authentication, rate limiting, pagination, date normalization, and error handling based on the provided code files. It includes the search by login functionality, the test date normalization endpoint, and the health check endpoint. The format follows the structure you provided, with additional sections for general API features.
-
 ———
 
 ### API Endpoints and Routes Documentation
@@ -427,30 +526,35 @@ Our API uses versioning to ensure backward compatibility as we evolve the API. T
 
 API endpoints and routes are defined in the `routes` directory. Each route file corresponds to a specific feature or resource.
 
+##### 2.1 Search By Login Endpoint
+
 Example: `searchByLogin.js`
 
 ```js
 const express = require("express");
 const router = express.Router();
 const { searchByLogin } = require("../../../controllers/loginController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
-router.get("/search-by-login", searchByLogin);
-router.post("/search-by-login", searchByLogin);
-
-// Make sure this test route is present
-router.get("/test-date-normalization", (req, res) => {
-  res.json({
-    testDate1: "2023-07-23 09:38:30",
-    testDate2: "17.05.2022 5:28:48",
-    testDate3: "2022-05-17T05:28:48.375Z",
-    nonDateField: "This is not a date",
-  });
-});
+router.get(
+  "/search-by-login",
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+router.post(
+  "/search-by-login",
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
 
 module.exports = router;
 ```
-
-##### 2.1 Search By Login Endpoint
 
 - **URL**: `/api/v1/search-by-login`
 - **Methods**: GET, POST
@@ -462,33 +566,47 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: 1
   - `installed_software` (optional): Boolean flag for installed software. Default: false
 
-**Example Request:**
+##### 2.2 Search By Login Bulk Endpoint
 
-```
-GET /api/v1/search-by-login?login=johndoe&sortby=date_uploaded&sortorder=asc&page=1
+Example: `searchByLoginBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByLoginBulk,
+} = require("../../../controllers/loginBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.post(
+  "/search-by-login/bulk",
+  searchByLoginBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
 ```
 
-**Example Response:**
-
-```json
-{
-  "total": 100,
-  "page": 1,
-  "results": [
-    {
-      "Usernames": "johndoe",
-      "Log date": "2023-07-23T09:38:30.000Z",
-      "Date": "2023-07-23T09:38:30.000Z"
-      // Other fields...
-    }
-    // More results...
-  ]
-}
-```
+- **URL**: `/api/v1/search-by-login/bulk`
+- **Method**: POST
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
+  - `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
+  - `page` (optional): Page number for pagination. Default: 1
+  - `installed_software` (optional): Boolean flag for installed software. Default: false
+- **Request Body**:
+  - `logins` (required): Array of email addresses to search for (max 10)
 
 #### 3. Middlewares Implementation
 
-Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, and logging.
+Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, logging, date normalization, and sorting.
+
+##### 3.1 Authentication Middleware
 
 Example: `authMiddleware.js`
 
@@ -527,41 +645,150 @@ const authMiddleware = async (req, res, next) => {
 module.exports = authMiddleware;
 ```
 
-##### 3.1 Authentication
+##### 3.2 Date Normalization Middleware
 
-The `authMiddleware` checks for a valid API key in the request headers. To use the API, clients must include their API key in the `api-key` header of each request.
+Example: `dateNormalizationMiddleware.js`
 
-**Example:**
+```js
+const { parseDate } = require("../services/dateService");
+const logger = require("../config/logger");
 
+const normalizeData = async (data) => {
+  if (Array.isArray(data)) {
+    return Promise.all(data.map(normalizeData));
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("Log date" in newData) {
+      newData["Log date"] = await parseDate(newData["Log date"]);
+    }
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = await Promise.all(newData.data.map(normalizeData));
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      newData.results = await Promise.all(newData.results.map(normalizeData));
+    }
+    return newData;
+  }
+  return data;
+};
+
+const dateNormalizationMiddleware = async (req, res, next) => {
+  logger.info("Date normalization middleware called");
+  try {
+    if (req.searchResults) {
+      req.searchResults = await normalizeData(req.searchResults);
+      logger.info("Date normalization completed");
+    }
+    next();
+  } catch (error) {
+    logger.error("Error in date normalization middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = dateNormalizationMiddleware;
 ```
-Headers:
-api-key: your_api_key_here
+
+##### 3.3 Sorting Middleware
+
+Example: `sortingMiddleware.js`
+
+```js
+const logger = require("../config/logger");
+
+const sortData = (data, sortBy, sortOrder) => {
+  if (Array.isArray(data)) {
+    return data.sort((a, b) => {
+      const dateA = new Date(a[sortBy]);
+      const dateB = new Date(b[sortBy]);
+      const comparison = dateA - dateB;
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = sortData(newData.data, sortBy, sortOrder);
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      if (newData.results.length > 0 && "data" in newData.results[0]) {
+        // Bulk search results
+        newData.results = newData.results.map((result) => ({
+          ...result,
+          data: sortData(result.data, sortBy, sortOrder),
+        }));
+      } else {
+        // Single search results
+        newData.results = sortData(newData.results, sortBy, sortOrder);
+      }
+    }
+    return newData;
+  }
+  return data;
+};
+
+const sortingMiddleware = (req, res, next) => {
+  logger.info("Sorting middleware called");
+  try {
+    const sortBy = req.query.sortby || "date_compromised";
+    const sortOrder = req.query.sortorder || "desc";
+    const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
+
+    logger.info(
+      `Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`
+    );
+
+    if (req.searchResults) {
+      req.searchResults = sortData(req.searchResults, sortField, sortOrder);
+      logger.info("Sorting completed");
+    }
+
+    next();
+  } catch (error) {
+    logger.error("Error in sorting middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = sortingMiddleware;
 ```
 
-If the API key is missing or invalid, the middleware will return a 401 Unauthorized response.
+##### 3.4 Send Response Middleware
+
+Example: `sendResponseMiddleware.js`
+
+```js
+const logger = require("../config/logger");
+
+const sendResponseMiddleware = (req, res) => {
+  logger.info("Sending response");
+  res.json(req.searchResults);
+};
+
+module.exports = sendResponseMiddleware;
+```
 
 #### 4. Controllers Implementation
 
 Controllers are implemented in the `controllers` directory. They handle the business logic for each route.
+
+##### 4.1 Login Controller
 
 Example: `loginController.js`
 
 ```js
 const { getDatabase } = require("../config/database");
 const logger = require("../config/logger");
-const { parseDate } = require("../services/dateService");
 const { getPaginationParams } = require("../utils/paginationUtils");
 
-async function searchByLogin(req, res) {
+async function searchByLogin(req, res, next) {
   const login = req.body.login || req.query.login;
-  const sortBy = req.query.sortby || "date_compromised";
-  const sortOrder = req.query.sortorder || "desc";
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
 
-  logger.info(`Searching for login: ${login}`);
   logger.info(
-    `Query params: sortby=${sortBy}, sortorder=${sortOrder}, page=${page}, installed_software=${installedSoftware}`
+    `Search initiated for login: ${login}, page: ${page}, installed_software: ${installedSoftware}`
   );
 
   if (!login) {
@@ -576,52 +803,25 @@ async function searchByLogin(req, res) {
     const collection = db.collection("logs");
 
     const query = { Usernames: login };
-    const sort = {};
-    if (sortBy === "date_uploaded") {
-      sort.Date = sortOrder === "asc" ? 1 : -1;
-    } else {
-      sort["Log date"] = sortOrder === "asc" ? 1 : -1;
-    }
-
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
-      collection.find(query).sort(sort).skip(skip).limit(limit).toArray(),
+      collection.find(query).skip(skip).limit(limit).toArray(),
       collection.countDocuments(query),
     ]);
-
-    logger.info("Normalizing results...");
-    const normalizedResults = await Promise.all(
-      results.map(async (result, index) => {
-        logger.info(`Normalizing result ${index + 1}/${results.length}`);
-        const normalizedLogDate = await parseDate(result["Log date"]);
-        const normalizedDate = await parseDate(result.Date);
-        logger.info(`Normalized Log date: ${normalizedLogDate}`);
-        logger.info(`Normalized Date: ${normalizedDate}`);
-        return {
-          ...result,
-          "Log date": normalizedLogDate,
-          Date: normalizedDate,
-        };
-      })
-    );
-
-    // Sort the normalized results in memory to ensure correct ordering
-    normalizedResults.sort((a, b) => {
-      const dateA = sortBy === "date_uploaded" ? a.Date : a["Log date"];
-      const dateB = sortBy === "date_uploaded" ? b.Date : b["Log date"];
-      return sortOrder === "asc"
-        ? new Date(dateA) - new Date(dateB)
-        : new Date(dateB) - new Date(dateA);
-    });
 
     const response = {
       total,
       page,
-      results: normalizedResults,
+      results,
     };
 
-    res.json(response);
+    logger.info(
+      `Search completed for login: ${login}, total results: ${total}`
+    );
+
+    req.searchResults = response;
+    next();
   } catch (error) {
     logger.error("Error in searchByLogin:", error);
     res
@@ -635,30 +835,112 @@ module.exports = {
 };
 ```
 
-#### 5. Error Handling
+##### 4.2 Login Bulk Controller
 
-The API uses standard HTTP status codes to indicate the success or failure of requests. Common error codes include:
+Example: `loginBulkController.js`
 
-- 400 Bad Request: Invalid input parameters
-- 401 Unauthorized: Missing or invalid API key
-- 500 Internal Server Error: Unexpected server error
+```js
+const { getDatabase } = require("../config/database");
+const logger = require("../config/logger");
+const { getPaginationParams } = require("../utils/paginationUtils");
+const { performance } = require("perf_hooks");
 
-Error responses include a JSON body with an `error` field describing the error.
+async function searchByLoginBulk(req, res, next) {
+  const startTime = performance.now();
+  const { logins } = req.body;
+  const page = parseInt(req.query.page) || 1;
+  const installedSoftware = req.query.installed_software === "true";
 
-#### 6. Pagination
+  logger.info(
+    `Bulk search request received for ${logins.length} logins, page: ${page}, installed_software: ${installedSoftware}`
+  );
 
-The API supports pagination for endpoints that return multiple results. Use the `page` query parameter to specify the desired page. The response includes `total` (total number of results) and `page` (current page number) fields.
+  if (!Array.isArray(logins) || logins.length === 0 || logins.length > 10) {
+    logger.warn("Invalid input: logins array", { loginCount: logins.length });
+    return res.status(400).json({
+      error: "Invalid logins array. Must contain 1-10 email addresses.",
+    });
+  }
 
-#### 7. Data Normalization
+  try {
+    const db = await getDatabase();
+    if (!db) {
+      throw new Error("Database connection not established");
+    }
+    const collection = db.collection("logs");
 
-The API normalizes date fields ("Log date" and "Date") to ensure consistent formatting. Dates are returned in ISO 8601 format (e.g., "2023-07-23T09:38:30.000Z").
+    const searchPromises = logins.map(async (login) => {
+      const query = { Usernames: login };
+      const { limit, skip } = getPaginationParams(page);
 
-#### 8. Guidelines for Implementing New API Routes
+      const [results, total] = await Promise.all([
+        collection.find(query).skip(skip).limit(limit).toArray(),
+        collection.countDocuments(query),
+      ]);
+
+      return {
+        login,
+        total,
+        data: results,
+      };
+    });
+
+    const searchResults = await Promise.all(searchPromises);
+
+    const totalResults = searchResults.reduce(
+      (sum, result) => sum + result.total,
+      0
+    );
+    const response = {
+      total: totalResults,
+      page,
+      results: searchResults,
+    };
+
+    const endTime = performance.now();
+    const totalTime = endTime - startTime;
+
+    logger.info(
+      `Bulk search completed for ${
+        logins.length
+      } logins, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+        2
+      )}ms`
+    );
+
+    req.searchResults = response;
+    next();
+  } catch (error) {
+    logger.error("Error in searchByLoginBulk:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error", details: error.message });
+  }
+}
+
+module.exports = {
+  searchByLoginBulk,
+};
+```
+
+#### 5. New Date Normalization and Sorting Flow
+
+The new flow for date normalization and sorting follows these steps:
+
+1. Controller fetches raw data from the database.
+2. Date Normalization Middleware normalizes the "Log date" fields.
+3. Sorting Middleware sorts the normalized data based on query parameters.
+4. Send Response Middleware sends the final response.
+
+This new flow allows for better separation of concerns and makes the code more modular and maintainable.
+
+#### 6. Guidelines for Implementing New API Routes
 
 1. Create a new file in the `routes/api/v1` directory.
 2. Define the route using Express.
-3. Apply necessary middlewares (e.g., authentication).
+3. Apply necessary middlewares (e.g., authentication, date normalization, sorting).
 4. Call the appropriate controller function.
+5. Use the sendResponseMiddleware as the last middleware in the chain.
 
 Example:
 
@@ -667,66 +949,100 @@ const express = require("express");
 const router = express.Router();
 const { newController } = require("../../../controllers/newController");
 const authMiddleware = require("../../../middlewares/authMiddleware");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
-router.get("/new-route", authMiddleware, newController);
+router.get(
+  "/new-route",
+  authMiddleware,
+  newController,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
 
 module.exports = router;
 ```
 
-#### 9. Code Structure
-
-The code follows a modular structure with separate directories for routes, controllers, middlewares, and configuration files.
-
-```
-├── config/
-│   ├── database.js
-│   ├── logger.js
-│   └── redisClient.js
-├── controllers/
-│   └── loginController.js
-├── middlewares/
-│   ├── authMiddleware.js
-│   └── rateLimitMiddleware.js
-├── routes/
-│   └── api/
-│       └── v1/
-│           └── searchByLogin.js
-├── app.js
-└── package.json
-```
-
-#### 10. Best Practices
+#### 7. Best Practices
 
 - Use meaningful HTTP methods (GET, POST, PUT, DELETE) for different operations.
 - Implement proper error handling and logging in all controllers and middlewares.
 - Use environment variables for configuration and sensitive information.
 - Follow RESTful naming conventions for endpoints.
 - Implement input validation for all incoming data.
-- Use the logger for consistent logging across the application:
-
-```js
-const logger = require("../config/logger");
-logger.info("This is an info message");
-```
-
-- Store sensitive information like API keys in the `.env` file:
-
-```
-API_KEY=your_api_key
-```
-
-- Ensure proper error handling in controllers and middlewares:
-
-```js
-try {
-  // Business logic
-} catch (error) {
-  logger.error("Error message:", error);
-  res.status(500).json({ error: "Internal server error" });
-}
-```
+- Use the logger for consistent logging across the application.
+- Store sensitive information like API keys in the `.env` file.
+- Ensure proper error handling in controllers and middlewares.
+- Use the new middleware chain (dateNormalizationMiddleware, sortingMiddleware, sendResponseMiddleware) for consistent data processing and response handling.
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
+
+#### 8. Current File Structure
+
+The following file structure represents the organization of the codebase, highlighting the key components related to API endpoint implementations:
+
+```
+project-root/
+├── app.js
+├── config/
+│   ├── database.js
+│   ├── logger.js
+│   └── redisClient.js
+├── controllers/
+│   ├── loginController.js
+│   └── loginBulkController.js
+├── middlewares/
+│   ├── authMiddleware.js
+│   ├── complexRateLimitMiddleware.js
+│   ├── dateNormalizationMiddleware.js
+│   ├── rateLimitMiddleware.js
+│   ├── requestIdMiddleware.js
+│   ├── sendResponseMiddleware.js
+│   └── sortingMiddleware.js
+├── routes/
+│   └── api/
+│       └── v1/
+│           ├── searchByLogin.js
+│           └── searchByLoginBulk.js
+├── services/
+│   └── dateService.js
+├── utils/
+│   └── paginationUtils.js
+├── Docs/
+│   ├── API Documentation.md
+│   ├── API Endpoints Implementation.md
+│   └── Date Normatization Implementation.md
+└── .env
+```
+
+Key components:
+
+- `app.js`: The main application file that sets up the Express server and imports routes.
+- `config/`: Contains configuration files for database, logging, and Redis.
+- `controllers/`: Houses the controller functions that handle the business logic for each route.
+- `middlewares/`: Contains various middleware functions used across the application.
+- `routes/api/v1/`: Defines the API routes for version 1 of the API.
+- `services/`: Contains utility services, such as the date parsing service.
+- `utils/`: Holds utility functions used across the application.
+- `Docs/`: Contains documentation files for the API and its implementation.
+
+When implementing a new API endpoint:
+
+1. Create a new route file in `routes/api/v1/` if it's a completely new feature.
+2. Implement the controller function in a new or existing file in the `controllers/` directory.
+3. Use existing middlewares from the `middlewares/` directory or create new ones as needed.
+4. Update the `app.js` file to include the new route if necessary.
+5. Add or update documentation in the `Docs/` directory.
+
+This structure promotes modularity and separation of concerns, making it easier to maintain and extend the API as the project grows.
+
+```
+
+This file structure overview will help new engineers quickly understand where different components of the API are located and how they relate to each other. It also provides guidance on where to add new files when implementing new API endpoints.
+
+```
 
 ———
 
@@ -749,107 +1065,392 @@ Date normalization is essential in our application to ensure consistent date rep
 
 1. [`services/dateService.js`](services/dateService.js): Core date parsing and normalization logic.
 2. [`middlewares/dateNormalizationMiddleware.js`](middlewares/dateNormalizationMiddleware.js): Middleware for normalizing dates in responses.
-3. [`controllers/loginController.js`](controllers/loginController.js): Utilizes date normalization in search results.
-4. [`logs/new_date_formats.log`](logs/new_date_formats.log): Log file for unrecognized date formats.
-5. [`app.js`](app.js): Application entry point where middleware is applied.
+3. [`middlewares/sortingMiddleware.js`](middlewares/sortingMiddleware.js): Middleware for sorting normalized dates.
+4. [`controllers/loginController.js`](controllers/loginController.js): Controller for single login search.
+5. [`controllers/loginBulkController.js`](controllers/loginBulkController.js): Controller for bulk login search.
+6. [`routes/api/v1/searchByLogin.js`](routes/api/v1/searchByLogin.js): Routes for single login search.
+7. [`routes/api/v1/searchByLoginBulk.js`](routes/api/v1/searchByLoginBulk.js): Routes for bulk login search.
+8. [`logs/new_date_formats.log`](logs/new_date_formats.log): Log file for unrecognized date formats.
 
-#### Why Date Normalization?
+#### New Flow for Date Normalization and Sorting
 
-Date normalization is essential because:
+The new flow for date normalization and sorting follows these steps:
 
-1. It ensures consistency in date representations across the application.
-2. It helps in accurate sorting and filtering of data based on dates.
-3. It improves data quality and reduces errors in date-based operations.
+1. Controller fetches raw data from the database.
+2. Date Normalization Middleware normalizes the "Log date" fields.
+3. Sorting Middleware sorts the normalized data based on query parameters.
+4. Send Response Middleware sends the final response.
 
-#### How Date Normalization Works
+##### 1. Controller (e.g., loginController.js)
 
-##### 1. Date Parsing Service (`dateService.js`)
-
-The core of our date normalization is in [`services/dateService.js`](services/dateService.js). Here's how it works:
+The controller fetches data from the database without applying any sorting or normalization:
 
 ```javascript
-const KNOWN_LOG_DATE_FORMATS = [
-  "dd.MM.yyyy H:mm:ss",
-  "d/M/yyyy h:mm:ss a",
-  "yyyy-MM-dd'T'HH:mm:ss.SSSX",
-  "yyyy-MM-dd HH:mm:ss",
-  // More formats can be added here
-];
-
-async function parseDate(dateString) {
-  if (!dateString) return null;
-
-  for (const formatString of KNOWN_LOG_DATE_FORMATS) {
-    try {
-      const parsedDate = parse(dateString, formatString, new Date());
-      if (!isNaN(parsedDate.getTime())) {
-        return format(parsedDate, "yyyy-MM-dd HH:mm:ss");
-      }
-    } catch (error) {
-      // If parsing fails, try the next format
-    }
+async function searchByLogin(req, res, next) {
+  // ... (input validation and setup)
+  try {
+    const db = await getDatabase();
+    const collection = db.collection("logs");
+    const query = { Usernames: login };
+    const { limit, skip } = getPaginationParams(page);
+    const [results, total] = await Promise.all([
+      collection.find(query).skip(skip).limit(limit).toArray(),
+      collection.countDocuments(query),
+    ]);
+    const response = {
+      total,
+      page,
+      results,
+    };
+    req.searchResults = response;
+    next();
+  } catch (error) {
+    // ... (error handling)
   }
-
-  // If no known format matches, log and return original
-  logger.warn(`Unable to parse date: ${dateString}`);
-  await logUnrecognizedFormat(dateString);
-  return dateString;
 }
 ```
 
-This function attempts to parse the input date string using a list of known formats. If successful, it returns the date in a standardized format (`YYYY-MM-DD HH:mm:ss`).
+##### 2. Date Normalization Middleware (dateNormalizationMiddleware.js)
 
-##### 2. Date Normalization Middleware (`dateNormalizationMiddleware.js`)
-
-This middleware intercepts responses and normalizes dates:
+This middleware normalizes the "Log date" fields in the response:
 
 ```javascript
-const dateNormalizationMiddleware = (req, res, next) => {
-  const originalJson = res.json;
-
-  res.json = async function (data) {
-    try {
-      if (Array.isArray(data)) {
-        data = await Promise.all(data.map(normalizeLogDate));
-      } else if (typeof data === "object" && data !== null) {
-        data = await normalizeLogDate(data);
-      }
-
-      return originalJson.call(this, data);
-    } catch (error) {
-      logger.error("Error in date normalization middleware:", error);
-      return originalJson.call(this, { error: "Internal server error" });
+const normalizeData = async (data) => {
+  if (Array.isArray(data)) {
+    return Promise.all(data.map(normalizeData));
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("Log date" in newData) {
+      newData["Log date"] = await parseDate(newData["Log date"]);
     }
-  };
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = await Promise.all(newData.data.map(normalizeData));
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      newData.results = await Promise.all(newData.results.map(normalizeData));
+    }
+    return newData;
+  }
+  return data;
+};
 
-  next();
+const dateNormalizationMiddleware = async (req, res, next) => {
+  logger.info("Date normalization middleware called");
+  try {
+    if (req.searchResults) {
+      req.searchResults = await normalizeData(req.searchResults);
+      logger.info("Date normalization completed");
+    }
+    next();
+  } catch (error) {
+    logger.error("Error in date normalization middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };
 ```
 
-This middleware ensures that all "Log date" fields in the response are normalized before being sent to the client.
+##### 3. Sorting Middleware (sortingMiddleware.js)
 
-##### 3. Usage in Controllers (`loginController.js`)
-
-The `searchByLogin` function in [`controllers/loginController.js`](controllers/loginController.js) uses date normalization:
+This middleware sorts the normalized data based on query parameters:
 
 ```javascript
-const normalizedResults = await Promise.all(
-  results.map(async (result, index) => {
-    logger.info(`Normalizing result ${index + 1}/${results.length}`);
-    const normalizedLogDate = await parseDate(result["Log date"]);
-    const normalizedDate = await parseDate(result.Date);
-    logger.info(`Normalized Log date: ${normalizedLogDate}`);
-    logger.info(`Normalized Date: ${normalizedDate}`);
-    return {
-      ...result,
-      "Log date": normalizedLogDate,
-      Date: normalizedDate,
-    };
-  })
+const sortData = (data, sortBy, sortOrder) => {
+  if (Array.isArray(data)) {
+    return data.sort((a, b) => {
+      const dateA = new Date(a[sortBy]);
+      const dateB = new Date(b[sortBy]);
+      const comparison = dateA - dateB;
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = sortData(newData.data, sortBy, sortOrder);
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      if (newData.results.length > 0 && "data" in newData.results[0]) {
+        // Bulk search results
+        newData.results = newData.results.map((result) => ({
+          ...result,
+          data: sortData(result.data, sortBy, sortOrder),
+        }));
+      } else {
+        // Single search results
+        newData.results = sortData(newData.results, sortBy, sortOrder);
+      }
+    }
+    return newData;
+  }
+  return data;
+};
+
+const sortingMiddleware = (req, res, next) => {
+  logger.info("Sorting middleware called");
+  try {
+    const sortBy = req.query.sortby || "date_compromised";
+    const sortOrder = req.query.sortorder || "desc";
+    const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
+
+    logger.info(
+      `Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`
+    );
+
+    if (req.searchResults) {
+      req.searchResults = sortData(req.searchResults, sortField, sortOrder);
+      logger.info("Sorting completed");
+    }
+
+    next();
+  } catch (error) {
+    logger.error("Error in sorting middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+```
+
+##### 4. Route Configuration
+
+Configure the route to use these middlewares in the correct order:
+
+```javascript
+router.get(
+  "/search-by-login",
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
 );
 ```
 
-This ensures that both "Log date" and "Date" fields are normalized before being used for sorting or returned in the response.
+#### Date Normalization and Sorting: Input and Output Examples
+
+This document provides examples of input and output for the date normalization and sorting processes in our application.
+
+##### Date Normalization Example
+
+###### Input (raw data from database):
+
+```json
+{
+  "results": [
+    {
+      "Log date": "17.05.2022 5:28:48",
+      "Date": "2022-05-17",
+      "other_field": "some value"
+    },
+    {
+      "Log date": "2022-05-18T10:15:30.000Z",
+      "Date": "2022-05-18",
+      "other_field": "another value"
+    },
+    {
+      "Log date": "5/19/2022 2:45:00 PM",
+      "Date": "2022-05-19",
+      "other_field": "third value"
+    }
+  ]
+}
+```
+
+Output (after date normalization):
+
+```json
+{
+  "results": [
+    {
+      "Log date": "2022-05-17T05:28:48.000Z",
+      "Date": "2022-05-17",
+      "other_field": "some value"
+    },
+    {
+      "Log date": "2022-05-18T10:15:30.000Z",
+      "Date": "2022-05-18",
+      "other_field": "another value"
+    },
+    {
+      "Log date": "2022-05-19T14:45:00.000Z",
+      "Date": "2022-05-19",
+      "other_field": "third value"
+    }
+  ]
+}
+```
+
+###### Sorting Example
+
+Input (normalized data):
+
+```json
+{
+  "results": [
+    {
+      "Log date": "2022-05-17T05:28:48.000Z",
+      "Date": "2022-05-17",
+      "other_field": "some value"
+    },
+    {
+      "Log date": "2022-05-18T10:15:30.000Z",
+      "Date": "2022-05-18",
+      "other_field": "another value"
+    },
+    {
+      "Log date": "2022-05-19T14:45:00.000Z",
+      "Date": "2022-05-19",
+      "other_field": "third value"
+    }
+  ]
+}
+```
+
+Output (sorted by "Log date" in descending order):
+
+```json
+{
+  "results": [
+    {
+      "Log date": "2022-05-19T14:45:00.000Z",
+      "Date": "2022-05-19",
+      "other_field": "third value"
+    },
+    {
+      "Log date": "2022-05-18T10:15:30.000Z",
+      "Date": "2022-05-18",
+      "other_field": "another value"
+    },
+    {
+      "Log date": "2022-05-17T05:28:48.000Z",
+      "Date": "2022-05-17",
+      "other_field": "some value"
+    }
+  ]
+}
+```
+
+These examples demonstrate how the `dateNormalizationMiddleware` normalizes the "Log date" field to a consistent format (ISO 8601), and how the `sortingMiddleware` can then sort the normalized dates based on the specified order.
+
+Note that the "Date" field remains unchanged as it's already in a standardized format. The sorting can be applied to either the "Log date" or "Date" field, depending on the `sortby` parameter passed to the API.
+
+###### Bulk Search Example
+
+For bulk searches, the structure is slightly different:
+
+###### \# Input (raw data from database):
+
+```json
+{
+  "total": 2,
+  "page": 1,
+  "results": [
+    {
+      "login": "user1@example.com",
+      "total": 2,
+      "data": [
+        {
+          "Log date": "17.05.2022 5:28:48",
+          "Date": "2022-05-17",
+          "other_field": "user1 value1"
+        },
+        {
+          "Log date": "18.05.2022 10:15:30",
+          "Date": "2022-05-18",
+          "other_field": "user1 value2"
+        }
+      ]
+    },
+    {
+      "login": "user2@example.com",
+      "total": 1,
+      "data": [
+        {
+          "Log date": "19.05.2022 14:45:00",
+          "Date": "2022-05-19",
+          "other_field": "user2 value1"
+        }
+      ]
+    }
+  ]
+}
+```
+
+###### \# Output (after normalization and sorting by "Log date" in descending order):
+
+```json
+{
+  "total": 2,
+  "page": 1,
+  "results": [
+    {
+      "login": "user1@example.com",
+      "total": 2,
+      "data": [
+        {
+          "Log date": "2022-05-18T10:15:30.000Z",
+          "Date": "2022-05-18",
+          "other_field": "user1 value2"
+        },
+        {
+          "Log date": "2022-05-17T05:28:48.000Z",
+          "Date": "2022-05-17",
+          "other_field": "user1 value1"
+        }
+      ]
+    },
+    {
+      "login": "user2@example.com",
+      "total": 1,
+      "data": [
+        {
+          "Log date": "2022-05-19T14:45:00.000Z",
+          "Date": "2022-05-19",
+          "other_field": "user2 value1"
+        }
+      ]
+    }
+  ]
+}
+```
+
+In the bulk search example, the date normalization is applied to each "Log date" field within the nested "data" arrays, and the sorting is applied to the "data" array of each result independently.
+
+#### Implementing New API Routes with Date Normalization and Sorting
+
+To implement a new API route that includes date normalization and sorting:
+
+1. Create a new controller function that fetches data from the database without sorting.
+2. Store the fetched data in `req.searchResults`.
+3. Create a new route file in `routes/api/v1/`.
+4. Configure the route to use the controller function, followed by `dateNormalizationMiddleware`, `sortingMiddleware`, and `sendResponseMiddleware`.
+
+Example:
+
+```javascript
+// newController.js
+async function newSearchFunction(req, res, next) {
+  // ... fetch data from database
+  req.searchResults = { results: fetchedData };
+  next();
+}
+
+// routes/api/v1/newSearch.js
+const express = require("express");
+const router = express.Router();
+const { newSearchFunction } = require("../../../controllers/newController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.get(
+  "/new-search",
+  newSearchFunction,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
 
 #### Handling Unrecognized Date Formats
 
@@ -859,86 +1460,28 @@ When an unrecognized date format is encountered:
 2. A warning is logged.
 3. The unrecognized format is logged to [`logs/new_date_formats.log`](logs/new_date_formats.log) with a guessed format.
 
-```javascript
-async function logUnrecognizedFormat(dateString) {
-  const logPath = path.join(__dirname, "../logs/new_date_formats.log");
-  const guessedFormat = guessPossibleFormat(dateString);
-  const logEntry = `${new Date().toISOString()}: Unrecognized format - ${dateString} (Possible format: ${guessedFormat})\n`;
-
-  try {
-    await fs.appendFile(logPath, logEntry);
-  } catch (error) {
-    logger.error(`Failed to log new date format: ${error}`);
-  }
-}
-```
-
-#### Configuration
+#### Adding New Date Formats
 
 To add support for new date formats:
 
 1. Open the `services/dateService.js` file.
 2. Locate the `KNOWN_LOG_DATE_FORMATS` array.
-3. Add the new format string to the array. For example:
-
-```javascript
-const KNOWN_LOG_DATE_FORMATS = [
-  // Existing formats...
-  "MM/dd/yyyy HH:mm:ss", // New format
-];
-```
-
-4. Test thoroughly with the new format added.
-5. Deploy the updated `dateService.js` file.
-
-#### Testing
-
-To test the date normalization feature:
-
-1. Use the `/api/json/v1/test-date-normalization` endpoint to verify various date formats.
-2. Add new test cases in the `tests/dateService.test.js` file (if it exists).
-3. Run the test suite using `npm test` command.
-
-Example test case:
-
-```javascript
-test("parseDate correctly normalizes various formats", async () => {
-  expect(await parseDate("17.05.2022 5:28:48")).toBe("2022-05-17 05:28:48");
-  expect(await parseDate("2022-05-17T05:28:48.375Z")).toBe(
-    "2022-05-17 05:28:48"
-  );
-  expect(await parseDate("5/17/2022 5:28:48 AM")).toBe("2022-05-17 05:28:48");
-});
-```
-
-#### Troubleshooting
-
-Common issues:
-
-1. Unrecognized date formats: Check the `logs/new_date_formats.log` file for any new, unsupported formats.
-2. Parsing errors: Ensure that the input string matches one of the `KNOWN_LOG_DATE_FORMATS`.
-3. Inconsistent output: Verify that the `parseDate` function is being used consistently across the application.
-
-If you encounter issues, enable debug logging by setting the `LOG_LEVEL` environment variable to `debug`.
+3. Add the new format string to the array.
+4. Update the `guessPossibleFormat` function to include the new format.
+5. Test thoroughly with the new format added.
 
 #### Best Practices
 
-1. Always use the `parseDate` function from [`services/dateService.js`](services/dateService.js) when working with dates.
+1. Always use the `parseDate` function from `services/dateService.js` when working with dates.
 2. Regularly review and update the list of known date formats.
-3. Monitor the [`logs/new_date_formats.log`](logs/new_date_formats.log) file for new, unsupported formats.
+3. Monitor the `logs/new_date_formats.log` file for new, unsupported formats.
 4. When adding new date formats, ensure thorough testing across the application.
 5. Consider the performance impact of adding too many date formats.
-6. Keep the `moment` library up-to-date, as it's used in the `guessPossibleFormat` function.
+6. Use logging in the date normalization and sorting middlewares to track their execution and help with debugging.
+7. When implementing new features that involve dates, ensure they work correctly with the existing date normalization and sorting flow.
+8. For bulk operations, make sure the date normalization and sorting are applied correctly to nested data structures.
 
-#### Performance Considerations
-
-- The date normalization process can impact API response times, especially for large datasets.
-- Consider implementing caching strategies for frequently accessed normalized dates.
-- Monitor the performance impact of date normalization and optimize if necessary.
-
-#### Conclusion
-
-Date normalization is a critical component of our application, ensuring consistent and accurate date handling. By following this documentation and best practices, we can maintain and improve our date normalization process, leading to more reliable and consistent data throughout the application.
+By following these guidelines and using the updated middleware chain, you can ensure consistent date handling across the application, improving data quality and user experience.
 
 ———
 
@@ -1061,6 +1604,43 @@ logger.error("This is an error message");
 logger.debug("This is a debug message");
 ```
 
+###### Example: Logging in Controllers
+
+In the `loginBulkController.js`, we use logging to track the progress of bulk search operations:
+
+```javascript
+logger.info(
+  `Bulk search request received for ${logins.length} logins, page: ${page}, installed_software: ${installedSoftware}`
+);
+
+// ... (after processing)
+
+logger.info(
+  `Bulk search completed for ${
+    logins.length
+  } logins, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+    2
+  )}ms`
+);
+```
+
+###### Example: Logging in Middlewares
+
+In middlewares like `dateNormalizationMiddleware.js` and `sortingMiddleware.js`, we use logging to track the execution of these middleware functions:
+
+```javascript
+// dateNormalizationMiddleware.js
+logger.info("Date normalization middleware called");
+// ... (after processing)
+logger.info("Date normalization completed");
+
+// sortingMiddleware.js
+logger.info("Sorting middleware called");
+logger.info(`Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`);
+// ... (after processing)
+logger.info("Sorting completed");
+```
+
 ##### Logging with Request ID
 
 To log messages with a request ID, use the `logWithRequestId` method:
@@ -1114,6 +1694,8 @@ const systemRequestId = uuidv4();
 - Use async logging when possible to avoid blocking the main thread.
 - Consider implementing log buffering for high-traffic applications.
 
+By following these guidelines and utilizing the provided logging infrastructure, you can ensure consistent and effective logging throughout the application, aiding in debugging, monitoring, and maintaining the system.
+
 ———
 
 ### Redis Usage Documentation
@@ -1151,6 +1733,7 @@ When adding new features that require Redis, follow these guidelines:
 4. **TTL (Time to Live)**: Set appropriate TTL values for cached data.
 5. **Asynchronous Operations**: Use asynchronous methods for Redis operations.
 6. **Choose Appropriate Data Structures**: Select the most suitable Redis data structure for your use case.
+7. **Bulk Operations**: When implementing bulk operations like the new bulk search functionality, consider using Redis for caching frequently requested data or storing intermediate results to improve performance.
 
 #### 4. Implementation Details and Code Snippets
 
@@ -1363,4 +1946,4 @@ const client = redis.createClient({
 
 By following these guidelines and examples, new engineers can effectively use Redis in this codebase for caching, rate limiting, and other purposes while maintaining best practices for performance and reliability.
 
-———
+—
