@@ -1,17 +1,27 @@
-const { asyncRedis, client } = require("../config/redisClient");
+const { client } = require("../config/redisClient");
 const logger = require("../config/logger");
 
-const WINDOW_SIZE_IN_SECONDS = 10;
 const MAX_REQUESTS_PER_WINDOW = 50;
+const WINDOW_SIZE_IN_SECONDS = 10;
+const MAX_BULK_LOGINS = 10;
 
 const complexRateLimitMiddleware = async (req, res, next) => {
   const apiKey = req.header("api-key");
   const ip = req.ip;
+  const loginCount = Array.isArray(req.body.logins)
+    ? req.body.logins.length
+    : 1;
+
+  if (loginCount > MAX_BULK_LOGINS) {
+    return res.status(400).json({
+      error: `Maximum of ${MAX_BULK_LOGINS} logins allowed per request`,
+    });
+  }
 
   try {
     const [apiKeyResult, ipResult] = await Promise.all([
-      checkRateLimit(`rate_limit:${apiKey}`),
-      checkRateLimit(`rate_limit:${ip}`),
+      checkRateLimit(`rate_limit:${apiKey}`, loginCount),
+      checkRateLimit(`rate_limit:${ip}`, loginCount),
     ]);
 
     const remaining = Math.min(apiKeyResult.remaining, ipResult.remaining);
@@ -34,24 +44,22 @@ const complexRateLimitMiddleware = async (req, res, next) => {
   }
 };
 
-async function checkRateLimit(key) {
+async function checkRateLimit(key, loginCount) {
   const now = Date.now();
   const windowStart = now - WINDOW_SIZE_IN_SECONDS * 1000;
 
   const multi = client.multi();
   multi.zremrangebyscore(key, 0, windowStart);
-  multi.zadd(key, now, now);
+  for (let i = 0; i < loginCount; i++) {
+    multi.zadd(key, now, `${now}-${i}`);
+  }
   multi.zrange(key, 0, -1);
   multi.expire(key, WINDOW_SIZE_IN_SECONDS);
 
   const results = await new Promise((resolve, reject) => {
     multi.exec((err, results) => {
-      if (err) {
-        logger.error("Error in rate limit check:", { error: err.message });
-        reject(err);
-      } else {
-        resolve(results);
-      }
+      if (err) reject(err);
+      else resolve(results);
     });
   });
 

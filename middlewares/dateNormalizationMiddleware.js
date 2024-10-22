@@ -1,44 +1,38 @@
 const { parseDate } = require("../services/dateService");
 const logger = require("../config/logger");
 
-const dateNormalizationMiddleware = (req, res, next) => {
-  const originalJson = res.json;
-
-  res.json = async function (data) {
-    try {
-      if (Array.isArray(data)) {
-        data = await Promise.all(data.map(normalizeLogDate));
-      } else if (typeof data === "object" && data !== null) {
-        data = await normalizeLogDate(data);
-      }
-
-      return originalJson.call(this, data);
-    } catch (error) {
-      logger.logWithRequestId(
-        "error",
-        "Error in date normalization middleware:",
-        { error: error.message }
-      );
-      return originalJson.call(this, { error: "Internal server error" });
+const normalizeData = async (data) => {
+  if (Array.isArray(data)) {
+    return Promise.all(data.map(normalizeData));
+  }
+  if (typeof data === "object" && data !== null) {
+    const newData = { ...data };
+    if ("Log date" in newData) {
+      newData["Log date"] = await parseDate(newData["Log date"]);
     }
-  };
-
-  next();
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = await Promise.all(newData.data.map(normalizeData));
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      newData.results = await Promise.all(newData.results.map(normalizeData));
+    }
+    return newData;
+  }
+  return data;
 };
 
-async function normalizeLogDate(obj) {
-  if (obj["Log date"]) {
-    try {
-      obj["Log date"] = await parseDate(obj["Log date"]);
-    } catch (error) {
-      logger.logWithRequestId(
-        "error",
-        `Error parsing Log date: ${obj["Log date"]}`,
-        { error: error.message }
-      );
+const dateNormalizationMiddleware = async (req, res, next) => {
+  logger.info("Date normalization middleware called");
+  try {
+    if (req.searchResults) {
+      req.searchResults = await normalizeData(req.searchResults);
+      logger.info("Date normalization completed");
     }
+    next();
+  } catch (error) {
+    logger.error("Error in date normalization middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-  return obj;
-}
+};
 
 module.exports = dateNormalizationMiddleware;

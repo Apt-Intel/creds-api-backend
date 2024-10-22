@@ -6,8 +6,9 @@ const { connectToDatabase } = require("./config/database");
 const authMiddleware = require("./middlewares/authMiddleware");
 const complexRateLimitMiddleware = require("./middlewares/complexRateLimitMiddleware");
 const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMiddleware");
-const { requestIdMiddleware } = require("./middlewares/requestIdMiddleware");
+const requestIdMiddleware = require("./middlewares/requestIdMiddleware");
 const logger = require("./config/logger");
+const sortingMiddleware = require("./middlewares/sortingMiddleware");
 
 // Add this near the top of the file, after loading environment variables
 if (!process.env.API_KEY) {
@@ -41,12 +42,12 @@ app.use(express.json());
 app.use(/^(?!\/health$).*/, authMiddleware);
 app.use(/^(?!\/health$).*/, complexRateLimitMiddleware);
 
-// Apply date normalization only to routes that return date information
-app.use("/api", dateNormalizationMiddleware);
-
 // Routes
 const searchByLoginRoutes = require("./routes/api/v1/searchByLogin");
+const searchByLoginBulkRouter = require("./routes/api/v1/searchByLoginBulk");
+
 app.use("/api/json/v1", searchByLoginRoutes);
+app.use("/api/json/v1", searchByLoginBulkRouter);
 
 // Log all routes
 app._router.stack.forEach(function (r) {
@@ -60,8 +61,10 @@ app.get("/health", (req, res) => res.status(200).json({ status: "OK" }));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  logger.error(err.stack);
-  res.status(500).json({ error: "Something went wrong!" });
+  logger.error("Unhandled error:", err);
+  res
+    .status(500)
+    .json({ error: "Something went wrong!", details: err.message });
 });
 
 // Test route
@@ -74,6 +77,76 @@ app.get("/api/json/v1/test-date-normalization", (req, res) => {
     nonDateField: "This is not a date",
   });
 });
+
+// Add this near your other test routes
+app.get("/api/json/v1/test-sorting", (req, res) => {
+  const testData = {
+    results: [
+      { "Log date": "2023-01-03 10:00:00" },
+      { "Log date": "2023-01-01 10:00:00" },
+      { "Log date": "2023-01-02 10:00:00" },
+    ],
+  };
+
+  req.searchResults = testData;
+  req.query = {
+    sortby: req.query.sortby || "date_compromised",
+    sortorder: req.query.sortorder || "desc",
+  };
+
+  sortingMiddleware(req, res, () => {
+    res.json(req.searchResults);
+  });
+});
+
+// Add this near your other test routes
+app.get("/api/json/v1/test-db-sorting", async (req, res) => {
+  const sortBy = req.query.sortby || "date_compromised";
+  const sortOrder = req.query.sortorder || "desc";
+  const limit = 10;
+
+  try {
+    const db = await getDatabase();
+    const collection = db.collection("logs");
+
+    const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
+    const sortOptions = { [sortField]: sortOrder === "asc" ? 1 : -1 };
+
+    const results = await collection
+      .find({})
+      .sort(sortOptions)
+      .limit(limit)
+      .toArray();
+
+    res.json({
+      sortBy,
+      sortOrder,
+      results,
+    });
+  } catch (error) {
+    logger.error("Error in test-db-sorting:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error", details: error.message });
+  }
+});
+
+// Add this near your other test routes
+app.get(
+  "/api/json/v1/test-normalization-sorting",
+  (req, res, next) => {
+    req.searchResults = {
+      results: [
+        { "Log date": "17.05.2022 5:28:48" },
+        { "Log date": "2022-05-17T05:28:48.375Z" },
+        { "Log date": "5/17/2022 5:28:48 AM" },
+      ],
+    };
+    next();
+  },
+  dateNormalizationMiddleware,
+  sortingMiddleware
+);
 
 const PORT = process.env.PORT || 3000;
 

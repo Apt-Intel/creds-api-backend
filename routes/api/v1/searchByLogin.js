@@ -1,9 +1,50 @@
 const express = require("express");
 const router = express.Router();
+const logger = require("../../../config/logger");
 const { searchByLogin } = require("../../../controllers/loginController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
-router.get("/search-by-login", searchByLogin);
-router.post("/search-by-login", searchByLogin);
+router.get(
+  "/search-by-login",
+  (req, res, next) => {
+    try {
+      logger.info(
+        `Received search-by-login request with query params: ${JSON.stringify(
+          req.query
+        )}`
+      );
+      next();
+    } catch (error) {
+      next(error);
+    }
+  },
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+router.post(
+  "/search-by-login",
+  (req, res, next) => {
+    try {
+      logger.info(
+        `Received search-by-login POST request with query params: ${JSON.stringify(
+          req.query
+        )}`
+      );
+      next();
+    } catch (error) {
+      next(error);
+    }
+  },
+  searchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
 
 // Make sure this test route is present
 router.get("/test-date-normalization", (req, res) => {

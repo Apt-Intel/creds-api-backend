@@ -9,7 +9,9 @@ const KNOWN_LOG_DATE_FORMATS = [
   "d/M/yyyy h:mm:ss a",
   "yyyy-MM-dd'T'HH:mm:ss.SSSX",
   "yyyy-MM-dd HH:mm:ss",
-  // Add more known formats for Log date here
+  // Add this new format
+  "yyyy-MM-dd HH:mm:ss",
+  // More formats can be added here
 ];
 
 function guessPossibleFormat(dateString) {
