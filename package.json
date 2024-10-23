@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --no-deprecation app.js",
     "dev": "nodemon app.js",
-    "test": "jest"
+    "test": "jest",
+    "test:dates": "node -e \"require('./services/dateService').testParseDates()\""
   },
   "author": "",
   "license": "ISC",
