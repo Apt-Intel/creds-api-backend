@@ -10,7 +10,12 @@ const normalizeData = async (data) => {
     if ("Log date" in newData) {
       newData["Log date"] = await parseDate(newData["Log date"]);
     }
-    // ... handling nested data
+    if ("data" in newData && Array.isArray(newData.data)) {
+      newData.data = await Promise.all(newData.data.map(normalizeData));
+    }
+    if ("results" in newData && Array.isArray(newData.results)) {
+      newData.results = await Promise.all(newData.results.map(normalizeData));
+    }
     return newData;
   }
   return data;

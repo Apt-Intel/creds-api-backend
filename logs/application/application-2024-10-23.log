@@ -787,3 +787,162 @@
 {"timestamp":"2024-10-23T14:04:59.471Z","level":"info","message":"Sorting completed"}
 {"timestamp":"2024-10-23T14:04:59.471Z","level":"info","message":"Sending response"}
 {"timestamp":"2024-10-23T14:04:59.490Z","level":"info","message":"::1 - - [23/Oct/2024:14:04:59 +0000] \"GET /api/json/internal/search-by-domain?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 1748663 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:48:09.393Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:48:09.394Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:48:09.395Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:48:09.398Z","level":"info","message":"::1 - - [23/Oct/2024:17:48:09 +0000] \"GET /api/json/v1/search-by-mail HTTP/1.1\" 404 165 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:55:16.802Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T17:55:19.291Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T17:55:19.297Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T17:55:22.797Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:55:22.797Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:55:22.799Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:55:22.803Z","level":"info","message":"Search initiated for mail: undefined, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T17:55:22.807Z","level":"info","message":"::1 - - [23/Oct/2024:17:55:22 +0000] \"GET /api/json/v1/search-by-mail HTTP/1.1\" 400 38 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:55:40.856Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:55:40.859Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:55:40.861Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:55:40.862Z","level":"info","message":"Search initiated for mail: admin, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T17:55:42.287Z","level":"info","message":"Search completed for mail: admin, total results: 0"}
+{"timestamp":"2024-10-23T17:55:42.288Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T17:55:42.288Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T17:55:42.289Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T17:55:42.289Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T17:55:42.289Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T17:55:42.289Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T17:55:42.290Z","level":"info","message":"::1 - - [23/Oct/2024:17:55:42 +0000] \"GET /api/json/v1/search-by-mail HTTP/1.1\" 200 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:56:11.210Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:56:11.211Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:56:11.212Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:56:11.213Z","level":"info","message":"Search initiated for mail: jose2008pro11@gmail.com, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T17:56:11.453Z","level":"info","message":"Search completed for mail: jose2008pro11@gmail.com, total results: 1"}
+{"timestamp":"2024-10-23T17:56:11.454Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T17:56:11.463Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T17:56:11.463Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T17:56:11.463Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T17:56:11.463Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T17:56:11.463Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T17:56:11.464Z","level":"info","message":"::1 - - [23/Oct/2024:17:56:11 +0000] \"GET /api/json/v1/search-by-mail HTTP/1.1\" 200 4879 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:56:16.617Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:56:16.617Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:56:16.618Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:56:16.618Z","level":"info","message":"Search initiated for mail: leo_sonnek@hotmail.com, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T17:56:17.576Z","level":"info","message":"Search completed for mail: leo_sonnek@hotmail.com, total results: 8"}
+{"timestamp":"2024-10-23T17:56:17.577Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T17:56:17.582Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T17:56:17.582Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T17:56:17.582Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T17:56:17.582Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T17:56:17.582Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T17:56:17.585Z","level":"info","message":"::1 - - [23/Oct/2024:17:56:17 +0000] \"GET /api/json/v1/search-by-mail?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 189243 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:56:43.384Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:56:43.384Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:56:43.384Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:56:43.386Z","level":"info","message":"Bulk search request received for 2 mails, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T17:56:46.235Z","level":"info","message":"Bulk search completed for 2 mails, total results: 16, processing time: 2849.51ms"}
+{"timestamp":"2024-10-23T17:56:46.236Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T17:56:46.238Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T17:56:46.238Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T17:56:46.238Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T17:56:46.238Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T17:56:46.238Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T17:56:46.243Z","level":"info","message":"::1 - - [23/Oct/2024:17:56:46 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 378560 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:57:33.842Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:57:33.842Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:57:33.844Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:57:33.847Z","level":"info","message":"::1 - - [23/Oct/2024:17:57:33 +0000] \"POST /api/json/internal/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 404 179 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:57:56.128Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:57:56.128Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:57:56.129Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:57:56.131Z","level":"info","message":"::1 - - [23/Oct/2024:17:57:56 +0000] \"POST /api/json/internal/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 404 179 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T17:58:45.649Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T17:58:45.650Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T17:58:45.662Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T17:58:45.665Z","level":"info","message":"::1 - - [23/Oct/2024:17:58:45 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 404 173 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:07:34.188Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T18:07:36.511Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T18:07:36.516Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T18:07:39.352Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:07:39.353Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:07:39.355Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:07:39.358Z","level":"info","message":"Search initiated for domain: searchbydomaintest.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:07:41.217Z","level":"info","message":"Search completed for domain: searchbydomaintest.com, total results: 1, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:07:41.217Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:07:41.223Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:07:41.223Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:07:41.223Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T18:07:41.224Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:07:41.224Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:07:41.228Z","level":"info","message":"::1 - - [23/Oct/2024:18:07:41 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 35919 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:07:47.179Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:07:47.180Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:07:47.181Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:07:47.182Z","level":"info","message":"Search initiated for domain: xvideos.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:07:49.198Z","level":"info","message":"Search completed for domain: xvideos.com, total results: 1271, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:07:49.198Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:07:49.214Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:07:49.214Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:07:49.214Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T18:07:49.214Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:07:49.214Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:07:49.226Z","level":"info","message":"::1 - - [23/Oct/2024:18:07:49 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 1748663 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:08:01.462Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:08:01.462Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:08:01.462Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:08:01.463Z","level":"info","message":"Search initiated for domain: pornhub.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:08:03.501Z","level":"info","message":"Search completed for domain: pornhub.com, total results: 875, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:08:03.502Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:08:03.515Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:08:03.515Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:08:03.515Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T18:08:03.515Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:08:03.515Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:08:03.536Z","level":"info","message":"::1 - - [23/Oct/2024:18:08:03 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 2412026 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:08:18.685Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:08:18.685Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:08:18.686Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:08:18.687Z","level":"info","message":"Search initiated for domain: xvideos.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:08:20.659Z","level":"info","message":"Search completed for domain: xvideos.com, total results: 1271, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T18:08:20.659Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:08:20.672Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:08:20.672Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:08:20.672Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T18:08:20.672Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:08:20.672Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:08:20.688Z","level":"info","message":"::1 - - [23/Oct/2024:18:08:20 +0000] \"GET /api/json/internal/search-by-domain?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 1748663 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:08:45.878Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:08:45.878Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:08:45.879Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:08:45.880Z","level":"info","message":"Bulk search request received for 2 domains, page: 1, installed_software: false, route: /api/json/internal/search-by-domain/bulk"}
+{"timestamp":"2024-10-23T18:08:48.196Z","level":"info","message":"Bulk search completed for 2 domains, total results: 16, processing time: 2316.55ms, route: /api/json/internal/search-by-domain/bulk"}
+{"timestamp":"2024-10-23T18:08:48.197Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:08:48.199Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:08:48.199Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:08:48.199Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T18:08:48.199Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:08:48.199Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:08:48.204Z","level":"info","message":"::1 - - [23/Oct/2024:18:08:48 +0000] \"POST /api/json/internal/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 378562 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:10:12.508Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:10:12.508Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:10:12.510Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:10:12.511Z","level":"info","message":"Search initiated for mail: leo_sonnek@hotmail.com, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T18:10:13.459Z","level":"info","message":"Search completed for mail: leo_sonnek@hotmail.com, total results: 8"}
+{"timestamp":"2024-10-23T18:10:13.460Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:10:13.461Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:10:13.461Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:10:13.461Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T18:10:13.462Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:10:13.462Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:10:13.466Z","level":"info","message":"::1 - - [23/Oct/2024:18:10:13 +0000] \"GET /api/json/v1/search-by-mail?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 189243 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T18:10:24.890Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T18:10:24.890Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T18:10:24.891Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T18:10:24.892Z","level":"info","message":"Search initiated for mail: leo_sonnek@hotmail.com, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T18:10:25.838Z","level":"info","message":"Search completed for mail: leo_sonnek@hotmail.com, total results: 8"}
+{"timestamp":"2024-10-23T18:10:25.839Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T18:10:25.840Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T18:10:25.840Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T18:10:25.840Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T18:10:25.840Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T18:10:25.840Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T18:10:25.844Z","level":"info","message":"::1 - - [23/Oct/2024:18:10:25 +0000] \"GET /api/json/v1/search-by-mail?sortby=date_compromised&sortorder=desc&page=1 HTTP/1.1\" 200 189243 \"-\" \"PostmanRuntime/7.39.0\""}

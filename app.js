@@ -9,7 +9,12 @@ const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMidd
 const requestIdMiddleware = require("./middlewares/requestIdMiddleware");
 const logger = require("./config/logger");
 const sortingMiddleware = require("./middlewares/sortingMiddleware");
+const searchByMailRoutes = require("./routes/api/v1/searchByMail");
+const searchByMailBulkRoutes = require("./routes/api/v1/searchByMailBulk");
+const internalSearchByLoginRouter = require("./routes/api/internal/searchByLogin");
+const internalSearchByLoginBulkRouter = require("./routes/api/internal/searchByLoginBulk");
 const searchByDomainRouter = require("./routes/api/internal/searchByDomain");
+const searchByDomainBulkRouter = require("./routes/api/internal/searchByDomainBulk");
 
 // Add this near the top of the file, after loading environment variables
 if (!process.env.API_KEY) {
@@ -44,16 +49,12 @@ app.use(/^(?!\/health$).*/, authMiddleware);
 app.use(/^(?!\/health$).*/, complexRateLimitMiddleware);
 
 // Routes
-const v1SearchByLoginRouter = require("./routes/api/v1/searchByLogin");
-const v1SearchByLoginBulkRouter = require("./routes/api/v1/searchByLoginBulk");
-const internalSearchByLoginRouter = require("./routes/api/internal/searchByLogin");
-const internalSearchByLoginBulkRouter = require("./routes/api/internal/searchByLoginBulk");
-
-app.use("/api/json/v1", v1SearchByLoginRouter);
-app.use("/api/json/v1", v1SearchByLoginBulkRouter);
+app.use("/api/json/v1", searchByMailRoutes);
+app.use("/api/json/v1", searchByMailBulkRoutes);
 app.use("/api/json/internal", internalSearchByLoginRouter);
 app.use("/api/json/internal", internalSearchByLoginBulkRouter);
 app.use("/api/json/internal", searchByDomainRouter);
+app.use("/api/json/internal", searchByDomainBulkRouter);
 
 // Log all routes
 app._router.stack.forEach(function (r) {

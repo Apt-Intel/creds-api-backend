@@ -1,21 +1,21 @@
 # API Documentation
 
-## 1. Search by Login
+## 1. Search by Mail
 
 ### Endpoint
 
-`GET /api/json/v1/search-by-login`
-`POST /api/json/v1/search-by-login`
+`GET /api/json/v1/search-by-mail`
+`POST /api/json/v1/search-by-mail`
 
 ### Description
 
-Search for user login information based on query parameters or request body.
+Search for user mail information based on query parameters or request body.
 
 ### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `login`              | String  | Yes      | The login username to search for.                                              |
+| `mail`               | String  | Yes      | The mail address to search for.                                                |
 | `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
 | `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
 | `page`               | Number  | No       | The page number for pagination. Default: 1                                     |
@@ -23,7 +23,7 @@ Search for user login information based on query parameters or request body.
 
 ### Example Request
 
-GET /api/json/v1/search-by-login?login=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
+GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
 
 ### Example Response
 
@@ -47,20 +47,20 @@ GET /api/json/v1/search-by-login?login=example@email.com&sortby=date_uploaded&so
 
 | Status Code | Description                               |
 | ----------- | ----------------------------------------- |
-| 400         | Bad Request - Login parameter is required |
+| 400         | Bad Request - Mail parameter is required  |
 | 401         | Unauthorized - Invalid or missing API key |
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
 
-## 2. Search by Login (Bulk)
+## 2. Search by Mail (Bulk)
 
 ### Endpoint
 
-`POST /api/json/v1/search-by-login/bulk`
+`POST /api/json/v1/search-by-mail/bulk`
 
 ### Description
 
-Search for multiple user logins in a single request.
+Search for multiple user mails in a single request.
 
 ### Request Parameters
 
@@ -73,17 +73,17 @@ Search for multiple user logins in a single request.
 
 ### Request Body
 
-| Parameter | Type     | Required | Description                                           |
-| --------- | -------- | -------- | ----------------------------------------------------- |
-| `logins`  | String[] | Yes      | Array of login usernames to search for (max 10 items) |
+| Parameter | Type     | Required | Description                                          |
+| --------- | -------- | -------- | ---------------------------------------------------- |
+| `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
 
 ### Example Request
 
-POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+POST /api/json/v1/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1
 
 ```json
 {
-  "logins": ["example1@email.com", "example2@email.com"]
+  "mails": ["example1@email.com", "example2@email.com"]
 }
 ```
 
@@ -95,7 +95,7 @@ POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
   "page": 1,
   "results": [
     {
-      "login": "example1@email.com",
+      "mail": "example1@email.com",
       "total": 100,
       "data": [
         {
@@ -108,7 +108,7 @@ POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
       ]
     },
     {
-      "login": "example2@email.com",
+      "mail": "example2@email.com",
       "total": 50,
       "data": [
         {
@@ -126,12 +126,12 @@ POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
 
 ### Errors
 
-| Status Code | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| 400         | Bad Request - Invalid logins array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                   |
-| 429         | Too Many Requests - Rate limit exceeded                     |
-| 500         | Internal Server Error                                       |
+| Status Code | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| 400         | Bad Request - Invalid mails array or exceeds maximum limit |
+| 401         | Unauthorized - Invalid or missing API key                  |
+| 429         | Too Many Requests - Rate limit exceeded                    |
+| 500         | Internal Server Error                                      |
 
 ## 3. Test Date Normalization
 
@@ -155,16 +155,16 @@ Test endpoint to verify date normalization functionality.
 }
 ```
 
-## 4. Internal Search by Login
+## 4. Internal Search by Mail
 
 ### Endpoint
 
-`GET /api/json/internal/search-by-login`
-`POST /api/json/internal/search-by-login`
+`GET /api/json/internal/search-by-mail`
+`POST /api/json/internal/search-by-mail`
 
 ### Description
 
-Internal endpoint for searching user login information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
+Internal endpoint for searching user mail information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
 
 ### Request Parameters
 
@@ -172,21 +172,21 @@ Internal endpoint for searching user login information. This endpoint mirrors th
 
 ### Example Request
 
-GET /api/json/internal/search-by-login?login=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
+GET /api/json/internal/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
 
 ### Example Response
 
 (Same format as the v1 endpoint)
 
-## 5. Internal Search by Login (Bulk)
+## 5. Internal Search by Mail (Bulk)
 
 ### Endpoint
 
-`POST /api/json/internal/search-by-login/bulk`
+`POST /api/json/internal/search-by-mail/bulk`
 
 ### Description
 
-Internal endpoint for bulk searching of user logins. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
+Internal endpoint for bulk searching of user mails. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
 
 ### Request Parameters
 
@@ -198,7 +198,7 @@ Internal endpoint for bulk searching of user logins. This endpoint mirrors the f
 
 ### Example Request
 
-POST /api/json/internal/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+POST /api/json/internal/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1
 
 ### Example Response
 
@@ -377,3 +377,78 @@ This endpoint does not require authentication and is not subject to rate limitin
 ## Note on Internal Endpoints
 
 The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
+
+## Document Structure for /v1 Routes
+
+The API now returns a redesigned document structure for both single and bulk mail searches. The following changes have been made to the response:
+
+1. Removed fields:
+
+   - Folder Name
+   - Build ID
+   - Hash
+   - Usernames
+   - Domains
+   - Emails
+   - Employee
+
+2. Credentials are now split into three categories:
+
+   - InternalCredentials: Credentials where the searched email's domain matches the domain in Credentials.URL
+   - ExternalCredentials: Credentials where the searched email's domain matches the domain in Credentials.Username
+   - OtherCredentials: All remaining credentials
+
+3. All other fields from the original document are retained.
+
+Example response structure:
+
+```json
+{
+  "total": 100,
+  "page": 1,
+  "results": [
+    {
+      "Usernames": "example@email.com",
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "InternalCredentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "user@example.com",
+          "Password": "password123"
+        }
+      ],
+      "ExternalCredentials": [
+        {
+          "URL": "https://othersite.com",
+          "Username": "user@example.com",
+          "Password": "password456"
+        }
+      ],
+      "OtherCredentials": [
+        {
+          "URL": "https://thirdsite.com",
+          "Username": "user@thirdsite.com",
+          "Password": "password789"
+        }
+      ]
+      // Other fields...
+    }
+    // More results...
+  ]
+}
+```
+
+These changes implement the new document redesign feature for the v1/search-by-mail and v1/search-by-mail/bulk routes. The new middleware processes the documents after sorting and before sending the response, as requested. The API documentation has been updated to reflect these changes.
+
+Remember to test these changes thoroughly, especially with various edge cases in the Credentials array, to ensure everything works as expected.
+
+## Document Redesign Process
+
+Both single and bulk search responses go through a document redesign process:
+
+1. Certain fields are removed from the original document.
+2. Credentials are categorized into Internal, External, and Other based on the searched email's domain.
+3. The redesigned document retains all other original fields.
+
+This process applies to both `/search-by-mail` and `/search-by-mail/bulk` endpoints.

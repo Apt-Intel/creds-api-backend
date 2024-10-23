@@ -58,6 +58,11 @@ async function searchByDomain(req, res, next) {
   }
 }
 
+async function searchByDomainBulk(req, res, next) {
+  // Implementation for searchByDomainBulk
+}
+
 module.exports = {
   searchByDomain,
+  searchByDomainBulk,
 };
