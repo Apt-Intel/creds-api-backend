@@ -204,6 +204,117 @@ POST /api/json/internal/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&
 
 (Same format as the v1 bulk endpoint)
 
+## New Internal API Endpoints
+
+### 1. Search by Domain
+
+#### Endpoint
+
+`GET /api/json/internal/search-by-domain`
+`POST /api/json/internal/search-by-domain`
+
+#### Description
+
+Search for domain information based on query parameters or request body.
+
+#### Request Parameters
+
+- `domain` (required): The domain to search for
+- `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
+- `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
+- `page` (optional): Page number for pagination. Default: 1
+- `installed_software` (optional): Boolean flag for installed software. Default: false
+
+#### Example Request
+
+GET /api/json/internal/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1
+
+#### Example Response
+
+```json
+{
+  "total": 100,
+  "page": 1,
+  "results": [
+    {
+      "Domains": ["example.com"],
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z"
+      // Other fields...
+    }
+    // More results...
+  ]
+}
+```
+
+### 2. Search by Domain (Bulk)
+
+#### Endpoint
+
+`POST /api/json/internal/search-by-domain/bulk`
+
+#### Description
+
+Search for multiple domains in a single request.
+
+#### Request Parameters
+
+- `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
+- `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
+- `page` (optional): Page number for pagination. Default: 1
+- `installed_software` (optional): Boolean flag for installed software. Default: false
+
+#### Request Body
+
+- `domains` (required): Array of domains to search for (max 10 items)
+
+#### Example Request
+
+POST /api/json/internal/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1
+
+```json
+{
+  "domains": ["example1.com", "example2.com"]
+}
+```
+
+#### Example Response
+
+```json
+{
+  "total": 150,
+  "page": 1,
+  "results": [
+    {
+      "domain": "example1.com",
+      "total": 100,
+      "data": [
+        {
+          "Domains": ["example1.com"],
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    },
+    {
+      "domain": "example2.com",
+      "total": 50,
+      "data": [
+        {
+          "Domains": ["example2.com"],
+          "Log date": "2023-07-24T10:15:45.000Z",
+          "Date": "2023-07-24T10:15:45.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    }
+  ]
+}
+```
+
 ## Authentication
 
 All endpoints (except `/health`) require an API key to be provided in the request headers.

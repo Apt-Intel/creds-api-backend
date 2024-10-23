@@ -9,6 +9,7 @@ const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMidd
 const requestIdMiddleware = require("./middlewares/requestIdMiddleware");
 const logger = require("./config/logger");
 const sortingMiddleware = require("./middlewares/sortingMiddleware");
+const searchByDomainRouter = require("./routes/api/internal/searchByDomain");
 
 // Add this near the top of the file, after loading environment variables
 if (!process.env.API_KEY) {
@@ -52,6 +53,7 @@ app.use("/api/json/v1", v1SearchByLoginRouter);
 app.use("/api/json/v1", v1SearchByLoginBulkRouter);
 app.use("/api/json/internal", internalSearchByLoginRouter);
 app.use("/api/json/internal", internalSearchByLoginBulkRouter);
+app.use("/api/json/internal", searchByDomainRouter);
 
 // Log all routes
 app._router.stack.forEach(function (r) {

@@ -215,3 +215,379 @@
 {"timestamp":"2024-10-23T05:03:29.825Z","level":"info","message":"Sorting completed"}
 {"timestamp":"2024-10-23T05:03:29.825Z","level":"info","message":"Sending response"}
 {"timestamp":"2024-10-23T05:03:29.829Z","level":"info","message":"::1 - - [23/Oct/2024:05:03:29 +0000] \"POST /api/json/internal/search-by-login/bulk?sortby=date_compromised&sortorder=desc&page=1 HTTP/1.1\" 200 236648 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:09:13.546Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T07:09:16.192Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T07:09:16.199Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T07:30:38.336Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:30:38.336Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:30:38.337Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:30:38.340Z","level":"info","message":"::1 - - [23/Oct/2024:07:30:38 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 404 173 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:30:46.888Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:30:46.888Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:30:46.889Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:30:46.891Z","level":"info","message":"::1 - - [23/Oct/2024:07:30:46 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 404 173 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:31:06.307Z","level":"info","message":"Received API key: undefined"}
+{"timestamp":"2024-10-23T07:31:06.308Z","level":"warn","message":"No API key provided"}
+{"timestamp":"2024-10-23T07:31:06.311Z","level":"info","message":"::1 - - [23/Oct/2024:07:31:06 +0000] \"GET /apple-touch-icon.png HTTP/1.1\" 401 31 \"-\" \"com.apple.WebKit.Networking/20619.1.26.31.7 CFNetwork/1568.100.1.1.1 Darwin/24.0.0\""}
+{"timestamp":"2024-10-23T07:31:06.312Z","level":"info","message":"Received API key: undefined"}
+{"timestamp":"2024-10-23T07:31:06.312Z","level":"warn","message":"No API key provided"}
+{"timestamp":"2024-10-23T07:31:06.313Z","level":"info","message":"::1 - - [23/Oct/2024:07:31:06 +0000] \"GET /favicon.ico HTTP/1.1\" 401 31 \"-\" \"com.apple.WebKit.Networking/20619.1.26.31.7 CFNetwork/1568.100.1.1.1 Darwin/24.0.0\""}
+{"timestamp":"2024-10-23T07:31:06.314Z","level":"info","message":"Received API key: undefined"}
+{"timestamp":"2024-10-23T07:31:06.314Z","level":"warn","message":"No API key provided"}
+{"timestamp":"2024-10-23T07:31:06.315Z","level":"info","message":"::1 - - [23/Oct/2024:07:31:06 +0000] \"GET /apple-touch-icon-precomposed.png HTTP/1.1\" 401 31 \"-\" \"com.apple.WebKit.Networking/20619.1.26.31.7 CFNetwork/1568.100.1.1.1 Darwin/24.0.0\""}
+{"timestamp":"2024-10-23T07:31:06.350Z","level":"info","message":"Received API key: undefined"}
+{"timestamp":"2024-10-23T07:31:06.351Z","level":"warn","message":"No API key provided"}
+{"timestamp":"2024-10-23T07:31:06.352Z","level":"info","message":"::1 - - [23/Oct/2024:07:31:06 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 401 31 \"-\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0\""}
+{"timestamp":"2024-10-23T07:31:41.232Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T07:31:42.769Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T07:31:42.772Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T07:31:45.056Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:31:45.056Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:31:45.059Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:31:45.063Z","level":"info","message":"::1 - - [23/Oct/2024:07:31:45 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 404 173 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:33:20.761Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T07:33:22.671Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T07:33:22.677Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T07:33:25.430Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:33:25.434Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:33:25.437Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:33:25.440Z","level":"info","message":"Search initiated for domain: undefined (sanitized: null), page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T07:33:25.442Z","level":"info","message":"::1 - - [23/Oct/2024:07:33:25 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 400 36 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:34:27.099Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:34:27.102Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:34:27.104Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:34:27.106Z","level":"info","message":"Search initiated for domain: undefined (sanitized: null), page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T07:34:27.107Z","level":"info","message":"::1 - - [23/Oct/2024:07:34:27 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 400 36 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:34:46.487Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T07:34:48.592Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T07:34:48.596Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T07:35:07.450Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:35:07.450Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:35:07.454Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:35:07.455Z","level":"info","message":"Request method: GET"}
+{"timestamp":"2024-10-23T07:35:07.456Z","level":"info","message":"Raw domain: undefined"}
+{"timestamp":"2024-10-23T07:35:07.456Z","level":"info","message":"Request query:"}
+{"timestamp":"2024-10-23T07:35:07.456Z","level":"info","message":"Request body:","login":"https://www3.testdomain.com.test"}
+{"timestamp":"2024-10-23T07:35:07.456Z","level":"warn","message":"No domain provided in the request"}
+{"timestamp":"2024-10-23T07:35:07.458Z","level":"info","message":"::1 - - [23/Oct/2024:07:35:07 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 400 40 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:35:12.191Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:35:12.191Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:35:12.192Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:35:12.195Z","level":"info","message":"Request method: GET"}
+{"timestamp":"2024-10-23T07:35:12.196Z","level":"info","message":"Raw domain: undefined"}
+{"timestamp":"2024-10-23T07:35:12.196Z","level":"info","message":"Request query:"}
+{"timestamp":"2024-10-23T07:35:12.196Z","level":"info","message":"Request body:","login":"https://www3.testdomain.com.test"}
+{"timestamp":"2024-10-23T07:35:12.196Z","level":"warn","message":"No domain provided in the request"}
+{"timestamp":"2024-10-23T07:35:12.197Z","level":"info","message":"::1 - - [23/Oct/2024:07:35:12 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 400 40 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:35:30.170Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:35:30.171Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:35:30.171Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:35:30.172Z","level":"info","message":"Request method: GET"}
+{"timestamp":"2024-10-23T07:35:30.172Z","level":"info","message":"Raw domain: undefined"}
+{"timestamp":"2024-10-23T07:35:30.172Z","level":"info","message":"Request query:"}
+{"timestamp":"2024-10-23T07:35:30.172Z","level":"info","message":"Request body:","domain":"https://www3.testdomain.com.test"}
+{"timestamp":"2024-10-23T07:35:30.172Z","level":"warn","message":"No domain provided in the request"}
+{"timestamp":"2024-10-23T07:35:30.173Z","level":"info","message":"::1 - - [23/Oct/2024:07:35:30 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 400 40 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:35:33.019Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:35:33.020Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:35:33.020Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:35:33.021Z","level":"info","message":"Request method: GET"}
+{"timestamp":"2024-10-23T07:35:33.021Z","level":"info","message":"Raw domain: undefined"}
+{"timestamp":"2024-10-23T07:35:33.021Z","level":"info","message":"Request query:"}
+{"timestamp":"2024-10-23T07:35:33.021Z","level":"info","message":"Request body:","domain":"https://www3.testdomain.com.test"}
+{"timestamp":"2024-10-23T07:35:33.022Z","level":"warn","message":"No domain provided in the request"}
+{"timestamp":"2024-10-23T07:35:33.022Z","level":"info","message":"::1 - - [23/Oct/2024:07:35:33 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 400 40 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:42:41.931Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T07:42:44.113Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T07:42:44.120Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T07:42:46.801Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:42:46.804Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:42:46.807Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:42:46.810Z","level":"info","message":"Search initiated for domain: https://www3.testdomain.com.test, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T07:42:48.455Z","level":"info","message":"Search completed for domain: com.test, total results: 0, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T07:42:48.456Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T07:42:48.457Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T07:42:48.457Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T07:42:48.457Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T07:42:48.458Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T07:42:48.458Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T07:42:48.463Z","level":"info","message":"::1 - - [23/Oct/2024:07:42:48 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:43:23.879Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:43:23.879Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:43:23.880Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:43:23.881Z","level":"info","message":"Search initiated for domain: xvideos.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T07:43:25.895Z","level":"info","message":"Search completed for domain: xvideos.com, total results: 1271, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T07:43:25.895Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T07:43:25.899Z","level":"warn","message":"Unable to parse date: Wed Apr 26 2023 22:52:04 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.900Z","level":"warn","message":"Unable to parse date: Mon Sep 12 2022 19:25:24 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.901Z","level":"warn","message":"Unable to parse date: 9/23/2022 10:16:30 PM"}
+{"timestamp":"2024-10-23T07:43:25.901Z","level":"warn","message":"Unable to parse date: 2/26/2023 12:30:47 PM"}
+{"timestamp":"2024-10-23T07:43:25.902Z","level":"warn","message":"Unable to parse date: 27/9/2022 9:14:40"}
+{"timestamp":"2024-10-23T07:43:25.902Z","level":"warn","message":"Unable to parse date: 8/9/2022 23:28:31"}
+{"timestamp":"2024-10-23T07:43:25.902Z","level":"warn","message":"Unable to parse date: Wed Sep 07 2022 23:33:35 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.902Z","level":"warn","message":"Unable to parse date: 07/21/2023 5:45:45"}
+{"timestamp":"2024-10-23T07:43:25.902Z","level":"warn","message":"Unable to parse date: Sun Jul 30 2023 16:15:49 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.903Z","level":"warn","message":"Unable to parse date: 6/30/2022 7:22:04 AM"}
+{"timestamp":"2024-10-23T07:43:25.903Z","level":"warn","message":"Unable to parse date: 17/6/2023 0:19:15"}
+{"timestamp":"2024-10-23T07:43:25.903Z","level":"warn","message":"Unable to parse date: 8/28/2022 7:16:23 AM"}
+{"timestamp":"2024-10-23T07:43:25.903Z","level":"warn","message":"Unable to parse date: 1/27/2022 7:18:16 AM"}
+{"timestamp":"2024-10-23T07:43:25.903Z","level":"warn","message":"Unable to parse date: 8/11/2022 16:14:14"}
+{"timestamp":"2024-10-23T07:43:25.904Z","level":"warn","message":"Unable to parse date: Thu Sep 15 2022 16:39:06 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.904Z","level":"warn","message":"Unable to parse date: Sat May 06 2023 09:12:34 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.905Z","level":"warn","message":"Unable to parse date: Thu May 11 2023 04:03:30 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.905Z","level":"warn","message":"Unable to parse date: 05/27/2023 1:47:33"}
+{"timestamp":"2024-10-23T07:43:25.905Z","level":"warn","message":"Unable to parse date: 7/20/2023 12:44:54 PM"}
+{"timestamp":"2024-10-23T07:43:25.905Z","level":"warn","message":"Unable to parse date: 06/15/2023  2:17:13"}
+{"timestamp":"2024-10-23T07:43:25.906Z","level":"warn","message":"Unable to parse date: 23/6/2022 0:52:59"}
+{"timestamp":"2024-10-23T07:43:25.906Z","level":"warn","message":"Unable to parse date: 6/20/2023 10:02:00 PM"}
+{"timestamp":"2024-10-23T07:43:25.906Z","level":"warn","message":"Unable to parse date: 12/9/2022 16:1:32"}
+{"timestamp":"2024-10-23T07:43:25.907Z","level":"warn","message":"Unable to parse date: 5/23/2022 4:04:54 AM"}
+{"timestamp":"2024-10-23T07:43:25.907Z","level":"warn","message":"Unable to parse date: 1/11/2022 0:4:29"}
+{"timestamp":"2024-10-23T07:43:25.907Z","level":"warn","message":"Unable to parse date: 8/15/2023 6:10:26 PM"}
+{"timestamp":"2024-10-23T07:43:25.907Z","level":"warn","message":"Unable to parse date: 8/9/2022 10:38:52"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: 7/9/2022 0:17:37"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: 6/29/2021 4:51:17 AM"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: 12/28/2021 8:06:56 AM"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: 17/11/2022 19:23:58"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: 8/22/2022 3:18:26 AM"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: 30.01.2022 14:48"}
+{"timestamp":"2024-10-23T07:43:25.908Z","level":"warn","message":"Unable to parse date: Sat Apr 29 2023 17:17:37 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T07:43:25.909Z","level":"warn","message":"Unable to parse date: NO/DATE"}
+{"timestamp":"2024-10-23T07:43:25.911Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T07:43:25.911Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T07:43:25.911Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T07:43:25.911Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T07:43:25.912Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T07:43:25.922Z","level":"info","message":"::1 - - [23/Oct/2024:07:43:25 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 1749021 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T07:51:29.100Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T07:51:29.101Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T07:51:29.106Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T07:51:29.122Z","level":"info","message":"Search initiated for domain: https://www3.testdomain.com.test, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T07:51:31.060Z","level":"info","message":"Search completed for domain: com.test, total results: 0, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T07:51:31.061Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T07:51:31.061Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T07:51:31.061Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T07:51:31.061Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T07:51:31.062Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T07:51:31.062Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T07:51:31.063Z","level":"info","message":"::1 - - [23/Oct/2024:07:51:31 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:01:23.913Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T08:01:25.696Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T08:01:25.701Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T08:01:35.497Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:01:35.498Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:01:35.500Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:01:35.504Z","level":"info","message":"Search initiated for domain: https://www3.testdomain.com.test, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:01:37.082Z","level":"info","message":"Search completed for domain: com.test, total results: 0, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:01:37.083Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:01:37.084Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:01:37.084Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:01:37.085Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T08:01:37.085Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:01:37.085Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:01:37.090Z","level":"info","message":"::1 - - [23/Oct/2024:08:01:37 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:02:35.657Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:02:35.658Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:02:35.658Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:02:35.659Z","level":"info","message":"Search initiated for domain: searchbydomaintest.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:02:36.283Z","level":"info","message":"Search completed for domain: searchbydomaintest.com, total results: 1, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:02:36.283Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:02:36.289Z","level":"warn","message":"Unable to parse date: 26/9/2022 22:28:37"}
+{"timestamp":"2024-10-23T08:02:36.293Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:02:36.294Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:02:36.294Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T08:02:36.294Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:02:36.294Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:02:36.296Z","level":"info","message":"::1 - - [23/Oct/2024:08:02:36 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 35918 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:02:42.915Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:02:42.915Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:02:42.916Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:02:42.918Z","level":"info","message":"Search initiated for domain: xvideos.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:02:44.851Z","level":"info","message":"Search completed for domain: xvideos.com, total results: 1271, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:02:44.852Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:02:44.854Z","level":"warn","message":"Unable to parse date: Wed Apr 26 2023 22:52:04 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.855Z","level":"warn","message":"Unable to parse date: Mon Sep 12 2022 19:25:24 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.855Z","level":"warn","message":"Unable to parse date: 9/23/2022 10:16:30 PM"}
+{"timestamp":"2024-10-23T08:02:44.857Z","level":"warn","message":"Unable to parse date: 2/26/2023 12:30:47 PM"}
+{"timestamp":"2024-10-23T08:02:44.858Z","level":"warn","message":"Unable to parse date: 27/9/2022 9:14:40"}
+{"timestamp":"2024-10-23T08:02:44.858Z","level":"warn","message":"Unable to parse date: 8/9/2022 23:28:31"}
+{"timestamp":"2024-10-23T08:02:44.858Z","level":"warn","message":"Unable to parse date: Wed Sep 07 2022 23:33:35 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.858Z","level":"warn","message":"Unable to parse date: 07/21/2023 5:45:45"}
+{"timestamp":"2024-10-23T08:02:44.858Z","level":"warn","message":"Unable to parse date: Sun Jul 30 2023 16:15:49 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.858Z","level":"warn","message":"Unable to parse date: 6/30/2022 7:22:04 AM"}
+{"timestamp":"2024-10-23T08:02:44.859Z","level":"warn","message":"Unable to parse date: 17/6/2023 0:19:15"}
+{"timestamp":"2024-10-23T08:02:44.859Z","level":"warn","message":"Unable to parse date: 8/28/2022 7:16:23 AM"}
+{"timestamp":"2024-10-23T08:02:44.859Z","level":"warn","message":"Unable to parse date: 1/27/2022 7:18:16 AM"}
+{"timestamp":"2024-10-23T08:02:44.859Z","level":"warn","message":"Unable to parse date: 8/11/2022 16:14:14"}
+{"timestamp":"2024-10-23T08:02:44.859Z","level":"warn","message":"Unable to parse date: Thu Sep 15 2022 16:39:06 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.859Z","level":"warn","message":"Unable to parse date: Sat May 06 2023 09:12:34 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.860Z","level":"warn","message":"Unable to parse date: Thu May 11 2023 04:03:30 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.860Z","level":"warn","message":"Unable to parse date: 05/27/2023 1:47:33"}
+{"timestamp":"2024-10-23T08:02:44.860Z","level":"warn","message":"Unable to parse date: 7/20/2023 12:44:54 PM"}
+{"timestamp":"2024-10-23T08:02:44.860Z","level":"warn","message":"Unable to parse date: 06/15/2023  2:17:13"}
+{"timestamp":"2024-10-23T08:02:44.860Z","level":"warn","message":"Unable to parse date: 23/6/2022 0:52:59"}
+{"timestamp":"2024-10-23T08:02:44.861Z","level":"warn","message":"Unable to parse date: 6/20/2023 10:02:00 PM"}
+{"timestamp":"2024-10-23T08:02:44.861Z","level":"warn","message":"Unable to parse date: 12/9/2022 16:1:32"}
+{"timestamp":"2024-10-23T08:02:44.861Z","level":"warn","message":"Unable to parse date: 5/23/2022 4:04:54 AM"}
+{"timestamp":"2024-10-23T08:02:44.861Z","level":"warn","message":"Unable to parse date: 1/11/2022 0:4:29"}
+{"timestamp":"2024-10-23T08:02:44.862Z","level":"warn","message":"Unable to parse date: 8/15/2023 6:10:26 PM"}
+{"timestamp":"2024-10-23T08:02:44.862Z","level":"warn","message":"Unable to parse date: 8/9/2022 10:38:52"}
+{"timestamp":"2024-10-23T08:02:44.862Z","level":"warn","message":"Unable to parse date: 7/9/2022 0:17:37"}
+{"timestamp":"2024-10-23T08:02:44.862Z","level":"warn","message":"Unable to parse date: 6/29/2021 4:51:17 AM"}
+{"timestamp":"2024-10-23T08:02:44.863Z","level":"warn","message":"Unable to parse date: 12/28/2021 8:06:56 AM"}
+{"timestamp":"2024-10-23T08:02:44.863Z","level":"warn","message":"Unable to parse date: 17/11/2022 19:23:58"}
+{"timestamp":"2024-10-23T08:02:44.863Z","level":"warn","message":"Unable to parse date: 8/22/2022 3:18:26 AM"}
+{"timestamp":"2024-10-23T08:02:44.863Z","level":"warn","message":"Unable to parse date: 30.01.2022 14:48"}
+{"timestamp":"2024-10-23T08:02:44.864Z","level":"warn","message":"Unable to parse date: Sat Apr 29 2023 17:17:37 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:44.864Z","level":"warn","message":"Unable to parse date: NO/DATE"}
+{"timestamp":"2024-10-23T08:02:44.866Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:02:44.866Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:02:44.866Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T08:02:44.866Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:02:44.866Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:02:44.880Z","level":"info","message":"::1 - - [23/Oct/2024:08:02:44 +0000] \"GET /api/json/internal/search-by-domain HTTP/1.1\" 200 1749021 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:02:51.179Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:02:51.180Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:02:51.180Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:02:51.182Z","level":"info","message":"Search initiated for domain: xvideos.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:02:53.079Z","level":"info","message":"Search completed for domain: xvideos.com, total results: 1271, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:02:53.080Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:02:53.080Z","level":"warn","message":"Unable to parse date: Wed Apr 26 2023 22:52:04 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.081Z","level":"warn","message":"Unable to parse date: Mon Sep 12 2022 19:25:24 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.081Z","level":"warn","message":"Unable to parse date: 9/23/2022 10:16:30 PM"}
+{"timestamp":"2024-10-23T08:02:53.082Z","level":"warn","message":"Unable to parse date: 2/26/2023 12:30:47 PM"}
+{"timestamp":"2024-10-23T08:02:53.082Z","level":"warn","message":"Unable to parse date: 27/9/2022 9:14:40"}
+{"timestamp":"2024-10-23T08:02:53.083Z","level":"warn","message":"Unable to parse date: 8/9/2022 23:28:31"}
+{"timestamp":"2024-10-23T08:02:53.083Z","level":"warn","message":"Unable to parse date: Wed Sep 07 2022 23:33:35 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.083Z","level":"warn","message":"Unable to parse date: 07/21/2023 5:45:45"}
+{"timestamp":"2024-10-23T08:02:53.083Z","level":"warn","message":"Unable to parse date: Sun Jul 30 2023 16:15:49 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.084Z","level":"warn","message":"Unable to parse date: 6/30/2022 7:22:04 AM"}
+{"timestamp":"2024-10-23T08:02:53.084Z","level":"warn","message":"Unable to parse date: 17/6/2023 0:19:15"}
+{"timestamp":"2024-10-23T08:02:53.084Z","level":"warn","message":"Unable to parse date: 8/28/2022 7:16:23 AM"}
+{"timestamp":"2024-10-23T08:02:53.084Z","level":"warn","message":"Unable to parse date: 1/27/2022 7:18:16 AM"}
+{"timestamp":"2024-10-23T08:02:53.084Z","level":"warn","message":"Unable to parse date: 8/11/2022 16:14:14"}
+{"timestamp":"2024-10-23T08:02:53.085Z","level":"warn","message":"Unable to parse date: Thu Sep 15 2022 16:39:06 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.085Z","level":"warn","message":"Unable to parse date: Sat May 06 2023 09:12:34 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.085Z","level":"warn","message":"Unable to parse date: Thu May 11 2023 04:03:30 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.085Z","level":"warn","message":"Unable to parse date: 05/27/2023 1:47:33"}
+{"timestamp":"2024-10-23T08:02:53.085Z","level":"warn","message":"Unable to parse date: 7/20/2023 12:44:54 PM"}
+{"timestamp":"2024-10-23T08:02:53.085Z","level":"warn","message":"Unable to parse date: 06/15/2023  2:17:13"}
+{"timestamp":"2024-10-23T08:02:53.086Z","level":"warn","message":"Unable to parse date: 23/6/2022 0:52:59"}
+{"timestamp":"2024-10-23T08:02:53.086Z","level":"warn","message":"Unable to parse date: 6/20/2023 10:02:00 PM"}
+{"timestamp":"2024-10-23T08:02:53.086Z","level":"warn","message":"Unable to parse date: 12/9/2022 16:1:32"}
+{"timestamp":"2024-10-23T08:02:53.087Z","level":"warn","message":"Unable to parse date: 5/23/2022 4:04:54 AM"}
+{"timestamp":"2024-10-23T08:02:53.088Z","level":"warn","message":"Unable to parse date: 1/11/2022 0:4:29"}
+{"timestamp":"2024-10-23T08:02:53.088Z","level":"warn","message":"Unable to parse date: 8/15/2023 6:10:26 PM"}
+{"timestamp":"2024-10-23T08:02:53.088Z","level":"warn","message":"Unable to parse date: 8/9/2022 10:38:52"}
+{"timestamp":"2024-10-23T08:02:53.089Z","level":"warn","message":"Unable to parse date: 7/9/2022 0:17:37"}
+{"timestamp":"2024-10-23T08:02:53.089Z","level":"warn","message":"Unable to parse date: 6/29/2021 4:51:17 AM"}
+{"timestamp":"2024-10-23T08:02:53.089Z","level":"warn","message":"Unable to parse date: 12/28/2021 8:06:56 AM"}
+{"timestamp":"2024-10-23T08:02:53.089Z","level":"warn","message":"Unable to parse date: 17/11/2022 19:23:58"}
+{"timestamp":"2024-10-23T08:02:53.089Z","level":"warn","message":"Unable to parse date: 8/22/2022 3:18:26 AM"}
+{"timestamp":"2024-10-23T08:02:53.089Z","level":"warn","message":"Unable to parse date: 30.01.2022 14:48"}
+{"timestamp":"2024-10-23T08:02:53.090Z","level":"warn","message":"Unable to parse date: Sat Apr 29 2023 17:17:37 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:02:53.090Z","level":"warn","message":"Unable to parse date: NO/DATE"}
+{"timestamp":"2024-10-23T08:02:53.091Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:02:53.091Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:02:53.092Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T08:02:53.092Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:02:53.092Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:02:53.107Z","level":"info","message":"::1 - - [23/Oct/2024:08:02:53 +0000] \"GET /api/json/internal/search-by-domain?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 1749021 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:07:35.103Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:07:35.104Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:07:35.106Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:07:35.112Z","level":"info","message":"Bulk search initiated for 2 domains, page: 1, installed_software: false, route: /api/json/internal/search-by-domain/bulk"}
+{"timestamp":"2024-10-23T08:07:38.838Z","level":"info","message":"Bulk search completed, total results: 2146, route: /api/json/internal/search-by-domain/bulk"}
+{"timestamp":"2024-10-23T08:07:38.838Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:07:38.838Z","level":"warn","message":"Unable to parse date: Wed Apr 26 2023 22:52:04 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.839Z","level":"warn","message":"Unable to parse date: Mon Sep 12 2022 19:25:24 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.843Z","level":"warn","message":"Unable to parse date: 9/23/2022 10:16:30 PM"}
+{"timestamp":"2024-10-23T08:07:38.843Z","level":"warn","message":"Unable to parse date: 2/26/2023 12:30:47 PM"}
+{"timestamp":"2024-10-23T08:07:38.843Z","level":"warn","message":"Unable to parse date: 27/9/2022 9:14:40"}
+{"timestamp":"2024-10-23T08:07:38.844Z","level":"warn","message":"Unable to parse date: 8/9/2022 23:28:31"}
+{"timestamp":"2024-10-23T08:07:38.844Z","level":"warn","message":"Unable to parse date: Wed Sep 07 2022 23:33:35 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.844Z","level":"warn","message":"Unable to parse date: 07/21/2023 5:45:45"}
+{"timestamp":"2024-10-23T08:07:38.844Z","level":"warn","message":"Unable to parse date: Sun Jul 30 2023 16:15:49 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.844Z","level":"warn","message":"Unable to parse date: 6/30/2022 7:22:04 AM"}
+{"timestamp":"2024-10-23T08:07:38.845Z","level":"warn","message":"Unable to parse date: 17/6/2023 0:19:15"}
+{"timestamp":"2024-10-23T08:07:38.845Z","level":"warn","message":"Unable to parse date: 8/28/2022 7:16:23 AM"}
+{"timestamp":"2024-10-23T08:07:38.845Z","level":"warn","message":"Unable to parse date: 1/27/2022 7:18:16 AM"}
+{"timestamp":"2024-10-23T08:07:38.845Z","level":"warn","message":"Unable to parse date: 8/11/2022 16:14:14"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: Thu Sep 15 2022 16:39:06 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: Sat May 06 2023 09:12:34 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: Thu May 11 2023 04:03:30 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: 05/27/2023 1:47:33"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: 7/20/2023 12:44:54 PM"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: 06/15/2023  2:17:13"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: 23/6/2022 0:52:59"}
+{"timestamp":"2024-10-23T08:07:38.846Z","level":"warn","message":"Unable to parse date: 6/20/2023 10:02:00 PM"}
+{"timestamp":"2024-10-23T08:07:38.847Z","level":"warn","message":"Unable to parse date: 12/9/2022 16:1:32"}
+{"timestamp":"2024-10-23T08:07:38.847Z","level":"warn","message":"Unable to parse date: 5/23/2022 4:04:54 AM"}
+{"timestamp":"2024-10-23T08:07:38.847Z","level":"warn","message":"Unable to parse date: 1/11/2022 0:4:29"}
+{"timestamp":"2024-10-23T08:07:38.847Z","level":"warn","message":"Unable to parse date: 8/15/2023 6:10:26 PM"}
+{"timestamp":"2024-10-23T08:07:38.847Z","level":"warn","message":"Unable to parse date: 8/9/2022 10:38:52"}
+{"timestamp":"2024-10-23T08:07:38.848Z","level":"warn","message":"Unable to parse date: 7/9/2022 0:17:37"}
+{"timestamp":"2024-10-23T08:07:38.848Z","level":"warn","message":"Unable to parse date: 6/29/2021 4:51:17 AM"}
+{"timestamp":"2024-10-23T08:07:38.848Z","level":"warn","message":"Unable to parse date: 12/28/2021 8:06:56 AM"}
+{"timestamp":"2024-10-23T08:07:38.848Z","level":"warn","message":"Unable to parse date: 17/11/2022 19:23:58"}
+{"timestamp":"2024-10-23T08:07:38.848Z","level":"warn","message":"Unable to parse date: 8/22/2022 3:18:26 AM"}
+{"timestamp":"2024-10-23T08:07:38.848Z","level":"warn","message":"Unable to parse date: 30.01.2022 14:48"}
+{"timestamp":"2024-10-23T08:07:38.849Z","level":"warn","message":"Unable to parse date: Sat Apr 29 2023 17:17:37 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.849Z","level":"warn","message":"Unable to parse date: NO/DATE"}
+{"timestamp":"2024-10-23T08:07:38.849Z","level":"warn","message":"Unable to parse date: Tue Apr 18 2023 18:21:59 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.849Z","level":"warn","message":"Unable to parse date: Wed Apr 26 2023 22:52:04 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.849Z","level":"warn","message":"Unable to parse date: 2/2/2023 19:36:11"}
+{"timestamp":"2024-10-23T08:07:38.849Z","level":"warn","message":"Unable to parse date: 5/17/2022 12:17:47 PM"}
+{"timestamp":"2024-10-23T08:07:38.850Z","level":"warn","message":"Unable to parse date: Sun Sep 25 2022 20:11:43 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.850Z","level":"warn","message":"Unable to parse date: 6/30/2022 7:22:04 AM"}
+{"timestamp":"2024-10-23T08:07:38.850Z","level":"warn","message":"Unable to parse date: 05/18/2023 11:39:27"}
+{"timestamp":"2024-10-23T08:07:38.850Z","level":"warn","message":"Unable to parse date: 1/27/2022 7:18:16 AM"}
+{"timestamp":"2024-10-23T08:07:38.850Z","level":"warn","message":"Unable to parse date: 6/11/2022 14:8:24"}
+{"timestamp":"2024-10-23T08:07:38.851Z","level":"warn","message":"Unable to parse date: 22/1/2023 10:40:56"}
+{"timestamp":"2024-10-23T08:07:38.851Z","level":"warn","message":"Unable to parse date: Thu May 11 2023 04:03:30 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.851Z","level":"warn","message":"Unable to parse date: 5/18/2022 8:59:59 AM"}
+{"timestamp":"2024-10-23T08:07:38.851Z","level":"warn","message":"Unable to parse date: 11/11/2022 21:32:39"}
+{"timestamp":"2024-10-23T08:07:38.852Z","level":"warn","message":"Unable to parse date: 8/15/2023 6:10:26 PM"}
+{"timestamp":"2024-10-23T08:07:38.852Z","level":"warn","message":"Unable to parse date: Sat Sep 10 2022 11:01:29 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.852Z","level":"warn","message":"Unable to parse date: Fri Sep 09 2022 17:00:58 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.852Z","level":"warn","message":"Unable to parse date: 7/10/2022 2:2:7"}
+{"timestamp":"2024-10-23T08:07:38.853Z","level":"warn","message":"Unable to parse date: Sat Aug 27 2022 21:22:16 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.853Z","level":"warn","message":"Unable to parse date: 17/11/2022 19:23:58"}
+{"timestamp":"2024-10-23T08:07:38.853Z","level":"warn","message":"Unable to parse date: 8/22/2022 3:18:26 AM"}
+{"timestamp":"2024-10-23T08:07:38.853Z","level":"warn","message":"Unable to parse date: 11/11/2022 12:1:16"}
+{"timestamp":"2024-10-23T08:07:38.854Z","level":"warn","message":"Unable to parse date: Mon Sep 26 2022 19:43:10 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.854Z","level":"warn","message":"Unable to parse date: 6/11/2022 16:39:59"}
+{"timestamp":"2024-10-23T08:07:38.854Z","level":"warn","message":"Unable to parse date: 2023-06-15 09:55:34 PM"}
+{"timestamp":"2024-10-23T08:07:38.854Z","level":"warn","message":"Unable to parse date: Wed Sep 14 2022 06:07:41 GMT+0200 (Central European Summer Time)"}
+{"timestamp":"2024-10-23T08:07:38.854Z","level":"warn","message":"Unable to parse date: 7/19/2023 5:33:52 PM"}
+{"timestamp":"2024-10-23T08:07:38.855Z","level":"warn","message":"Unable to parse date: 6/11/2022 20:10:8"}
+{"timestamp":"2024-10-23T08:07:38.856Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:07:38.856Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:07:38.856Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T08:07:38.857Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:07:38.857Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:07:38.884Z","level":"info","message":"::1 - - [23/Oct/2024:08:07:38 +0000] \"POST /api/json/internal/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 4161509 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:20:47.176Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:20:47.177Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:20:47.179Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:20:47.180Z","level":"info","message":"Search initiated for domain: testingdomainapi.com, page: 1, installed_software: false, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:20:49.753Z","level":"info","message":"Search completed for domain: testingdomainapi.com, total results: 5, route: /api/json/internal/search-by-domain"}
+{"timestamp":"2024-10-23T08:20:49.754Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:20:49.759Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:20:49.759Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:20:49.759Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T08:20:49.760Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:20:49.760Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:20:49.763Z","level":"info","message":"::1 - - [23/Oct/2024:08:20:49 +0000] \"GET /api/json/internal/search-by-domain?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 118338 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T08:21:01.733Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T08:21:01.734Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T08:21:01.746Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T08:21:01.747Z","level":"info","message":"Bulk search initiated for 2 domains, page: 1, installed_software: false, route: /api/json/internal/search-by-domain/bulk"}
+{"timestamp":"2024-10-23T08:21:04.070Z","level":"info","message":"Bulk search completed, total results: 10, route: /api/json/internal/search-by-domain/bulk"}
+{"timestamp":"2024-10-23T08:21:04.071Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T08:21:04.072Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T08:21:04.072Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T08:21:04.072Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T08:21:04.072Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T08:21:04.072Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T08:21:04.076Z","level":"info","message":"::1 - - [23/Oct/2024:08:21:04 +0000] \"POST /api/json/internal/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 236752 \"-\" \"PostmanRuntime/7.39.0\""}
