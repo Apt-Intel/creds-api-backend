@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {
   searchByLoginBulk,
-} = require("../../../controllers/loginBulkController");
+} = require("../../../controllers/v1/loginBulkController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");

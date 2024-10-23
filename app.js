@@ -43,11 +43,15 @@ app.use(/^(?!\/health$).*/, authMiddleware);
 app.use(/^(?!\/health$).*/, complexRateLimitMiddleware);
 
 // Routes
-const searchByLoginRoutes = require("./routes/api/v1/searchByLogin");
-const searchByLoginBulkRouter = require("./routes/api/v1/searchByLoginBulk");
+const v1SearchByLoginRouter = require("./routes/api/v1/searchByLogin");
+const v1SearchByLoginBulkRouter = require("./routes/api/v1/searchByLoginBulk");
+const internalSearchByLoginRouter = require("./routes/api/internal/searchByLogin");
+const internalSearchByLoginBulkRouter = require("./routes/api/internal/searchByLoginBulk");
 
-app.use("/api/json/v1", searchByLoginRoutes);
-app.use("/api/json/v1", searchByLoginBulkRouter);
+app.use("/api/json/v1", v1SearchByLoginRouter);
+app.use("/api/json/v1", v1SearchByLoginBulkRouter);
+app.use("/api/json/internal", internalSearchByLoginRouter);
+app.use("/api/json/internal", internalSearchByLoginBulkRouter);
 
 // Log all routes
 app._router.stack.forEach(function (r) {

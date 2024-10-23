@@ -269,30 +269,97 @@ To understand the data structure, here's an example entry from the database for 
       "Username": "testname",
       "Password": "testpass",
       "Application": "Opera GX_Unknown"
+    },
+    {
+      "URL": "https://comapny.com/",
+      "Username": "test@company.com",
+      "Password": "testpass",
+      "Application": "Opera GX_Unknown"
+    },
+    {
+      "URL": "https://gmail.com/",
+      "Username": "test@gmail.com",
+      "Password": "testpass",
+      "Application": "Opera GX_Unknown"
     }
   ],
   "Hash": "00004f5977440098482fcfe5712bb9a803babade75e009a947e252808c85b2b1",
-  "Usernames": ["test@gmail.com", "test", "name", "123username"]
+  "Usernames": ["test@gmail.com", "test@company.com", "testname"],
+  "Domains": ["test.com", "gmail.com", "company.com"],
+  "Emails": ["test@company.com", "test@gmail.com"],
+  "Employee": ["test@company.com"]
 }
 ```
 
-Note: The `Usernames` array is now used for searching instead of `Credentials.Username` because its Indexed and more efficient.
+### MongoDB Collection Schema Documentation
+
+#### Array Specifications
+
+##### 1. Usernames Array
+
+- **Source:** Derived from `Credentials.Username`
+- **Content:** Includes only valid, normalized, and deduplicated usernames
+- **Indexing:** Indexed to enhance search performance
+
+##### 2. Emails Array
+
+- **Source:** Derived from the `Usernames` Array
+- **Content:** Contains only valid, normalized, and deduplicated email addresses
+- **Indexing:** Indexed for faster search queries
+
+##### 3. Employees Array
+
+- **Source:** Derived from the `Emails` Array
+- **Content:** Consists exclusively of valid, normalized, and deduplicated work email addresses
+- **Indexing:** Indexed to optimize search efficiency
+
+##### 4. Domains Array
+
+- **Source:** Derived from `Credentials.URL`
+- **Content:** Comprises only valid, normalized, and deduplicated domain names
+- **Indexing:** Indexed to facilitate rapid search operations
+
+#### Data Flow Summary
+
+##### Derivation Chain
+
+```
+Credentials.Username → Usernames Array → Emails Array → Employees Array
+Credentials.URL → Domains Array
+```
+
+##### Common Attributes
+
+- All the above mentioned arrays contain validated, normalized, and deduplicated entries
+- Data integrity and consistency are maintained throughout
+- Each array is optimized for performance
+
+##### Performance Considerations
+
+- All the above mentioned arrays are indexed within the MongoDB schema
+- Indexes are designed to provide efficient search capabilities
+- Search operations are optimized for speed and reliability
 
 ## Implemented Features
 
 1. **MongoDB Connection**: Implemented in `config/database.js`.
 2. **Authentication**: API key-based authentication implemented in `middlewares/authMiddleware.js`.
 3. **Rate Limiting**: Implemented in `middlewares/complexRateLimitMiddleware.js`.
-4. **Search by Login**: Implemented in `controllers/loginController.js`.
-5. **Bulk Search by Login**: Implemented in `controllers/loginBulkController.js`.
-6. **Date Normalization**: Implemented in `services/dateService.js` and `middlewares/dateNormalizationMiddleware.js`.
-7. **Sorting**: Implemented in `middlewares/sortingMiddleware.js`.
-8. **Pagination**: Implemented in `utils/paginationUtils.js`.
-9. **Logging**: Implemented using Winston in `config/logger.js`.
-10. **Redis Caching**: Implemented for API key validation and rate limiting in `config/redisClient.js`.
-11. **Error Handling**: Consistent error handling implemented across controllers and middlewares.
-12. **Request ID Tracking**: Implemented in `middlewares/requestIdMiddleware.js` for better traceability.
-13. **Performance Monitoring**: Basic performance monitoring implemented in bulk search operations using Node.js Performance Hooks.
+4. **Search by Login (v1)**: Implemented in `controllers/v1/loginController.js`.
+5. **Bulk Search by Login (v1)**: Implemented in `controllers/v1/loginBulkController.js`.
+6. **Internal Search by Login**: Implemented in `controllers/internal/loginController.js`.
+7. **Internal Bulk Search by Login**: Implemented in `controllers/internal/loginBulkController.js`.
+8. **Date Normalization**: Implemented in `services/dateService.js` and `middlewares/dateNormalizationMiddleware.js`.
+9. **Sorting**: Implemented in `middlewares/sortingMiddleware.js`.
+10. **Pagination**: Implemented in `utils/paginationUtils.js`.
+11. **Logging**: Implemented using Winston in `config/logger.js`.
+12. **Redis Caching**: Implemented for API key validation and rate limiting in `config/redisClient.js`.
+13. **Error Handling**: Consistent error handling implemented across controllers and middlewares.
+14. **Request ID Tracking**: Implemented in `middlewares/requestIdMiddleware.js` for better traceability.
+15. **Performance Monitoring**: Basic performance monitoring implemented in bulk search operations using Node.js Performance Hooks.
+16. **API Versioning**: Implemented with separate routes for v1 and internal APIs.
+17. **Modular Route Structure**: Implemented in `routes/api/v1/` and `routes/api/internal/` directories.
+18. **Middleware Chain**: Consistent application of middleware chain (authentication, date normalization, sorting, response sending) across all routes.
 
 ## Relevant Documentations
 
@@ -453,6 +520,55 @@ Test endpoint to verify date normalization functionality.
 }
 ```
 
+#### 4. Internal Search by Login
+
+##### Endpoint
+
+`GET /api/json/internal/search-by-login`
+`POST /api/json/internal/search-by-login`
+
+##### Description
+
+Internal endpoint for searching user login information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
+
+##### Request Parameters
+
+(Same as the v1 endpoint)
+
+##### Example Request
+
+GET /api/json/internal/search-by-login?login=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
+
+##### Example Response
+
+(Same format as the v1 endpoint)
+
+#### 5. Internal Search by Login (Bulk)
+
+##### Endpoint
+
+`POST /api/json/internal/search-by-login/bulk`
+
+##### Description
+
+Internal endpoint for bulk searching of user logins. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
+
+##### Request Parameters
+
+(Same as the v1 bulk endpoint)
+
+##### Request Body
+
+(Same as the v1 bulk endpoint)
+
+##### Example Request
+
+POST /api/json/internal/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+
+##### Example Response
+
+(Same format as the v1 bulk endpoint)
+
 #### Authentication
 
 All endpoints (except `/health`) require an API key to be provided in the request headers.
@@ -512,6 +628,10 @@ Check the health status of the API.
 
 This endpoint does not require authentication and is not subject to rate limiting.
 
+#### Note on Internal Endpoints
+
+The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
+
 ———
 
 ### API Endpoints and Routes Documentation
@@ -520,7 +640,7 @@ This document provides a detailed overview of the API endpoints, routes, middlew
 
 #### 1. API Versioning
 
-Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is v1, which is reflected in the URL structure: `/api/v1/`.
+Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is v1, which is reflected in the URL structure: `/api/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
 
 #### 2. API Endpoints and Routes Implementation
 
@@ -528,16 +648,15 @@ API endpoints and routes are defined in the `routes` directory. Each route file 
 
 ##### 2.1 Search By Login Endpoint
 
-Example: `searchByLogin.js`
+Example: `routes/api/v1/searchByLogin.js`
 
 ```js
 const express = require("express");
 const router = express.Router();
-const { searchByLogin } = require("../../../controllers/loginController");
+const { searchByLogin } = require("../../../controllers/v1/loginController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
 router.get(
   "/search-by-login",
   searchByLogin,
@@ -552,11 +671,10 @@ router.post(
   sortingMiddleware,
   sendResponseMiddleware
 );
-
 module.exports = router;
 ```
 
-- **URL**: `/api/v1/search-by-login`
+- **URL**: `/api/json/v1/search-by-login`
 - **Methods**: GET, POST
 - **Auth Required**: Yes
 - **Query Parameters**:
@@ -568,18 +686,17 @@ module.exports = router;
 
 ##### 2.2 Search By Login Bulk Endpoint
 
-Example: `searchByLoginBulk.js`
+Example: `routes/api/v1/searchByLoginBulk.js`
 
 ```js
 const express = require("express");
 const router = express.Router();
 const {
   searchByLoginBulk,
-} = require("../../../controllers/loginBulkController");
+} = require("../../../controllers/v1/loginBulkController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
 router.post(
   "/search-by-login/bulk",
   searchByLoginBulk,
@@ -587,11 +704,10 @@ router.post(
   sortingMiddleware,
   sendResponseMiddleware
 );
-
 module.exports = router;
 ```
 
-- **URL**: `/api/v1/search-by-login/bulk`
+- **URL**: `/api/json/v1/search-by-login/bulk`
 - **Method**: POST
 - **Auth Required**: Yes
 - **Query Parameters**:
@@ -601,6 +717,70 @@ module.exports = router;
   - `installed_software` (optional): Boolean flag for installed software. Default: false
 - **Request Body**:
   - `logins` (required): Array of email addresses to search for (max 10)
+
+##### 2.3 Internal Search By Login Endpoint
+
+Example: `routes/api/internal/searchByLogin.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  internalSearchByLogin,
+} = require("../../../controllers/internal/loginController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+router.get(
+  "/search-by-login",
+  internalSearchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+router.post(
+  "/search-by-login",
+  internalSearchByLogin,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+module.exports = router;
+```
+
+- **URL**: `/api/json/internal/search-by-login`
+- **Methods**: GET, POST
+- **Auth Required**: Yes
+- **Query Parameters**: Same as the v1 endpoint
+
+##### 2.4 Internal Search By Login Bulk Endpoint
+
+Example: `routes/api/internal/searchByLoginBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  internalSearchByLoginBulk,
+} = require("../../../controllers/internal/loginBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+router.post(
+  "/search-by-login/bulk",
+  internalSearchByLoginBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+module.exports = router;
+```
+
+- **URL**: `/api/json/internal/search-by-login/bulk`
+- **Method**: POST
+- **Auth Required**: Yes
+- **Query Parameters**: Same as the v1 bulk endpoint
+- **Request Body**: Same as the v1 bulk endpoint
 
 #### 3. Middlewares Implementation
 
@@ -771,11 +951,11 @@ module.exports = sendResponseMiddleware;
 
 #### 4. Controllers Implementation
 
-Controllers are implemented in the `controllers` directory. They handle the business logic for each route.
+Controllers are now organized in separate directories for v1 and internal APIs. They are implemented in the `controllers/v1` and `controllers/internal` directories respectively. They handle the business logic for each route.
 
-##### 4.1 Login Controller
+##### 4.1 V1 Login Controller
 
-Example: `loginController.js`
+Example: `controllers/v1/loginController.js`
 
 ```js
 const { getDatabase } = require("../config/database");
@@ -835,9 +1015,9 @@ module.exports = {
 };
 ```
 
-##### 4.2 Login Bulk Controller
+##### 4.2 V1 Login Bulk Controller
 
-Example: `loginBulkController.js`
+Example: `controllers/v1/loginBulkController.js`
 
 ```js
 const { getDatabase } = require("../config/database");
@@ -923,36 +1103,72 @@ module.exports = {
 };
 ```
 
+##### 4.3 Internal Login Controller
+
+Example: `controllers/internal/loginController.js`
+
+```js
+const { getDatabase } = require("../../config/database");
+const logger = require("../../config/logger");
+const { getPaginationParams } = require("../../utils/paginationUtils");
+async function internalSearchByLogin(req, res, next) {
+  // Implementation similar to v1 searchByLogin, with internal-specific logging
+  // ...
+}
+module.exports = {
+  internalSearchByLogin,
+};
+```
+
+##### 4.4 Internal Login Bulk Controller
+
+Example: `controllers/internal/loginBulkController.js`
+
+```js
+const { getDatabase } = require("../../config/database");
+const logger = require("../../config/logger");
+const { getPaginationParams } = require("../../utils/paginationUtils");
+async function internalSearchByLoginBulk(req, res, next) {
+  // Implementation similar to v1 searchByLoginBulk, with internal-specific logging
+  // ...
+}
+module.exports = {
+  internalSearchByLoginBulk,
+};
+```
+
 #### 5. New Date Normalization and Sorting Flow
 
-The new flow for date normalization and sorting follows these steps:
+The flow for date normalization and sorting remains the same for both v1 and internal APIs:
 
 1. Controller fetches raw data from the database.
 2. Date Normalization Middleware normalizes the "Log date" fields.
 3. Sorting Middleware sorts the normalized data based on query parameters.
 4. Send Response Middleware sends the final response.
 
-This new flow allows for better separation of concerns and makes the code more modular and maintainable.
+This flow allows for better separation of concerns and makes the code more modular and maintainable. It's applied consistently across both v1 and internal endpoints, ensuring uniform data processing.
 
 #### 6. Guidelines for Implementing New API Routes
 
-1. Create a new file in the `routes/api/v1` directory.
-2. Define the route using Express.
-3. Apply necessary middlewares (e.g., authentication, date normalization, sorting).
-4. Call the appropriate controller function.
-5. Use the sendResponseMiddleware as the last middleware in the chain.
+When implementing new API routes, follow these steps for both v1 and internal APIs:
 
-Example:
+1. Determine if the route is for v1 (consumer-facing) or internal use.
+2. Create a new file in the appropriate directory: 3. For v1 routes: `routes/api/v1/` 4. For internal routes: `routes/api/internal/`
+3. Define the route using Express.
+4. Apply necessary middlewares (e.g., authentication, date normalization, sorting).
+5. Call the appropriate controller function from the corresponding v1 or internal controller.
+6. Use the sendResponseMiddleware as the last middleware in the chain.
+
+Example for a new v1 route:
 
 ```js
 const express = require("express");
 const router = express.Router();
-const { newController } = require("../../../controllers/newController");
+const { newController } = require("../../../controllers/v1/newController");
 const authMiddleware = require("../../../middlewares/authMiddleware");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
 router.get(
   "/new-route",
   authMiddleware,
@@ -961,9 +1177,33 @@ router.get(
   sortingMiddleware,
   sendResponseMiddleware
 );
-
 module.exports = router;
 ```
+
+Example for a new internal route:
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  newInternalController,
+} = require("../../../controllers/internal/newController");
+const authMiddleware = require("../../../middlewares/authMiddleware");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+router.get(
+  "/new-internal-route",
+  authMiddleware,
+  newInternalController,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+module.exports = router;
+```
+
+Remember to update the `app.js` file to include the new route, using the appropriate path for v1 or internal APIs.
 
 #### 7. Best Practices
 
@@ -975,13 +1215,14 @@ module.exports = router;
 - Use the logger for consistent logging across the application.
 - Store sensitive information like API keys in the `.env` file.
 - Ensure proper error handling in controllers and middlewares.
-- Use the new middleware chain (dateNormalizationMiddleware, sortingMiddleware, sendResponseMiddleware) for consistent data processing and response handling.
+- Use the middleware chain (dateNormalizationMiddleware, sortingMiddleware, sendResponseMiddleware) for consistent data processing and response handling.
+- Clearly distinguish between v1 (consumer-facing) and internal routes and controllers.
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
 #### 8. Current File Structure
 
-The following file structure represents the organization of the codebase, highlighting the key components related to API endpoint implementations:
+The following file structure represents the organization of the codebase, highlighting the key components like structure of controllers, middlewares and routes related to API endpoint implementations:
 
 ```
 project-root/
@@ -1017,32 +1258,16 @@ project-root/
 └── .env
 ```
 
-Key components:
+#### 8. Reason for API Cloning
 
-- `app.js`: The main application file that sets up the Express server and imports routes.
-- `config/`: Contains configuration files for database, logging, and Redis.
-- `controllers/`: Houses the controller functions that handle the business logic for each route.
-- `middlewares/`: Contains various middleware functions used across the application.
-- `routes/api/v1/`: Defines the API routes for version 1 of the API.
-- `services/`: Contains utility services, such as the date parsing service.
-- `utils/`: Holds utility functions used across the application.
-- `Docs/`: Contains documentation files for the API and its implementation.
+The API endpoints have been cloned and separated into `/api/json/v1` for consumer use and `/api/json/internal` for internal use. This separation allows for:
 
-When implementing a new API endpoint:
+1. Independent evolution of internal APIs without affecting the public API contract.
+2. Enhanced security by restricting access to internal endpoints.
+3. Potential optimization of internal endpoints for specific use cases.
+4. Easier management and maintenance of consumer-facing and internal APIs.
 
-1. Create a new route file in `routes/api/v1/` if it's a completely new feature.
-2. Implement the controller function in a new or existing file in the `controllers/` directory.
-3. Use existing middlewares from the `middlewares/` directory or create new ones as needed.
-4. Update the `app.js` file to include the new route if necessary.
-5. Add or update documentation in the `Docs/` directory.
-
-This structure promotes modularity and separation of concerns, making it easier to maintain and extend the API as the project grows.
-
-```
-
-This file structure overview will help new engineers quickly understand where different components of the API are located and how they relate to each other. It also provides guidance on where to add new files when implementing new API endpoints.
-
-```
+By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application, while understanding the distinction between consumer-facing and internal APIs.
 
 ———
 
@@ -1336,7 +1561,7 @@ Note that the "Date" field remains unchanged as it's already in a standardized f
 
 For bulk searches, the structure is slightly different:
 
-###### \# Input (raw data from database):
+###### \\# Input (raw data from database):
 
 ```json
 {
@@ -1374,7 +1599,7 @@ For bulk searches, the structure is slightly different:
 }
 ```
 
-###### \# Output (after normalization and sorting by "Log date" in descending order):
+###### \\# Output (after normalization and sorting by "Log date" in descending order):
 
 ```json
 {

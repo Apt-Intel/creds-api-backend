@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const logger = require("../../../config/logger");
-const { searchByLogin } = require("../../../controllers/loginController");
+const { searchByLogin } = require("../../../controllers/v1/loginController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");

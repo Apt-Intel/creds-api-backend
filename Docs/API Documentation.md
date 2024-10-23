@@ -155,6 +155,55 @@ Test endpoint to verify date normalization functionality.
 }
 ```
 
+## 4. Internal Search by Login
+
+### Endpoint
+
+`GET /api/json/internal/search-by-login`
+`POST /api/json/internal/search-by-login`
+
+### Description
+
+Internal endpoint for searching user login information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
+
+### Request Parameters
+
+(Same as the v1 endpoint)
+
+### Example Request
+
+GET /api/json/internal/search-by-login?login=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
+
+### Example Response
+
+(Same format as the v1 endpoint)
+
+## 5. Internal Search by Login (Bulk)
+
+### Endpoint
+
+`POST /api/json/internal/search-by-login/bulk`
+
+### Description
+
+Internal endpoint for bulk searching of user logins. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
+
+### Request Parameters
+
+(Same as the v1 bulk endpoint)
+
+### Request Body
+
+(Same as the v1 bulk endpoint)
+
+### Example Request
+
+POST /api/json/internal/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+
+### Example Response
+
+(Same format as the v1 bulk endpoint)
+
 ## Authentication
 
 All endpoints (except `/health`) require an API key to be provided in the request headers.
@@ -213,3 +262,7 @@ Check the health status of the API.
 ```
 
 This endpoint does not require authentication and is not subject to rate limiting.
+
+## Note on Internal Endpoints
+
+The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
