@@ -257,3 +257,36 @@
 {"timestamp":"2024-10-23T22:21:38.974Z","level":"info","message":"Document redesign completed"}
 {"timestamp":"2024-10-23T22:21:38.975Z","level":"info","message":"Sending response"}
 {"timestamp":"2024-10-23T22:21:38.977Z","level":"info","message":"::1 - - [23/Oct/2024:22:21:38 +0000] \"GET /api/json/v1/search-by-mail?sortby=date_compromised&sortorder=desc&page=1 HTTP/1.1\" 200 174219 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T23:01:28.582Z","level":"info","message":"API_KEY from env: test","requestId":"system"}
+{"timestamp":"2024-10-23T23:01:30.388Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-23T23:01:30.393Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-23T23:01:33.873Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T23:01:33.873Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T23:01:33.875Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T23:01:33.878Z","level":"info","message":"Search initiated for mail: jose2008pro11@gmail.com, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T23:01:35.992Z","level":"info","message":"Search completed for mail: jose2008pro11@gmail.com, total results: 1"}
+{"timestamp":"2024-10-23T23:01:35.994Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T23:01:36.001Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T23:01:36.002Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T23:01:36.002Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-23T23:01:36.003Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T23:01:36.003Z","level":"info","message":"Document redesign middleware called"}
+{"timestamp":"2024-10-23T23:01:36.004Z","level":"info","message":"Processing single search results"}
+{"timestamp":"2024-10-23T23:01:36.010Z","level":"info","message":"Document redesign completed"}
+{"timestamp":"2024-10-23T23:01:36.010Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T23:01:36.018Z","level":"info","message":"::1 - - [23/Oct/2024:23:01:36 +0000] \"GET /api/json/v1/search-by-mail HTTP/1.1\" 200 4138 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-23T23:01:50.245Z","level":"info","message":"Received API key: test"}
+{"timestamp":"2024-10-23T23:01:50.246Z","level":"info","message":"API key validation result: true"}
+{"timestamp":"2024-10-23T23:01:50.247Z","level":"info","message":"Valid API key cached"}
+{"timestamp":"2024-10-23T23:01:50.250Z","level":"info","message":"Bulk search request received for 2 mails, page: 1, installed_software: false"}
+{"timestamp":"2024-10-23T23:01:52.548Z","level":"info","message":"Bulk search completed for 2 mails, total results: 16, processing time: 2298.17ms"}
+{"timestamp":"2024-10-23T23:01:52.554Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-23T23:01:52.557Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-23T23:01:52.557Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-23T23:01:52.557Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-23T23:01:52.557Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-23T23:01:52.557Z","level":"info","message":"Document redesign middleware called"}
+{"timestamp":"2024-10-23T23:01:52.563Z","level":"info","message":"Processing bulk search results"}
+{"timestamp":"2024-10-23T23:01:52.604Z","level":"info","message":"Document redesign completed"}
+{"timestamp":"2024-10-23T23:01:52.605Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-23T23:01:52.608Z","level":"info","message":"::1 - - [23/Oct/2024:23:01:52 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 348512 \"-\" \"PostmanRuntime/7.39.0\""}

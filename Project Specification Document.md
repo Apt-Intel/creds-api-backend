@@ -365,22 +365,22 @@ Credentials.URL → Domains Array
 
 ### API Documentation
 
-#### 1. Search by Login
+#### 1. Search by Mail
 
 ##### Endpoint
 
-`GET /api/json/v1/search-by-login`
-`POST /api/json/v1/search-by-login`
+`GET /api/json/v1/search-by-mail`
+`POST /api/json/v1/search-by-mail`
 
 ##### Description
 
-Search for user login information based on query parameters or request body.
+Search for user mail information based on query parameters or request body.
 
 ##### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `login`              | String  | Yes      | The login username to search for.                                              |
+| `mail`               | String  | Yes      | The mail address to search for.                                                |
 | `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
 | `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
 | `page`               | Number  | No       | The page number for pagination. Default: 1                                     |
@@ -388,7 +388,7 @@ Search for user login information based on query parameters or request body.
 
 ##### Example Request
 
-GET /api/json/v1/search-by-login?login=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
+GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
 
 ##### Example Response
 
@@ -412,20 +412,20 @@ GET /api/json/v1/search-by-login?login=example@email.com&sortby=date_uploaded&so
 
 | Status Code | Description                               |
 | ----------- | ----------------------------------------- |
-| 400         | Bad Request - Login parameter is required |
+| 400         | Bad Request - Mail parameter is required  |
 | 401         | Unauthorized - Invalid or missing API key |
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
 
-#### 2. Search by Login (Bulk)
+#### 2. Search by Mail (Bulk)
 
 ##### Endpoint
 
-`POST /api/json/v1/search-by-login/bulk`
+`POST /api/json/v1/search-by-mail/bulk`
 
 ##### Description
 
-Search for multiple user logins in a single request.
+Search for multiple user mails in a single request.
 
 ##### Request Parameters
 
@@ -438,17 +438,17 @@ Search for multiple user logins in a single request.
 
 ##### Request Body
 
-| Parameter | Type        | Required | Description                                           |
-| --------- | ----------- | -------- | ----------------------------------------------------- |
-| `logins`  | String[](#) | Yes      | Array of login usernames to search for (max 10 items) |
+| Parameter | Type     | Required | Description                                          |
+| --------- | -------- | -------- | ---------------------------------------------------- |
+| `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
 
 ##### Example Request
 
-POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+POST /api/json/v1/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1
 
 ```json
 {
-  "logins": ["example1@email.com", "example2@email.com"]
+  "mails": ["example1@email.com", "example2@email.com"]
 }
 ```
 
@@ -460,7 +460,7 @@ POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
   "page": 1,
   "results": [
     {
-      "login": "example1@email.com",
+      "mail": "example1@email.com",
       "total": 100,
       "data": [
         {
@@ -473,7 +473,7 @@ POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
       ]
     },
     {
-      "login": "example2@email.com",
+      "mail": "example2@email.com",
       "total": 50,
       "data": [
         {
@@ -491,12 +491,12 @@ POST /api/json/v1/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
 
 ##### Errors
 
-| Status Code | Description                                                 |
-| ----------- | ----------------------------------------------------------- |
-| 400         | Bad Request - Invalid logins array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                   |
-| 429         | Too Many Requests - Rate limit exceeded                     |
-| 500         | Internal Server Error                                       |
+| Status Code | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| 400         | Bad Request - Invalid mails array or exceeds maximum limit |
+| 401         | Unauthorized - Invalid or missing API key                  |
+| 429         | Too Many Requests - Rate limit exceeded                    |
+| 500         | Internal Server Error                                      |
 
 #### 3. Test Date Normalization
 
@@ -520,16 +520,16 @@ Test endpoint to verify date normalization functionality.
 }
 ```
 
-#### 4. Internal Search by Login
+#### 4. Internal Search by Mail
 
 ##### Endpoint
 
-`GET /api/json/internal/search-by-login`
-`POST /api/json/internal/search-by-login`
+`GET /api/json/internal/search-by-mail`
+`POST /api/json/internal/search-by-mail`
 
 ##### Description
 
-Internal endpoint for searching user login information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
+Internal endpoint for searching user mail information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
 
 ##### Request Parameters
 
@@ -537,21 +537,21 @@ Internal endpoint for searching user login information. This endpoint mirrors th
 
 ##### Example Request
 
-GET /api/json/internal/search-by-login?login=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
+GET /api/json/internal/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
 
 ##### Example Response
 
 (Same format as the v1 endpoint)
 
-#### 5. Internal Search by Login (Bulk)
+#### 5. Internal Search by Mail (Bulk)
 
 ##### Endpoint
 
-`POST /api/json/internal/search-by-login/bulk`
+`POST /api/json/internal/search-by-mail/bulk`
 
 ##### Description
 
-Internal endpoint for bulk searching of user logins. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
+Internal endpoint for bulk searching of user mails. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
 
 ##### Request Parameters
 
@@ -563,11 +563,122 @@ Internal endpoint for bulk searching of user logins. This endpoint mirrors the f
 
 ##### Example Request
 
-POST /api/json/internal/search-by-login/bulk?sortby=date_uploaded&sortorder=asc&page=1
+POST /api/json/internal/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1
 
 ##### Example Response
 
 (Same format as the v1 bulk endpoint)
+
+#### New Internal API Endpoints
+
+##### 1. Search by Domain
+
+###### Endpoint
+
+`GET /api/json/internal/search-by-domain`
+`POST /api/json/internal/search-by-domain`
+
+###### Description
+
+Search for domain information based on query parameters or request body.
+
+###### Request Parameters
+
+- `domain` (required): The domain to search for
+- `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
+- `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
+- `page` (optional): Page number for pagination. Default: 1
+- `installed_software` (optional): Boolean flag for installed software. Default: false
+
+###### Example Request
+
+GET /api/json/internal/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1
+
+###### Example Response
+
+```json
+{
+  "total": 100,
+  "page": 1,
+  "results": [
+    {
+      "Domains": ["example.com"],
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z"
+      // Other fields...
+    }
+    // More results...
+  ]
+}
+```
+
+##### 2. Search by Domain (Bulk)
+
+###### Endpoint
+
+`POST /api/json/internal/search-by-domain/bulk`
+
+###### Description
+
+Search for multiple domains in a single request.
+
+###### Request Parameters
+
+- `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
+- `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
+- `page` (optional): Page number for pagination. Default: 1
+- `installed_software` (optional): Boolean flag for installed software. Default: false
+
+###### Request Body
+
+- `domains` (required): Array of domains to search for (max 10 items)
+
+###### Example Request
+
+POST /api/json/internal/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1
+
+```json
+{
+  "domains": ["example1.com", "example2.com"]
+}
+```
+
+###### Example Response
+
+```json
+{
+  "total": 150,
+  "page": 1,
+  "results": [
+    {
+      "domain": "example1.com",
+      "total": 100,
+      "data": [
+        {
+          "Domains": ["example1.com"],
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    },
+    {
+      "domain": "example2.com",
+      "total": 50,
+      "data": [
+        {
+          "Domains": ["example2.com"],
+          "Log date": "2023-07-24T10:15:45.000Z",
+          "Date": "2023-07-24T10:15:45.000Z"
+          // Other fields...
+        }
+        // More results...
+      ]
+    }
+  ]
+}
+```
 
 #### Authentication
 
@@ -632,6 +743,81 @@ This endpoint does not require authentication and is not subject to rate limitin
 
 The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
 
+#### Document Structure for /v1 Routes
+
+The API now returns a redesigned document structure for both single and bulk mail searches. The following changes have been made to the response:
+
+1. Removed fields:
+
+   - Folder Name
+   - Build ID
+   - Hash
+   - Usernames
+   - Domains
+   - Emails
+   - Employee
+
+2. Credentials are now split into three categories:
+
+   - InternalCredentials: Credentials where the searched email's domain matches the domain in Credentials.URL
+   - ExternalCredentials: Credentials where the searched email's domain matches the domain in Credentials.Username
+   - OtherCredentials: All remaining credentials
+
+3. All other fields from the original document are retained.
+
+Example response structure:
+
+```json
+{
+  "total": 100,
+  "page": 1,
+  "results": [
+    {
+      "Usernames": "example@email.com",
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "InternalCredentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "user@example.com",
+          "Password": "password123"
+        }
+      ],
+      "ExternalCredentials": [
+        {
+          "URL": "https://othersite.com",
+          "Username": "user@example.com",
+          "Password": "password456"
+        }
+      ],
+      "OtherCredentials": [
+        {
+          "URL": "https://thirdsite.com",
+          "Username": "user@thirdsite.com",
+          "Password": "password789"
+        }
+      ]
+      // Other fields...
+    }
+    // More results...
+  ]
+}
+```
+
+These changes implement the new document redesign feature for the v1/search-by-mail and v1/search-by-mail/bulk routes. The new middleware processes the documents after sorting and before sending the response, as requested. The API documentation has been updated to reflect these changes.
+
+Remember to test these changes thoroughly, especially with various edge cases in the Credentials array, to ensure everything works as expected.
+
+#### Document Redesign Process
+
+Both single and bulk search responses go through a document redesign process:
+
+1. Certain fields are removed from the original document.
+2. Credentials are categorized into Internal, External, and Other based on the searched email's domain.
+3. The redesigned document retains all other original fields.
+
+This process applies to both `/search-by-mail` and `/search-by-mail/bulk` endpoints.
+
 ———
 
 ### API Endpoints and Routes Documentation
@@ -640,83 +826,95 @@ This document provides a detailed overview of the API endpoints, routes, middlew
 
 #### 1. API Versioning
 
-Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is v1, which is reflected in the URL structure: `/api/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
+Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is **v1**, which is reflected in the URL structure: `/api/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
+
+---
 
 #### 2. API Endpoints and Routes Implementation
 
 API endpoints and routes are defined in the `routes` directory. Each route file corresponds to a specific feature or resource.
 
-##### 2.1 Search By Login Endpoint
+##### 2.1 Search By Mail Endpoint
 
-Example: `routes/api/v1/searchByLogin.js`
+**File:** `routes/api/v1/searchByMail.js`
 
 ```js
 const express = require("express");
 const router = express.Router();
-const { searchByLogin } = require("../../../controllers/v1/loginController");
+const { searchByMail } = require("../../../controllers/v1/mailController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.get(
-  "/search-by-login",
-  searchByLogin,
+  "/search-by-mail",
+  searchByMail,
   dateNormalizationMiddleware,
   sortingMiddleware,
+  documentRedesignMiddleware,
   sendResponseMiddleware
 );
+
 router.post(
-  "/search-by-login",
-  searchByLogin,
+  "/search-by-mail",
+  searchByMail,
   dateNormalizationMiddleware,
   sortingMiddleware,
+  documentRedesignMiddleware,
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
-- **URL**: `/api/json/v1/search-by-login`
-- **Methods**: GET, POST
+- **URL**: `/api/json/v1/search-by-mail`
+- **Methods**: `GET`, `POST`
 - **Auth Required**: Yes
 - **Query Parameters**:
-  - `login` (required): The username to search for
-  - `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
-  - `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
-  - `page` (optional): Page number for pagination. Default: 1
-  - `installed_software` (optional): Boolean flag for installed software. Default: false
+  - `mail` (required): The email address to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
 
-##### 2.2 Search By Login Bulk Endpoint
+##### 2.2 Search By Mail Bulk Endpoint
 
-Example: `routes/api/v1/searchByLoginBulk.js`
+**File:** `routes/api/v1/searchByMailBulk.js`
 
 ```js
 const express = require("express");
 const router = express.Router();
 const {
-  searchByLoginBulk,
-} = require("../../../controllers/v1/loginBulkController");
+  searchByMailBulk,
+} = require("../../../controllers/v1/mailBulkController");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.post(
-  "/search-by-login/bulk",
-  searchByLoginBulk,
+  "/search-by-mail/bulk",
+  searchByMailBulk,
   dateNormalizationMiddleware,
   sortingMiddleware,
+  documentRedesignMiddleware,
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
-- **URL**: `/api/json/v1/search-by-login/bulk`
-- **Method**: POST
+- **URL**: `/api/json/v1/search-by-mail/bulk`
+- **Method**: `POST`
 - **Auth Required**: Yes
 - **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
-  - `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
-  - `page` (optional): Page number for pagination. Default: 1
-  - `installed_software` (optional): Boolean flag for installed software. Default: false
+  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
 - **Request Body**:
-  - `logins` (required): Array of email addresses to search for (max 10)
+  - `mails` (required): Array of email addresses to search for (max 10 items)
 
 ##### 2.3 Internal Search By Login Endpoint
 
@@ -784,11 +982,11 @@ module.exports = router;
 
 #### 3. Middlewares Implementation
 
-Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, logging, date normalization, and sorting.
+Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, logging, date normalization, sorting, and document redesign.
 
 ##### 3.1 Authentication Middleware
 
-Example: `authMiddleware.js`
+**File:** `middlewares/authMiddleware.js`
 
 ```js
 const logger = require("../config/logger");
@@ -827,7 +1025,7 @@ module.exports = authMiddleware;
 
 ##### 3.2 Date Normalization Middleware
 
-Example: `dateNormalizationMiddleware.js`
+**File:** `middlewares/dateNormalizationMiddleware.js`
 
 ```js
 const { parseDate } = require("../services/dateService");
@@ -841,6 +1039,9 @@ const normalizeData = async (data) => {
     const newData = { ...data };
     if ("Log date" in newData) {
       newData["Log date"] = await parseDate(newData["Log date"]);
+    }
+    if ("Date" in newData) {
+      newData["Date"] = await parseDate(newData["Date"]);
     }
     if ("data" in newData && Array.isArray(newData.data)) {
       newData.data = await Promise.all(newData.data.map(normalizeData));
@@ -872,7 +1073,7 @@ module.exports = dateNormalizationMiddleware;
 
 ##### 3.3 Sorting Middleware
 
-Example: `sortingMiddleware.js`
+**File:** `middlewares/sortingMiddleware.js`
 
 ```js
 const logger = require("../config/logger");
@@ -934,9 +1135,167 @@ const sortingMiddleware = (req, res, next) => {
 module.exports = sortingMiddleware;
 ```
 
-##### 3.4 Send Response Middleware
+##### 3.4 Document Redesign Middleware
 
-Example: `sendResponseMiddleware.js`
+**File:** `middlewares/documentRedesignMiddleware.js`
+
+```js
+const { sanitizeDomain } = require("../utils/domainUtils");
+const logger = require("../config/logger");
+
+const documentRedesignMiddleware = async (req, res, next) => {
+  if (!req.searchResults) {
+    return next();
+  }
+
+  logger.info("Document redesign middleware called");
+  logger.debug(
+    "req.searchResults structure:",
+    JSON.stringify(req.searchResults, null, 2)
+  );
+
+  const redesignDocument = async (doc, searchedEmail) => {
+    logger.debug("Redesigning document:", JSON.stringify(doc, null, 2));
+
+    if (!doc || typeof doc !== "object") {
+      logger.warn("Invalid document structure:", doc);
+      return doc;
+    }
+
+    const {
+      "Folder Name": folderName,
+      "Build ID": buildId,
+      Hash: hash,
+      Usernames: usernames,
+      Domains: domains,
+      Emails: emails,
+      Employee: employee,
+      Credentials,
+      ...remainingFields
+    } = doc;
+
+    // Updated code with additional checks
+    let searchedDomain = null;
+    if (
+      searchedEmail &&
+      typeof searchedEmail === "string" &&
+      searchedEmail.includes("@")
+    ) {
+      searchedDomain = await sanitizeDomain(searchedEmail.split("@")[1]);
+    } else {
+      logger.warn("searchedEmail is invalid or undefined:", searchedEmail);
+      searchedDomain = null;
+    }
+
+    logger.debug("Searched domain:", searchedDomain);
+
+    const categorizedCredentials = {
+      InternalCredentials: [],
+      ExternalCredentials: [],
+      OtherCredentials: [],
+    };
+
+    // Check if Credentials is an array before iterating
+    if (Array.isArray(Credentials)) {
+      logger.debug("Processing Credentials array");
+      for (const cred of Credentials) {
+        try {
+          const credUrlDomain = cred.URL
+            ? await sanitizeDomain(new URL(cred.URL).hostname)
+            : null;
+          const credUsernameDomain =
+            cred.Username && cred.Username.includes("@")
+              ? await sanitizeDomain(cred.Username.split("@")[1])
+              : null;
+
+          logger.debug("Credential domains:", {
+            credUrlDomain,
+            credUsernameDomain,
+            searchedDomain,
+          });
+
+          if (credUrlDomain === searchedDomain) {
+            categorizedCredentials.InternalCredentials.push(cred);
+          } else if (credUsernameDomain === searchedDomain) {
+            categorizedCredentials.ExternalCredentials.push(cred);
+          } else {
+            categorizedCredentials.OtherCredentials.push(cred);
+          }
+        } catch (error) {
+          logger.warn(`Error processing credential: ${error.message}`, {
+            credential: cred,
+          });
+          categorizedCredentials.OtherCredentials.push(cred);
+        }
+      }
+    } else {
+      logger.warn(`Credentials is not an array for document:`, {
+        docId: doc._id,
+        credentials: Credentials,
+      });
+    }
+
+    logger.debug("Categorized credentials:", categorizedCredentials);
+
+    return {
+      ...remainingFields,
+      ...categorizedCredentials,
+    };
+  };
+
+  try {
+    if (
+      req.searchResults &&
+      req.searchResults.results &&
+      Array.isArray(req.searchResults.results)
+    ) {
+      if (
+        req.searchResults.results.length > 0 &&
+        req.searchResults.results[0] &&
+        "data" in req.searchResults.results[0]
+      ) {
+        // Bulk search
+        logger.info("Processing bulk search results");
+        req.searchResults.results = await Promise.all(
+          req.searchResults.results.map(async (result) => {
+            logger.debug("Processing result for mail:", result.mail);
+            const searchedEmail = result.mail;
+            if (result.data && Array.isArray(result.data)) {
+              result.data = await Promise.all(
+                result.data.map((doc) => redesignDocument(doc, searchedEmail))
+              );
+            }
+            return result;
+          })
+        );
+      } else {
+        // Single search
+        logger.info("Processing single search results");
+        const searchedEmail = req.query.mail || req.body.mail;
+        req.searchResults.results = await Promise.all(
+          req.searchResults.results.map((doc) =>
+            redesignDocument(doc, searchedEmail)
+          )
+        );
+      }
+    } else {
+      logger.warn("Unexpected searchResults structure:", req.searchResults);
+    }
+
+    logger.info("Document redesign completed");
+    next();
+  } catch (error) {
+    logger.error("Error in document redesign middleware:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = documentRedesignMiddleware;
+```
+
+##### 3.5 Send Response Middleware
+
+**File:** `middlewares/sendResponseMiddleware.js`
 
 ```js
 const logger = require("../config/logger");
@@ -951,28 +1310,28 @@ module.exports = sendResponseMiddleware;
 
 #### 4. Controllers Implementation
 
-Controllers are now organized in separate directories for v1 and internal APIs. They are implemented in the `controllers/v1` and `controllers/internal` directories respectively. They handle the business logic for each route.
+Controllers are organized in separate directories for `v1` and `internal` APIs. They handle the business logic for each route.
 
-##### 4.1 V1 Login Controller
+##### 4.1 V1 Mail Controller
 
-Example: `controllers/v1/loginController.js`
+**File:** `controllers/v1/mailController.js`
 
 ```js
-const { getDatabase } = require("../config/database");
-const logger = require("../config/logger");
-const { getPaginationParams } = require("../utils/paginationUtils");
+const { getDatabase } = require("../../config/database");
+const logger = require("../../config/logger");
+const { getPaginationParams } = require("../../utils/paginationUtils");
 
-async function searchByLogin(req, res, next) {
-  const login = req.body.login || req.query.login;
+async function searchByMail(req, res, next) {
+  const mail = req.body.mail || req.query.mail;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
 
   logger.info(
-    `Search initiated for login: ${login}, page: ${page}, installed_software: ${installedSoftware}`
+    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
   );
 
-  if (!login) {
-    return res.status(400).json({ error: "Login parameter is required" });
+  if (!mail) {
+    return res.status(400).json({ error: "Mail parameter is required" });
   }
 
   try {
@@ -982,7 +1341,7 @@ async function searchByLogin(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const query = { Usernames: login };
+    const query = { Emails: mail };
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
@@ -996,14 +1355,12 @@ async function searchByLogin(req, res, next) {
       results,
     };
 
-    logger.info(
-      `Search completed for login: ${login}, total results: ${total}`
-    );
+    logger.info(`Search completed for mail: ${mail}, total results: ${total}`);
 
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error("Error in searchByLogin:", error);
+    logger.error("Error in searchByMail:", error);
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
@@ -1011,34 +1368,34 @@ async function searchByLogin(req, res, next) {
 }
 
 module.exports = {
-  searchByLogin,
+  searchByMail,
 };
 ```
 
-##### 4.2 V1 Login Bulk Controller
+##### 4.2 V1 Mail Bulk Controller
 
-Example: `controllers/v1/loginBulkController.js`
+**File:** `controllers/v1/mailBulkController.js`
 
 ```js
-const { getDatabase } = require("../config/database");
-const logger = require("../config/logger");
-const { getPaginationParams } = require("../utils/paginationUtils");
+const { getDatabase } = require("../../config/database");
+const logger = require("../../config/logger");
+const { getPaginationParams } = require("../../utils/paginationUtils");
 const { performance } = require("perf_hooks");
 
-async function searchByLoginBulk(req, res, next) {
+async function searchByMailBulk(req, res, next) {
   const startTime = performance.now();
-  const { logins } = req.body;
+  const { mails } = req.body;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
 
   logger.info(
-    `Bulk search request received for ${logins.length} logins, page: ${page}, installed_software: ${installedSoftware}`
+    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
   );
 
-  if (!Array.isArray(logins) || logins.length === 0 || logins.length > 10) {
-    logger.warn("Invalid input: logins array", { loginCount: logins.length });
+  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
+    logger.warn("Invalid input: mails array", { mailCount: mails.length });
     return res.status(400).json({
-      error: "Invalid logins array. Must contain 1-10 email addresses.",
+      error: "Invalid mails array. Must contain 1-10 email addresses.",
     });
   }
 
@@ -1049,8 +1406,8 @@ async function searchByLoginBulk(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const searchPromises = logins.map(async (login) => {
-      const query = { Usernames: login };
+    const searchPromises = mails.map(async (mail) => {
+      const query = { Emails: mail };
       const { limit, skip } = getPaginationParams(page);
 
       const [results, total] = await Promise.all([
@@ -1059,7 +1416,7 @@ async function searchByLoginBulk(req, res, next) {
       ]);
 
       return {
-        login,
+        mail,
         total,
         data: results,
       };
@@ -1082,8 +1439,8 @@ async function searchByLoginBulk(req, res, next) {
 
     logger.info(
       `Bulk search completed for ${
-        logins.length
-      } logins, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+        mails.length
+      } mails, total results: ${totalResults}, processing time: ${totalTime.toFixed(
         2
       )}ms`
     );
@@ -1091,7 +1448,7 @@ async function searchByLoginBulk(req, res, next) {
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error("Error in searchByLoginBulk:", error);
+    logger.error("Error in searchByMailBulk:", error);
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
@@ -1099,52 +1456,169 @@ async function searchByLoginBulk(req, res, next) {
 }
 
 module.exports = {
-  searchByLoginBulk,
+  searchByMailBulk,
 };
 ```
 
-##### 4.3 Internal Login Controller
+##### 4.3 Internal Mail Controller
 
-Example: `controllers/internal/loginController.js`
+**File:** `controllers/internal/mailController.js`
 
 ```js
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
-async function internalSearchByLogin(req, res, next) {
-  // Implementation similar to v1 searchByLogin, with internal-specific logging
-  // ...
+
+async function internalSearchByMail(req, res, next) {
+  const mail = req.body.mail || req.query.mail;
+  const page = parseInt(req.query.page) || 1;
+  const installedSoftware = req.query.installed_software === "true";
+
+  logger.info(
+    `Internal search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
+  );
+
+  if (!mail) {
+    return res.status(400).json({ error: "Mail parameter is required" });
+  }
+
+  try {
+    const db = await getDatabase();
+    if (!db) {
+      throw new Error("Database connection not established");
+    }
+    const collection = db.collection("logs");
+
+    const query = { Emails: mail };
+    const { limit, skip } = getPaginationParams(page);
+
+    const [results, total] = await Promise.all([
+      collection.find(query).skip(skip).limit(limit).toArray(),
+      collection.countDocuments(query),
+    ]);
+
+    const response = {
+      total,
+      page,
+      results,
+    };
+
+    logger.info(
+      `Internal search completed for mail: ${mail}, total results: ${total}`
+    );
+
+    req.searchResults = response;
+    next();
+  } catch (error) {
+    logger.error("Error in internalSearchByMail:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error", details: error.message });
+  }
 }
+
 module.exports = {
-  internalSearchByLogin,
+  internalSearchByMail,
 };
 ```
 
-##### 4.4 Internal Login Bulk Controller
+##### 4.4 Internal Mail Bulk Controller
 
-Example: `controllers/internal/loginBulkController.js`
+**File:** `controllers/internal/mailBulkController.js`
 
 ```js
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
-async function internalSearchByLoginBulk(req, res, next) {
-  // Implementation similar to v1 searchByLoginBulk, with internal-specific logging
-  // ...
+const { performance } = require("perf_hooks");
+
+async function internalSearchByMailBulk(req, res, next) {
+  const startTime = performance.now();
+  const { mails } = req.body;
+  const page = parseInt(req.query.page) || 1;
+  const installedSoftware = req.query.installed_software === "true";
+
+  logger.info(
+    `Internal bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
+  );
+
+  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
+    logger.warn("Invalid input: mails array", { mailCount: mails.length });
+    return res.status(400).json({
+      error: "Invalid mails array. Must contain 1-10 email addresses.",
+    });
+  }
+
+  try {
+    const db = await getDatabase();
+    if (!db) {
+      throw new Error("Database connection not established");
+    }
+    const collection = db.collection("logs");
+
+    const searchPromises = mails.map(async (mail) => {
+      const query = { Emails: mail };
+      const { limit, skip } = getPaginationParams(page);
+
+      const [results, total] = await Promise.all([
+        collection.find(query).skip(skip).limit(limit).toArray(),
+        collection.countDocuments(query),
+      ]);
+
+      return {
+        mail,
+        total,
+        data: results,
+      };
+    });
+
+    const searchResults = await Promise.all(searchPromises);
+
+    const totalResults = searchResults.reduce(
+      (sum, result) => sum + result.total,
+      0
+    );
+    const response = {
+      total: totalResults,
+      page,
+      results: searchResults,
+    };
+
+    const endTime = performance.now();
+    const totalTime = endTime - startTime;
+
+    logger.info(
+      `Internal bulk search completed for ${
+        mails.length
+      } mails, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+        2
+      )}ms`
+    );
+
+    req.searchResults = response;
+    next();
+  } catch (error) {
+    logger.error("Error in internalSearchByMailBulk:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error", details: error.message });
+  }
 }
+
 module.exports = {
-  internalSearchByLoginBulk,
+  internalSearchByMailBulk,
 };
 ```
 
-#### 5. New Date Normalization and Sorting Flow
+#### 5. New Date Normalization, Sorting, and Document Redesign Flow
 
-The flow for date normalization and sorting remains the same for both v1 and internal APIs:
+The flow for date normalization, sorting, and document redesign remains the same for both v1 and internal APIs:
 
-1. Controller fetches raw data from the database.
-2. Date Normalization Middleware normalizes the "Log date" fields.
-3. Sorting Middleware sorts the normalized data based on query parameters.
-4. Send Response Middleware sends the final response.
+1. **Controller** fetches raw data from the database.
+2. **Date Normalization Middleware** normalizes the `"Log date"` and `"Date"` fields.
+3. **Sorting Middleware** sorts the normalized data based on query parameters.
+4. **Document Redesign Middleware** processes the documents to redesign the structure.
+5. **Send Response Middleware** sends the final response.
 
 This flow allows for better separation of concerns and makes the code more modular and maintainable. It's applied consistently across both v1 and internal endpoints, ensuring uniform data processing.
 
@@ -1152,14 +1626,14 @@ This flow allows for better separation of concerns and makes the code more modul
 
 When implementing new API routes, follow these steps for both v1 and internal APIs:
 
-1. Determine if the route is for v1 (consumer-facing) or internal use.
-2. Create a new file in the appropriate directory: 3. For v1 routes: `routes/api/v1/` 4. For internal routes: `routes/api/internal/`
-3. Define the route using Express.
-4. Apply necessary middlewares (e.g., authentication, date normalization, sorting).
-5. Call the appropriate controller function from the corresponding v1 or internal controller.
-6. Use the sendResponseMiddleware as the last middleware in the chain.
+1. **Determine** if the route is for v1 (consumer-facing) or internal use.
+2. **Create** a new file in the appropriate directory: 3. For v1 routes: `routes/api/v1/` 4. For internal routes: `routes/api/internal/`
+3. **Define** the route using Express.
+4. **Apply** necessary middlewares (e.g., authentication, date normalization, sorting, document redesign).
+5. **Call** the appropriate controller function from the corresponding v1 or internal controller.
+6. **Use** the `sendResponseMiddleware` as the last middleware in the chain.
 
-Example for a new v1 route:
+**Example for a new v1 route:**
 
 ```js
 const express = require("express");
@@ -1168,19 +1642,23 @@ const { newController } = require("../../../controllers/v1/newController");
 const authMiddleware = require("../../../middlewares/authMiddleware");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.get(
   "/new-route",
   authMiddleware,
   newController,
   dateNormalizationMiddleware,
   sortingMiddleware,
+  documentRedesignMiddleware, // depends on if this is needed or not
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
-Example for a new internal route:
+**Example for a new internal route:**
 
 ```js
 const express = require("express");
@@ -1191,15 +1669,19 @@ const {
 const authMiddleware = require("../../../middlewares/authMiddleware");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.get(
   "/new-internal-route",
   authMiddleware,
   newInternalController,
   dateNormalizationMiddleware,
   sortingMiddleware,
+  documentRedesignMiddleware, // depends on if this is needed or not
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
@@ -1207,67 +1689,55 @@ Remember to update the `app.js` file to include the new route, using the appropr
 
 #### 7. Best Practices
 
-- Use meaningful HTTP methods (GET, POST, PUT, DELETE) for different operations.
-- Implement proper error handling and logging in all controllers and middlewares.
-- Use environment variables for configuration and sensitive information.
-- Follow RESTful naming conventions for endpoints.
-- Implement input validation for all incoming data.
-- Use the logger for consistent logging across the application.
-- Store sensitive information like API keys in the `.env` file.
-- Ensure proper error handling in controllers and middlewares.
-- Use the middleware chain (dateNormalizationMiddleware, sortingMiddleware, sendResponseMiddleware) for consistent data processing and response handling.
-- Clearly distinguish between v1 (consumer-facing) and internal routes and controllers.
+- **Use meaningful HTTP methods** (`GET`, `POST`, `PUT`, `DELETE`) for different operations.
+- **Implement proper error handling and logging** in all controllers and middlewares.
+- **Use environment variables** for configuration and sensitive information.
+- **Follow RESTful naming conventions** for endpoints.
+- **Implement input validation** for all incoming data.
+- **Use the logger** for consistent logging across the application.
+- **Store sensitive information** like API keys in the `.env` file.
+- **Ensure proper error handling** in controllers and middlewares.
+- **Use the middleware chain** (`dateNormalizationMiddleware`, `sortingMiddleware`, `documentRedesignMiddleware`, `sendResponseMiddleware`) for consistent data processing and response handling.
+- **Clearly distinguish** between v1 (consumer-facing) and internal routes and controllers.
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
 #### 8. Current File Structure
 
-The following file structure represents the organization of the codebase, highlighting the key components like structure of controllers, middlewares and routes related to API endpoint implementations:
+The following file structure represents the organization of the codebase, highlighting the key components like the structure of controllers, middlewares, and routes related to API endpoint implementations:
 
 ```
 project-root/
 ├── app.js
 ├── config/
-│   ├── database.js
-│   ├── logger.js
-│   └── redisClient.js
+│ ├── database.js
+│ ├── logger.js
+│ └── redisClient.js
 ├── controllers/
-│   ├── loginController.js
-│   └── loginBulkController.js
+│ ├── v1/
+│ │ ├── mailController.js
+│ │ └── mailBulkController.js
 ├── middlewares/
-│   ├── authMiddleware.js
-│   ├── complexRateLimitMiddleware.js
-│   ├── dateNormalizationMiddleware.js
-│   ├── rateLimitMiddleware.js
-│   ├── requestIdMiddleware.js
-│   ├── sendResponseMiddleware.js
-│   └── sortingMiddleware.js
+│ ├── authMiddleware.js
+│ ├── dateNormalizationMiddleware.js
+│ ├── sortingMiddleware.js
+│ ├── documentRedesignMiddleware.js
+│ ├── sendResponseMiddleware.js
+│ ├── complexRateLimitMiddleware.js
+│ ├── rateLimitMiddleware.js
+│ └── requestIdMiddleware.js
 ├── routes/
-│   └── api/
-│       └── v1/
-│           ├── searchByLogin.js
-│           └── searchByLoginBulk.js
+│ └── api/
+│ ├── v1/
+│ │ ├── searchByMail.js
+│ │ └── searchByMailBulk.js
 ├── services/
-│   └── dateService.js
+│ └── dateService.js
 ├── utils/
-│   └── paginationUtils.js
-├── Docs/
-│   ├── API Documentation.md
-│   ├── API Endpoints Implementation.md
-│   └── Date Normatization Implementation.md
+│ ├── paginationUtils.js
+│ └── domainUtils.js
 └── .env
 ```
-
-#### 8. Reason for API Cloning
-
-The API endpoints have been cloned and separated into `/api/json/v1` for consumer use and `/api/json/internal` for internal use. This separation allows for:
-
-1. Independent evolution of internal APIs without affecting the public API contract.
-2. Enhanced security by restricting access to internal endpoints.
-3. Potential optimization of internal endpoints for specific use cases.
-4. Easier management and maintenance of consumer-facing and internal APIs.
-
-By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application, while understanding the distinction between consumer-facing and internal APIs.
 
 ———
 
