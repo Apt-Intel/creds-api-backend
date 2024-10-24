@@ -365,320 +365,20 @@ Credentials.URL → Domains Array
 
 ### API Documentation
 
-#### 1. Search by Mail
-
-##### Endpoint
-
-`GET /api/json/v1/search-by-mail`
-`POST /api/json/v1/search-by-mail`
-
-##### Description
-
-Search for user mail information based on query parameters or request body.
-
-##### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `mail`               | String  | Yes      | The mail address to search for.                                                |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: 1                                     |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: false                                   |
-
-##### Example Request
-
-GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
-
-##### Example Response
-
-```json
-{
-  "total": 100,
-  "page": 1,
-  "results": [
-    {
-      "Usernames": "example@email.com",
-      "Log date": "2023-07-23T09:38:30.000Z",
-      "Date": "2023-07-23T09:38:30.000Z"
-      // Other fields...
-    }
-    // More results...
-  ]
-}
-```
-
-##### Errors
-
-| Status Code | Description                               |
-| ----------- | ----------------------------------------- |
-| 400         | Bad Request - Mail parameter is required  |
-| 401         | Unauthorized - Invalid or missing API key |
-| 429         | Too Many Requests - Rate limit exceeded   |
-| 500         | Internal Server Error                     |
-
-#### 2. Search by Mail (Bulk)
-
-##### Endpoint
-
-`POST /api/json/v1/search-by-mail/bulk`
-
-##### Description
-
-Search for multiple user mails in a single request.
-
-##### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: 1                                     |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: false                                   |
-
-##### Request Body
-
-| Parameter | Type     | Required | Description                                          |
-| --------- | -------- | -------- | ---------------------------------------------------- |
-| `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
-
-##### Example Request
-
-POST /api/json/v1/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1
-
-```json
-{
-  "mails": ["example1@email.com", "example2@email.com"]
-}
-```
-
-##### Example Response
-
-```json
-{
-  "total": 150,
-  "page": 1,
-  "results": [
-    {
-      "mail": "example1@email.com",
-      "total": 100,
-      "data": [
-        {
-          "Usernames": "example1@email.com",
-          "Log date": "2023-07-23T09:38:30.000Z",
-          "Date": "2023-07-23T09:38:30.000Z"
-          // Other fields...
-        }
-        // More results...
-      ]
-    },
-    {
-      "mail": "example2@email.com",
-      "total": 50,
-      "data": [
-        {
-          "Usernames": "example2@email.com",
-          "Log date": "2023-07-24T10:15:45.000Z",
-          "Date": "2023-07-24T10:15:45.000Z"
-          // Other fields...
-        }
-        // More results...
-      ]
-    }
-  ]
-}
-```
-
-##### Errors
-
-| Status Code | Description                                                |
-| ----------- | ---------------------------------------------------------- |
-| 400         | Bad Request - Invalid mails array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                  |
-| 429         | Too Many Requests - Rate limit exceeded                    |
-| 500         | Internal Server Error                                      |
-
-#### 3. Test Date Normalization
-
-##### Endpoint
-
-`GET /api/json/v1/test-date-normalization`
-
-##### Description
-
-Test endpoint to verify date normalization functionality.
-
-##### Example Response
-
-```json
-{
-  "testLogDate1": "2022-05-17T05:28:48.000Z",
-  "testLogDate2": "2022-05-17T05:28:48.375Z",
-  "testLogDate3": "2022-05-17T05:28:48.000Z",
-  "Date": "2023-10-21 14:30:00",
-  "nonDateField": "This is not a date"
-}
-```
-
-#### 4. Internal Search by Mail
-
-##### Endpoint
-
-`GET /api/json/internal/search-by-mail`
-`POST /api/json/internal/search-by-mail`
-
-##### Description
-
-Internal endpoint for searching user mail information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
-
-##### Request Parameters
-
-(Same as the v1 endpoint)
-
-##### Example Request
-
-GET /api/json/internal/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1
-
-##### Example Response
-
-(Same format as the v1 endpoint)
-
-#### 5. Internal Search by Mail (Bulk)
-
-##### Endpoint
-
-`POST /api/json/internal/search-by-mail/bulk`
-
-##### Description
-
-Internal endpoint for bulk searching of user mails. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
-
-##### Request Parameters
-
-(Same as the v1 bulk endpoint)
-
-##### Request Body
-
-(Same as the v1 bulk endpoint)
-
-##### Example Request
-
-POST /api/json/internal/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1
-
-##### Example Response
-
-(Same format as the v1 bulk endpoint)
-
-#### New Internal API Endpoints
-
-##### 1. Search by Domain
-
-###### Endpoint
-
-`GET /api/json/internal/search-by-domain`
-`POST /api/json/internal/search-by-domain`
-
-###### Description
-
-Search for domain information based on query parameters or request body.
-
-###### Request Parameters
-
-- `domain` (required): The domain to search for
-- `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
-- `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
-- `page` (optional): Page number for pagination. Default: 1
-- `installed_software` (optional): Boolean flag for installed software. Default: false
-
-###### Example Request
-
-GET /api/json/internal/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1
-
-###### Example Response
-
-```json
-{
-  "total": 100,
-  "page": 1,
-  "results": [
-    {
-      "Domains": ["example.com"],
-      "Log date": "2023-07-23T09:38:30.000Z",
-      "Date": "2023-07-23T09:38:30.000Z"
-      // Other fields...
-    }
-    // More results...
-  ]
-}
-```
-
-##### 2. Search by Domain (Bulk)
-
-###### Endpoint
-
-`POST /api/json/internal/search-by-domain/bulk`
-
-###### Description
-
-Search for multiple domains in a single request.
-
-###### Request Parameters
-
-- `sortby` (optional): Field to sort by. Options: "date_compromised" (default), "date_uploaded"
-- `sortorder` (optional): Sort order. Options: "desc" (default), "asc"
-- `page` (optional): Page number for pagination. Default: 1
-- `installed_software` (optional): Boolean flag for installed software. Default: false
-
-###### Request Body
-
-- `domains` (required): Array of domains to search for (max 10 items)
-
-###### Example Request
-
-POST /api/json/internal/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1
-
-```json
-{
-  "domains": ["example1.com", "example2.com"]
-}
-```
-
-###### Example Response
-
-```json
-{
-  "total": 150,
-  "page": 1,
-  "results": [
-    {
-      "domain": "example1.com",
-      "total": 100,
-      "data": [
-        {
-          "Domains": ["example1.com"],
-          "Log date": "2023-07-23T09:38:30.000Z",
-          "Date": "2023-07-23T09:38:30.000Z"
-          // Other fields...
-        }
-        // More results...
-      ]
-    },
-    {
-      "domain": "example2.com",
-      "total": 50,
-      "data": [
-        {
-          "Domains": ["example2.com"],
-          "Log date": "2023-07-24T10:15:45.000Z",
-          "Date": "2023-07-24T10:15:45.000Z"
-          // Other fields...
-        }
-        // More results...
-      ]
-    }
-  ]
-}
-```
+#### Table of Contents
+
+1. [Authentication](#authentication "Authentication")
+2. [Rate Limiting](#rate-limiting "Rate Limiting")
+3. [Pagination](#pagination "Pagination")
+4. [Date Normalization](#date-normalization "Date Normalization")
+5. [Error Responses](#error-responses "Error Responses")
+6. [Health Check](#health-check "Health Check")
+7. [Endpoints](#endpoints "Endpoints") 8. [Search by Mail](#1-search-by-mail "1. Search by Mail") 9. [Search by Mail (Bulk)](#2-search-by-mail-bulk "2. Search by Mail (Bulk)") 10. [Search by Domain](#3-search-by-domain "3. Search by Domain") 11. [Search by Domain (Bulk)](#4-search-by-domain-bulk "4. Search by Domain (Bulk)") 12. [Test Date Normalization](#5-test-date-normalization "5. Test Date Normalization")
+8. [Internal Endpoints](#internal-endpoints "Internal Endpoints") 14. [Internal Search by Mail](#6-internal-search-by-mail "6. Internal Search by Mail") 15. [Internal Search by Mail (Bulk)](#7-internal-search-by-mail-bulk "7. Internal Search by Mail (Bulk)") 16. [Internal Search by Domain](#8-internal-search-by-domain "8. Internal Search by Domain") 17. [Internal Search by Domain (Bulk)](#9-internal-search-by-domain-bulk "9. Internal Search by Domain (Bulk)")
+9. [Document Redesign Process](#document-redesign-process "Document Redesign Process")
+10. [Note on Internal Endpoints](#note-on-internal-endpoints "Note on Internal Endpoints")
+
+---
 
 #### Authentication
 
@@ -686,27 +386,27 @@ All endpoints (except `/health`) require an API key to be provided in the reques
 
 ##### Header
 
-api-key: YOUR_API_KEY
+- `api-key: YOUR_API_KEY`
 
 #### Rate Limiting
 
 The API implements rate limiting to prevent abuse. The current limits are:
 
-- 50 requests per 10-second window
+- **50 requests per 10-second window**
 
 Rate limit information is provided in the response headers:
 
-`X-RateLimit-Limit: 50`
-`X-RateLimit-Remaining: 49`
-`X-RateLimit-Reset: 9`
+- `X-RateLimit-Limit: 50`
+- `X-RateLimit-Remaining: 49`
+- `X-RateLimit-Reset: 9`
 
 #### Pagination
 
-Results are paginated with a default page size of 50 items. Use the `page` query parameter to navigate through pages.
+Results are paginated with a default page size of **50 items**. Use the `page` query parameter to navigate through pages.
 
 #### Date Normalization
 
-The API automatically normalizes dates in the "Log date" field to ISO 8601 format (UTC) for consistency.
+The API automatically normalizes dates in the `"Log date"` field to **ISO 8601** format (**UTC**) for consistency.
 
 #### Error Responses
 
@@ -723,7 +423,7 @@ Error responses follow this format:
 
 ##### Endpoint
 
-`GET /health`
+- `GET /health`
 
 ##### Description
 
@@ -739,33 +439,39 @@ Check the health status of the API.
 
 This endpoint does not require authentication and is not subject to rate limiting.
 
-#### Note on Internal Endpoints
+---
 
-The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
+#### Endpoints
 
-#### Document Structure for /v1 Routes
+##### 1. Search by Mail
 
-The API now returns a redesigned document structure for both single and bulk mail searches. The following changes have been made to the response:
+###### Endpoint
 
-1. Removed fields:
+- `GET /api/json/v1/search-by-mail`
+- `POST /api/json/v1/search-by-mail`
 
-   - Folder Name
-   - Build ID
-   - Hash
-   - Usernames
-   - Domains
-   - Emails
-   - Employee
+###### Description
 
-2. Credentials are now split into three categories:
+Search for user mail information based on query parameters or request body.
 
-   - InternalCredentials: Credentials where the searched email's domain matches the domain in Credentials.URL
-   - ExternalCredentials: Credentials where the searched email's domain matches the domain in Credentials.Username
-   - OtherCredentials: All remaining credentials
+###### Request Parameters
 
-3. All other fields from the original document are retained.
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `mail`               | String  | Yes      | The mail address to search for.                                                |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
+| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
+|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
+|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
-Example response structure:
+###### Example Request
+
+`GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
+
+###### Example Response
 
 ```json
 {
@@ -804,19 +510,560 @@ Example response structure:
 }
 ```
 
-These changes implement the new document redesign feature for the v1/search-by-mail and v1/search-by-mail/bulk routes. The new middleware processes the documents after sorting and before sending the response, as requested. The API documentation has been updated to reflect these changes.
+###### Errors
 
-Remember to test these changes thoroughly, especially with various edge cases in the Credentials array, to ensure everything works as expected.
+| Status Code | Description                               |
+| ----------- | ----------------------------------------- |
+| 400         | Bad Request - Mail parameter is required  |
+| 401         | Unauthorized - Invalid or missing API key |
+| 429         | Too Many Requests - Rate limit exceeded   |
+| 500         | Internal Server Error                     |
+
+##### 2. Search by Mail (Bulk)
+
+###### Endpoint
+
+- `POST /api/json/v1/search-by-mail/bulk`
+
+###### Description
+
+Search for multiple user mails in a single request.
+
+###### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
+| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
+|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
+|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
+
+###### Request Body
+
+| Parameter | Type     | Required | Description                                          |
+| --------- | -------- | -------- | ---------------------------------------------------- |
+| `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
+
+###### Example Request
+
+`POST /api/json/v1/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1&type=all`
+
+```json
+{
+  "mails": ["example1@email.com", "example2@email.com"]
+}
+```
+
+###### Example Response
+
+```json
+{
+  "total": 150,
+  "page": 1,
+  "results": [
+    {
+      "mail": "example1@email.com",
+      "total": 100,
+      "data": [
+        {
+          "Usernames": "example1@email.com",
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z",
+          "InternalCredentials": [
+            {
+              "URL": "https://example.com",
+              "Username": "user@example.com",
+              "Password": "password123"
+            }
+          ],
+          "ExternalCredentials": [
+            {
+              "URL": "https://othersite.com",
+              "Username": "user@example.com",
+              "Password": "password456"
+            }
+          ],
+          "OtherCredentials": [
+            {
+              "URL": "https://thirdsite.com",
+              "Username": "user@thirdsite.com",
+              "Password": "password789"
+            }
+          ]
+          // Other fields...
+        }
+        // More results...
+      ]
+    },
+    {
+      "mail": "example2@email.com",
+      "total": 50,
+      "data": [
+        {
+          "Usernames": "example2@email.com",
+          "Log date": "2023-07-24T10:15:45.000Z",
+          "Date": "2023-07-24T10:15:45.000Z",
+          "InternalCredentials": [
+            {
+              "URL": "https://example.com",
+              "Username": "user@example.com",
+              "Password": "password123"
+            }
+          ],
+          "ExternalCredentials": [
+            {
+              "URL": "https://othersite.com",
+              "Username": "user@example.com",
+              "Password": "password456"
+            }
+          ],
+          "OtherCredentials": [
+            {
+              "URL": "https://thirdsite.com",
+              "Username": "user@thirdsite.com",
+              "Password": "password789"
+            }
+          ]
+          // Other fields...
+        }
+        // More results...
+      ]
+    }
+  ]
+}
+```
+
+###### Errors
+
+| Status Code | Description                                                |
+| ----------- | ---------------------------------------------------------- |
+| 400         | Bad Request - Invalid mails array or exceeds maximum limit |
+| 401         | Unauthorized - Invalid or missing API key                  |
+| 429         | Too Many Requests - Rate limit exceeded                    |
+| 500         | Internal Server Error                                      |
+
+##### 3. Search by Domain
+
+###### Endpoint
+
+- `GET /api/json/v1/search-by-domain`
+- `POST /api/json/v1/search-by-domain`
+
+###### Description
+
+Search for domain information based on query parameters or request body.
+
+###### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `domain`             | String  | Yes      | The domain to search for.                                                      |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
+| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
+|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
+|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
+
+###### Example Request
+
+`GET /api/json/v1/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
+
+###### Example Response
+
+```json
+{
+  "total": 100,
+  "page": 1,
+  "results": [
+    {
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "InternalCredentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "user@example.com",
+          "Password": "password123"
+        }
+      ],
+      "ExternalCredentials": [
+        {
+          "URL": "https://othersite.com",
+          "Username": "user@example.com",
+          "Password": "password456"
+        }
+      ],
+      "OtherCredentials": [
+        {
+          "URL": "https://thirdsite.com",
+          "Username": "user@thirdsite.com",
+          "Password": "password789"
+        }
+      ]
+      // Other fields...
+    }
+    // More results...
+  ]
+}
+```
+
+###### Errors
+
+| Status Code | Description                                |
+| ----------- | ------------------------------------------ |
+| 400         | Bad Request - Domain parameter is required |
+| 401         | Unauthorized - Invalid or missing API key  |
+| 429         | Too Many Requests - Rate limit exceeded    |
+| 500         | Internal Server Error                      |
+
+##### 4. Search by Domain (Bulk)
+
+###### Endpoint
+
+- `POST /api/json/v1/search-by-domain/bulk`
+
+###### Description
+
+Search for multiple domains in a single request.
+
+###### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
+| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
+|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
+|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
+
+###### Request Body
+
+| Parameter | Type     | Required | Description                                   |
+| --------- | -------- | -------- | --------------------------------------------- |
+| `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
+
+###### Example Request
+
+`POST /api/json/v1/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1&type=all`
+
+```json
+{
+  "domains": ["example1.com", "example2.com"]
+}
+```
+
+###### Example Response
+
+```json
+{
+  "total": 150,
+  "page": 1,
+  "results": [
+    {
+      "domain": "example1.com",
+      "total": 100,
+      "data": [
+        {
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z",
+          "InternalCredentials": [
+            {
+              "URL": "https://example1.com",
+              "Username": "user@example1.com",
+              "Password": "password123"
+            }
+          ],
+          "ExternalCredentials": [
+            {
+              "URL": "https://othersite.com",
+              "Username": "user@example1.com",
+              "Password": "password456"
+            }
+          ],
+          "OtherCredentials": [
+            {
+              "URL": "https://thirdsite.com",
+              "Username": "user@thirdsite.com",
+              "Password": "password789"
+            }
+          ]
+          // Other fields...
+        }
+        // More results...
+      ]
+    },
+    {
+      "domain": "example2.com",
+      "total": 50,
+      "data": [
+        {
+          "Log date": "2023-07-24T10:15:45.000Z",
+          "Date": "2023-07-24T10:15:45.000Z",
+          "InternalCredentials": [
+            {
+              "URL": "https://example2.com",
+              "Username": "user@example2.com",
+              "Password": "password123"
+            }
+          ],
+          "ExternalCredentials": [
+            {
+              "URL": "https://othersite.com",
+              "Username": "user@example2.com",
+              "Password": "password456"
+            }
+          ],
+          "OtherCredentials": [
+            {
+              "URL": "https://thirdsite.com",
+              "Username": "user@thirdsite.com",
+              "Password": "password789"
+            }
+          ]
+          // Other fields...
+        }
+        // More results...
+      ]
+    }
+  ]
+}
+```
+
+###### Errors
+
+| Status Code | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| 400         | Bad Request - Invalid domains array or exceeds maximum limit |
+| 401         | Unauthorized - Invalid or missing API key                    |
+| 429         | Too Many Requests - Rate limit exceeded                      |
+| 500         | Internal Server Error                                        |
+
+##### 5. Test Date Normalization
+
+###### Endpoint
+
+- `GET /api/json/v1/test-date-normalization`
+
+###### Description
+
+Test endpoint to verify date normalization functionality.
+
+###### Example Response
+
+```json
+{
+  "testLogDate1": "2022-05-17T05:28:48.000Z",
+  "testLogDate2": "2022-05-17T05:28:48.375Z",
+  "testLogDate3": "2022-05-17T05:28:48.000Z",
+  "Date": "2023-10-21 14:30:00",
+  "nonDateField": "This is not a date"
+}
+```
+
+---
+
+#### Internal Endpoints
+
+##### 6. Internal Search by Mail
+
+###### Endpoint
+
+- `GET /api/json/internal/search-by-mail`
+- `POST /api/json/internal/search-by-mail`
+
+###### Description
+
+Internal endpoint for searching user mail information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
+
+###### Request Parameters
+
+(Same as the `/api/json/v1/search-by-mail` endpoint)
+
+###### Example Request
+
+`GET /api/json/internal/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1`
+
+###### Example Response
+
+(Same format as the `/api/json/v1/search-by-mail` endpoint)
+
+##### 7. Internal Search by Mail (Bulk)
+
+###### Endpoint
+
+- `POST /api/json/internal/search-by-mail/bulk`
+
+###### Description
+
+Internal endpoint for bulk searching of user mails. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
+
+###### Request Parameters
+
+(Same as the `/api/json/v1/search-by-mail/bulk` endpoint)
+
+###### Request Body
+
+(Same as the `/api/json/v1/search-by-mail/bulk` endpoint)
+
+###### Example Request
+
+`POST /api/json/internal/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1`
+
+###### Example Response
+
+(Same format as the `/api/json/v1/search-by-mail/bulk` endpoint)
+
+##### 8. Internal Search by Domain
+
+###### Endpoint
+
+- `GET /api/json/internal/search-by-domain`
+- `POST /api/json/internal/search-by-domain`
+
+###### Description
+
+Internal endpoint for searching domain information. Intended for internal use only.
+
+###### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `domain`             | String  | Yes      | The domain to search for.                                                      |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
+
+###### Example Request
+
+`GET /api/json/internal/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1`
+
+###### Example Response
+
+(Similar format as the `/api/json/v1/search-by-domain` endpoint)
+
+##### 9. Internal Search by Domain (Bulk)
+
+###### Endpoint
+
+- `POST /api/json/internal/search-by-domain/bulk`
+
+###### Description
+
+Internal endpoint for bulk searching of domains. Intended for internal use only.
+
+###### Request Parameters
+
+| Parameter            | Type    | Required | Description                                                                    |
+| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
+| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
+| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
+| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
+| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
+
+###### Request Body
+
+| Parameter | Type     | Required | Description                                   |
+| --------- | -------- | -------- | --------------------------------------------- |
+| `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
+
+###### Example Request
+
+`POST /api/json/internal/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1`
+
+```json
+{
+  "domains": ["example1.com", "example2.com"]
+}
+```
+
+###### Example Response
+
+(Similar format as the `/api/json/v1/search-by-domain/bulk` endpoint)
+
+---
 
 #### Document Redesign Process
 
 Both single and bulk search responses go through a document redesign process:
 
-1. Certain fields are removed from the original document.
-2. Credentials are categorized into Internal, External, and Other based on the searched email's domain.
-3. The redesigned document retains all other original fields.
+1. **Removed Fields**:
 
-This process applies to both `/search-by-mail` and `/search-by-mail/bulk` endpoints.
+   - `Folder Name`
+   - `Build ID`
+   - `Hash`
+   - `Usernames`
+   - `Domains`
+   - `Emails`
+   - `Employee`
+
+2. **Credential Categorization**:
+
+   - `InternalCredentials`: Credentials where the searched email's domain matches the domain in `Credentials.URL`.
+   - `ExternalCredentials`: Credentials where the searched email's domain matches the domain in `Credentials.Username`.
+   - `OtherCredentials`: All remaining credentials.
+
+3. **Field Retention**:
+
+   - All other fields from the original document are retained.
+
+##### Example Redesigned Response
+
+```json
+{
+  "total": 100,
+  "page": 1,
+  "results": [
+    {
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "InternalCredentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "user@example.com",
+          "Password": "password123"
+        }
+      ],
+      "ExternalCredentials": [
+        {
+          "URL": "https://othersite.com",
+          "Username": "user@example.com",
+          "Password": "password456"
+        }
+      ],
+      "OtherCredentials": [
+        {
+          "URL": "https://thirdsite.com",
+          "Username": "user@thirdsite.com",
+          "Password": "password789"
+        }
+      ]
+      // Other fields...
+    }
+    // More results...
+  ]
+}
+```
+
+These changes implement the new document redesign feature for the `/search-by-mail` and `/search-by-mail/bulk` routes. The new middleware processes the documents after sorting and before sending the response.
+
+---
+
+#### Note on Internal Endpoints
+
+The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
+
+Please ensure that you have the appropriate permissions and authentication to access these internal endpoints.
+
+---
+
+Remember to test these endpoints thoroughly, especially with various edge cases in the `Credentials` array, to ensure everything works as expected.
 
 ———
 
@@ -826,7 +1073,7 @@ This document provides a detailed overview of the API endpoints, routes, middlew
 
 #### 1. API Versioning
 
-Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is **v1**, which is reflected in the URL structure: `/api/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
+Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is **v1**, which is reflected in the URL structure: `/api/json/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
 
 ---
 
@@ -877,6 +1124,9 @@ module.exports = router;
   - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+  - `"strict"`: Searches in the `"Employee"` field
+  - `"all"`: Searches in the `"Emails"` field
 
 ##### 2.2 Search By Mail Bulk Endpoint
 
@@ -913,12 +1163,99 @@ module.exports = router;
   - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
 - **Request Body**:
   - `mails` (required): Array of email addresses to search for (max 10 items)
 
-##### 2.3 Internal Search By Login Endpoint
+##### 2.3 Search By Domain Endpoint
 
-Example: `routes/api/internal/searchByLogin.js`
+**File:** `routes/api/v1/searchByDomain.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const { searchByDomain } = require("../../../controllers/v1/domainController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.get(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  documentRedesignDomainMiddleware,
+  sendResponseMiddleware
+);
+
+router.post(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  documentRedesignDomainMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/v1/search-by-domain`
+- **Methods**: `GET`, `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `domain` (required): The domain to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+  - `"strict"`: Searches in the `"Employee"` field
+  - `"all"`: Searches in the `"Emails"` field
+
+##### 2.4 Search By Domain Bulk Endpoint
+
+**File:** `routes/api/v1/searchByDomainBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByDomainBulk,
+} = require("../../../controllers/v1/domainBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.post(
+  "/search-by-domain/bulk",
+  searchByDomainBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  documentRedesignDomainMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/v1/search-by-domain/bulk`
+- **Method**: `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+- **Request Body**:
+  - `domains` (required): Array of domains to search for (max 10 items)
+
+##### 2.5 Internal Search By Login Endpoint
+
+**File:** `routes/api/internal/searchByLogin.js`
 
 ```js
 const express = require("express");
@@ -929,6 +1266,7 @@ const {
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.get(
   "/search-by-login",
   internalSearchByLogin,
@@ -936,6 +1274,7 @@ router.get(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
 router.post(
   "/search-by-login",
   internalSearchByLogin,
@@ -943,17 +1282,23 @@ router.post(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
 - **URL**: `/api/json/internal/search-by-login`
-- **Methods**: GET, POST
+- **Methods**: `GET`, `POST`
 - **Auth Required**: Yes
-- **Query Parameters**: Same as the v1 endpoint
+- **Query Parameters**:
+  - `login` (required): The login (username) to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
 
-##### 2.4 Internal Search By Login Bulk Endpoint
+##### 2.6 Internal Search By Login Bulk Endpoint
 
-Example: `routes/api/internal/searchByLoginBulk.js`
+**File:** `routes/api/internal/searchByLoginBulk.js`
 
 ```js
 const express = require("express");
@@ -964,6 +1309,7 @@ const {
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.post(
   "/search-by-login/bulk",
   internalSearchByLoginBulk,
@@ -971,14 +1317,99 @@ router.post(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
 - **URL**: `/api/json/internal/search-by-login/bulk`
-- **Method**: POST
+- **Method**: `POST`
 - **Auth Required**: Yes
-- **Query Parameters**: Same as the v1 bulk endpoint
-- **Request Body**: Same as the v1 bulk endpoint
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+- **Request Body**:
+  - `logins` (required): Array of logins (usernames) to search for (max 10 items)
+
+##### 2.7 Internal Search By Domain Endpoint
+
+**File:** `routes/api/internal/searchByDomain.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByDomain,
+} = require("../../../controllers/internal/domainController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.get(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+router.post(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/internal/search-by-domain`
+- **Methods**: `GET`, `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `domain` (required): The domain to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+
+##### 2.8 Internal Search By Domain Bulk Endpoint
+
+**File:** `routes/api/internal/searchByDomainBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByDomainBulk,
+} = require("../../../controllers/internal/domainBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.post(
+  "/search-by-domain/bulk",
+  searchByDomainBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/internal/search-by-domain/bulk`
+- **Method**: `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+- **Request Body**:
+  - `domains` (required): Array of domains to search for (max 10 items)
 
 #### 3. Middlewares Implementation
 
@@ -1039,9 +1470,6 @@ const normalizeData = async (data) => {
     const newData = { ...data };
     if ("Log date" in newData) {
       newData["Log date"] = await parseDate(newData["Log date"]);
-    }
-    if ("Date" in newData) {
-      newData["Date"] = await parseDate(newData["Date"]);
     }
     if ("data" in newData && Array.isArray(newData.data)) {
       newData.data = await Promise.all(newData.data.map(normalizeData));
@@ -1174,7 +1602,6 @@ const documentRedesignMiddleware = async (req, res, next) => {
       ...remainingFields
     } = doc;
 
-    // Updated code with additional checks
     let searchedDomain = null;
     if (
       searchedEmail &&
@@ -1195,7 +1622,6 @@ const documentRedesignMiddleware = async (req, res, next) => {
       OtherCredentials: [],
     };
 
-    // Check if Credentials is an array before iterating
     if (Array.isArray(Credentials)) {
       logger.debug("Processing Credentials array");
       for (const cred of Credentials) {
@@ -1308,6 +1734,8 @@ const sendResponseMiddleware = (req, res) => {
 module.exports = sendResponseMiddleware;
 ```
 
+---
+
 #### 4. Controllers Implementation
 
 Controllers are organized in separate directories for `v1` and `internal` APIs. They handle the business logic for each route.
@@ -1325,9 +1753,10 @@ async function searchByMail(req, res, next) {
   const mail = req.body.mail || req.query.mail;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
+    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
   if (!mail) {
@@ -1341,7 +1770,7 @@ async function searchByMail(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const query = { Emails: mail };
+    const query = type === "all" ? { Emails: mail } : { Employee: mail };
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
@@ -1387,9 +1816,10 @@ async function searchByMailBulk(req, res, next) {
   const { mails } = req.body;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
+    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
   if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
@@ -1407,7 +1837,7 @@ async function searchByMailBulk(req, res, next) {
     const collection = db.collection("logs");
 
     const searchPromises = mails.map(async (mail) => {
-      const query = { Emails: mail };
+      const query = type === "all" ? { Emails: mail } : { Employee: mail };
       const { limit, skip } = getPaginationParams(page);
 
       const [results, total] = await Promise.all([
@@ -1460,26 +1890,33 @@ module.exports = {
 };
 ```
 
-##### 4.3 Internal Mail Controller
+##### 4.3 V1 Domain Controller
 
-**File:** `controllers/internal/mailController.js`
+**File:** `controllers/v1/domainController.js`
 
 ```js
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
+const { sanitizeDomain } = require("../../utils/domainUtils");
 
-async function internalSearchByMail(req, res, next) {
-  const mail = req.body.mail || req.query.mail;
+async function searchByDomain(req, res, next) {
+  const domain = req.body.domain || req.query.domain;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Internal search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
+    `Search initiated for domain: ${domain}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
-  if (!mail) {
-    return res.status(400).json({ error: "Mail parameter is required" });
+  if (!domain) {
+    return res.status(400).json({ error: "Domain parameter is required" });
+  }
+
+  const sanitizedDomain = await sanitizeDomain(domain);
+  if (!sanitizedDomain) {
+    return res.status(400).json({ error: "Invalid domain provided" });
   }
 
   try {
@@ -1489,7 +1926,10 @@ async function internalSearchByMail(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const query = { Emails: mail };
+    const query =
+      type === "all"
+        ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
+        : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
@@ -1504,13 +1944,13 @@ async function internalSearchByMail(req, res, next) {
     };
 
     logger.info(
-      `Internal search completed for mail: ${mail}, total results: ${total}`
+      `Search completed for domain: ${domain}, total results: ${total}`
     );
 
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error("Error in internalSearchByMail:", error);
+    logger.error("Error in searchByDomain:", error);
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
@@ -1518,34 +1958,38 @@ async function internalSearchByMail(req, res, next) {
 }
 
 module.exports = {
-  internalSearchByMail,
+  searchByDomain,
 };
 ```
 
-##### 4.4 Internal Mail Bulk Controller
+##### 4.4 V1 Domain Bulk Controller
 
-**File:** `controllers/internal/mailBulkController.js`
+**File:** `controllers/v1/domainBulkController.js`
 
 ```js
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
+const { sanitizeDomain } = require("../../utils/domainUtils");
 const { performance } = require("perf_hooks");
 
-async function internalSearchByMailBulk(req, res, next) {
+async function searchByDomainBulk(req, res, next) {
   const startTime = performance.now();
-  const { mails } = req.body;
+  const { domains } = req.body;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Internal bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
+    `Bulk search request received for ${domains.length} domains, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
-  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-    logger.warn("Invalid input: mails array", { mailCount: mails.length });
+  if (!Array.isArray(domains) || domains.length === 0 || domains.length > 10) {
+    logger.warn("Invalid input: domains array", {
+      domainCount: domains.length,
+    });
     return res.status(400).json({
-      error: "Invalid mails array. Must contain 1-10 email addresses.",
+      error: "Invalid domains array. Must contain 1-10 domains.",
     });
   }
 
@@ -1556,8 +2000,21 @@ async function internalSearchByMailBulk(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const searchPromises = mails.map(async (mail) => {
-      const query = { Emails: mail };
+    const searchPromises = domains.map(async (domain) => {
+      const sanitizedDomain = await sanitizeDomain(domain);
+      if (!sanitizedDomain) {
+        return {
+          domain,
+          error: "Invalid domain",
+          total: 0,
+          data: [],
+        };
+      }
+
+      const query =
+        type === "all"
+          ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
+          : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
       const { limit, skip } = getPaginationParams(page);
 
       const [results, total] = await Promise.all([
@@ -1566,7 +2023,7 @@ async function internalSearchByMailBulk(req, res, next) {
       ]);
 
       return {
-        mail,
+        domain: sanitizedDomain,
         total,
         data: results,
       };
@@ -1588,9 +2045,9 @@ async function internalSearchByMailBulk(req, res, next) {
     const totalTime = endTime - startTime;
 
     logger.info(
-      `Internal bulk search completed for ${
-        mails.length
-      } mails, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+      `Bulk search completed for ${
+        domains.length
+      } domains, total results: ${totalResults}, processing time: ${totalTime.toFixed(
         2
       )}ms`
     );
@@ -1598,7 +2055,7 @@ async function internalSearchByMailBulk(req, res, next) {
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error("Error in internalSearchByMailBulk:", error);
+    logger.error("Error in searchByDomainBulk:", error);
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
@@ -1606,7 +2063,7 @@ async function internalSearchByMailBulk(req, res, next) {
 }
 
 module.exports = {
-  internalSearchByMailBulk,
+  searchByDomainBulk,
 };
 ```
 
@@ -1651,7 +2108,7 @@ router.get(
   newController,
   dateNormalizationMiddleware,
   sortingMiddleware,
-  documentRedesignMiddleware, // depends on if this is needed or not
+  documentRedesignMiddleware,
   sendResponseMiddleware
 );
 
@@ -1669,7 +2126,6 @@ const {
 const authMiddleware = require("../../../middlewares/authMiddleware");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
 router.get(
@@ -1678,7 +2134,6 @@ router.get(
   newInternalController,
   dateNormalizationMiddleware,
   sortingMiddleware,
-  documentRedesignMiddleware, // depends on if this is needed or not
   sendResponseMiddleware
 );
 
@@ -1707,35 +2162,50 @@ By following these guidelines and examples, new engineers can effectively implem
 The following file structure represents the organization of the codebase, highlighting the key components like the structure of controllers, middlewares, and routes related to API endpoint implementations:
 
 ```
-project-root/
+creds-api-backend
 ├── app.js
 ├── config/
-│ ├── database.js
-│ ├── logger.js
-│ └── redisClient.js
+│   ├── database.js
+│   ├── logger.js
+│   └── redisClient.js
 ├── controllers/
-│ ├── v1/
-│ │ ├── mailController.js
-│ │ └── mailBulkController.js
+│   ├── v1/
+│   │   ├── mailController.js
+│   │   ├── mailBulkController.js
+│   │   ├── domainController.js
+│   │   └── domainBulkController.js
+│   ├── internal/
+│       ├── loginController.js
+│       ├── loginBulkController.js
+│       ├── domainController.js
+│       └── domainBulkController.js
 ├── middlewares/
-│ ├── authMiddleware.js
-│ ├── dateNormalizationMiddleware.js
-│ ├── sortingMiddleware.js
-│ ├── documentRedesignMiddleware.js
-│ ├── sendResponseMiddleware.js
-│ ├── complexRateLimitMiddleware.js
-│ ├── rateLimitMiddleware.js
-│ └── requestIdMiddleware.js
+│   ├── authMiddleware.js
+│   ├── dateNormalizationMiddleware.js
+│   ├── sortingMiddleware.js
+│   ├── documentRedesignMiddleware.js
+│   ├── documentRedesignDomainMiddleware.js
+│   ├── sendResponseMiddleware.js
+│   ├── complexRateLimitMiddleware.js
+│   ├── requestIdMiddleware.js
+│   └── rateLimitMiddleware.js
 ├── routes/
-│ └── api/
-│ ├── v1/
-│ │ ├── searchByMail.js
-│ │ └── searchByMailBulk.js
+│   └── api/
+│       ├── v1/
+│           ├── searchByMail.js
+│           ├── searchByMailBulk.js
+│           ├── searchByDomain.js
+│           └── searchByDomainBulk.js
+│       └── internal/
+│           ├── searchByLogin.js
+│           ├── searchByLoginBulk.js
+│           ├── searchByDomain.js
+│           └── searchByDomainBulk.js
 ├── services/
-│ └── dateService.js
+│   └── dateService.js
 ├── utils/
-│ ├── paginationUtils.js
-│ └── domainUtils.js
+│   ├── paginationUtils.js
+│   └── domainUtils.js
 └── .env
 ```
 
