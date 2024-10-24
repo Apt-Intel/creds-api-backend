@@ -6,9 +6,10 @@ async function searchByMail(req, res, next) {
   const mail = req.body.mail || req.query.mail;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
+    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
   if (!mail) {
@@ -22,7 +23,7 @@ async function searchByMail(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const query = { Emails: mail };
+    const query = type === "all" ? { Emails: mail } : { Employee: mail };
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([

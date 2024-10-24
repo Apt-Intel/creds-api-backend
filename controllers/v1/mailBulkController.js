@@ -8,9 +8,10 @@ async function searchByMailBulk(req, res, next) {
   const { mails } = req.body;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
+    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
   if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
@@ -28,7 +29,7 @@ async function searchByMailBulk(req, res, next) {
     const collection = db.collection("logs");
 
     const searchPromises = mails.map(async (mail) => {
-      const query = { Emails: mail };
+      const query = type === "all" ? { Emails: mail } : { Employee: mail };
       const { limit, skip } = getPaginationParams(page);
 
       const [results, total] = await Promise.all([
@@ -65,9 +66,6 @@ async function searchByMailBulk(req, res, next) {
         2
       )}ms`
     );
-
-    // Temporary logging
-    logger.debug("Response structure:", JSON.stringify(response, null, 2));
 
     req.searchResults = response;
     next();

@@ -4,7 +4,7 @@ This document provides a detailed overview of the API endpoints, routes, middlew
 
 ### 1. API Versioning
 
-Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is **v1**, which is reflected in the URL structure: `/api/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
+Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is **v1**, which is reflected in the URL structure: `/api/json/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
 
 ---
 
@@ -55,6 +55,9 @@ module.exports = router;
   - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+    - `"strict"`: Searches in the `"Employee"` field
+    - `"all"`: Searches in the `"Emails"` field
 
 #### 2.2 Search By Mail Bulk Endpoint
 
@@ -91,12 +94,99 @@ module.exports = router;
   - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
 - **Request Body**:
   - `mails` (required): Array of email addresses to search for (max 10 items)
 
-#### 2.3 Internal Search By Login Endpoint
+#### 2.3 Search By Domain Endpoint
 
-Example: `routes/api/internal/searchByLogin.js`
+**File:** `routes/api/v1/searchByDomain.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const { searchByDomain } = require("../../../controllers/v1/domainController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.get(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  documentRedesignDomainMiddleware,
+  sendResponseMiddleware
+);
+
+router.post(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  documentRedesignDomainMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/v1/search-by-domain`
+- **Methods**: `GET`, `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `domain` (required): The domain to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+    - `"strict"`: Searches in the `"Employee"` field
+    - `"all"`: Searches in the `"Emails"` field
+
+#### 2.4 Search By Domain Bulk Endpoint
+
+**File:** `routes/api/v1/searchByDomainBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByDomainBulk,
+} = require("../../../controllers/v1/domainBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.post(
+  "/search-by-domain/bulk",
+  searchByDomainBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  documentRedesignDomainMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/v1/search-by-domain/bulk`
+- **Method**: `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+- **Request Body**:
+  - `domains` (required): Array of domains to search for (max 10 items)
+
+#### 2.5 Internal Search By Login Endpoint
+
+**File:** `routes/api/internal/searchByLogin.js`
 
 ```js
 const express = require("express");
@@ -107,6 +197,7 @@ const {
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.get(
   "/search-by-login",
   internalSearchByLogin,
@@ -114,6 +205,7 @@ router.get(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
 router.post(
   "/search-by-login",
   internalSearchByLogin,
@@ -121,17 +213,23 @@ router.post(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
 - **URL**: `/api/json/internal/search-by-login`
-- **Methods**: GET, POST
+- **Methods**: `GET`, `POST`
 - **Auth Required**: Yes
-- **Query Parameters**: Same as the v1 endpoint
+- **Query Parameters**:
+  - `login` (required): The login (username) to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
 
-#### 2.4 Internal Search By Login Bulk Endpoint
+#### 2.6 Internal Search By Login Bulk Endpoint
 
-Example: `routes/api/internal/searchByLoginBulk.js`
+**File:** `routes/api/internal/searchByLoginBulk.js`
 
 ```js
 const express = require("express");
@@ -142,6 +240,7 @@ const {
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
 router.post(
   "/search-by-login/bulk",
   internalSearchByLoginBulk,
@@ -149,14 +248,99 @@ router.post(
   sortingMiddleware,
   sendResponseMiddleware
 );
+
 module.exports = router;
 ```
 
 - **URL**: `/api/json/internal/search-by-login/bulk`
-- **Method**: POST
+- **Method**: `POST`
 - **Auth Required**: Yes
-- **Query Parameters**: Same as the v1 bulk endpoint
-- **Request Body**: Same as the v1 bulk endpoint
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+- **Request Body**:
+  - `logins` (required): Array of logins (usernames) to search for (max 10 items)
+
+#### 2.7 Internal Search By Domain Endpoint
+
+**File:** `routes/api/internal/searchByDomain.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByDomain,
+} = require("../../../controllers/internal/domainController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.get(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+router.post(
+  "/search-by-domain",
+  searchByDomain,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/internal/search-by-domain`
+- **Methods**: `GET`, `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `domain` (required): The domain to search for
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+
+#### 2.8 Internal Search By Domain Bulk Endpoint
+
+**File:** `routes/api/internal/searchByDomainBulk.js`
+
+```js
+const express = require("express");
+const router = express.Router();
+const {
+  searchByDomainBulk,
+} = require("../../../controllers/internal/domainBulkController");
+const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
+const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
+const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+
+router.post(
+  "/search-by-domain/bulk",
+  searchByDomainBulk,
+  dateNormalizationMiddleware,
+  sortingMiddleware,
+  sendResponseMiddleware
+);
+
+module.exports = router;
+```
+
+- **URL**: `/api/json/internal/search-by-domain/bulk`
+- **Method**: `POST`
+- **Auth Required**: Yes
+- **Query Parameters**:
+  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
+  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
+  - `page` (optional): Page number for pagination. Default: `1`
+  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
+- **Request Body**:
+  - `domains` (required): Array of domains to search for (max 10 items)
 
 ### 3. Middlewares Implementation
 
@@ -217,9 +401,6 @@ const normalizeData = async (data) => {
     const newData = { ...data };
     if ("Log date" in newData) {
       newData["Log date"] = await parseDate(newData["Log date"]);
-    }
-    if ("Date" in newData) {
-      newData["Date"] = await parseDate(newData["Date"]);
     }
     if ("data" in newData && Array.isArray(newData.data)) {
       newData.data = await Promise.all(newData.data.map(normalizeData));
@@ -352,7 +533,6 @@ const documentRedesignMiddleware = async (req, res, next) => {
       ...remainingFields
     } = doc;
 
-    // Updated code with additional checks
     let searchedDomain = null;
     if (
       searchedEmail &&
@@ -373,7 +553,6 @@ const documentRedesignMiddleware = async (req, res, next) => {
       OtherCredentials: [],
     };
 
-    // Check if Credentials is an array before iterating
     if (Array.isArray(Credentials)) {
       logger.debug("Processing Credentials array");
       for (const cred of Credentials) {
@@ -505,9 +684,10 @@ async function searchByMail(req, res, next) {
   const mail = req.body.mail || req.query.mail;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
+    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
   if (!mail) {
@@ -521,7 +701,7 @@ async function searchByMail(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const query = { Emails: mail };
+    const query = type === "all" ? { Emails: mail } : { Employee: mail };
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
@@ -567,9 +747,10 @@ async function searchByMailBulk(req, res, next) {
   const { mails } = req.body;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
+    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
   if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
@@ -587,7 +768,7 @@ async function searchByMailBulk(req, res, next) {
     const collection = db.collection("logs");
 
     const searchPromises = mails.map(async (mail) => {
-      const query = { Emails: mail };
+      const query = type === "all" ? { Emails: mail } : { Employee: mail };
       const { limit, skip } = getPaginationParams(page);
 
       const [results, total] = await Promise.all([
@@ -640,26 +821,33 @@ module.exports = {
 };
 ```
 
-#### 4.3 Internal Mail Controller
+#### 4.3 V1 Domain Controller
 
-**File:** `controllers/internal/mailController.js`
+**File:** `controllers/v1/domainController.js`
 
 ```js
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
+const { sanitizeDomain } = require("../../utils/domainUtils");
 
-async function internalSearchByMail(req, res, next) {
-  const mail = req.body.mail || req.query.mail;
+async function searchByDomain(req, res, next) {
+  const domain = req.body.domain || req.query.domain;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Internal search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}`
+    `Search initiated for domain: ${domain}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
-  if (!mail) {
-    return res.status(400).json({ error: "Mail parameter is required" });
+  if (!domain) {
+    return res.status(400).json({ error: "Domain parameter is required" });
+  }
+
+  const sanitizedDomain = await sanitizeDomain(domain);
+  if (!sanitizedDomain) {
+    return res.status(400).json({ error: "Invalid domain provided" });
   }
 
   try {
@@ -669,7 +857,10 @@ async function internalSearchByMail(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const query = { Emails: mail };
+    const query =
+      type === "all"
+        ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
+        : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
     const { limit, skip } = getPaginationParams(page);
 
     const [results, total] = await Promise.all([
@@ -684,13 +875,13 @@ async function internalSearchByMail(req, res, next) {
     };
 
     logger.info(
-      `Internal search completed for mail: ${mail}, total results: ${total}`
+      `Search completed for domain: ${domain}, total results: ${total}`
     );
 
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error("Error in internalSearchByMail:", error);
+    logger.error("Error in searchByDomain:", error);
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
@@ -698,34 +889,38 @@ async function internalSearchByMail(req, res, next) {
 }
 
 module.exports = {
-  internalSearchByMail,
+  searchByDomain,
 };
 ```
 
-#### 4.4 Internal Mail Bulk Controller
+#### 4.4 V1 Domain Bulk Controller
 
-**File:** `controllers/internal/mailBulkController.js`
+**File:** `controllers/v1/domainBulkController.js`
 
 ```js
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
+const { sanitizeDomain } = require("../../utils/domainUtils");
 const { performance } = require("perf_hooks");
 
-async function internalSearchByMailBulk(req, res, next) {
+async function searchByDomainBulk(req, res, next) {
   const startTime = performance.now();
-  const { mails } = req.body;
+  const { domains } = req.body;
   const page = parseInt(req.query.page) || 1;
   const installedSoftware = req.query.installed_software === "true";
+  const type = req.query.type || "strict";
 
   logger.info(
-    `Internal bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}`
+    `Bulk search request received for ${domains.length} domains, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
   );
 
-  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-    logger.warn("Invalid input: mails array", { mailCount: mails.length });
+  if (!Array.isArray(domains) || domains.length === 0 || domains.length > 10) {
+    logger.warn("Invalid input: domains array", {
+      domainCount: domains.length,
+    });
     return res.status(400).json({
-      error: "Invalid mails array. Must contain 1-10 email addresses.",
+      error: "Invalid domains array. Must contain 1-10 domains.",
     });
   }
 
@@ -736,8 +931,21 @@ async function internalSearchByMailBulk(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const searchPromises = mails.map(async (mail) => {
-      const query = { Emails: mail };
+    const searchPromises = domains.map(async (domain) => {
+      const sanitizedDomain = await sanitizeDomain(domain);
+      if (!sanitizedDomain) {
+        return {
+          domain,
+          error: "Invalid domain",
+          total: 0,
+          data: [],
+        };
+      }
+
+      const query =
+        type === "all"
+          ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
+          : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
       const { limit, skip } = getPaginationParams(page);
 
       const [results, total] = await Promise.all([
@@ -746,7 +954,7 @@ async function internalSearchByMailBulk(req, res, next) {
       ]);
 
       return {
-        mail,
+        domain: sanitizedDomain,
         total,
         data: results,
       };
@@ -768,9 +976,9 @@ async function internalSearchByMailBulk(req, res, next) {
     const totalTime = endTime - startTime;
 
     logger.info(
-      `Internal bulk search completed for ${
-        mails.length
-      } mails, total results: ${totalResults}, processing time: ${totalTime.toFixed(
+      `Bulk search completed for ${
+        domains.length
+      } domains, total results: ${totalResults}, processing time: ${totalTime.toFixed(
         2
       )}ms`
     );
@@ -778,7 +986,7 @@ async function internalSearchByMailBulk(req, res, next) {
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error("Error in internalSearchByMailBulk:", error);
+    logger.error("Error in searchByDomainBulk:", error);
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
@@ -786,11 +994,9 @@ async function internalSearchByMailBulk(req, res, next) {
 }
 
 module.exports = {
-  internalSearchByMailBulk,
+  searchByDomainBulk,
 };
 ```
-
----
 
 ### 5. New Date Normalization, Sorting, and Document Redesign Flow
 
@@ -803,8 +1009,6 @@ The flow for date normalization, sorting, and document redesign remains the same
 5. **Send Response Middleware** sends the final response.
 
 This flow allows for better separation of concerns and makes the code more modular and maintainable. It's applied consistently across both v1 and internal endpoints, ensuring uniform data processing.
-
----
 
 ### 6. Guidelines for Implementing New API Routes
 
@@ -837,7 +1041,7 @@ router.get(
   newController,
   dateNormalizationMiddleware,
   sortingMiddleware,
-  documentRedesignMiddleware, // depends on if this is needed or not
+  documentRedesignMiddleware,
   sendResponseMiddleware
 );
 
@@ -855,7 +1059,6 @@ const {
 const authMiddleware = require("../../../middlewares/authMiddleware");
 const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
 
 router.get(
@@ -864,7 +1067,6 @@ router.get(
   newInternalController,
   dateNormalizationMiddleware,
   sortingMiddleware,
-  documentRedesignMiddleware, // depends on if this is needed or not
   sendResponseMiddleware
 );
 
@@ -872,8 +1074,6 @@ module.exports = router;
 ```
 
 Remember to update the `app.js` file to include the new route, using the appropriate path for v1 or internal APIs.
-
----
 
 ### 7. Best Practices
 
@@ -890,41 +1090,54 @@ Remember to update the `app.js` file to include the new route, using the appropr
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
----
-
 ### 8. Current File Structure
 
 The following file structure represents the organization of the codebase, highlighting the key components like the structure of controllers, middlewares, and routes related to API endpoint implementations:
 
 ```
-project-root/
+creds-api-backend
 ├── app.js
 ├── config/
-│ ├── database.js
-│ ├── logger.js
-│ └── redisClient.js
+│   ├── database.js
+│   ├── logger.js
+│   └── redisClient.js
 ├── controllers/
-│ ├── v1/
-│ │ ├── mailController.js
-│ │ └── mailBulkController.js
+│   ├── v1/
+│   │   ├── mailController.js
+│   │   ├── mailBulkController.js
+│   │   ├── domainController.js
+│   │   └── domainBulkController.js
+│   ├── internal/
+│       ├── loginController.js
+│       ├── loginBulkController.js
+│       ├── domainController.js
+│       └── domainBulkController.js
 ├── middlewares/
-│ ├── authMiddleware.js
-│ ├── dateNormalizationMiddleware.js
-│ ├── sortingMiddleware.js
-│ ├── documentRedesignMiddleware.js
-│ ├── sendResponseMiddleware.js
-│ ├── complexRateLimitMiddleware.js
-│ ├── rateLimitMiddleware.js
-│ └── requestIdMiddleware.js
+│   ├── authMiddleware.js
+│   ├── dateNormalizationMiddleware.js
+│   ├── sortingMiddleware.js
+│   ├── documentRedesignMiddleware.js
+│   ├── documentRedesignDomainMiddleware.js
+│   ├── sendResponseMiddleware.js
+│   ├── complexRateLimitMiddleware.js
+│   ├── requestIdMiddleware.js
+│   └── rateLimitMiddleware.js
 ├── routes/
-│ └── api/
-│ ├── v1/
-│ │ ├── searchByMail.js
-│ │ └── searchByMailBulk.js
+│   └── api/
+│       ├── v1/
+│           ├── searchByMail.js
+│           ├── searchByMailBulk.js
+│           ├── searchByDomain.js
+│           └── searchByDomainBulk.js
+│       └── internal/
+│           ├── searchByLogin.js
+│           ├── searchByLoginBulk.js
+│           ├── searchByDomain.js
+│           └── searchByDomainBulk.js
 ├── services/
-│ └── dateService.js
+│   └── dateService.js
 ├── utils/
-│ ├── paginationUtils.js
-│ └── domainUtils.js
+│   ├── paginationUtils.js
+│   └── domainUtils.js
 └── .env
 ```
