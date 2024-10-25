@@ -552,3 +552,5 @@ module.exports = {
 ```
 
 By using this guide and the examples provided, you should be well-equipped to harden other endpoints in the API, enhancing the security and reliability of our application.
+
+---
