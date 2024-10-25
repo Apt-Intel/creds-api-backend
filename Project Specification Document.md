@@ -467,6 +467,14 @@ Search for user mail information based on query parameters or request body.
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
+###### Input Validation
+
+- `mail`: Must be a valid email address.
+- `page`: Must be a positive integer.
+- `type`: Must be either "strict" or "all".
+- `sortby`: Must be either "date_compromised" or "date_uploaded".
+- `sortorder`: Must be either "asc" or "desc".
+
 ###### Example Request
 
 `GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
@@ -514,7 +522,7 @@ Search for user mail information based on query parameters or request body.
 
 | Status Code | Description                               |
 | ----------- | ----------------------------------------- |
-| 400         | Bad Request - Mail parameter is required  |
+| 400         | Bad Request - Invalid input parameters    |
 | 401         | Unauthorized - Invalid or missing API key |
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
@@ -546,6 +554,11 @@ Search for multiple user mails in a single request.
 | Parameter | Type     | Required | Description                                          |
 | --------- | -------- | -------- | ---------------------------------------------------- |
 | `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
+
+###### Input Validation
+
+- `mails`: Must be an array of 1-10 valid email addresses.
+- Other parameters: Same as single search endpoint.
 
 ###### Example Request
 
@@ -638,12 +651,12 @@ Search for multiple user mails in a single request.
 
 ###### Errors
 
-| Status Code | Description                                                |
-| ----------- | ---------------------------------------------------------- |
-| 400         | Bad Request - Invalid mails array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                  |
-| 429         | Too Many Requests - Rate limit exceeded                    |
-| 500         | Internal Server Error                                      |
+| Status Code | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| 400         | Bad Request - Invalid input parameters or mails array |
+| 401         | Unauthorized - Invalid or missing API key             |
+| 429         | Too Many Requests - Rate limit exceeded               |
+| 500         | Internal Server Error                                 |
 
 ##### 3. Search by Domain
 
@@ -668,6 +681,11 @@ Search for domain information based on query parameters or request body.
 | `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
+
+###### Input Validation
+
+- `domain`: Must be a valid domain name (sanitized internally).
+- Other parameters: Same as mail search endpoint.
 
 ###### Example Request
 
@@ -713,12 +731,12 @@ Search for domain information based on query parameters or request body.
 
 ###### Errors
 
-| Status Code | Description                                |
-| ----------- | ------------------------------------------ |
-| 400         | Bad Request - Domain parameter is required |
-| 401         | Unauthorized - Invalid or missing API key  |
-| 429         | Too Many Requests - Rate limit exceeded    |
-| 500         | Internal Server Error                      |
+| Status Code | Description                                      |
+| ----------- | ------------------------------------------------ |
+| 400         | Bad Request - Invalid input parameters or domain |
+| 401         | Unauthorized - Invalid or missing API key        |
+| 429         | Too Many Requests - Rate limit exceeded          |
+| 500         | Internal Server Error                            |
 
 ##### 4. Search by Domain (Bulk)
 
@@ -747,6 +765,11 @@ Search for multiple domains in a single request.
 | Parameter | Type     | Required | Description                                   |
 | --------- | -------- | -------- | --------------------------------------------- |
 | `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
+
+###### Input Validation
+
+- `domains`: Must be an array of 1-10 valid domain names (sanitized internally).
+- Other parameters: Same as single domain search endpoint.
 
 ###### Example Request
 
@@ -837,12 +860,12 @@ Search for multiple domains in a single request.
 
 ###### Errors
 
-| Status Code | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| 400         | Bad Request - Invalid domains array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                    |
-| 429         | Too Many Requests - Rate limit exceeded                      |
-| 500         | Internal Server Error                                        |
+| Status Code | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| 400         | Bad Request - Invalid input parameters or domains array |
+| 401         | Unauthorized - Invalid or missing API key               |
+| 429         | Too Many Requests - Rate limit exceeded                 |
+| 500         | Internal Server Error                                   |
 
 ##### 5. Test Date Normalization
 
@@ -1013,7 +1036,7 @@ Both single and bulk search responses go through a document redesign process:
 
    - All other fields from the original document are retained.
 
-##### Example Redesigned Response
+### Example Redesigned Response
 
 ```json
 {
@@ -1065,6 +1088,25 @@ Please ensure that you have the appropriate permissions and authentication to ac
 
 Remember to test these endpoints thoroughly, especially with various edge cases in the `Credentials` array, to ensure everything works as expected.
 
+#### Error Handling and Logging
+
+All endpoints now include enhanced error handling and logging:
+
+- Detailed error messages for invalid inputs.
+- Consistent HTTP status codes for different types of errors.
+- Extensive logging for requests, responses, and errors.
+- In production environments, detailed error messages are not exposed in API responses.
+
+#### Security Enhancements
+
+- Input sanitization using `validator.escape()` for user-provided strings.
+- Strict type checking and validation for all input parameters.
+- Use of parameterized queries to prevent injection attacks.
+
+#### Performance Monitoring
+
+- Bulk operations now include performance logging, measuring processing time for each request.
+
 ———
 
 ### API Endpoints and Routes Documentation
@@ -1077,7 +1119,7 @@ Our API uses versioning to ensure backward compatibility as we evolve the API. T
 
 ---
 
-#### 2. API Endpoints and Routes Implementation
+### 2. API Endpoints and Routes Implementation
 
 API endpoints and routes are defined in the `routes` directory. Each route file corresponds to a specific feature or resource.
 
@@ -1167,7 +1209,7 @@ module.exports = router;
 - **Request Body**:
   - `mails` (required): Array of email addresses to search for (max 10 items)
 
-##### 2.3 Search By Domain Endpoint
+##### 2.3 External Search By Domain Endpoint
 
 **File:** `routes/api/v1/searchByDomain.js`
 
@@ -1214,7 +1256,7 @@ module.exports = router;
   - `"strict"`: Searches in the `"Employee"` field
   - `"all"`: Searches in the `"Emails"` field
 
-##### 2.4 Search By Domain Bulk Endpoint
+##### 2.4 External Search By Domain Bulk Endpoint
 
 **File:** `routes/api/v1/searchByDomainBulk.js`
 
@@ -1250,6 +1292,8 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
   - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
+  - `"strict"`: Searches in the `"Employee"` field
+  - `"all"`: Searches in the `"Emails"` field
 - **Request Body**:
   - `domains` (required): Array of domains to search for (max 10 items)
 
@@ -1412,8 +1456,6 @@ module.exports = router;
   - `domains` (required): Array of domains to search for (max 10 items)
 
 #### 3. Middlewares Implementation
-
-Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, logging, date normalization, sorting, and document redesign.
 
 ##### 3.1 Authentication Middleware
 
@@ -1734,9 +1776,78 @@ const sendResponseMiddleware = (req, res) => {
 module.exports = sendResponseMiddleware;
 ```
 
----
+##### 3.6 Complex Rate Limit Middleware
 
-#### 4. Controllers Implementation
+**File:** `middlewares/complexRateLimitMiddleware.js`
+
+```js
+const { client } = require("../config/redisClient");
+const logger = require("../config/logger");
+
+const WINDOW_SIZE_IN_SECONDS = 10;
+const MAX_REQUESTS_PER_WINDOW = 50;
+
+const complexRateLimitMiddleware = async (req, res, next) => {
+  const apiKey = req.header("api-key");
+  const ip = req.ip;
+
+  try {
+    const [apiKeyResult, ipResult] = await Promise.all([
+      checkRateLimit(`rate_limit:${apiKey}`),
+      checkRateLimit(`rate_limit:${ip}`),
+    ]);
+
+    const remaining = Math.min(apiKeyResult.remaining, ipResult.remaining);
+    const resetTime = Math.max(apiKeyResult.resetTime, ipResult.resetTime);
+
+    res.set({
+      "X-RateLimit-Limit": MAX_REQUESTS_PER_WINDOW,
+      "X-RateLimit-Remaining": remaining,
+      "X-RateLimit-Reset": resetTime,
+    });
+
+    if (remaining < 0) {
+      return res.status(429).json({ error: "Rate limit exceeded" });
+    }
+
+    next();
+  } catch (error) {
+    logger.error("Error in rate limit middleware:", error);
+    next(error);
+  }
+};
+
+async function checkRateLimit(key) {
+  const now = Date.now();
+  const windowStart = now - WINDOW_SIZE_IN_SECONDS * 1000;
+
+  const multi = client.multi();
+  multi.zremrangebyscore(key, 0, windowStart);
+  multi.zadd(key, now, now);
+  multi.zrange(key, 0, -1);
+  multi.expire(key, WINDOW_SIZE_IN_SECONDS);
+
+  const results = await new Promise((resolve, reject) => {
+    multi.exec((err, results) => {
+      if (err) reject(err);
+      else resolve(results);
+    });
+  });
+
+  const requestTimestamps = results[2];
+
+  const requestsInWindow = requestTimestamps.length;
+  const remaining = MAX_REQUESTS_PER_WINDOW - requestsInWindow;
+  const oldestRequest = requestTimestamps[0] || now;
+  const resetTime = Math.ceil((oldestRequest - windowStart) / 1000);
+
+  return { remaining, resetTime };
+}
+
+module.exports = complexRateLimitMiddleware;
+```
+
+### 4. Controllers Implementation
 
 Controllers are organized in separate directories for `v1` and `internal` APIs. They handle the business logic for each route.
 
@@ -1748,30 +1859,74 @@ Controllers are organized in separate directories for `v1` and `internal` APIs. 
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
+const validator = require("validator");
 
 async function searchByMail(req, res, next) {
   const mail = req.body.mail || req.query.mail;
-  const page = parseInt(req.query.page) || 1;
+  const page = parseInt(req.query.page, 10);
   const installedSoftware = req.query.installed_software === "true";
   const type = req.query.type || "strict";
+  const sortby = req.query.sortby || "date_compromised";
+  const sortorder = req.query.sortorder || "desc";
 
   logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
+    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
   );
 
-  if (!mail) {
-    return res.status(400).json({ error: "Mail parameter is required" });
-  }
-
   try {
+    // Validate 'mail' parameter
+    if (!mail || !validator.isEmail(mail)) {
+      logger.warn(`Invalid mail parameter: ${mail}`);
+      return res
+        .status(400)
+        .json({ error: "Valid mail parameter is required" });
+    }
+
+    // Sanitize 'mail' parameter
+    const sanitizedMail = validator.escape(mail);
+
+    // Validate 'page' parameter
+    if (isNaN(page) || page < 1) {
+      logger.warn(`Invalid page parameter: ${req.query.page}`);
+      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    }
+
+    // Validate 'type' parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      logger.warn(`Invalid type parameter: ${type}`);
+      return res.status(400).json({ error: "Invalid 'type' parameter" });
+    }
+
+    // Validate 'sortby' parameter
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      logger.warn(`Invalid sortby parameter: ${sortby}`);
+      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
+    }
+
+    // Validate 'sortorder' parameter
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
+      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
+    }
+
     const db = await getDatabase();
     if (!db) {
       throw new Error("Database connection not established");
     }
     const collection = db.collection("logs");
 
-    const query = type === "all" ? { Emails: mail } : { Employee: mail };
+    // Use parameterized query
+    const query =
+      type === "all" ? { Emails: sanitizedMail } : { Employee: sanitizedMail };
     const { limit, skip } = getPaginationParams(page);
+
+    // TODO: Implement projection to limit returned fields
+    // This will optimize query performance and reduce data transfer
+    // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
+    // Discuss with the product team to determine which fields are necessary
 
     const [results, total] = await Promise.all([
       collection.find(query).skip(skip).limit(limit).toArray(),
@@ -1784,15 +1939,19 @@ async function searchByMail(req, res, next) {
       results,
     };
 
-    logger.info(`Search completed for mail: ${mail}, total results: ${total}`);
+    logger.info(
+      `Search completed for mail: ${sanitizedMail}, total results: ${total}`
+    );
 
     req.searchResults = response;
     next();
   } catch (error) {
     logger.error("Error in searchByMail:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
+    res.status(500).json({
+      error: "Internal server error",
+      details:
+        process.env.NODE_ENV === "production" ? undefined : error.message,
+    });
   }
 }
 
@@ -1810,35 +1969,85 @@ const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
 const { performance } = require("perf_hooks");
+const validator = require("validator");
 
 async function searchByMailBulk(req, res, next) {
   const startTime = performance.now();
   const { mails } = req.body;
-  const page = parseInt(req.query.page) || 1;
+  const page = parseInt(req.query.page, 10);
   const installedSoftware = req.query.installed_software === "true";
   const type = req.query.type || "strict";
+  const sortby = req.query.sortby || "date_compromised";
+  const sortorder = req.query.sortorder || "desc";
 
   logger.info(
-    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
+    `Bulk search request received for ${mails?.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
   );
 
-  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-    logger.warn("Invalid input: mails array", { mailCount: mails.length });
-    return res.status(400).json({
-      error: "Invalid mails array. Must contain 1-10 email addresses.",
-    });
-  }
-
   try {
+    // Validate 'mails' parameter
+    if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
+      logger.warn("Invalid input: mails array", { mailCount: mails?.length });
+      return res.status(400).json({
+        error: "Invalid mails array. Must contain 1-10 email addresses.",
+      });
+    }
+
+    // Validate each email in the 'mails' array
+    const invalidEmails = mails.filter((email) => !validator.isEmail(email));
+    if (invalidEmails.length > 0) {
+      logger.warn("Invalid email formats detected", { invalidEmails });
+      return res.status(400).json({
+        error: "Invalid email formats",
+        invalidEmails,
+      });
+    }
+
+    // Sanitize each email in the 'mails' array
+    const sanitizedMails = mails.map((email) => validator.escape(email));
+
+    // Validate 'page' parameter
+    if (isNaN(page) || page < 1) {
+      logger.warn(`Invalid page parameter: ${req.query.page}`);
+      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    }
+
+    // Validate 'type' parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      logger.warn(`Invalid type parameter: ${type}`);
+      return res.status(400).json({ error: "Invalid 'type' parameter" });
+    }
+
+    // Validate 'sortby' parameter
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      logger.warn(`Invalid sortby parameter: ${sortby}`);
+      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
+    }
+
+    // Validate 'sortorder' parameter
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
+      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
+    }
+
     const db = await getDatabase();
     if (!db) {
       throw new Error("Database connection not established");
     }
     const collection = db.collection("logs");
 
-    const searchPromises = mails.map(async (mail) => {
+    const searchPromises = sanitizedMails.map(async (mail) => {
+      // Use parameterized query
       const query = type === "all" ? { Emails: mail } : { Employee: mail };
       const { limit, skip } = getPaginationParams(page);
+
+      // TODO: Implement projection to limit returned fields
+      // This will optimize query performance and reduce data transfer
+      // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
+      // Discuss with the product team to determine which fields are necessary
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
@@ -1879,191 +2088,16 @@ async function searchByMailBulk(req, res, next) {
     next();
   } catch (error) {
     logger.error("Error in searchByMailBulk:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
+    res.status(500).json({
+      error: "Internal server error",
+      details:
+        process.env.NODE_ENV === "production" ? undefined : error.message,
+    });
   }
 }
 
 module.exports = {
   searchByMailBulk,
-};
-```
-
-##### 4.3 V1 Domain Controller
-
-**File:** `controllers/v1/domainController.js`
-
-```js
-const { getDatabase } = require("../../config/database");
-const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
-const { sanitizeDomain } = require("../../utils/domainUtils");
-
-async function searchByDomain(req, res, next) {
-  const domain = req.body.domain || req.query.domain;
-  const page = parseInt(req.query.page) || 1;
-  const installedSoftware = req.query.installed_software === "true";
-  const type = req.query.type || "strict";
-
-  logger.info(
-    `Search initiated for domain: ${domain}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
-  );
-
-  if (!domain) {
-    return res.status(400).json({ error: "Domain parameter is required" });
-  }
-
-  const sanitizedDomain = await sanitizeDomain(domain);
-  if (!sanitizedDomain) {
-    return res.status(400).json({ error: "Invalid domain provided" });
-  }
-
-  try {
-    const db = await getDatabase();
-    if (!db) {
-      throw new Error("Database connection not established");
-    }
-    const collection = db.collection("logs");
-
-    const query =
-      type === "all"
-        ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
-        : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
-    const { limit, skip } = getPaginationParams(page);
-
-    const [results, total] = await Promise.all([
-      collection.find(query).skip(skip).limit(limit).toArray(),
-      collection.countDocuments(query),
-    ]);
-
-    const response = {
-      total,
-      page,
-      results,
-    };
-
-    logger.info(
-      `Search completed for domain: ${domain}, total results: ${total}`
-    );
-
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByDomain:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
-  }
-}
-
-module.exports = {
-  searchByDomain,
-};
-```
-
-##### 4.4 V1 Domain Bulk Controller
-
-**File:** `controllers/v1/domainBulkController.js`
-
-```js
-const { getDatabase } = require("../../config/database");
-const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
-const { sanitizeDomain } = require("../../utils/domainUtils");
-const { performance } = require("perf_hooks");
-
-async function searchByDomainBulk(req, res, next) {
-  const startTime = performance.now();
-  const { domains } = req.body;
-  const page = parseInt(req.query.page) || 1;
-  const installedSoftware = req.query.installed_software === "true";
-  const type = req.query.type || "strict";
-
-  logger.info(
-    `Bulk search request received for ${domains.length} domains, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
-  );
-
-  if (!Array.isArray(domains) || domains.length === 0 || domains.length > 10) {
-    logger.warn("Invalid input: domains array", {
-      domainCount: domains.length,
-    });
-    return res.status(400).json({
-      error: "Invalid domains array. Must contain 1-10 domains.",
-    });
-  }
-
-  try {
-    const db = await getDatabase();
-    if (!db) {
-      throw new Error("Database connection not established");
-    }
-    const collection = db.collection("logs");
-
-    const searchPromises = domains.map(async (domain) => {
-      const sanitizedDomain = await sanitizeDomain(domain);
-      if (!sanitizedDomain) {
-        return {
-          domain,
-          error: "Invalid domain",
-          total: 0,
-          data: [],
-        };
-      }
-
-      const query =
-        type === "all"
-          ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
-          : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
-      const { limit, skip } = getPaginationParams(page);
-
-      const [results, total] = await Promise.all([
-        collection.find(query).skip(skip).limit(limit).toArray(),
-        collection.countDocuments(query),
-      ]);
-
-      return {
-        domain: sanitizedDomain,
-        total,
-        data: results,
-      };
-    });
-
-    const searchResults = await Promise.all(searchPromises);
-
-    const totalResults = searchResults.reduce(
-      (sum, result) => sum + result.total,
-      0
-    );
-    const response = {
-      total: totalResults,
-      page,
-      results: searchResults,
-    };
-
-    const endTime = performance.now();
-    const totalTime = endTime - startTime;
-
-    logger.info(
-      `Bulk search completed for ${
-        domains.length
-      } domains, total results: ${totalResults}, processing time: ${totalTime.toFixed(
-        2
-      )}ms`
-    );
-
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByDomainBulk:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
-  }
-}
-
-module.exports = {
-  searchByDomainBulk,
 };
 ```
 
@@ -2154,6 +2188,11 @@ Remember to update the `app.js` file to include the new route, using the appropr
 - **Ensure proper error handling** in controllers and middlewares.
 - **Use the middleware chain** (`dateNormalizationMiddleware`, `sortingMiddleware`, `documentRedesignMiddleware`, `sendResponseMiddleware`) for consistent data processing and response handling.
 - **Clearly distinguish** between v1 (consumer-facing) and internal routes and controllers.
+- Implement thorough input validation for all parameters.
+- Use `validator` library for input validation and sanitization.
+- Implement detailed logging for better traceability and debugging.
+- Handle errors gracefully and provide meaningful error messages.
+- Use environment variables to control the level of error details exposed in production.
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
