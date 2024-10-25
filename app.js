@@ -15,6 +15,8 @@ const internalSearchByLoginRouter = require("./routes/api/internal/searchByLogin
 const internalSearchByLoginBulkRouter = require("./routes/api/internal/searchByLoginBulk");
 const searchByDomainRouter = require("./routes/api/v1/searchByDomain");
 const searchByDomainBulkRouter = require("./routes/api/v1/searchByDomainBulk");
+const internalSearchByDomainRouter = require("./routes/api/internal/searchByDomain");
+const internalSearchByDomainBulkRouter = require("./routes/api/internal/searchByDomainBulk");
 
 // Add this near the top of the file, after loading environment variables
 if (!process.env.API_KEY) {
@@ -53,8 +55,8 @@ app.use("/api/json/v1", searchByMailRoutes);
 app.use("/api/json/v1", searchByMailBulkRoutes);
 app.use("/api/json/internal", internalSearchByLoginRouter);
 app.use("/api/json/internal", internalSearchByLoginBulkRouter);
-app.use("/api/json/internal", searchByDomainRouter);
-app.use("/api/json/internal", searchByDomainBulkRouter);
+app.use("/api/json/internal", internalSearchByDomainRouter);
+app.use("/api/json/internal", internalSearchByDomainBulkRouter);
 
 // Add the new domain search routes
 app.use("/api/json/v1", searchByDomainRouter);

@@ -2,35 +2,85 @@ const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
 const { performance } = require("perf_hooks");
+const validator = require("validator");
 
 async function searchByMailBulk(req, res, next) {
   const startTime = performance.now();
   const { mails } = req.body;
-  const page = parseInt(req.query.page) || 1;
+  const page = parseInt(req.query.page, 10);
   const installedSoftware = req.query.installed_software === "true";
   const type = req.query.type || "strict";
+  const sortby = req.query.sortby || "date_compromised";
+  const sortorder = req.query.sortorder || "desc";
 
   logger.info(
-    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
+    `Bulk search request received for ${mails?.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
   );
 
-  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-    logger.warn("Invalid input: mails array", { mailCount: mails.length });
-    return res.status(400).json({
-      error: "Invalid mails array. Must contain 1-10 email addresses.",
-    });
-  }
-
   try {
+    // Validate 'mails' parameter
+    if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
+      logger.warn("Invalid input: mails array", { mailCount: mails?.length });
+      return res.status(400).json({
+        error: "Invalid mails array. Must contain 1-10 email addresses.",
+      });
+    }
+
+    // Validate each email in the 'mails' array
+    const invalidEmails = mails.filter((email) => !validator.isEmail(email));
+    if (invalidEmails.length > 0) {
+      logger.warn("Invalid email formats detected", { invalidEmails });
+      return res.status(400).json({
+        error: "Invalid email formats",
+        invalidEmails,
+      });
+    }
+
+    // Sanitize each email in the 'mails' array
+    const sanitizedMails = mails.map((email) => validator.escape(email));
+
+    // Validate 'page' parameter
+    if (isNaN(page) || page < 1) {
+      logger.warn(`Invalid page parameter: ${req.query.page}`);
+      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    }
+
+    // Validate 'type' parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      logger.warn(`Invalid type parameter: ${type}`);
+      return res.status(400).json({ error: "Invalid 'type' parameter" });
+    }
+
+    // Validate 'sortby' parameter
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      logger.warn(`Invalid sortby parameter: ${sortby}`);
+      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
+    }
+
+    // Validate 'sortorder' parameter
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
+      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
+    }
+
     const db = await getDatabase();
     if (!db) {
       throw new Error("Database connection not established");
     }
     const collection = db.collection("logs");
 
-    const searchPromises = mails.map(async (mail) => {
+    const searchPromises = sanitizedMails.map(async (mail) => {
+      // Use parameterized query
       const query = type === "all" ? { Emails: mail } : { Employee: mail };
       const { limit, skip } = getPaginationParams(page);
+
+      // TODO: Implement projection to limit returned fields
+      // This will optimize query performance and reduce data transfer
+      // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
+      // Discuss with the product team to determine which fields are necessary
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
@@ -71,9 +121,11 @@ async function searchByMailBulk(req, res, next) {
     next();
   } catch (error) {
     logger.error("Error in searchByMailBulk:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
+    res.status(500).json({
+      error: "Internal server error",
+      details:
+        process.env.NODE_ENV === "production" ? undefined : error.message,
+    });
   }
 }
 

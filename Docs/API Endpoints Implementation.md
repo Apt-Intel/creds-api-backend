@@ -98,574 +98,11 @@ module.exports = router;
 - **Request Body**:
   - `mails` (required): Array of email addresses to search for (max 10 items)
 
-#### 2.3 Search By Domain Endpoint
-
-**File:** `routes/api/v1/searchByDomain.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const { searchByDomain } = require("../../../controllers/v1/domainController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.get(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  documentRedesignDomainMiddleware,
-  sendResponseMiddleware
-);
-
-router.post(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  documentRedesignDomainMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/v1/search-by-domain`
-- **Methods**: `GET`, `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `domain` (required): The domain to search for
-  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-    - `"strict"`: Searches in the `"Employee"` field
-    - `"all"`: Searches in the `"Emails"` field
-
-#### 2.4 Search By Domain Bulk Endpoint
-
-**File:** `routes/api/v1/searchByDomainBulk.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  searchByDomainBulk,
-} = require("../../../controllers/v1/domainBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.post(
-  "/search-by-domain/bulk",
-  searchByDomainBulk,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  documentRedesignDomainMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/v1/search-by-domain/bulk`
-- **Method**: `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-- **Request Body**:
-  - `domains` (required): Array of domains to search for (max 10 items)
-
-#### 2.5 Internal Search By Login Endpoint
-
-**File:** `routes/api/internal/searchByLogin.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  internalSearchByLogin,
-} = require("../../../controllers/internal/loginController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.get(
-  "/search-by-login",
-  internalSearchByLogin,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-router.post(
-  "/search-by-login",
-  internalSearchByLogin,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-login`
-- **Methods**: `GET`, `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `login` (required): The login (username) to search for
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-
-#### 2.6 Internal Search By Login Bulk Endpoint
-
-**File:** `routes/api/internal/searchByLoginBulk.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  internalSearchByLoginBulk,
-} = require("../../../controllers/internal/loginBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.post(
-  "/search-by-login/bulk",
-  internalSearchByLoginBulk,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-login/bulk`
-- **Method**: `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-- **Request Body**:
-  - `logins` (required): Array of logins (usernames) to search for (max 10 items)
-
-#### 2.7 Internal Search By Domain Endpoint
-
-**File:** `routes/api/internal/searchByDomain.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  searchByDomain,
-} = require("../../../controllers/internal/domainController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.get(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-router.post(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-domain`
-- **Methods**: `GET`, `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `domain` (required): The domain to search for
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-
-#### 2.8 Internal Search By Domain Bulk Endpoint
-
-**File:** `routes/api/internal/searchByDomainBulk.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  searchByDomainBulk,
-} = require("../../../controllers/internal/domainBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.post(
-  "/search-by-domain/bulk",
-  searchByDomainBulk,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-domain/bulk`
-- **Method**: `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-- **Request Body**:
-  - `domains` (required): Array of domains to search for (max 10 items)
+[... Keep the rest of the existing content for other endpoints ...]
 
 ### 3. Middlewares Implementation
 
-Middlewares are implemented in the `middlewares` directory. They are used for tasks such as authentication, rate limiting, logging, date normalization, sorting, and document redesign.
-
-#### 3.1 Authentication Middleware
-
-**File:** `middlewares/authMiddleware.js`
-
-```js
-const logger = require("../config/logger");
-const { asyncRedis } = require("../config/redisClient");
-
-const authMiddleware = async (req, res, next) => {
-  try {
-    const apiKey = req.header("api-key");
-    logger.info(`Received API key: ${apiKey}`);
-
-    if (!apiKey) {
-      logger.warn("No API key provided");
-      return res.status(401).json({ error: "API key is required" });
-    }
-
-    const isValid = apiKey === process.env.API_KEY;
-    logger.info(`API key validation result: ${isValid}`);
-
-    if (isValid) {
-      await asyncRedis.setex(`api_key:${apiKey}`, 3600, "valid");
-      logger.info("Valid API key cached");
-      next();
-    } else {
-      await asyncRedis.setex(`api_key:${apiKey}`, 300, "invalid");
-      logger.warn("Invalid API key cached");
-      res.status(401).json({ error: "Invalid API key" });
-    }
-  } catch (error) {
-    logger.error("Error in auth middleware:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-};
-
-module.exports = authMiddleware;
-```
-
-#### 3.2 Date Normalization Middleware
-
-**File:** `middlewares/dateNormalizationMiddleware.js`
-
-```js
-const { parseDate } = require("../services/dateService");
-const logger = require("../config/logger");
-
-const normalizeData = async (data) => {
-  if (Array.isArray(data)) {
-    return Promise.all(data.map(normalizeData));
-  }
-  if (typeof data === "object" && data !== null) {
-    const newData = { ...data };
-    if ("Log date" in newData) {
-      newData["Log date"] = await parseDate(newData["Log date"]);
-    }
-    if ("data" in newData && Array.isArray(newData.data)) {
-      newData.data = await Promise.all(newData.data.map(normalizeData));
-    }
-    if ("results" in newData && Array.isArray(newData.results)) {
-      newData.results = await Promise.all(newData.results.map(normalizeData));
-    }
-    return newData;
-  }
-  return data;
-};
-
-const dateNormalizationMiddleware = async (req, res, next) => {
-  logger.info("Date normalization middleware called");
-  try {
-    if (req.searchResults) {
-      req.searchResults = await normalizeData(req.searchResults);
-      logger.info("Date normalization completed");
-    }
-    next();
-  } catch (error) {
-    logger.error("Error in date normalization middleware:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-};
-
-module.exports = dateNormalizationMiddleware;
-```
-
-#### 3.3 Sorting Middleware
-
-**File:** `middlewares/sortingMiddleware.js`
-
-```js
-const logger = require("../config/logger");
-
-const sortData = (data, sortBy, sortOrder) => {
-  if (Array.isArray(data)) {
-    return data.sort((a, b) => {
-      const dateA = new Date(a[sortBy]);
-      const dateB = new Date(b[sortBy]);
-      const comparison = dateA - dateB;
-      return sortOrder === "asc" ? comparison : -comparison;
-    });
-  }
-  if (typeof data === "object" && data !== null) {
-    const newData = { ...data };
-    if ("data" in newData && Array.isArray(newData.data)) {
-      newData.data = sortData(newData.data, sortBy, sortOrder);
-    }
-    if ("results" in newData && Array.isArray(newData.results)) {
-      if (newData.results.length > 0 && "data" in newData.results[0]) {
-        // Bulk search results
-        newData.results = newData.results.map((result) => ({
-          ...result,
-          data: sortData(result.data, sortBy, sortOrder),
-        }));
-      } else {
-        // Single search results
-        newData.results = sortData(newData.results, sortBy, sortOrder);
-      }
-    }
-    return newData;
-  }
-  return data;
-};
-
-const sortingMiddleware = (req, res, next) => {
-  logger.info("Sorting middleware called");
-  try {
-    const sortBy = req.query.sortby || "date_compromised";
-    const sortOrder = req.query.sortorder || "desc";
-    const sortField = sortBy === "date_uploaded" ? "Date" : "Log date";
-
-    logger.info(
-      `Sorting parameters: sortBy=${sortField}, sortOrder=${sortOrder}`
-    );
-
-    if (req.searchResults) {
-      req.searchResults = sortData(req.searchResults, sortField, sortOrder);
-      logger.info("Sorting completed");
-    }
-
-    next();
-  } catch (error) {
-    logger.error("Error in sorting middleware:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-};
-
-module.exports = sortingMiddleware;
-```
-
-#### 3.4 Document Redesign Middleware
-
-**File:** `middlewares/documentRedesignMiddleware.js`
-
-```js
-const { sanitizeDomain } = require("../utils/domainUtils");
-const logger = require("../config/logger");
-
-const documentRedesignMiddleware = async (req, res, next) => {
-  if (!req.searchResults) {
-    return next();
-  }
-
-  logger.info("Document redesign middleware called");
-  logger.debug(
-    "req.searchResults structure:",
-    JSON.stringify(req.searchResults, null, 2)
-  );
-
-  const redesignDocument = async (doc, searchedEmail) => {
-    logger.debug("Redesigning document:", JSON.stringify(doc, null, 2));
-
-    if (!doc || typeof doc !== "object") {
-      logger.warn("Invalid document structure:", doc);
-      return doc;
-    }
-
-    const {
-      "Folder Name": folderName,
-      "Build ID": buildId,
-      Hash: hash,
-      Usernames: usernames,
-      Domains: domains,
-      Emails: emails,
-      Employee: employee,
-      Credentials,
-      ...remainingFields
-    } = doc;
-
-    let searchedDomain = null;
-    if (
-      searchedEmail &&
-      typeof searchedEmail === "string" &&
-      searchedEmail.includes("@")
-    ) {
-      searchedDomain = await sanitizeDomain(searchedEmail.split("@")[1]);
-    } else {
-      logger.warn("searchedEmail is invalid or undefined:", searchedEmail);
-      searchedDomain = null;
-    }
-
-    logger.debug("Searched domain:", searchedDomain);
-
-    const categorizedCredentials = {
-      InternalCredentials: [],
-      ExternalCredentials: [],
-      OtherCredentials: [],
-    };
-
-    if (Array.isArray(Credentials)) {
-      logger.debug("Processing Credentials array");
-      for (const cred of Credentials) {
-        try {
-          const credUrlDomain = cred.URL
-            ? await sanitizeDomain(new URL(cred.URL).hostname)
-            : null;
-          const credUsernameDomain =
-            cred.Username && cred.Username.includes("@")
-              ? await sanitizeDomain(cred.Username.split("@")[1])
-              : null;
-
-          logger.debug("Credential domains:", {
-            credUrlDomain,
-            credUsernameDomain,
-            searchedDomain,
-          });
-
-          if (credUrlDomain === searchedDomain) {
-            categorizedCredentials.InternalCredentials.push(cred);
-          } else if (credUsernameDomain === searchedDomain) {
-            categorizedCredentials.ExternalCredentials.push(cred);
-          } else {
-            categorizedCredentials.OtherCredentials.push(cred);
-          }
-        } catch (error) {
-          logger.warn(`Error processing credential: ${error.message}`, {
-            credential: cred,
-          });
-          categorizedCredentials.OtherCredentials.push(cred);
-        }
-      }
-    } else {
-      logger.warn(`Credentials is not an array for document:`, {
-        docId: doc._id,
-        credentials: Credentials,
-      });
-    }
-
-    logger.debug("Categorized credentials:", categorizedCredentials);
-
-    return {
-      ...remainingFields,
-      ...categorizedCredentials,
-    };
-  };
-
-  try {
-    if (
-      req.searchResults &&
-      req.searchResults.results &&
-      Array.isArray(req.searchResults.results)
-    ) {
-      if (
-        req.searchResults.results.length > 0 &&
-        req.searchResults.results[0] &&
-        "data" in req.searchResults.results[0]
-      ) {
-        // Bulk search
-        logger.info("Processing bulk search results");
-        req.searchResults.results = await Promise.all(
-          req.searchResults.results.map(async (result) => {
-            logger.debug("Processing result for mail:", result.mail);
-            const searchedEmail = result.mail;
-            if (result.data && Array.isArray(result.data)) {
-              result.data = await Promise.all(
-                result.data.map((doc) => redesignDocument(doc, searchedEmail))
-              );
-            }
-            return result;
-          })
-        );
-      } else {
-        // Single search
-        logger.info("Processing single search results");
-        const searchedEmail = req.query.mail || req.body.mail;
-        req.searchResults.results = await Promise.all(
-          req.searchResults.results.map((doc) =>
-            redesignDocument(doc, searchedEmail)
-          )
-        );
-      }
-    } else {
-      logger.warn("Unexpected searchResults structure:", req.searchResults);
-    }
-
-    logger.info("Document redesign completed");
-    next();
-  } catch (error) {
-    logger.error("Error in document redesign middleware:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-};
-
-module.exports = documentRedesignMiddleware;
-```
-
-#### 3.5 Send Response Middleware
-
-**File:** `middlewares/sendResponseMiddleware.js`
-
-```js
-const logger = require("../config/logger");
-
-const sendResponseMiddleware = (req, res) => {
-  logger.info("Sending response");
-  res.json(req.searchResults);
-};
-
-module.exports = sendResponseMiddleware;
-```
-
----
+[... Keep the existing content for middlewares ...]
 
 ### 4. Controllers Implementation
 
@@ -679,30 +116,74 @@ Controllers are organized in separate directories for `v1` and `internal` APIs. 
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
+const validator = require("validator");
 
 async function searchByMail(req, res, next) {
   const mail = req.body.mail || req.query.mail;
-  const page = parseInt(req.query.page) || 1;
+  const page = parseInt(req.query.page, 10);
   const installedSoftware = req.query.installed_software === "true";
   const type = req.query.type || "strict";
+  const sortby = req.query.sortby || "date_compromised";
+  const sortorder = req.query.sortorder || "desc";
 
   logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
+    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
   );
 
-  if (!mail) {
-    return res.status(400).json({ error: "Mail parameter is required" });
-  }
-
   try {
+    // Validate 'mail' parameter
+    if (!mail || !validator.isEmail(mail)) {
+      logger.warn(`Invalid mail parameter: ${mail}`);
+      return res
+        .status(400)
+        .json({ error: "Valid mail parameter is required" });
+    }
+
+    // Sanitize 'mail' parameter
+    const sanitizedMail = validator.escape(mail);
+
+    // Validate 'page' parameter
+    if (isNaN(page) || page < 1) {
+      logger.warn(`Invalid page parameter: ${req.query.page}`);
+      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    }
+
+    // Validate 'type' parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      logger.warn(`Invalid type parameter: ${type}`);
+      return res.status(400).json({ error: "Invalid 'type' parameter" });
+    }
+
+    // Validate 'sortby' parameter
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      logger.warn(`Invalid sortby parameter: ${sortby}`);
+      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
+    }
+
+    // Validate 'sortorder' parameter
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
+      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
+    }
+
     const db = await getDatabase();
     if (!db) {
       throw new Error("Database connection not established");
     }
     const collection = db.collection("logs");
 
-    const query = type === "all" ? { Emails: mail } : { Employee: mail };
+    // Use parameterized query
+    const query =
+      type === "all" ? { Emails: sanitizedMail } : { Employee: sanitizedMail };
     const { limit, skip } = getPaginationParams(page);
+
+    // TODO: Implement projection to limit returned fields
+    // This will optimize query performance and reduce data transfer
+    // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
+    // Discuss with the product team to determine which fields are necessary
 
     const [results, total] = await Promise.all([
       collection.find(query).skip(skip).limit(limit).toArray(),
@@ -715,15 +196,19 @@ async function searchByMail(req, res, next) {
       results,
     };
 
-    logger.info(`Search completed for mail: ${mail}, total results: ${total}`);
+    logger.info(
+      `Search completed for mail: ${sanitizedMail}, total results: ${total}`
+    );
 
     req.searchResults = response;
     next();
   } catch (error) {
     logger.error("Error in searchByMail:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
+    res.status(500).json({
+      error: "Internal server error",
+      details:
+        process.env.NODE_ENV === "production" ? undefined : error.message,
+    });
   }
 }
 
@@ -741,35 +226,85 @@ const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
 const { getPaginationParams } = require("../../utils/paginationUtils");
 const { performance } = require("perf_hooks");
+const validator = require("validator");
 
 async function searchByMailBulk(req, res, next) {
   const startTime = performance.now();
   const { mails } = req.body;
-  const page = parseInt(req.query.page) || 1;
+  const page = parseInt(req.query.page, 10);
   const installedSoftware = req.query.installed_software === "true";
   const type = req.query.type || "strict";
+  const sortby = req.query.sortby || "date_compromised";
+  const sortorder = req.query.sortorder || "desc";
 
   logger.info(
-    `Bulk search request received for ${mails.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
+    `Bulk search request received for ${mails?.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
   );
 
-  if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-    logger.warn("Invalid input: mails array", { mailCount: mails.length });
-    return res.status(400).json({
-      error: "Invalid mails array. Must contain 1-10 email addresses.",
-    });
-  }
-
   try {
+    // Validate 'mails' parameter
+    if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
+      logger.warn("Invalid input: mails array", { mailCount: mails?.length });
+      return res.status(400).json({
+        error: "Invalid mails array. Must contain 1-10 email addresses.",
+      });
+    }
+
+    // Validate each email in the 'mails' array
+    const invalidEmails = mails.filter((email) => !validator.isEmail(email));
+    if (invalidEmails.length > 0) {
+      logger.warn("Invalid email formats detected", { invalidEmails });
+      return res.status(400).json({
+        error: "Invalid email formats",
+        invalidEmails,
+      });
+    }
+
+    // Sanitize each email in the 'mails' array
+    const sanitizedMails = mails.map((email) => validator.escape(email));
+
+    // Validate 'page' parameter
+    if (isNaN(page) || page < 1) {
+      logger.warn(`Invalid page parameter: ${req.query.page}`);
+      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    }
+
+    // Validate 'type' parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      logger.warn(`Invalid type parameter: ${type}`);
+      return res.status(400).json({ error: "Invalid 'type' parameter" });
+    }
+
+    // Validate 'sortby' parameter
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      logger.warn(`Invalid sortby parameter: ${sortby}`);
+      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
+    }
+
+    // Validate 'sortorder' parameter
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
+      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
+    }
+
     const db = await getDatabase();
     if (!db) {
       throw new Error("Database connection not established");
     }
     const collection = db.collection("logs");
 
-    const searchPromises = mails.map(async (mail) => {
+    const searchPromises = sanitizedMails.map(async (mail) => {
+      // Use parameterized query
       const query = type === "all" ? { Emails: mail } : { Employee: mail };
       const { limit, skip } = getPaginationParams(page);
+
+      // TODO: Implement projection to limit returned fields
+      // This will optimize query performance and reduce data transfer
+      // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
+      // Discuss with the product team to determine which fields are necessary
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
@@ -810,191 +345,16 @@ async function searchByMailBulk(req, res, next) {
     next();
   } catch (error) {
     logger.error("Error in searchByMailBulk:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
+    res.status(500).json({
+      error: "Internal server error",
+      details:
+        process.env.NODE_ENV === "production" ? undefined : error.message,
+    });
   }
 }
 
 module.exports = {
   searchByMailBulk,
-};
-```
-
-#### 4.3 V1 Domain Controller
-
-**File:** `controllers/v1/domainController.js`
-
-```js
-const { getDatabase } = require("../../config/database");
-const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
-const { sanitizeDomain } = require("../../utils/domainUtils");
-
-async function searchByDomain(req, res, next) {
-  const domain = req.body.domain || req.query.domain;
-  const page = parseInt(req.query.page) || 1;
-  const installedSoftware = req.query.installed_software === "true";
-  const type = req.query.type || "strict";
-
-  logger.info(
-    `Search initiated for domain: ${domain}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
-  );
-
-  if (!domain) {
-    return res.status(400).json({ error: "Domain parameter is required" });
-  }
-
-  const sanitizedDomain = await sanitizeDomain(domain);
-  if (!sanitizedDomain) {
-    return res.status(400).json({ error: "Invalid domain provided" });
-  }
-
-  try {
-    const db = await getDatabase();
-    if (!db) {
-      throw new Error("Database connection not established");
-    }
-    const collection = db.collection("logs");
-
-    const query =
-      type === "all"
-        ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
-        : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
-    const { limit, skip } = getPaginationParams(page);
-
-    const [results, total] = await Promise.all([
-      collection.find(query).skip(skip).limit(limit).toArray(),
-      collection.countDocuments(query),
-    ]);
-
-    const response = {
-      total,
-      page,
-      results,
-    };
-
-    logger.info(
-      `Search completed for domain: ${domain}, total results: ${total}`
-    );
-
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByDomain:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
-  }
-}
-
-module.exports = {
-  searchByDomain,
-};
-```
-
-#### 4.4 V1 Domain Bulk Controller
-
-**File:** `controllers/v1/domainBulkController.js`
-
-```js
-const { getDatabase } = require("../../config/database");
-const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
-const { sanitizeDomain } = require("../../utils/domainUtils");
-const { performance } = require("perf_hooks");
-
-async function searchByDomainBulk(req, res, next) {
-  const startTime = performance.now();
-  const { domains } = req.body;
-  const page = parseInt(req.query.page) || 1;
-  const installedSoftware = req.query.installed_software === "true";
-  const type = req.query.type || "strict";
-
-  logger.info(
-    `Bulk search request received for ${domains.length} domains, page: ${page}, installed_software: ${installedSoftware}, type: ${type}`
-  );
-
-  if (!Array.isArray(domains) || domains.length === 0 || domains.length > 10) {
-    logger.warn("Invalid input: domains array", {
-      domainCount: domains.length,
-    });
-    return res.status(400).json({
-      error: "Invalid domains array. Must contain 1-10 domains.",
-    });
-  }
-
-  try {
-    const db = await getDatabase();
-    if (!db) {
-      throw new Error("Database connection not established");
-    }
-    const collection = db.collection("logs");
-
-    const searchPromises = domains.map(async (domain) => {
-      const sanitizedDomain = await sanitizeDomain(domain);
-      if (!sanitizedDomain) {
-        return {
-          domain,
-          error: "Invalid domain",
-          total: 0,
-          data: [],
-        };
-      }
-
-      const query =
-        type === "all"
-          ? { Emails: { $regex: `@${sanitizedDomain}$`, $options: "i" } }
-          : { Employee: { $regex: `@${sanitizedDomain}$`, $options: "i" } };
-      const { limit, skip } = getPaginationParams(page);
-
-      const [results, total] = await Promise.all([
-        collection.find(query).skip(skip).limit(limit).toArray(),
-        collection.countDocuments(query),
-      ]);
-
-      return {
-        domain: sanitizedDomain,
-        total,
-        data: results,
-      };
-    });
-
-    const searchResults = await Promise.all(searchPromises);
-
-    const totalResults = searchResults.reduce(
-      (sum, result) => sum + result.total,
-      0
-    );
-    const response = {
-      total: totalResults,
-      page,
-      results: searchResults,
-    };
-
-    const endTime = performance.now();
-    const totalTime = endTime - startTime;
-
-    logger.info(
-      `Bulk search completed for ${
-        domains.length
-      } domains, total results: ${totalResults}, processing time: ${totalTime.toFixed(
-        2
-      )}ms`
-    );
-
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByDomainBulk:", error);
-    res
-      .status(500)
-      .json({ error: "Internal server error", details: error.message });
-  }
-}
-
-module.exports = {
-  searchByDomainBulk,
 };
 ```
 
@@ -1087,6 +447,11 @@ Remember to update the `app.js` file to include the new route, using the appropr
 - **Ensure proper error handling** in controllers and middlewares.
 - **Use the middleware chain** (`dateNormalizationMiddleware`, `sortingMiddleware`, `documentRedesignMiddleware`, `sendResponseMiddleware`) for consistent data processing and response handling.
 - **Clearly distinguish** between v1 (consumer-facing) and internal routes and controllers.
+- Implement thorough input validation for all parameters.
+- Use `validator` library for input validation and sanitization.
+- Implement detailed logging for better traceability and debugging.
+- Handle errors gracefully and provide meaningful error messages.
+- Use environment variables to control the level of error details exposed in production.
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 

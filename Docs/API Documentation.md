@@ -111,6 +111,14 @@ Search for user mail information based on query parameters or request body.
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
+#### Input Validation
+
+- `mail`: Must be a valid email address.
+- `page`: Must be a positive integer.
+- `type`: Must be either "strict" or "all".
+- `sortby`: Must be either "date_compromised" or "date_uploaded".
+- `sortorder`: Must be either "asc" or "desc".
+
 #### Example Request
 
 `GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
@@ -158,7 +166,7 @@ Search for user mail information based on query parameters or request body.
 
 | Status Code | Description                               |
 | ----------- | ----------------------------------------- |
-| 400         | Bad Request - Mail parameter is required  |
+| 400         | Bad Request - Invalid input parameters    |
 | 401         | Unauthorized - Invalid or missing API key |
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
@@ -190,6 +198,11 @@ Search for multiple user mails in a single request.
 | Parameter | Type     | Required | Description                                          |
 | --------- | -------- | -------- | ---------------------------------------------------- |
 | `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
+
+#### Input Validation
+
+- `mails`: Must be an array of 1-10 valid email addresses.
+- Other parameters: Same as single search endpoint.
 
 #### Example Request
 
@@ -282,12 +295,12 @@ Search for multiple user mails in a single request.
 
 #### Errors
 
-| Status Code | Description                                                |
-| ----------- | ---------------------------------------------------------- |
-| 400         | Bad Request - Invalid mails array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                  |
-| 429         | Too Many Requests - Rate limit exceeded                    |
-| 500         | Internal Server Error                                      |
+| Status Code | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| 400         | Bad Request - Invalid input parameters or mails array |
+| 401         | Unauthorized - Invalid or missing API key             |
+| 429         | Too Many Requests - Rate limit exceeded               |
+| 500         | Internal Server Error                                 |
 
 ### 3. Search by Domain
 
@@ -312,6 +325,11 @@ Search for domain information based on query parameters or request body.
 | `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
+
+#### Input Validation
+
+- `domain`: Must be a valid domain name (sanitized internally).
+- Other parameters: Same as mail search endpoint.
 
 #### Example Request
 
@@ -357,12 +375,12 @@ Search for domain information based on query parameters or request body.
 
 #### Errors
 
-| Status Code | Description                                |
-| ----------- | ------------------------------------------ |
-| 400         | Bad Request - Domain parameter is required |
-| 401         | Unauthorized - Invalid or missing API key  |
-| 429         | Too Many Requests - Rate limit exceeded    |
-| 500         | Internal Server Error                      |
+| Status Code | Description                                      |
+| ----------- | ------------------------------------------------ |
+| 400         | Bad Request - Invalid input parameters or domain |
+| 401         | Unauthorized - Invalid or missing API key        |
+| 429         | Too Many Requests - Rate limit exceeded          |
+| 500         | Internal Server Error                            |
 
 ### 4. Search by Domain (Bulk)
 
@@ -391,6 +409,11 @@ Search for multiple domains in a single request.
 | Parameter | Type     | Required | Description                                   |
 | --------- | -------- | -------- | --------------------------------------------- |
 | `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
+
+#### Input Validation
+
+- `domains`: Must be an array of 1-10 valid domain names (sanitized internally).
+- Other parameters: Same as single domain search endpoint.
 
 #### Example Request
 
@@ -481,12 +504,12 @@ Search for multiple domains in a single request.
 
 #### Errors
 
-| Status Code | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| 400         | Bad Request - Invalid domains array or exceeds maximum limit |
-| 401         | Unauthorized - Invalid or missing API key                    |
-| 429         | Too Many Requests - Rate limit exceeded                      |
-| 500         | Internal Server Error                                        |
+| Status Code | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| 400         | Bad Request - Invalid input parameters or domains array |
+| 401         | Unauthorized - Invalid or missing API key               |
+| 429         | Too Many Requests - Rate limit exceeded                 |
+| 500         | Internal Server Error                                   |
 
 ### 5. Test Date Normalization
 
@@ -708,3 +731,22 @@ Please ensure that you have the appropriate permissions and authentication to ac
 ---
 
 Remember to test these endpoints thoroughly, especially with various edge cases in the `Credentials` array, to ensure everything works as expected.
+
+## Error Handling and Logging
+
+All endpoints now include enhanced error handling and logging:
+
+- Detailed error messages for invalid inputs.
+- Consistent HTTP status codes for different types of errors.
+- Extensive logging for requests, responses, and errors.
+- In production environments, detailed error messages are not exposed in API responses.
+
+## Security Enhancements
+
+- Input sanitization using `validator.escape()` for user-provided strings.
+- Strict type checking and validation for all input parameters.
+- Use of parameterized queries to prevent injection attacks.
+
+## Performance Monitoring
+
+- Bulk operations now include performance logging, measuring processing time for each request.
