@@ -7,9 +7,11 @@ const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizat
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+const authMiddleware = require("../../../middlewares/authMiddleware");
 
 router.post(
   "/search-by-domain/bulk",
+  authMiddleware,
   searchByDomainBulk,
   dateNormalizationMiddleware,
   sortingMiddleware,

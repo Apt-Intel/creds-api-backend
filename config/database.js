@@ -14,8 +14,6 @@ async function connectToDatabase() {
       serverSelectionTimeoutMS: POOL_TIMEOUT_MS,
     });
     logger.logWithRequestId("info", "Connected to MongoDB");
-
-    // No need to set global.redisClient here anymore
   } catch (error) {
     logger.logWithRequestId("error", "Database connection error:", {
       error: error.message,

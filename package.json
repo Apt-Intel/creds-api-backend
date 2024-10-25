@@ -7,7 +7,8 @@
     "start": "node --no-deprecation app.js",
     "dev": "nodemon app.js",
     "test": "jest",
-    "test:dates": "node -e \"require('./services/dateService').testParseDates()\""
+    "test:dates": "node -e \"require('./services/dateService').testParseDates()\"",
+    "migrate": "node -r dotenv/config ./node_modules/.bin/sequelize-cli db:migrate"
   },
   "author": "",
   "license": "ISC",
@@ -17,15 +18,20 @@
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1",
     "express-rate-limit": "^6.7.1",
     "helmet": "^4.6.0",
     "moment": "^2.30.1",
     "mongodb": "^5.6.0",
     "mongoose": "^8.7.2",
     "morgan": "^1.10.0",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
     "punycode": "^2.3.1",
     "redis": "^3.1.2",
+    "sequelize": "^6.37.4",
     "tldts": "^6.1.54",
+    "util": "^0.12.5",
     "uuid": "^10.0.0",
     "validator": "^13.12.0",
     "winston": "^3.9.0",
@@ -33,6 +39,7 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.2"
   }
 }

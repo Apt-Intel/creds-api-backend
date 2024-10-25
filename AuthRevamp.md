@@ -108,7 +108,7 @@ We will enhance the authentication system by introducing:
 - Index on `api_keys.api_key` for quick lookup.
 - Index on `api_requests_log.api_key_id` and `timestamp` for efficient querying.
 
-## 5. Implementation Steps
+## 5. Implementation Plan
 
 ### Step 1: Set Up PostgreSQL Database with Supabase
 

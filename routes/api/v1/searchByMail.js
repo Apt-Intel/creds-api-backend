@@ -5,9 +5,11 @@ const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizat
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
 const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
+const authMiddleware = require("../../../middlewares/authMiddleware");
 
 router.get(
   "/search-by-mail",
+  authMiddleware,
   searchByMail,
   dateNormalizationMiddleware,
   sortingMiddleware,
@@ -17,6 +19,7 @@ router.get(
 
 router.post(
   "/search-by-mail",
+  authMiddleware,
   searchByMail,
   dateNormalizationMiddleware,
   sortingMiddleware,
