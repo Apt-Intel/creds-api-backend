@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
 const authMiddleware = require("./middlewares/authMiddleware");
+const rateLimiter = require("./middlewares/rateLimiter");
 const complexRateLimitMiddleware = require("./middlewares/complexRateLimitMiddleware");
 const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMiddleware");
 const requestIdMiddleware = require("./middlewares/requestIdMiddleware");
@@ -63,6 +64,7 @@ app.use("/api/json/v1", searchByMailRoutes);
 app.use(
   /^(?!\/health$|\/admin\/).*/,
   authMiddleware,
+  rateLimiter,
   complexRateLimitMiddleware,
   requestLogger
 );

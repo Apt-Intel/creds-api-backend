@@ -40,3 +40,8 @@ CREATE TABLE IF NOT EXISTS api_requests_log (
 CREATE INDEX IF NOT EXISTS idx_api_usage_api_key_id ON api_usage(api_key_id);
 CREATE INDEX IF NOT EXISTS idx_api_requests_log_api_key_id ON api_requests_log(api_key_id);
 CREATE INDEX IF NOT EXISTS idx_api_requests_log_timestamp ON api_requests_log(timestamp);
+
+-- Add this to your existing migrations file or create a new one
+ALTER TABLE api_usage
+ADD COLUMN IF NOT EXISTS daily_limit INTEGER,
+ADD COLUMN IF NOT EXISTS monthly_limit INTEGER;

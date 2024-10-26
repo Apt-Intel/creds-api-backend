@@ -23,6 +23,12 @@ const checkEndpointAccess = (requestedEndpoint, allowedEndpoints) => {
   logger.info(`Normalized requested endpoint: ${normalizedRequestedEndpoint}`);
 
   return allowedEndpoints.some((endpoint) => {
+    if (typeof endpoint !== "string") {
+      logger.warn(
+        `Invalid endpoint in allowedEndpoints: ${JSON.stringify(endpoint)}`
+      );
+      return false;
+    }
     let normalizedEndpoint = endpoint.replace(/\/+$/, "").toLowerCase();
 
     logger.info(
@@ -86,6 +92,9 @@ const authMiddleware = async (req, res, next) => {
         return res.status(403).json({ error: "Invalid API key configuration" });
       }
     }
+
+    // Flatten the array if it's nested
+    allowedEndpoints = allowedEndpoints.flat();
 
     logger.info(
       `Allowed endpoints (processed): ${JSON.stringify(allowedEndpoints)}`
