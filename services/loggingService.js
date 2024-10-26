@@ -78,15 +78,60 @@ async function processLogQueue() {
 setInterval(processLogQueue, 5000); // Process every 5 seconds
 
 function logRequest(logData) {
-  logQueue.push(logData);
+  return new Promise((resolve, reject) => {
+    try {
+      logQueue.push(logData);
+      resolve();
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+async function updateUsageStats(apiKeyId) {
+  const now = new Date();
+  const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+
+  const [usage, created] = await ApiUsage.findOrCreate({
+    where: { api_key_id: apiKeyId },
+    defaults: {
+      total_requests: 1,
+      daily_requests: 1,
+      monthly_requests: 1,
+      last_request_date: now,
+    },
+  });
+
+  if (!created) {
+    await usage.increment("total_requests");
+    if (usage.last_request_date < startOfDay) {
+      await usage.update({ daily_requests: 1 });
+    } else {
+      await usage.increment("daily_requests");
+    }
+    if (usage.last_request_date < startOfMonth) {
+      await usage.update({ monthly_requests: 1 });
+    } else {
+      await usage.increment("monthly_requests");
+    }
+    await usage.update({ last_request_date: now });
+  }
 }
 
 async function getUsageStats(apiKeyId) {
-  const result = await pool.query(
-    "SELECT * FROM api_usage WHERE api_key_id = $1",
-    [apiKeyId]
-  );
-  return result.rows[0];
+  const usage = await ApiUsage.findOne({ where: { api_key_id: apiKeyId } });
+  return usage
+    ? {
+        total_requests: usage.total_requests,
+        daily_requests: usage.daily_requests,
+        monthly_requests: usage.monthly_requests,
+      }
+    : {
+        total_requests: 0,
+        daily_requests: 0,
+        monthly_requests: 0,
+      };
 }
 
-module.exports = { logRequest, getUsageStats };
+module.exports = { logRequest, updateUsageStats, getUsageStats };

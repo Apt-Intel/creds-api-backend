@@ -8,38 +8,51 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       api_key: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true,
       },
       user_id: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          isEmail: true, // Assuming we're using email as user_id
-        },
       },
       status: {
-        type: DataTypes.ENUM("active", "suspended", "revoked"),
-        allowNull: false,
+        type: DataTypes.ENUM("active", "inactive", "revoked"),
         defaultValue: "active",
-      },
-      endpoints_allowed: {
-        type: DataTypes.JSONB,
-        allowNull: false,
-        defaultValue: [],
-      },
-      rate_limit: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 1000, // requests per minute
       },
       metadata: {
         type: DataTypes.JSONB,
+        defaultValue: {},
+      },
+      endpoints_allowed: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: [],
+        get() {
+          const rawValue = this.getDataValue("endpoints_allowed");
+          return rawValue ? rawValue : [];
+        },
+        set(value) {
+          this.setDataValue(
+            "endpoints_allowed",
+            Array.isArray(value) ? value.map(String) : [String(value)]
+          );
+        },
+      },
+      rate_limit: {
+        type: DataTypes.INTEGER,
+        defaultValue: 1000,
+      },
+      daily_limit: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      monthly_limit: {
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
     },
     {
+      tableName: "api_keys",
       timestamps: true,
       underscored: true,
     }

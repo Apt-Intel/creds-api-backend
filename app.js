@@ -59,9 +59,9 @@ const adminAuth = basicAuth({
 // Remove authentication for the search-by-mail route
 app.use("/api/json/v1", searchByMailRoutes);
 
-// Apply authentication, rate limiting, and request logging to all routes except health check, admin routes, and search-by-mail
+// Apply authentication, complex rate limiting, and request logging to all routes except health check and admin routes
 app.use(
-  /^(?!\/health$|\/admin\/|\/api\/json\/v1\/search-by-mail).*/,
+  /^(?!\/health$|\/admin\/).*/,
   authMiddleware,
   complexRateLimitMiddleware,
   requestLogger
@@ -81,7 +81,6 @@ app.get("/health", (req, res) => res.status(200).json({ status: "OK" }));
 
 // Make sure this route is defined before the catch-all middleware
 app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
-  logger.info("Attempting to generate API key");
   try {
     const {
       userId,
@@ -91,14 +90,11 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
       dailyLimit,
       monthlyLimit,
     } = req.body;
+
     if (!userId) {
-      return res.status(400).json({ error: "User ID (email) is required" });
+      return res.status(400).json({ error: "User ID is required" });
     }
-    if (!/\S+@\S+\.\S+/.test(userId)) {
-      return res
-        .status(400)
-        .json({ error: "Invalid email format for User ID" });
-    }
+
     const apiKeyData = await generateApiKey(
       userId,
       metadata,
@@ -110,9 +106,10 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
     res.json(apiKeyData);
   } catch (error) {
     logger.error("Error generating API key:", error);
-    res
-      .status(500)
-      .json({ error: "Failed to generate API key", details: error.message });
+    res.status(500).json({
+      error: "Failed to generate API key",
+      details: error.message,
+    });
   }
 });
 

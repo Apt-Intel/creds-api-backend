@@ -4,8 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
+        autoIncrement: true,
       },
       api_key_id: {
         type: DataTypes.UUID,
@@ -15,12 +15,16 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
+      timestamp: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
       endpoint: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
       method: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       status_code: {
@@ -32,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       ip_address: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       user_agent: {
@@ -41,10 +45,14 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      timestamps: true,
-      underscored: true,
+      tableName: "api_requests_log",
+      timestamps: false,
     }
   );
+
+  ApiRequestLog.associate = (models) => {
+    ApiRequestLog.belongsTo(models.ApiKey, { foreignKey: "api_key_id" });
+  };
 
   return ApiRequestLog;
 };

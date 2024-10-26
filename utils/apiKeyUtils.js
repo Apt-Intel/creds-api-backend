@@ -9,14 +9,14 @@ const pool = new Pool({
 
 // Ensure that your ApiKey model is properly defined to include `daily_limit` and `monthly_limit`.
 
-const generateApiKey = async (
+async function generateApiKey(
   userId,
   metadata = {},
   endpointsAllowed = ["all"],
   rateLimit = 1000,
   dailyLimit = 0,
   monthlyLimit = 0
-) => {
+) {
   if (!userId) {
     throw new Error("User ID is required");
   }
@@ -24,46 +24,36 @@ const generateApiKey = async (
     const apiKey = crypto.randomBytes(32).toString("hex");
     const hashedApiKey = hashApiKey(apiKey);
 
-    const result = await pool.query(
-      `INSERT INTO api_keys
-        (user_id, api_key, status, metadata, endpoints_allowed, rate_limit, daily_limit, monthly_limit)
-      VALUES
-        ($1, $2, $3, $4, $5, $6, $7, $8)
-      RETURNING *`,
-      [
-        userId,
-        hashedApiKey,
-        "active",
-        metadata,
-        JSON.stringify(endpointsAllowed),
-        rateLimit,
-        dailyLimit,
-        monthlyLimit,
-      ]
-    );
+    // Ensure endpointsAllowed is an array of strings
+    const sanitizedEndpoints = Array.isArray(endpointsAllowed)
+      ? endpointsAllowed.map(String)
+      : [String(endpointsAllowed)];
 
-    const newApiKey = result.rows[0];
+    const newApiKey = await ApiKey.create({
+      user_id: userId,
+      api_key: hashedApiKey,
+      metadata,
+      endpoints_allowed: sanitizedEndpoints,
+      rate_limit: rateLimit,
+      daily_limit: dailyLimit,
+      monthly_limit: monthlyLimit,
+    });
 
     logger.info(`Generated API key: ${apiKey}, Hashed: ${hashedApiKey}`);
-    logger.info(`Endpoints allowed: ${JSON.stringify(endpointsAllowed)}`);
+    logger.info(`Endpoints allowed: ${JSON.stringify(sanitizedEndpoints)}`);
     logger.info(`Rate limit: ${rateLimit}`);
     logger.info(`Daily limit: ${dailyLimit}`);
     logger.info(`Monthly limit: ${monthlyLimit}`);
 
     return {
       apiKey,
-      hashedApiKey,
-      userId: newApiKey.user_id,
-      endpointsAllowed: endpointsAllowed,
-      rateLimit: newApiKey.rate_limit,
-      dailyLimit: newApiKey.daily_limit,
-      monthlyLimit: newApiKey.monthly_limit,
+      apiKeyData: newApiKey,
     };
   } catch (error) {
     logger.error("Error generating API key:", error);
     throw error;
   }
-};
+}
 
 const updateApiKeyStatus = async (
   apiKey,
