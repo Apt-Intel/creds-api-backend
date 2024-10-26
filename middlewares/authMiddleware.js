@@ -1,68 +1,119 @@
-const { ApiKey } = require("../models");
+const { getApiKeyDetails } = require("../services/apiKeyService");
 const logger = require("../config/logger");
-const { asyncRedis } = require("../config/redisClient");
-const { hashApiKey } = require("../utils/hashUtils");
+const url = require("url");
 
-const CACHE_TTL = 3600; // 1 hour in seconds
+const checkEndpointAccess = (requestedEndpoint, allowedEndpoints) => {
+  if (!Array.isArray(allowedEndpoints)) {
+    logger.warn(
+      `Invalid allowedEndpoints: ${JSON.stringify(allowedEndpoints)}`
+    );
+    return false;
+  }
+
+  if (allowedEndpoints.includes("all")) {
+    return true;
+  }
+
+  // Normalize the requested endpoint
+  const parsedUrl = url.parse(requestedEndpoint);
+  let normalizedRequestedEndpoint = parsedUrl.pathname
+    .replace(/\/+$/, "")
+    .toLowerCase();
+
+  logger.info(`Normalized requested endpoint: ${normalizedRequestedEndpoint}`);
+
+  return allowedEndpoints.some((endpoint) => {
+    let normalizedEndpoint = endpoint.replace(/\/+$/, "").toLowerCase();
+
+    logger.info(
+      `Comparing ${normalizedRequestedEndpoint} with ${normalizedEndpoint}`
+    );
+
+    return (
+      normalizedRequestedEndpoint === normalizedEndpoint ||
+      normalizedRequestedEndpoint.startsWith(normalizedEndpoint + "/")
+    );
+  });
+};
 
 const authMiddleware = async (req, res, next) => {
   try {
     const apiKey = req.header("api-key");
     if (!apiKey) {
-      logger.warn("No API key provided");
+      logger.warn("No API key provided in request");
       return res.status(401).json({ error: "API key is required" });
     }
 
-    const hashedApiKey = hashApiKey(apiKey);
-    logger.info(`Received API key: ${apiKey}, Hashed: ${hashedApiKey}`);
-
-    // Check Redis cache first
-    let apiKeyData = await asyncRedis.get(`api_key:${hashedApiKey}`);
-
-    if (apiKeyData) {
-      apiKeyData = JSON.parse(apiKeyData);
-      logger.info("API key data retrieved from cache");
-    } else {
-      // If not in cache, fetch from database
-      apiKeyData = await ApiKey.findOne({ where: { api_key: hashedApiKey } });
-
-      if (!apiKeyData) {
-        logger.warn(`API key not found in database: ${hashedApiKey}`);
-        return res.status(401).json({ error: "Invalid API key" });
-      }
-
-      if (apiKeyData.status !== "active") {
-        logger.warn(
-          `Inactive API key: ${hashedApiKey}, Status: ${apiKeyData.status}`
-        );
-        return res.status(401).json({ error: "Inactive API key" });
-      }
-
-      // Cache the API key data
-      await asyncRedis.setex(
-        `api_key:${hashedApiKey}`,
-        CACHE_TTL,
-        JSON.stringify(apiKeyData.toJSON())
-      );
-      logger.info("API key data cached");
+    const apiKeyData = await getApiKeyDetails(apiKey);
+    if (!apiKeyData) {
+      logger.warn(`Invalid API key: ${apiKey}`);
+      return res.status(401).json({ error: "Invalid API key" });
     }
 
-    // Attach API key data to request object
-    req.apiKeyData = apiKeyData;
-    req.userId = apiKeyData.user_id;
+    if (apiKeyData.status !== "active") {
+      logger.warn(`Inactive API key: ${apiKey}, Status: ${apiKeyData.status}`);
+      return res.status(401).json({ error: "Inactive API key" });
+    }
 
+    // Updated requestedEndpoint to use req.originalUrl
+    const requestedEndpoint = req.originalUrl.split("?")[0]; // Remove query parameters
+
+    logger.info(`req.originalUrl: ${req.originalUrl}`);
+    logger.info(`Requested endpoint: ${requestedEndpoint}`);
+
+    let allowedEndpoints = apiKeyData.endpoints_allowed;
+
+    logger.info(`Allowed endpoints (raw): ${JSON.stringify(allowedEndpoints)}`);
+
+    // Ensure endpoints_allowed is an array
+    if (typeof allowedEndpoints === "string") {
+      try {
+        allowedEndpoints = JSON.parse(allowedEndpoints);
+      } catch (error) {
+        logger.error(`Error parsing endpoints_allowed: ${error.message}`);
+        return res.status(500).json({ error: "Internal server error" });
+      }
+    }
+
+    // Handle object format and convert to array if necessary
+    if (!Array.isArray(allowedEndpoints)) {
+      if (typeof allowedEndpoints === "object" && allowedEndpoints !== null) {
+        allowedEndpoints = Object.values(allowedEndpoints);
+      } else {
+        logger.warn(
+          `Invalid allowedEndpoints format: ${typeof allowedEndpoints}`
+        );
+        return res.status(403).json({ error: "Invalid API key configuration" });
+      }
+    }
+
+    logger.info(
+      `Allowed endpoints (processed): ${JSON.stringify(allowedEndpoints)}`
+    );
+
+    const hasAccess = checkEndpointAccess(requestedEndpoint, allowedEndpoints);
+
+    logger.info(`Access granted: ${hasAccess}`);
+
+    if (!hasAccess) {
+      logger.warn(
+        `Access denied for endpoint ${requestedEndpoint} with API key: ${apiKey}`
+      );
+      return res
+        .status(403)
+        .json({ error: "Access to this endpoint is not allowed" });
+    }
+
+    req.apiKeyData = apiKeyData;
+    logger.info(
+      `Authenticated request with API key: ${apiKey} for endpoint: ${requestedEndpoint}`
+    );
     next();
   } catch (error) {
     logger.error("Error in authentication middleware:", error);
-    if (error.name === "SequelizeConnectionError") {
-      return res.status(503).json({ error: "Service temporarily unavailable" });
-    }
     res.status(500).json({
       error: "Internal server error",
-      message:
-        process.env.NODE_ENV === "production"
-          ? "An unexpected error occurred"
-          : error.message,
+      message: "An error occurred during authentication",
     });
   }
 };

@@ -7,6 +7,7 @@ const authMiddleware = require("./middlewares/authMiddleware");
 const complexRateLimitMiddleware = require("./middlewares/complexRateLimitMiddleware");
 const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMiddleware");
 const requestIdMiddleware = require("./middlewares/requestIdMiddleware");
+const requestLogger = require("./middlewares/requestLogger");
 const logger = require("./config/logger");
 const sortingMiddleware = require("./middlewares/sortingMiddleware");
 const searchByMailRoutes = require("./routes/api/v1/searchByMail");
@@ -23,13 +24,9 @@ const basicAuth = require("express-basic-auth");
 const { hashApiKey } = require("./utils/hashUtils");
 const { ApiKey } = require("./models");
 const { connectToDatabase, closeDatabase } = require("./config/database");
-
-// // Add this near the top of the file, after loading environment variables
-// if (!process.env.API_KEY) {
-//   console.error("API_KEY is not set in the environment variables");
-//   process.exit(1);
-// }
-// logger.logWithRequestId("info", `API_KEY from env: ${process.env.API_KEY}`);
+const { getApiKeyDetails } = require("./services/apiKeyService");
+const { getUsageStats } = require("./services/loggingService");
+const createError = require("http-errors");
 
 const app = express();
 
@@ -62,14 +59,12 @@ const adminAuth = basicAuth({
 // Remove authentication for the search-by-mail route
 app.use("/api/json/v1", searchByMailRoutes);
 
-// Apply authentication and rate limiting to all routes except health check, admin routes, and search-by-mail
+// Apply authentication, rate limiting, and request logging to all routes except health check, admin routes, and search-by-mail
 app.use(
   /^(?!\/health$|\/admin\/|\/api\/json\/v1\/search-by-mail).*/,
-  authMiddleware
-);
-app.use(
-  /^(?!\/health$|\/admin\/|\/api\/json\/v1\/search-by-mail).*/,
-  complexRateLimitMiddleware
+  authMiddleware,
+  complexRateLimitMiddleware,
+  requestLogger
 );
 
 // Routes
@@ -78,39 +73,24 @@ app.use("/api/json/internal", internalSearchByLoginRouter);
 app.use("/api/json/internal", internalSearchByLoginBulkRouter);
 app.use("/api/json/internal", internalSearchByDomainRouter);
 app.use("/api/json/internal", internalSearchByDomainBulkRouter);
-
-// Add the new domain search routes
 app.use("/api/json/v1", searchByDomainRouter);
 app.use("/api/json/v1", searchByDomainBulkRouter);
-
-// Log all routes
-app._router.stack.forEach(function (r) {
-  if (r.route && r.route.path) {
-    console.log(r.route.path);
-  }
-});
 
 // Health check route
 app.get("/health", (req, res) => res.status(200).json({ status: "OK" }));
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  logger.error("Unhandled error:", err);
-  const statusCode = err.statusCode || 500;
-  const message =
-    process.env.NODE_ENV === "production"
-      ? "An unexpected error occurred"
-      : err.message;
-  res.status(statusCode).json({ error: "Something went wrong!", message });
-});
-
-// Test routes (keep these if you still need them)
-// ...
-
-// Admin route to generate API keys with basic auth
+// Make sure this route is defined before the catch-all middleware
 app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
+  logger.info("Attempting to generate API key");
   try {
-    const { userId, metadata } = req.body;
+    const {
+      userId,
+      metadata,
+      endpointsAllowed,
+      rateLimit,
+      dailyLimit,
+      monthlyLimit,
+    } = req.body;
     if (!userId) {
       return res.status(400).json({ error: "User ID (email) is required" });
     }
@@ -119,12 +99,15 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
         .status(400)
         .json({ error: "Invalid email format for User ID" });
     }
-    const {
-      apiKey,
-      hashedApiKey,
-      userId: generatedUserId,
-    } = await generateApiKey(userId, metadata);
-    res.json({ apiKey, hashedApiKey, userId: generatedUserId });
+    const apiKeyData = await generateApiKey(
+      userId,
+      metadata,
+      endpointsAllowed,
+      rateLimit,
+      dailyLimit,
+      monthlyLimit
+    );
+    res.json(apiKeyData);
   } catch (error) {
     logger.error("Error generating API key:", error);
     res
@@ -136,12 +119,26 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
 // Admin route to update API key status
 app.post("/admin/update-api-key-status", adminAuth, async (req, res) => {
   try {
-    const { apiKey, status } = req.body;
-    if (!apiKey || !status) {
-      return res.status(400).json({ error: "API key and status are required" });
+    const {
+      apiKey,
+      status,
+      endpointsAllowed,
+      rateLimit,
+      dailyLimit,
+      monthlyLimit,
+    } = req.body;
+    if (!apiKey) {
+      return res.status(400).json({ error: "API key is required" });
     }
-    const updatedApiKey = await updateApiKeyStatus(apiKey, status);
-    res.json({ message: "API key status updated successfully", updatedApiKey });
+    const updatedApiKey = await updateApiKeyStatus(
+      apiKey,
+      status,
+      endpointsAllowed,
+      rateLimit,
+      dailyLimit,
+      monthlyLimit
+    );
+    res.json({ message: "API key updated successfully", updatedApiKey });
   } catch (error) {
     logger.error("Error updating API key status:", error);
     if (error.message === "API key not found") {
@@ -155,40 +152,48 @@ app.post("/admin/update-api-key-status", adminAuth, async (req, res) => {
 });
 
 // Admin route to check API key details
-app.post("/admin/check-api-key/:apiKey", adminAuth, async (req, res) => {
+app.get("/admin/check-api-key/:apiKey", adminAuth, async (req, res) => {
+  logger.info(`Received request to check API key: ${req.params.apiKey}`);
   try {
     const { apiKey } = req.params;
-    const hashedApiKey = hashApiKey(apiKey);
-    const apiKeyData = await ApiKey.findOne({
-      where: { api_key: hashedApiKey },
-    });
+    const apiKeyData = await getApiKeyDetails(apiKey);
 
     if (!apiKeyData) {
+      logger.warn(`API key not found: ${apiKey}`);
       return res.status(404).json({ error: "API key not found" });
     }
 
+    logger.info(`API key details retrieved for: ${apiKey}`);
     res.json({
-      message: "API key found",
+      message: "API key details retrieved",
       details: {
         id: apiKeyData.id,
         status: apiKeyData.status,
         userId: apiKeyData.user_id,
         hashedApiKey: apiKeyData.api_key,
+        endpointsAllowed: apiKeyData.endpoints_allowed,
+        rateLimit: apiKeyData.rate_limit,
+        dailyLimit: apiKeyData.daily_limit,
+        monthlyLimit: apiKeyData.monthly_limit,
+        metadata: apiKeyData.metadata,
       },
     });
   } catch (error) {
-    logger.error("Error checking API key:", error);
+    logger.error(`Error checking API key: ${req.params.apiKey}`, error);
     res
       .status(500)
       .json({ error: "Failed to check API key", details: error.message });
   }
 });
 
-console.log("Registered routes:");
-app._router.stack.forEach((r) => {
-  if (r.route && r.route.path) {
-    console.log(`${Object.keys(r.route.methods)} ${r.route.path}`);
-  }
+app.use((req, res, next) => {
+  logger.info(`Received ${req.method} request for ${req.originalUrl}`);
+  next();
+});
+
+// Move this middleware to the end of all route definitions
+app.use((req, res, next) => {
+  next(createError(405, "Method Not Allowed"));
 });
 
 const PORT = process.env.PORT || 3000;

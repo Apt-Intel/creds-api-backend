@@ -1,76 +1,42 @@
-const { client } = require("../config/redisClient");
-const logger = require("../config/logger");
-
-const MAX_REQUESTS_PER_WINDOW = 50;
-const WINDOW_SIZE_IN_SECONDS = 10;
-const MAX_BULK_LOGINS = 10;
+const rateLimit = require("express-rate-limit");
+const RedisStore = require("rate-limit-redis");
+const { client: redisClient } = require("../config/redisClient");
+const { getUsageStats } = require("../services/loggingService");
 
 const complexRateLimitMiddleware = async (req, res, next) => {
-  const apiKey = req.header("api-key");
-  const ip = req.ip;
-  const loginCount = Array.isArray(req.body.logins)
-    ? req.body.logins.length
-    : 1;
+  const apiKeyData = req.apiKeyData;
+  const usageStats = await getUsageStats(apiKeyData.id);
 
-  if (loginCount > MAX_BULK_LOGINS) {
-    return res.status(400).json({
-      error: `Maximum of ${MAX_BULK_LOGINS} logins allowed per request`,
-    });
+  // Check daily limit
+  if (
+    apiKeyData.daily_limit &&
+    usageStats.daily_requests >= apiKeyData.daily_limit
+  ) {
+    return res.status(429).json({ error: "Daily request limit exceeded" });
   }
 
-  try {
-    const [apiKeyResult, ipResult] = await Promise.all([
-      checkRateLimit(`rate_limit:${apiKey}`, loginCount),
-      checkRateLimit(`rate_limit:${ip}`, loginCount),
-    ]);
-
-    const remaining = Math.min(apiKeyResult.remaining, ipResult.remaining);
-    const resetTime = Math.max(apiKeyResult.resetTime, ipResult.resetTime);
-
-    res.set({
-      "X-RateLimit-Limit": MAX_REQUESTS_PER_WINDOW,
-      "X-RateLimit-Remaining": remaining,
-      "X-RateLimit-Reset": resetTime,
-    });
-
-    if (remaining < 0) {
-      return res.status(429).json({ error: "Rate limit exceeded" });
-    }
-
-    next();
-  } catch (error) {
-    logger.error("Error in rate limit middleware:", error);
-    next(error);
+  // Check monthly limit
+  if (
+    apiKeyData.monthly_limit &&
+    usageStats.monthly_requests >= apiKeyData.monthly_limit
+  ) {
+    return res.status(429).json({ error: "Monthly request limit exceeded" });
   }
-};
 
-async function checkRateLimit(key, loginCount) {
-  const now = Date.now();
-  const windowStart = now - WINDOW_SIZE_IN_SECONDS * 1000;
+  // Apply per-minute rate limit
+  const rateLimitValue = apiKeyData.rate_limit || 1000; // Default rate limit
 
-  const multi = client.multi();
-  multi.zremrangebyscore(key, 0, windowStart);
-  for (let i = 0; i < loginCount; i++) {
-    multi.zadd(key, now, `${now}-${i}`);
-  }
-  multi.zrange(key, 0, -1);
-  multi.expire(key, WINDOW_SIZE_IN_SECONDS);
-
-  const results = await new Promise((resolve, reject) => {
-    multi.exec((err, results) => {
-      if (err) reject(err);
-      else resolve(results);
-    });
+  const limiter = rateLimit({
+    store: new RedisStore({
+      client: redisClient,
+      prefix: `rl:${apiKeyData.id}:`,
+    }),
+    max: rateLimitValue,
+    windowMs: 60000, // 1 minute window
+    message: "Too many requests, please try again later.",
   });
 
-  const requestTimestamps = results[2];
-
-  const requestsInWindow = requestTimestamps.length;
-  const remaining = MAX_REQUESTS_PER_WINDOW - requestsInWindow;
-  const oldestRequest = requestTimestamps[0] || now;
-  const resetTime = Math.ceil((oldestRequest - windowStart) / 1000);
-
-  return { remaining, resetTime };
-}
+  return limiter(req, res, next);
+};
 
 module.exports = complexRateLimitMiddleware;
