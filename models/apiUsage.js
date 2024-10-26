@@ -4,13 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
         autoIncrement: true,
+        primaryKey: true,
       },
       api_key_id: {
         type: DataTypes.UUID,
         allowNull: false,
-        unique: true,
         references: {
           model: "api_keys",
           key: "id",
@@ -31,16 +30,23 @@ module.exports = (sequelize, DataTypes) => {
       last_request_date: {
         type: DataTypes.DATE,
       },
+      updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
     },
     {
       tableName: "api_usage",
-      timestamps: true,
+      timestamps: false,
       underscored: true,
     }
   );
 
   ApiUsage.associate = (models) => {
-    ApiUsage.belongsTo(models.ApiKey, { foreignKey: "api_key_id" });
+    ApiUsage.belongsTo(models.ApiKey, {
+      foreignKey: "api_key_id",
+      as: "apiKey",
+    });
   };
 
   return ApiUsage;

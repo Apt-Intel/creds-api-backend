@@ -1,7 +1,5 @@
-const { Pool } = require("pg");
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+const { sequelize } = require("../config/sequelize");
+const { ApiKey, ApiUsage, ApiRequestLog } = require("../models");
 const logger = require("../config/logger");
 
 const logQueue = [];
@@ -13,41 +11,18 @@ async function processLogQueue() {
   isProcessing = true;
   const logsToInsert = logQueue.splice(0, logQueue.length);
 
-  const client = await pool.connect();
+  const transaction = await sequelize.transaction();
 
   try {
-    await client.query("BEGIN");
-
-    // Batch insert logs
-    const logInsertQuery = `
-      INSERT INTO api_requests_log 
-      (api_key_id, timestamp, endpoint, method, status_code, response_time_ms, ip_address, user_agent)
-      SELECT * FROM UNNEST ($1::uuid[], $2::timestamp[], $3::text[], $4::text[], $5::integer[], $6::integer[], $7::text[], $8::text[])
-    `;
-    const logValues = logsToInsert.reduce(
-      (acc, log) => {
-        acc[0].push(log.apiKeyId);
-        acc[1].push(log.timestamp);
-        acc[2].push(log.endpoint);
-        acc[3].push(log.method);
-        acc[4].push(log.statusCode);
-        acc[5].push(log.responseTimeMs);
-        acc[6].push(log.ipAddress);
-        acc[7].push(log.userAgent);
-        return acc;
-      },
-      [[], [], [], [], [], [], [], []]
-    );
-    await client.query(logInsertQuery, logValues);
+    await ApiRequestLog.bulkCreate(logsToInsert, { transaction });
     logger.info(`Inserted ${logsToInsert.length} logs into api_requests_log`);
 
-    await client.query("COMMIT");
+    await transaction.commit();
     logger.info("Successfully processed log queue");
   } catch (error) {
-    await client.query("ROLLBACK");
+    await transaction.rollback();
     logger.error("Error processing log queue:", error);
   } finally {
-    client.release();
     isProcessing = false;
   }
 }
@@ -70,105 +45,140 @@ function logRequest(logData) {
 }
 
 async function updateUsageStats(apiKeyId) {
-  const client = await pool.connect();
+  const transaction = await sequelize.transaction();
   try {
-    const result = await client.query(
-      `
-      UPDATE api_usage
-      SET
-        total_requests = total_requests + 1,
-        daily_requests = CASE
-          WHEN last_request_date = CURRENT_DATE THEN daily_requests + 1
-          ELSE 1
-        END,
-        monthly_requests = CASE
-          WHEN DATE_TRUNC('month', last_request_date) = DATE_TRUNC('month', CURRENT_DATE) THEN monthly_requests + 1
-          ELSE 1
-        END,
-        last_request_date = CURRENT_DATE,
-        updated_at = CURRENT_TIMESTAMP
-      WHERE api_key_id = $1
-        AND (
-          (daily_limit IS NULL OR daily_requests < daily_limit)
-          AND (monthly_limit IS NULL OR monthly_requests < monthly_limit)
-        )
-      RETURNING daily_requests, monthly_requests, daily_limit, monthly_limit;
-      `,
-      [apiKeyId]
-    );
+    const apiKey = await ApiKey.findByPk(apiKeyId, { transaction });
+    if (!apiKey) {
+      throw new Error("API key not found");
+    }
 
-    if (result.rows.length === 0) {
+    const { daily_limit, monthly_limit } = apiKey;
+
+    let usage = await ApiUsage.findOne({
+      where: { api_key_id: apiKeyId },
+      transaction,
+    });
+
+    if (!usage) {
+      usage = await ApiUsage.create(
+        {
+          api_key_id: apiKeyId,
+          total_requests: 1,
+          daily_requests: 1,
+          monthly_requests: 1,
+          last_request_date: new Date(),
+        },
+        { transaction }
+      );
+    } else {
+      await usage.update(
+        {
+          total_requests: sequelize.literal("total_requests + 1"),
+          daily_requests: sequelize.literal(`
+            CASE
+              WHEN last_request_date = CURRENT_DATE THEN daily_requests + 1
+              ELSE 1
+            END
+          `),
+          monthly_requests: sequelize.literal(`
+            CASE
+              WHEN DATE_TRUNC('month', last_request_date) = DATE_TRUNC('month', CURRENT_DATE) THEN monthly_requests + 1
+              ELSE 1
+            END
+          `),
+          last_request_date: new Date(),
+        },
+        { transaction }
+      );
+
+      await usage.reload({ transaction });
+    }
+
+    if (
+      (daily_limit !== null && usage.daily_requests > daily_limit) ||
+      (monthly_limit !== null && usage.monthly_requests > monthly_limit)
+    ) {
       logger.warn(`Usage limits exceeded for API key ${apiKeyId}`, {
         apiKeyId,
         timestamp: new Date().toISOString(),
         event: "usage_limit_exceeded",
       });
+      await transaction.rollback();
       throw new Error("Usage limits exceeded");
     }
 
-    const { daily_requests, monthly_requests, daily_limit, monthly_limit } =
-      result.rows[0];
+    await transaction.commit();
+
     logger.info(`Updated usage stats for API key ${apiKeyId}`, {
       apiKeyId,
       timestamp: new Date().toISOString(),
-      daily_requests,
-      monthly_requests,
+      daily_requests: usage.daily_requests,
+      monthly_requests: usage.monthly_requests,
       daily_limit,
       monthly_limit,
       event: "usage_stats_updated",
     });
-    return result.rows[0];
+
+    return {
+      daily_requests: usage.daily_requests,
+      monthly_requests: usage.monthly_requests,
+      daily_limit,
+      monthly_limit,
+    };
   } catch (error) {
+    await transaction.rollback();
     logger.error(`Error updating usage stats for API key ${apiKeyId}`, {
       apiKeyId,
       timestamp: new Date().toISOString(),
       error: error.message,
+      stack: error.stack,
       event: "usage_stats_update_error",
     });
     throw error;
-  } finally {
-    client.release();
   }
 }
 
 async function getUsageStats(apiKeyId) {
-  const client = await pool.connect();
   try {
-    const result = await client.query(
-      "SELECT daily_requests, monthly_requests, daily_limit, monthly_limit FROM api_usage WHERE api_key_id = $1",
-      [apiKeyId]
-    );
-    if (result.rows.length > 0) {
-      logger.info(`Retrieved usage stats for API key ${apiKeyId}`, {
+    const apiKey = await ApiKey.findByPk(apiKeyId, {
+      include: [{ model: ApiUsage, as: "usage" }],
+    });
+
+    if (!apiKey) {
+      logger.warn(`No API key found for ${apiKeyId}`, {
         apiKeyId,
         timestamp: new Date().toISOString(),
-        ...result.rows[0],
-        event: "usage_stats_retrieved",
+        event: "api_key_not_found",
       });
-      return result.rows[0];
-    } else {
-      logger.warn(`No usage stats found for API key ${apiKeyId}`, {
-        apiKeyId,
-        timestamp: new Date().toISOString(),
-        event: "usage_stats_not_found",
-      });
-      return {
-        daily_requests: 0,
-        monthly_requests: 0,
-        daily_limit: null,
-        monthly_limit: null,
-      };
+      return null;
     }
+
+    const stats = {
+      daily_requests: apiKey.usage ? apiKey.usage.daily_requests : 0,
+      monthly_requests: apiKey.usage ? apiKey.usage.monthly_requests : 0,
+      total_requests: apiKey.usage ? apiKey.usage.total_requests : 0,
+      daily_limit: apiKey.daily_limit,
+      monthly_limit: apiKey.monthly_limit,
+      last_request_date: apiKey.usage ? apiKey.usage.last_request_date : null,
+    };
+
+    logger.info(`Retrieved usage stats for API key ${apiKeyId}`, {
+      apiKeyId,
+      timestamp: new Date().toISOString(),
+      ...stats,
+      event: "usage_stats_retrieved",
+    });
+
+    return stats;
   } catch (error) {
     logger.error(`Error getting usage stats for API key ${apiKeyId}`, {
       apiKeyId,
       timestamp: new Date().toISOString(),
       error: error.message,
+      stack: error.stack,
       event: "usage_stats_retrieval_error",
     });
     throw error;
-  } finally {
-    client.release();
   }
 }
 

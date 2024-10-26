@@ -2,12 +2,6 @@ const crypto = require("crypto");
 const { ApiKey } = require("../models");
 const { hashApiKey } = require("../utils/hashUtils");
 const logger = require("../config/logger");
-const { Pool } = require("pg");
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
-
-// Ensure that your ApiKey model is properly defined to include `daily_limit` and `monthly_limit`.
 
 async function generateApiKey(
   userId,
@@ -32,11 +26,13 @@ async function generateApiKey(
     const newApiKey = await ApiKey.create({
       user_id: userId,
       api_key: hashedApiKey,
+      status: "active", // Set a default status
       metadata,
       endpoints_allowed: sanitizedEndpoints,
       rate_limit: rateLimit,
       daily_limit: dailyLimit,
       monthly_limit: monthlyLimit,
+      last_reset_date: new Date(), // Set the initial reset date
     });
 
     logger.info(`Generated API key: ${apiKey}, Hashed: ${hashedApiKey}`);
@@ -59,7 +55,9 @@ const updateApiKeyStatus = async (
   apiKey,
   status,
   endpointsAllowed,
-  rateLimit
+  rateLimit,
+  dailyLimit,
+  monthlyLimit
 ) => {
   try {
     const hashedApiKey = hashApiKey(apiKey);
@@ -67,6 +65,8 @@ const updateApiKeyStatus = async (
     logger.info(`New status: ${status}`);
     logger.info(`New endpoints allowed: ${JSON.stringify(endpointsAllowed)}`);
     logger.info(`New rate limit: ${rateLimit}`);
+    logger.info(`New daily limit: ${dailyLimit}`);
+    logger.info(`New monthly limit: ${monthlyLimit}`);
 
     const existingApiKey = await ApiKey.findOne({
       where: { api_key: hashedApiKey },
@@ -99,9 +99,11 @@ const updateApiKeyStatus = async (
       }
     }
 
-    if (rateLimit) {
-      existingApiKey.rate_limit = rateLimit;
-    }
+    if (rateLimit !== undefined) existingApiKey.rate_limit = rateLimit;
+    if (dailyLimit !== undefined) existingApiKey.daily_limit = dailyLimit;
+    if (monthlyLimit !== undefined) existingApiKey.monthly_limit = monthlyLimit;
+
+    existingApiKey.updated_at = new Date();
 
     await existingApiKey.save();
 
@@ -112,8 +114,8 @@ const updateApiKeyStatus = async (
       )}`
     );
     logger.info(`Updated rate limit: ${existingApiKey.rate_limit}`);
-
-    await invalidateApiKeyCache(hashedApiKey);
+    logger.info(`Updated daily limit: ${existingApiKey.daily_limit}`);
+    logger.info(`Updated monthly limit: ${existingApiKey.monthly_limit}`);
 
     return existingApiKey;
   } catch (error) {

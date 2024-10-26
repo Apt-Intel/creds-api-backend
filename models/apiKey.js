@@ -7,56 +7,63 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
-      api_key: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
       user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      api_key: {
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       status: {
-        type: DataTypes.ENUM("active", "inactive", "revoked"),
-        defaultValue: "active",
+        type: DataTypes.TEXT,
+        allowNull: false,
       },
       metadata: {
         type: DataTypes.JSONB,
-        defaultValue: {},
       },
       endpoints_allowed: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(DataTypes.TEXT),
         defaultValue: [],
-        get() {
-          const rawValue = this.getDataValue("endpoints_allowed");
-          return rawValue ? rawValue : [];
-        },
-        set(value) {
-          this.setDataValue(
-            "endpoints_allowed",
-            Array.isArray(value) ? value.map(String) : [String(value)]
-          );
-        },
       },
       rate_limit: {
         type: DataTypes.INTEGER,
-        defaultValue: 1000,
       },
       daily_limit: {
         type: DataTypes.INTEGER,
-        allowNull: true,
       },
       monthly_limit: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+      },
+      created_at: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+      },
+      last_reset_date: {
+        type: DataTypes.DATEONLY,
       },
     },
     {
       tableName: "api_keys",
-      timestamps: true,
+      timestamps: false,
       underscored: true,
     }
   );
+
+  ApiKey.associate = (models) => {
+    ApiKey.hasOne(models.ApiUsage, {
+      foreignKey: "api_key_id",
+      as: "usage",
+    });
+    ApiKey.hasMany(models.ApiRequestLog, {
+      foreignKey: "api_key_id",
+      as: "requestLogs",
+    });
+  };
 
   return ApiKey;
 };

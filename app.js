@@ -91,6 +91,7 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
       rateLimit,
       dailyLimit,
       monthlyLimit,
+      status = "active", // Default status
     } = req.body;
 
     if (!userId) {
@@ -105,6 +106,19 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
       dailyLimit,
       monthlyLimit
     );
+
+    // Update the status if it's provided in the request
+    if (status && status !== "active") {
+      await updateApiKeyStatus(
+        apiKeyData.apiKey,
+        status,
+        endpointsAllowed,
+        rateLimit,
+        dailyLimit,
+        monthlyLimit
+      );
+    }
+
     res.json(apiKeyData);
   } catch (error) {
     logger.error("Error generating API key:", error);

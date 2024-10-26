@@ -27,24 +27,32 @@ const requestLogger = (req, res, next) => {
     }
 
     const logData = {
-      apiKeyId: req.apiKeyData.id,
+      api_key_id: req.apiKeyData.id,
       timestamp: new Date(),
       endpoint: req.originalUrl,
       method: req.method,
-      statusCode: res.statusCode,
-      responseTimeMs,
-      ipAddress: req.ip,
-      userAgent: req.get("user-agent"),
-      responseSize,
+      status_code: res.statusCode,
+      response_time_ms: responseTimeMs,
+      ip_address: req.ip,
+      user_agent: req.get("user-agent"),
     };
 
     if (responseSize <= MAX_RESPONSE_SIZE) {
-      Promise.resolve(logRequest(logData)).catch((error) => {
-        logger.error("Error logging request:", error);
-      });
+      logRequest(logData)
+        .then(() => {
+          logger.debug(
+            `Request logged successfully for API key ${req.apiKeyData.id}`
+          );
+        })
+        .catch((error) => {
+          logger.error(
+            `Error logging request for API key ${req.apiKeyData.id}:`,
+            error
+          );
+        });
     } else {
       logger.warn(
-        `Large response not logged. Size: ${responseSize} bytes, Endpoint: ${req.originalUrl}`
+        `Large response not logged. Size: ${responseSize} bytes, Endpoint: ${req.originalUrl}, API Key: ${req.apiKeyData.id}`
       );
     }
   };
