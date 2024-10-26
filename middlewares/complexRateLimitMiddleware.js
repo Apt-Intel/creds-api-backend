@@ -1,6 +1,7 @@
 const { updateUsageStats } = require("../services/loggingService");
 const logger = require("../config/logger");
 const UsageLimitExceededError = require("../errors/UsageLimitExceededError");
+const { USAGE_ENDPOINT } = require("../config/constants");
 
 const complexRateLimitMiddleware = async (req, res, next) => {
   try {
@@ -11,6 +12,11 @@ const complexRateLimitMiddleware = async (req, res, next) => {
         error: "Internal server error",
         message: "API key data is missing",
       });
+    }
+
+    // Exempt the usage endpoint from complex rate limiting
+    if (req.path === USAGE_ENDPOINT) {
+      return next();
     }
 
     try {

@@ -19,7 +19,7 @@ const searchByDomainRouter = require("./routes/api/v1/searchByDomain");
 const searchByDomainBulkRouter = require("./routes/api/v1/searchByDomainBulk");
 const internalSearchByDomainRouter = require("./routes/api/internal/searchByDomain");
 const internalSearchByDomainBulkRouter = require("./routes/api/internal/searchByDomainBulk");
-const { generateApiKey, updateApiKeyStatus } = require("./utils/apiKeyUtils");
+const { generateApiKey, updateApiKeyDetails } = require("./utils/apiKeyUtils");
 const { sequelize } = require("./config/sequelize");
 const basicAuth = require("express-basic-auth");
 const { hashApiKey } = require("./utils/hashUtils");
@@ -61,7 +61,11 @@ const adminAuth = basicAuth({
 // Remove authentication for the search-by-mail route
 app.use("/api/json/v1", searchByMailRoutes);
 
-// Apply authentication, complex rate limiting, and request logging to all routes except health check and admin routes
+// Add the usage route before applying complexRateLimitMiddleware
+const usageRouter = require("./routes/api/v1/usage");
+app.use("/api/json/v1", authMiddleware, rateLimiter, usageRouter);
+
+// Apply complexRateLimitMiddleware after the usage route
 app.use(
   /^(?!\/health$|\/admin\/).*/,
   authMiddleware,
@@ -78,6 +82,9 @@ app.use("/api/json/internal", internalSearchByDomainRouter);
 app.use("/api/json/internal", internalSearchByDomainBulkRouter);
 app.use("/api/json/v1", searchByDomainRouter);
 app.use("/api/json/v1", searchByDomainBulkRouter);
+
+// Add this line with your other route declarations
+app.use("/api/json/v1", usageRouter);
 
 // Health check route
 app.get("/health", (req, res) => res.status(200).json({ status: "OK" }));
@@ -110,7 +117,7 @@ app.post("/admin/generate-api-key", adminAuth, async (req, res) => {
 
     // Update the status if it's provided in the request
     if (status && status !== "active") {
-      await updateApiKeyStatus(
+      await updateApiKeyDetails(
         apiKeyData.apiKey,
         status,
         endpointsAllowed,
@@ -136,30 +143,54 @@ app.post("/admin/update-api-key-status", adminAuth, async (req, res) => {
     const {
       apiKey,
       status,
+      userId,
       endpointsAllowed,
       rateLimit,
       dailyLimit,
       monthlyLimit,
+      metadata,
+      timezone,
     } = req.body;
+
     if (!apiKey) {
       return res.status(400).json({ error: "API key is required" });
     }
-    const updatedApiKey = await updateApiKeyStatus(
-      apiKey,
+
+    const updatedApiKey = await updateApiKeyDetails(apiKey, {
       status,
+      userId,
       endpointsAllowed,
       rateLimit,
       dailyLimit,
-      monthlyLimit
-    );
-    res.json({ message: "API key updated successfully", updatedApiKey });
+      monthlyLimit,
+      metadata,
+      timezone,
+    });
+
+    res.json({
+      message: "API key updated successfully",
+      updatedApiKey: {
+        id: updatedApiKey.id,
+        userId: updatedApiKey.user_id,
+        status: updatedApiKey.status,
+        endpointsAllowed: updatedApiKey.endpoints_allowed,
+        rateLimit: updatedApiKey.rate_limit,
+        dailyLimit: updatedApiKey.daily_limit,
+        monthlyLimit: updatedApiKey.monthly_limit,
+        metadata: updatedApiKey.metadata,
+        timezone: updatedApiKey.timezone,
+        createdAt: updatedApiKey.created_at,
+        updatedAt: updatedApiKey.updated_at,
+        lastResetDate: updatedApiKey.last_reset_date,
+      },
+    });
   } catch (error) {
-    logger.error("Error updating API key status:", error);
+    logger.error("Error updating API key:", error);
     if (error.message === "API key not found") {
       return res.status(404).json({ error: "API key not found" });
     }
     res.status(500).json({
-      error: "Failed to update API key status",
+      error: "Failed to update API key",
       details: error.message,
     });
   }
@@ -177,19 +208,34 @@ app.get("/admin/check-api-key/:apiKey", adminAuth, async (req, res) => {
       return res.status(404).json({ error: "API key not found" });
     }
 
+    // Fetch usage statistics
+    const usageStats = await getUsageStats(apiKeyData.id);
+
     logger.info(`API key details retrieved for: ${apiKey}`);
     res.json({
       message: "API key details retrieved",
       details: {
         id: apiKeyData.id,
         status: apiKeyData.status,
-        userId: apiKeyData.user_id,
-        hashedApiKey: apiKeyData.api_key,
-        endpointsAllowed: apiKeyData.endpoints_allowed,
-        rateLimit: apiKeyData.rate_limit,
-        dailyLimit: apiKeyData.daily_limit,
-        monthlyLimit: apiKeyData.monthly_limit,
+        userId: apiKeyData.userId,
+        hashedApiKey: apiKeyData.hashedApiKey,
+        endpointsAllowed: apiKeyData.endpointsAllowed,
+        rateLimit: apiKeyData.rateLimit,
+        dailyLimit: apiKeyData.dailyLimit,
+        monthlyLimit: apiKeyData.monthlyLimit,
         metadata: apiKeyData.metadata,
+        timezone: apiKeyData.timezone,
+        createdAt: apiKeyData.created_at,
+        updatedAt: apiKeyData.updated_at,
+        lastResetDate: apiKeyData.last_reset_date,
+        usage: {
+          dailyRequests: usageStats.daily_requests,
+          monthlyRequests: usageStats.monthly_requests,
+          totalRequests: usageStats.total_requests,
+          remainingDailyRequests: usageStats.remaining_daily_requests,
+          remainingMonthlyRequests: usageStats.remaining_monthly_requests,
+          lastRequestDate: usageStats.last_request_date,
+        },
       },
     });
   } catch (error) {
@@ -208,6 +254,13 @@ app.use((req, res, next) => {
 // Move this middleware to the end of all route definitions
 app.use((req, res, next) => {
   next(createError(405, "Method Not Allowed"));
+});
+
+app.use((err, req, res, next) => {
+  logger.error(`Error: ${err.message}`, { stack: err.stack });
+  res.status(err.status || 500).json({
+    error: err.message || "Internal Server Error",
+  });
 });
 
 const PORT = process.env.PORT || 3000;
@@ -254,3 +307,7 @@ process.on("SIGINT", async () => {
   await sequelize.close();
   process.exit(0);
 });
+
+async function updateApiKey(req, res) {
+  // ... existing update logic ...
+}

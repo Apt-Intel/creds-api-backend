@@ -31,9 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       daily_limit: {
         type: DataTypes.INTEGER,
+        defaultValue: 100, // Set default to 100
       },
       monthly_limit: {
         type: DataTypes.INTEGER,
+        defaultValue: 200, // Set default to 200
       },
       timezone: {
         type: DataTypes.STRING,
@@ -61,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
   ApiKey.associate = (models) => {
     ApiKey.hasOne(models.ApiUsage, {
       foreignKey: "api_key_id",
-      as: "usage",
+      as: "apiUsage", // Use singular alias
     });
     ApiKey.hasMany(models.ApiRequestLog, {
       foreignKey: "api_key_id",

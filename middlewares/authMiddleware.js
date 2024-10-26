@@ -1,8 +1,14 @@
 const { getApiKeyDetails } = require("../services/apiKeyService");
 const logger = require("../config/logger");
 const url = require("url");
+const { ALWAYS_ALLOWED_ENDPOINTS } = require("../config/constants");
 
 const checkEndpointAccess = (requestedEndpoint, allowedEndpoints) => {
+  // Always allow access to endpoints in ALWAYS_ALLOWED_ENDPOINTS
+  if (ALWAYS_ALLOWED_ENDPOINTS.includes(requestedEndpoint)) {
+    return true;
+  }
+
   if (!Array.isArray(allowedEndpoints)) {
     logger.warn(
       `Invalid allowedEndpoints: ${JSON.stringify(allowedEndpoints)}`

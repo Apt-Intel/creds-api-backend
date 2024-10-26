@@ -11,11 +11,11 @@ db.ApiKey = require("./apiKey")(sequelize, Sequelize);
 db.ApiUsage = require("./apiUsage")(sequelize, Sequelize);
 db.ApiRequestLog = require("./apiRequestLog")(sequelize, Sequelize);
 
-// Define associations
-db.ApiKey.hasMany(db.ApiUsage, { foreignKey: "api_key_id" });
-db.ApiUsage.belongsTo(db.ApiKey, { foreignKey: "api_key_id" });
-
-db.ApiKey.hasMany(db.ApiRequestLog, { foreignKey: "api_key_id" });
-db.ApiRequestLog.belongsTo(db.ApiKey, { foreignKey: "api_key_id" });
+// Call associate methods to set up associations
+Object.values(db).forEach((model) => {
+  if (model.associate) {
+    model.associate(db);
+  }
+});
 
 module.exports = db;

@@ -2,14 +2,15 @@ const crypto = require("crypto");
 const { ApiKey } = require("../models");
 const { hashApiKey } = require("../utils/hashUtils");
 const logger = require("../config/logger");
+const { ALWAYS_ALLOWED_ENDPOINTS } = require("../config/constants");
 
 async function generateApiKey(
   userId,
   metadata = {},
   endpointsAllowed = ["all"],
   rateLimit = 1000,
-  dailyLimit = 0,
-  monthlyLimit = 0,
+  dailyLimit = 50, // Change default to 100
+  monthlyLimit = 150, // Change default to 200
   timezone = process.env.DEFAULT_TIMEZONE || "UTC"
 ) {
   if (!userId) {
@@ -19,10 +20,15 @@ async function generateApiKey(
     const apiKey = crypto.randomBytes(32).toString("hex");
     const hashedApiKey = hashApiKey(apiKey);
 
-    // Ensure endpointsAllowed is an array of strings
+    // Ensure endpointsAllowed is an array of strings and includes ALWAYS_ALLOWED_ENDPOINTS
     const sanitizedEndpoints = Array.isArray(endpointsAllowed)
-      ? endpointsAllowed.map(String)
-      : [String(endpointsAllowed)];
+      ? [
+          ...new Set([
+            ...endpointsAllowed.map(String),
+            ...ALWAYS_ALLOWED_ENDPOINTS,
+          ]),
+        ]
+      : [...new Set([String(endpointsAllowed), ...ALWAYS_ALLOWED_ENDPOINTS])];
 
     const newApiKey = await ApiKey.create({
       user_id: userId,
@@ -54,24 +60,22 @@ async function generateApiKey(
   }
 }
 
-const updateApiKeyStatus = async (
+const updateApiKeyDetails = async (
   apiKey,
-  status,
-  endpointsAllowed,
-  rateLimit,
-  dailyLimit,
-  monthlyLimit,
-  timezone
+  {
+    status,
+    userId,
+    endpointsAllowed,
+    rateLimit,
+    dailyLimit,
+    monthlyLimit,
+    metadata,
+    timezone,
+  }
 ) => {
   try {
     const hashedApiKey = hashApiKey(apiKey);
     logger.info(`Updating API key: ${hashedApiKey}`);
-    logger.info(`New status: ${status}`);
-    logger.info(`New endpoints allowed: ${JSON.stringify(endpointsAllowed)}`);
-    logger.info(`New rate limit: ${rateLimit}`);
-    logger.info(`New daily limit: ${dailyLimit}`);
-    logger.info(`New monthly limit: ${monthlyLimit}`);
-    logger.info(`New timezone: ${timezone}`);
 
     const existingApiKey = await ApiKey.findOne({
       where: { api_key: hashedApiKey },
@@ -81,49 +85,34 @@ const updateApiKeyStatus = async (
       throw new Error("API key not found");
     }
 
-    existingApiKey.status = status;
-
-    if (endpointsAllowed) {
-      // Ensure endpointsAllowed is an array
-      const endpointsArray = Array.isArray(endpointsAllowed)
-        ? endpointsAllowed
-        : [endpointsAllowed];
-
-      // Remove duplicates and convert to lowercase
-      const uniqueEndpoints = [
-        ...new Set(endpointsArray.map((e) => e.toLowerCase())),
-      ];
-
-      // Check if "all" is present
-      if (uniqueEndpoints.includes("all")) {
-        existingApiKey.endpoints_allowed = ["all"];
-      } else if (uniqueEndpoints.length === 0) {
-        throw new Error("Endpoints allowed cannot be empty");
-      } else {
-        existingApiKey.endpoints_allowed = uniqueEndpoints;
-      }
-    }
-
+    // Update fields if provided
+    if (status) existingApiKey.status = status;
+    if (userId) existingApiKey.user_id = userId;
     if (rateLimit !== undefined) existingApiKey.rate_limit = rateLimit;
     if (dailyLimit !== undefined) existingApiKey.daily_limit = dailyLimit;
     if (monthlyLimit !== undefined) existingApiKey.monthly_limit = monthlyLimit;
-    if (timezone !== undefined) existingApiKey.timezone = timezone;
+    if (metadata)
+      existingApiKey.metadata = { ...existingApiKey.metadata, ...metadata };
+    if (timezone) existingApiKey.timezone = timezone;
+
+    if (endpointsAllowed) {
+      const uniqueEndpoints = [
+        ...new Set([
+          ...endpointsAllowed.map((e) => e.toLowerCase()),
+          ...ALWAYS_ALLOWED_ENDPOINTS,
+        ]),
+      ];
+
+      existingApiKey.endpoints_allowed = uniqueEndpoints.includes("all")
+        ? ["all"]
+        : uniqueEndpoints;
+    }
 
     existingApiKey.updated_at = new Date();
 
     await existingApiKey.save();
 
     logger.info(`API key updated successfully.`);
-    logger.info(
-      `Updated endpoints allowed: ${JSON.stringify(
-        existingApiKey.endpoints_allowed
-      )}`
-    );
-    logger.info(`Updated rate limit: ${existingApiKey.rate_limit}`);
-    logger.info(`Updated daily limit: ${existingApiKey.daily_limit}`);
-    logger.info(`Updated monthly limit: ${existingApiKey.monthly_limit}`);
-    logger.info(`Updated timezone: ${existingApiKey.timezone}`);
-
     return existingApiKey;
   } catch (error) {
     logger.error("Error updating API key:", error);
@@ -131,4 +120,4 @@ const updateApiKeyStatus = async (
   }
 };
 
-module.exports = { generateApiKey, updateApiKeyStatus };
+module.exports = { generateApiKey, updateApiKeyDetails };

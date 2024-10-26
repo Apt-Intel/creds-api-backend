@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
   ApiUsage.associate = (models) => {
     ApiUsage.belongsTo(models.ApiKey, {
       foreignKey: "api_key_id",
-      as: "apiKey",
+      as: "apiKey", // Use singular alias
     });
   };
 

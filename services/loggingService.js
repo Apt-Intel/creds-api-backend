@@ -121,44 +121,54 @@ function calculateRetryAfter(limitType) {
 
 async function getUsageStats(apiKeyId) {
   try {
-    const apiKey = await ApiKey.findByPk(apiKeyId, {
-      include: [{ model: ApiUsage, as: "usage" }],
-    });
+    // Ensure the ApiUsage record exists
+    let apiUsage = await ApiUsage.findOne({ where: { api_key_id: apiKeyId } });
+
+    if (!apiUsage) {
+      apiUsage = await ApiUsage.create({
+        api_key_id: apiKeyId,
+        total_requests: 0,
+        daily_requests: 0,
+        monthly_requests: 0,
+        last_request_date: new Date(),
+      });
+    }
+
+    const apiKey = await ApiKey.findByPk(apiKeyId);
 
     if (!apiKey) {
-      logger.warn(`No API key found for ${apiKeyId}`, {
-        apiKeyId,
-        timestamp: new Date().toISOString(),
-        event: "api_key_not_found",
-      });
+      logger.warn(`No API key found for ${apiKeyId}`);
       return null;
     }
 
     const stats = {
-      daily_requests: apiKey.usage ? apiKey.usage.daily_requests : 0,
-      monthly_requests: apiKey.usage ? apiKey.usage.monthly_requests : 0,
-      total_requests: apiKey.usage ? apiKey.usage.total_requests : 0,
+      daily_requests: apiUsage.daily_requests,
+      monthly_requests: apiUsage.monthly_requests,
+      total_requests: apiUsage.total_requests,
       daily_limit: apiKey.daily_limit,
       monthly_limit: apiKey.monthly_limit,
-      last_request_date: apiKey.usage ? apiKey.usage.last_request_date : null,
-      timezone: apiKey.timezone, // Add this line
+      last_request_date: apiUsage.last_request_date,
+      timezone: apiKey.timezone,
+      status: apiKey.status,
     };
 
-    logger.info(`Retrieved usage stats for API key ${apiKeyId}`, {
-      apiKeyId,
-      timestamp: new Date().toISOString(),
-      ...stats,
-      event: "usage_stats_retrieved",
-    });
+    // Calculate remaining requests
+    stats.remaining_daily_requests =
+      stats.daily_limit > 0
+        ? Math.max(0, stats.daily_limit - stats.daily_requests)
+        : "Unlimited";
+    stats.remaining_monthly_requests =
+      stats.monthly_limit > 0
+        ? Math.max(0, stats.monthly_limit - stats.monthly_requests)
+        : "Unlimited";
+
+    logger.info(`Retrieved usage stats for API key ${apiKeyId}`, stats);
 
     return stats;
   } catch (error) {
     logger.error(`Error getting usage stats for API key ${apiKeyId}`, {
-      apiKeyId,
-      timestamp: new Date().toISOString(),
       error: error.message,
       stack: error.stack,
-      event: "usage_stats_retrieval_error",
     });
     throw error;
   }

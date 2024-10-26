@@ -72,8 +72,8 @@ BEGIN
     v_current_month := DATE_TRUNC('month', v_current_date);
 
     -- Get or create the api_usage record
-    INSERT INTO api_usage (api_key_id, last_request_date)
-    VALUES (p_api_key_id, v_current_date)
+    INSERT INTO api_usage (api_key_id, total_requests, daily_requests, monthly_requests, last_request_date)
+    VALUES (p_api_key_id, 0, 0, 0, v_current_date)
     ON CONFLICT (api_key_id) DO NOTHING;
 
     -- Get the last request date
@@ -86,15 +86,17 @@ BEGIN
         UPDATE api_usage
         SET daily_requests = 1,
             monthly_requests = CASE
-                WHEN DATE_TRUNC('month', v_last_request_date) < v_current_month THEN 1
+                WHEN v_last_request_date IS NULL OR DATE_TRUNC('month', v_last_request_date) < v_current_month THEN 1
                 ELSE monthly_requests + 1
             END,
+            total_requests = total_requests + 1,
             last_request_date = v_current_date
         WHERE api_key_id = p_api_key_id;
     ELSE
         UPDATE api_usage
         SET daily_requests = daily_requests + 1,
-            monthly_requests = monthly_requests + 1
+            monthly_requests = monthly_requests + 1,
+            total_requests = total_requests + 1
         WHERE api_key_id = p_api_key_id;
     END IF;
 

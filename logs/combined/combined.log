@@ -3609,3 +3609,519 @@
 {"timestamp":"2024-10-26T22:03:42.861Z","level":"info","message":"::1 - - [26/Oct/2024:22:03:42 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 178487 \"-\" \"PostmanRuntime/7.39.0\""}
 {"timestamp":"2024-10-26T22:03:47.518Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
 {"timestamp":"2024-10-26T22:03:47.758Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:19:57.383Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:19:59.410Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:20:02.984Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:20:20.280Z","level":"warn","message":"Invalid API key: 1f3bb9b4c3fd05d0551dc4c929731f9e42c98c91580fd06d8f45c31a4465030a"}
+{"timestamp":"2024-10-26T22:20:20.288Z","level":"info","message":"::1 - - [26/Oct/2024:22:20:20 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 401 27 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:20:24.516Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:20:24.522Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:20:24.524Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:20:24.524Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:20:24.526Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:20:24.526Z","level":"info","message":"Comparing /api/json/v1/usage with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:20:24.526Z","level":"info","message":"Comparing /api/json/v1/usage with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T22:20:24.526Z","level":"info","message":"Access granted: false"}
+{"timestamp":"2024-10-26T22:20:24.526Z","level":"warn","message":"Access denied for endpoint /api/json/v1/usage with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T22:20:24.528Z","level":"info","message":"::1 - - [26/Oct/2024:22:20:24 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 403 50 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:24:39.322Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:24:41.948Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:24:45.774Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:25:00.351Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:25:00.352Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:25:00.354Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:25:00.354Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:25:00.355Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:25:00.355Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:25:00.861Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":5,\"updated_monthly_requests\":5}"}
+{"timestamp":"2024-10-26T22:25:01.352Z","level":"error","message":"Error getting usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","error":"ApiUsage is associated to ApiKey using an alias. You've included an alias (usage), but it does not match the alias(es) defined in your association (ApiUsages).","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (usage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)","event":"usage_stats_retrieval_error"}
+{"timestamp":"2024-10-26T22:25:01.354Z","level":"error","message":"Error fetching usage statistics: ApiUsage is associated to ApiKey using an alias. You've included an alias (usage), but it does not match the alias(es) defined in your association (ApiUsages).","name":"SequelizeEagerLoadingError","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (usage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)"}
+{"timestamp":"2024-10-26T22:25:01.359Z","level":"info","message":"::1 - - [26/Oct/2024:22:25:01 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:25:04.474Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T22:25:04.716Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:25:58.683Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:26:00.942Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:26:04.548Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:26:08.481Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:26:08.482Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:26:08.483Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:08.483Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:08.484Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:26:08.484Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:26:08.946Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":6,\"updated_monthly_requests\":6}"}
+{"timestamp":"2024-10-26T22:26:09.628Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:26:09.636Z","level":"info","message":"::1 - - [26/Oct/2024:22:26:09 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 115 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:26:13.783Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T22:26:14.009Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:26:32.103Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail?type=all&page=1"}
+{"timestamp":"2024-10-26T22:26:32.103Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail"}
+{"timestamp":"2024-10-26T22:26:32.103Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:32.103Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:32.104Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail"}
+{"timestamp":"2024-10-26T22:26:32.104Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:32.104Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T22:26:32.105Z","level":"info","message":"Access granted: false"}
+{"timestamp":"2024-10-26T22:26:32.105Z","level":"warn","message":"Access denied for endpoint /api/json/v1/search-by-mail with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T22:26:32.107Z","level":"info","message":"::1 - - [26/Oct/2024:22:26:32 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1 HTTP/1.1\" 403 50 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:26:37.147Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T22:26:37.147Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:37.147Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:37.148Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:37.148Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:37.148Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:37.148Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:26:37.148Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:37.610Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":7,\"updated_monthly_requests\":7}"}
+{"timestamp":"2024-10-26T22:26:38.299Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T22:26:38.299Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:38.299Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:38.299Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:38.299Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:38.300Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:38.300Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:26:38.300Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:38.301Z","level":"info","message":"Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc"}
+{"timestamp":"2024-10-26T22:26:39.810Z","level":"info","message":"Bulk search completed for 2 mails, total results: 9, processing time: 1509.84ms"}
+{"timestamp":"2024-10-26T22:26:39.811Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-26T22:26:39.816Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-26T22:26:39.817Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-26T22:26:39.817Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-26T22:26:39.817Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-26T22:26:39.818Z","level":"info","message":"Document redesign middleware called"}
+{"timestamp":"2024-10-26T22:26:39.820Z","level":"info","message":"Processing bulk search results"}
+{"timestamp":"2024-10-26T22:26:39.857Z","level":"info","message":"Document redesign completed"}
+{"timestamp":"2024-10-26T22:26:39.857Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-26T22:26:39.860Z","level":"info","message":"::1 - - [26/Oct/2024:22:26:39 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 178487 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:26:41.863Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:26:41.864Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:42.327Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":8,\"updated_monthly_requests\":8}"}
+{"timestamp":"2024-10-26T22:26:43.019Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T22:26:43.020Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:43.020Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:43.020Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:43.020Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:43.021Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:43.021Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:26:43.021Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T22:26:43.021Z","level":"info","message":"Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc"}
+{"timestamp":"2024-10-26T22:26:43.791Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T22:26:44.023Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:26:44.478Z","level":"info","message":"Bulk search completed for 2 mails, total results: 9, processing time: 1457.64ms"}
+{"timestamp":"2024-10-26T22:26:44.479Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-26T22:26:44.484Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-26T22:26:44.484Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-26T22:26:44.484Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-26T22:26:44.484Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-26T22:26:44.484Z","level":"info","message":"Document redesign middleware called"}
+{"timestamp":"2024-10-26T22:26:44.486Z","level":"info","message":"Processing bulk search results"}
+{"timestamp":"2024-10-26T22:26:44.512Z","level":"info","message":"Document redesign completed"}
+{"timestamp":"2024-10-26T22:26:44.512Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-26T22:26:44.515Z","level":"info","message":"::1 - - [26/Oct/2024:22:26:44 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 178487 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:26:48.792Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T22:26:49.026Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:26:52.451Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:26:52.451Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:26:52.451Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:52.451Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:26:52.451Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:26:52.451Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:26:52.911Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":9,\"updated_monthly_requests\":9}"}
+{"timestamp":"2024-10-26T22:26:53.600Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:26:53.601Z","level":"info","message":"::1 - - [26/Oct/2024:22:26:53 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 115 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:26:58.795Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T22:26:59.024Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:28:43.231Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:28:45.913Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:28:49.450Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:28:55.003Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:28:55.004Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:28:55.005Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:28:55.006Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:28:55.009Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:28:55.010Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:28:55.478Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":10,\"updated_monthly_requests\":10}"}
+{"timestamp":"2024-10-26T22:28:56.187Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:28:56.195Z","level":"info","message":"::1 - - [26/Oct/2024:22:28:56 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:28:58.347Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T22:28:58.579Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T22:29:58.135Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:29:59.635Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:30:02.872Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:30:03.632Z","level":"info","message":"Usage reset completed for timezone: UTC"}
+{"timestamp":"2024-10-26T22:30:08.933Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:30:08.934Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:30:08.935Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:30:08.935Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:30:08.935Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:30:08.936Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:30:09.421Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":11,\"updated_monthly_requests\":11}"}
+{"timestamp":"2024-10-26T22:30:09.904Z","level":"error","message":"Error in updateUsageStats: Usage limit exceeded: daily"}
+{"timestamp":"2024-10-26T22:30:09.904Z","level":"warn","message":"Usage limits exceeded for API key: 40ab3253-c2fb-452d-845c-7b1a291ec6f6"}
+{"timestamp":"2024-10-26T22:30:09.910Z","level":"info","message":"::1 - - [26/Oct/2024:22:30:09 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 429 104 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:34:17.359Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:34:19.366Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:34:22.786Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:34:31.514Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:34:31.515Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:34:31.516Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:34:31.516Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:34:31.517Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:34:31.517Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:34:31.980Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":11,\"updated_monthly_requests\":11}"}
+{"timestamp":"2024-10-26T22:34:32.450Z","level":"error","message":"Error in updateUsageStats: Usage limit exceeded: daily"}
+{"timestamp":"2024-10-26T22:34:32.451Z","level":"warn","message":"Usage limits exceeded for API key: 40ab3253-c2fb-452d-845c-7b1a291ec6f6"}
+{"timestamp":"2024-10-26T22:34:32.458Z","level":"info","message":"::1 - - [26/Oct/2024:22:34:32 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 429 104 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:36:14.349Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:36:16.436Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:36:19.933Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:36:24.255Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:36:24.256Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:36:24.257Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:36:24.258Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:36:24.259Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:36:24.259Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:36:24.514Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:36:24.521Z","level":"info","message":"::1 - - [26/Oct/2024:22:36:24 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:39:08.877Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:39:11.149Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:39:14.764Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:39:18.473Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:39:18.474Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:39:18.475Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:39:18.475Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:39:18.476Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:39:18.476Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:39:18.710Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:39:18.718Z","level":"info","message":"::1 - - [26/Oct/2024:22:39:18 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:39:20.568Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:39:20.569Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:39:20.569Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:39:20.570Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:39:20.570Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:39:20.570Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:39:20.794Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:39:20.796Z","level":"info","message":"::1 - - [26/Oct/2024:22:39:20 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:40:09.213Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:40:10.737Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:40:13.966Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:40:15.666Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:40:15.667Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:40:15.667Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:40:15.667Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:40:15.668Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:40:15.668Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:40:15.914Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:40:15.919Z","level":"info","message":"::1 - - [26/Oct/2024:22:40:15 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:40:17.727Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:40:17.728Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:40:17.728Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:40:17.728Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:40:17.728Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:40:17.728Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:40:17.964Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:40:17.966Z","level":"info","message":"::1 - - [26/Oct/2024:22:40:17 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:47:15.797Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:47:17.878Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:47:22.297Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:47:47.223Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:47:47.225Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:47:47.226Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:47:47.227Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:47:47.228Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:47:47.229Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:47:47.253Z","level":"error","message":"Error getting usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","error":"ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:125:20)","event":"usage_stats_retrieval_error"}
+{"timestamp":"2024-10-26T22:47:47.254Z","level":"error","message":"Error fetching usage statistics: ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","name":"SequelizeEagerLoadingError","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:125:20)"}
+{"timestamp":"2024-10-26T22:47:47.259Z","level":"info","message":"::1 - - [26/Oct/2024:22:47:47 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:49:07.084Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:49:09.193Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:49:12.883Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:49:24.996Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:49:24.997Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:49:24.998Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:49:24.998Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:49:24.999Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:49:24.999Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:49:25.021Z","level":"error","message":"Error getting usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","error":"ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)","event":"usage_stats_retrieval_error"}
+{"timestamp":"2024-10-26T22:49:25.022Z","level":"error","message":"Error fetching usage statistics: ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","name":"SequelizeEagerLoadingError","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (apiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)"}
+{"timestamp":"2024-10-26T22:49:25.032Z","level":"info","message":"::1 - - [26/Oct/2024:22:49:25 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:50:33.582Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:50:35.572Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:50:39.045Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:50:42.782Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:50:42.783Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:50:42.784Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:50:42.784Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:50:42.785Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:50:42.785Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:50:42.791Z","level":"error","message":"Error getting usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","error":"ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)","event":"usage_stats_retrieval_error"}
+{"timestamp":"2024-10-26T22:50:42.792Z","level":"error","message":"Error fetching usage statistics: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","name":"SequelizeEagerLoadingError","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)"}
+{"timestamp":"2024-10-26T22:50:42.797Z","level":"info","message":"::1 - - [26/Oct/2024:22:50:42 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:51:38.151Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:51:39.711Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:51:43.020Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:52:25.916Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:52:25.918Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:52:25.919Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:52:25.919Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:52:25.920Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:52:25.920Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:52:25.926Z","level":"error","message":"Error getting usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","error":"ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)","event":"usage_stats_retrieval_error"}
+{"timestamp":"2024-10-26T22:52:25.927Z","level":"error","message":"Error fetching usage statistics: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","name":"SequelizeEagerLoadingError","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)"}
+{"timestamp":"2024-10-26T22:52:25.930Z","level":"info","message":"::1 - - [26/Oct/2024:22:52:25 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:53:28.945Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:53:30.989Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:53:34.406Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:53:50.537Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:53:50.538Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:53:50.539Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:53:50.539Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:53:50.541Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:53:50.541Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:53:50.561Z","level":"error","message":"Error getting usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","error":"ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)","event":"usage_stats_retrieval_error"}
+{"timestamp":"2024-10-26T22:53:50.563Z","level":"error","message":"Error fetching usage statistics: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).","name":"SequelizeEagerLoadingError","stack":"SequelizeEagerLoadingError: ApiUsage is associated to ApiKey using an alias. You've included an alias (ApiUsage), but it does not match the alias(es) defined in your association (ApiUsages).\n    at ApiKey._getIncludedAssociation (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:574:15)\n    at ApiKey._validateIncludedElement (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:502:53)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:421:37\n    at Array.map (<anonymous>)\n    at ApiKey._validateIncludedElements (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:417:39)\n    at ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1124:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async ApiKey.findByPk (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1221:12)\n    at async getUsageStats (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/loggingService.js:124:20)"}
+{"timestamp":"2024-10-26T22:53:50.570Z","level":"info","message":"::1 - - [26/Oct/2024:22:53:50 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 500 33 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:57:14.992Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:57:16.970Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:57:20.597Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:58:03.828Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:58:03.829Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:58:03.830Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:58:03.830Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:58:03.831Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:58:03.831Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:58:04.327Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":11,\"updated_monthly_requests\":11}"}
+{"timestamp":"2024-10-26T22:58:04.819Z","level":"error","message":"Error in updateUsageStats: Usage limit exceeded: daily"}
+{"timestamp":"2024-10-26T22:58:04.820Z","level":"warn","message":"Usage limits exceeded for API key: 40ab3253-c2fb-452d-845c-7b1a291ec6f6"}
+{"timestamp":"2024-10-26T22:58:04.826Z","level":"info","message":"::1 - - [26/Oct/2024:22:58:04 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 429 104 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T22:59:24.882Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T22:59:26.987Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T22:59:30.708Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T22:59:49.523Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:59:49.524Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:59:49.524Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:59:49.525Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T22:59:49.526Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T22:59:49.527Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T22:59:49.763Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","apiKeyId":"40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_limit":10,"monthly_limit":30,"timezone":"UTC","status":"active","remaining_daily_requests":null,"remaining_monthly_requests":null,"event":"usage_stats_retrieved"}
+{"timestamp":"2024-10-26T22:59:49.770Z","level":"info","message":"::1 - - [26/Oct/2024:22:59:49 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 133 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:19:33.897Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T23:19:35.992Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T23:19:39.581Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T23:19:42.154Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:19:42.155Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:19:42.156Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:19:42.157Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:19:42.160Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:19:42.160Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:19:42.657Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_requests":10,"monthly_requests":10,"total_requests":"0","daily_limit":10,"monthly_limit":30,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":0,"remaining_monthly_requests":20}
+{"timestamp":"2024-10-26T23:19:42.661Z","level":"info","message":"::1 - - [26/Oct/2024:23:19:42 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 180 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:21:27.343Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:21:27.344Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:21:27.344Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:21:27.344Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:21:27.344Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:21:27.344Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:21:27.814Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_requests":1,"monthly_requests":10,"total_requests":"0","daily_limit":10,"monthly_limit":30,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":9,"remaining_monthly_requests":20}
+{"timestamp":"2024-10-26T23:21:27.816Z","level":"info","message":"::1 - - [26/Oct/2024:23:21:27 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 179 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:22:25.998Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail?type=all&page=1"}
+{"timestamp":"2024-10-26T23:22:25.999Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail"}
+{"timestamp":"2024-10-26T23:22:25.999Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:25.999Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:26.000Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail"}
+{"timestamp":"2024-10-26T23:22:26.001Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:26.002Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:22:26.002Z","level":"info","message":"Access granted: false"}
+{"timestamp":"2024-10-26T23:22:26.003Z","level":"warn","message":"Access denied for endpoint /api/json/v1/search-by-mail with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:22:26.008Z","level":"info","message":"::1 - - [26/Oct/2024:23:22:26 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1 HTTP/1.1\" 403 50 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:22:31.699Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T23:22:31.699Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.699Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:31.699Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:31.699Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.699Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.700Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:22:31.700Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:31.935Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:22:31.936Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:32.400Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":2,\"updated_monthly_requests\":11}"}
+{"timestamp":"2024-10-26T23:22:33.096Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T23:22:33.097Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:33.097Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:33.098Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:33.098Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:33.098Z","level":"info","message":"Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:33.098Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:22:33.098Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:22:33.099Z","level":"info","message":"Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc"}
+{"timestamp":"2024-10-26T23:22:35.280Z","level":"info","message":"Bulk search completed for 2 mails, total results: 9, processing time: 2180.52ms"}
+{"timestamp":"2024-10-26T23:22:35.281Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-26T23:22:35.286Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-26T23:22:35.287Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-26T23:22:35.287Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-26T23:22:35.287Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-26T23:22:35.288Z","level":"info","message":"Document redesign middleware called"}
+{"timestamp":"2024-10-26T23:22:35.290Z","level":"info","message":"Processing bulk search results"}
+{"timestamp":"2024-10-26T23:22:35.329Z","level":"info","message":"Document redesign completed"}
+{"timestamp":"2024-10-26T23:22:35.330Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-26T23:22:35.333Z","level":"info","message":"::1 - - [26/Oct/2024:23:22:35 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 178487 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:22:39.016Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T23:22:39.247Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T23:22:41.813Z","level":"info","message":"req.originalUrl: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:22:41.813Z","level":"info","message":"Requested endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:22:41.813Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:41.813Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:22:41.813Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:22:41.813Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:22:42.274Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_requests":2,"monthly_requests":11,"total_requests":"1","daily_limit":10,"monthly_limit":30,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":8,"remaining_monthly_requests":19}
+{"timestamp":"2024-10-26T23:22:42.276Z","level":"info","message":"::1 - - [26/Oct/2024:23:22:42 +0000] \"GET /api/json/v1/usage HTTP/1.1\" 200 179 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:23:23.169Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-domain?page=1"}
+{"timestamp":"2024-10-26T23:23:23.170Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.170Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:23.170Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:23.171Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.171Z","level":"info","message":"Comparing /api/json/v1/search-by-domain with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:23.171Z","level":"info","message":"Comparing /api/json/v1/search-by-domain with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.171Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:23:23.172Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.424Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-domain?page=1"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Comparing /api/json/v1/search-by-domain with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Comparing /api/json/v1/search-by-domain with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:23:23.425Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:23.917Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":3,\"updated_monthly_requests\":12}"}
+{"timestamp":"2024-10-26T23:23:24.659Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-domain?page=1"}
+{"timestamp":"2024-10-26T23:23:24.659Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:24.659Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:24.659Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:24.659Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:24.659Z","level":"info","message":"Comparing /api/json/v1/search-by-domain with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:24.660Z","level":"info","message":"Comparing /api/json/v1/search-by-domain with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:24.660Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:23:24.660Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:24.660Z","level":"info","message":"Search initiated for domain: prosegur.com, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: desc"}
+{"timestamp":"2024-10-26T23:23:32.330Z","level":"info","message":"Search completed for domain: prosegur.com, total results: 9"}
+{"timestamp":"2024-10-26T23:23:32.331Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-26T23:23:32.332Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-26T23:23:32.332Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-26T23:23:32.332Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=desc"}
+{"timestamp":"2024-10-26T23:23:32.332Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-26T23:23:32.333Z","level":"info","message":"Document redesign domain middleware called"}
+{"timestamp":"2024-10-26T23:23:32.335Z","level":"info","message":"Processing single domain search results"}
+{"timestamp":"2024-10-26T23:23:32.359Z","level":"info","message":"Document redesign for domain completed"}
+{"timestamp":"2024-10-26T23:23:32.360Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-26T23:23:32.362Z","level":"info","message":"::1 - - [26/Oct/2024:23:23:32 +0000] \"GET /api/json/v1/search-by-domain?page=1 HTTP/1.1\" 200 196016 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:23:34.052Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T23:23:34.298Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T23:23:38.774Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T23:23:38.774Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Comparing /api/json/v1/search-by-domain/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Comparing /api/json/v1/search-by-domain/bulk with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:23:38.775Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:39.028Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T23:23:39.028Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Comparing /api/json/v1/search-by-domain/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Comparing /api/json/v1/search-by-domain/bulk with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:23:39.029Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:39.526Z","level":"info","message":"Usage stats update results: {\"updated_daily_requests\":4,\"updated_monthly_requests\":13}"}
+{"timestamp":"2024-10-26T23:23:40.286Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1"}
+{"timestamp":"2024-10-26T23:23:40.286Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Comparing /api/json/v1/search-by-domain/bulk with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Comparing /api/json/v1/search-by-domain/bulk with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Access granted: true"}
+{"timestamp":"2024-10-26T23:23:40.287Z","level":"info","message":"Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-domain/bulk"}
+{"timestamp":"2024-10-26T23:23:40.288Z","level":"info","message":"Bulk search request received for 2 domains, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc"}
+{"timestamp":"2024-10-26T23:23:42.550Z","level":"info","message":"Bulk search completed for 2 domains, total results: 13, processing time: 2262.47ms"}
+{"timestamp":"2024-10-26T23:23:42.551Z","level":"info","message":"Date normalization middleware called"}
+{"timestamp":"2024-10-26T23:23:42.561Z","level":"info","message":"Date normalization completed"}
+{"timestamp":"2024-10-26T23:23:42.561Z","level":"info","message":"Sorting middleware called"}
+{"timestamp":"2024-10-26T23:23:42.561Z","level":"info","message":"Sorting parameters: sortBy=Log date, sortOrder=asc"}
+{"timestamp":"2024-10-26T23:23:42.561Z","level":"info","message":"Sorting completed"}
+{"timestamp":"2024-10-26T23:23:42.561Z","level":"info","message":"Document redesign domain middleware called"}
+{"timestamp":"2024-10-26T23:23:42.566Z","level":"info","message":"Processing bulk domain search results"}
+{"timestamp":"2024-10-26T23:23:42.602Z","level":"info","message":"Document redesign for domain completed"}
+{"timestamp":"2024-10-26T23:23:42.602Z","level":"info","message":"Sending response"}
+{"timestamp":"2024-10-26T23:23:42.606Z","level":"info","message":"::1 - - [26/Oct/2024:23:23:42 +0000] \"POST /api/json/v1/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1\" 200 330371 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:23:44.057Z","level":"info","message":"Inserted 1 logs into api_requests_log"}
+{"timestamp":"2024-10-26T23:23:44.354Z","level":"info","message":"Successfully processed log queue"}
+{"timestamp":"2024-10-26T23:23:56.492Z","level":"info","message":"req.originalUrl: /api/json/internal/search-by-login?page=1"}
+{"timestamp":"2024-10-26T23:23:56.492Z","level":"info","message":"Requested endpoint: /api/json/internal/search-by-login"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\"]"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"info","message":"Normalized requested endpoint: /api/json/internal/search-by-login"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"info","message":"Comparing /api/json/internal/search-by-login with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"info","message":"Comparing /api/json/internal/search-by-login with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"info","message":"Access granted: false"}
+{"timestamp":"2024-10-26T23:23:56.493Z","level":"warn","message":"Access denied for endpoint /api/json/internal/search-by-login with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:23:56.495Z","level":"info","message":"::1 - - [26/Oct/2024:23:23:56 +0000] \"GET /api/json/internal/search-by-login?page=1 HTTP/1.1\" 403 50 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:24:28.037Z","level":"info","message":"Received request to check API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:24:29.354Z","level":"info","message":"API key details retrieved for: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:24:29.358Z","level":"info","message":"::1 - admin [26/Oct/2024:23:24:29 +0000] \"GET /admin/check-api-key/260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b HTTP/1.1\" 200 168 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:30:03.188Z","level":"info","message":"Usage reset completed for timezone: UTC"}
+{"timestamp":"2024-10-26T23:35:41.168Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T23:35:43.245Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T23:35:46.902Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T23:38:18.808Z","level":"info","message":"Received POST request for /admin/update-api-key-status"}
+{"timestamp":"2024-10-26T23:38:18.813Z","level":"info","message":"::1 - admin [26/Oct/2024:23:38:18 +0000] \"POST /admin/update-api-key-status HTTP/1.1\" 405 1443 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:38:50.548Z","level":"info","message":"Received request to check API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:38:52.878Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_requests":4,"monthly_requests":13,"total_requests":"3","daily_limit":10,"monthly_limit":30,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":6,"remaining_monthly_requests":17}
+{"timestamp":"2024-10-26T23:38:52.880Z","level":"info","message":"API key details retrieved for: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:38:52.884Z","level":"info","message":"::1 - admin [26/Oct/2024:23:38:52 +0000] \"GET /admin/check-api-key/260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b HTTP/1.1\" 200 591 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:39:17.271Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T23:39:19.381Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T23:39:22.552Z","level":"info","message":"Server is running on port 3000","requestId":"system"}
+{"timestamp":"2024-10-26T23:39:35.235Z","level":"info","message":"Received request to check API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:39:37.070Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_requests":4,"monthly_requests":13,"total_requests":"3","daily_limit":10,"monthly_limit":30,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":6,"remaining_monthly_requests":17}
+{"timestamp":"2024-10-26T23:39:37.071Z","level":"info","message":"API key details retrieved for: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:39:37.079Z","level":"info","message":"::1 - admin [26/Oct/2024:23:39:37 +0000] \"GET /admin/check-api-key/260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b HTTP/1.1\" 200 591 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:39:45.848Z","level":"info","message":"Updating API key: fb3cac7b8e6e75c7a663e1dca14a89e1dfd9571f42106e01c5ca46e9de57c851"}
+{"timestamp":"2024-10-26T23:39:46.352Z","level":"info","message":"API key updated successfully."}
+{"timestamp":"2024-10-26T23:39:46.354Z","level":"info","message":"::1 - admin [26/Oct/2024:23:39:46 +0000] \"POST /admin/update-api-key-status HTTP/1.1\" 200 518 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:39:54.269Z","level":"info","message":"Received request to check API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:39:54.948Z","level":"info","message":"Retrieved usage stats for API key 40ab3253-c2fb-452d-845c-7b1a291ec6f6","daily_requests":4,"monthly_requests":13,"total_requests":"3","daily_limit":40,"monthly_limit":200,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":36,"remaining_monthly_requests":187}
+{"timestamp":"2024-10-26T23:39:54.949Z","level":"info","message":"API key details retrieved for: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:39:54.950Z","level":"info","message":"::1 - admin [26/Oct/2024:23:39:54 +0000] \"GET /admin/check-api-key/260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b HTTP/1.1\" 200 643 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:41:26.980Z","level":"info","message":"Generated API key: afdc8d5ea65c6df39ec1838aedb40b320b4f86125e55e89a662cf6d8fdc97e6e, Hashed: 7f40bfe218875669c8fafd5cd28ab57d9b5703b6e2731840bfebdbdc9eae1b1b"}
+{"timestamp":"2024-10-26T23:41:26.980Z","level":"info","message":"Endpoints allowed: [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\",\"/api/json/v1/usage\"]"}
+{"timestamp":"2024-10-26T23:41:26.981Z","level":"info","message":"Rate limit: 500"}
+{"timestamp":"2024-10-26T23:41:26.981Z","level":"info","message":"Daily limit: 10000"}
+{"timestamp":"2024-10-26T23:41:26.981Z","level":"info","message":"Monthly limit: 200000"}
+{"timestamp":"2024-10-26T23:41:26.981Z","level":"info","message":"Timezone: UTC"}
+{"timestamp":"2024-10-26T23:41:26.988Z","level":"info","message":"::1 - admin [26/Oct/2024:23:41:26 +0000] \"POST /admin/generate-api-key HTTP/1.1\" 200 637 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:41:45.327Z","level":"info","message":"Received request to check API key: afdc8d5ea65c6df39ec1838aedb40b320b4f86125e55e89a662cf6d8fdc97e6e"}
+{"timestamp":"2024-10-26T23:41:47.573Z","level":"info","message":"Retrieved usage stats for API key 76914a43-9312-43aa-93e6-48454a78619b","daily_requests":0,"monthly_requests":0,"total_requests":"0","daily_limit":10000,"monthly_limit":200000,"last_request_date":"2024-10-26","timezone":"UTC","status":"active","remaining_daily_requests":10000,"remaining_monthly_requests":200000}
+{"timestamp":"2024-10-26T23:41:47.573Z","level":"info","message":"API key details retrieved for: afdc8d5ea65c6df39ec1838aedb40b320b4f86125e55e89a662cf6d8fdc97e6e"}
+{"timestamp":"2024-10-26T23:41:47.575Z","level":"info","message":"::1 - admin [26/Oct/2024:23:41:47 +0000] \"GET /admin/check-api-key/afdc8d5ea65c6df39ec1838aedb40b320b4f86125e55e89a662cf6d8fdc97e6e HTTP/1.1\" 200 649 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:42:45.282Z","level":"info","message":"Generated API key: 3c9313aea969067f6a3c6983e0f57f5a07d9a63ba0d95dc6c1b20d3c70b18d9b, Hashed: 610ce3ea096b70e1b6a7d6ce9c296357f116807b84de20024e654e0c35a34a30"}
+{"timestamp":"2024-10-26T23:42:45.282Z","level":"info","message":"Endpoints allowed: [\"all\",\"/api/json/v1/usage\"]"}
+{"timestamp":"2024-10-26T23:42:45.282Z","level":"info","message":"Rate limit: 1000"}
+{"timestamp":"2024-10-26T23:42:45.283Z","level":"info","message":"Daily limit: 50"}
+{"timestamp":"2024-10-26T23:42:45.283Z","level":"info","message":"Monthly limit: 150"}
+{"timestamp":"2024-10-26T23:42:45.283Z","level":"info","message":"Timezone: UTC"}
+{"timestamp":"2024-10-26T23:42:45.284Z","level":"info","message":"::1 - admin [26/Oct/2024:23:42:45 +0000] \"POST /admin/generate-api-key HTTP/1.1\" 200 506 \"-\" \"PostmanRuntime/7.39.0\""}
