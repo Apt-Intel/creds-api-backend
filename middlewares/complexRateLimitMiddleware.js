@@ -1,47 +1,46 @@
 const { updateUsageStats } = require("../services/loggingService");
 const logger = require("../config/logger");
+const UsageLimitExceededError = require("../errors/UsageLimitExceededError");
 
 const complexRateLimitMiddleware = async (req, res, next) => {
   try {
     const apiKeyData = req.apiKeyData;
     if (!apiKeyData) {
       logger.error("API key data is missing in the request");
-      return res
-        .status(500)
-        .json({
-          error: "Internal server error",
-          message: "API key data is missing",
-        });
+      return res.status(500).json({
+        error: "Internal server error",
+        message: "API key data is missing",
+      });
     }
 
     try {
       await updateUsageStats(apiKeyData.id);
+      next();
     } catch (error) {
-      if (error.message === "Usage limits exceeded") {
+      if (error instanceof UsageLimitExceededError) {
         logger.warn(`Usage limits exceeded for API key: ${apiKeyData.id}`);
-        const retryAfter = calculateRetryAfter(apiKeyData);
-        res.set("Retry-After", retryAfter);
+        res.set("Retry-After", error.retryAfter);
         return res.status(429).json({
-          error: "Rate limit exceeded",
-          message: "Daily or monthly usage limit exceeded",
-          retryAfter: retryAfter,
+          error: "Usage limit exceeded",
+          message: `Your ${error.limitType} usage limit has been exceeded.`,
+          retryAfter: error.retryAfter,
         });
       } else {
-        throw error;
+        logger.error(`Error updating usage stats: ${error.message}`);
+        return res.status(500).json({
+          error: "Internal server error",
+          message: "An error occurred while updating usage statistics",
+        });
       }
     }
-
-    next();
   } catch (error) {
     logger.error(
       `Unexpected error in complexRateLimitMiddleware: ${error.message}`
     );
-    res
-      .status(500)
-      .json({
-        error: "Internal server error",
-        message: "An unexpected error occurred",
-      });
+    res.status(500).json({
+      error: "Internal server error",
+      message: "An unexpected error occurred",
+    });
   }
 };
 

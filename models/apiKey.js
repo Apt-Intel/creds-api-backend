@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       monthly_limit: {
         type: DataTypes.INTEGER,
       },
+      timezone: {
+        type: DataTypes.STRING,
+        defaultValue: process.env.DEFAULT_TIMEZONE || "UTC",
+      },
       created_at: {
         type: DataTypes.DATE,
         defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),

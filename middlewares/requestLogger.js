@@ -1,6 +1,5 @@
 const { logRequest } = require("../services/loggingService");
 const logger = require("../config/logger");
-const MAX_RESPONSE_SIZE = 1024 * 1024; // 1MB
 
 const requestLogger = (req, res, next) => {
   const startTime = process.hrtime();
@@ -19,13 +18,6 @@ const requestLogger = (req, res, next) => {
     const duration = process.hrtime(startTime);
     const responseTimeMs = Math.round(duration[0] * 1e3 + duration[1] / 1e6);
 
-    let responseSize = 0;
-    if (chunk) {
-      responseSize = Buffer.isBuffer(chunk)
-        ? chunk.length
-        : Buffer.byteLength(chunk, encoding);
-    }
-
     const logData = {
       api_key_id: req.apiKeyData.id,
       timestamp: new Date(),
@@ -37,24 +29,18 @@ const requestLogger = (req, res, next) => {
       user_agent: req.get("user-agent"),
     };
 
-    if (responseSize <= MAX_RESPONSE_SIZE) {
-      logRequest(logData)
-        .then(() => {
-          logger.debug(
-            `Request logged successfully for API key ${req.apiKeyData.id}`
-          );
-        })
-        .catch((error) => {
-          logger.error(
-            `Error logging request for API key ${req.apiKeyData.id}:`,
-            error
-          );
-        });
-    } else {
-      logger.warn(
-        `Large response not logged. Size: ${responseSize} bytes, Endpoint: ${req.originalUrl}, API Key: ${req.apiKeyData.id}`
-      );
-    }
+    logRequest(logData)
+      .then(() => {
+        logger.debug(
+          `Request logged: ${req.method} ${req.originalUrl} - ${res.statusCode} (${responseTimeMs}ms)`
+        );
+      })
+      .catch((error) => {
+        logger.error(
+          `Error logging request for API key ${req.apiKeyData.id}:`,
+          error
+        );
+      });
   };
 
   next();

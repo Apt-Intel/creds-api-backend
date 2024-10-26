@@ -1,6 +1,7 @@
 const { sequelize } = require("../config/sequelize");
 const { ApiKey, ApiUsage, ApiRequestLog } = require("../models");
 const logger = require("../config/logger");
+const UsageLimitExceededError = require("../errors/UsageLimitExceededError");
 
 const logQueue = [];
 let isProcessing = false;
@@ -47,95 +48,75 @@ function logRequest(logData) {
 async function updateUsageStats(apiKeyId) {
   const transaction = await sequelize.transaction();
   try {
+    const [results] = await sequelize.query(
+      "SELECT * FROM reset_and_update_usage(:apiKeyId)",
+      {
+        replacements: { apiKeyId },
+        type: sequelize.QueryTypes.SELECT,
+        transaction,
+      }
+    );
+
+    if (!results) {
+      logger.error(
+        `No results returned from reset_and_update_usage for API key: ${apiKeyId}`
+      );
+      throw new Error("Failed to update usage stats");
+    }
+
+    logger.info(`Usage stats update results: ${JSON.stringify(results)}`);
+
     const apiKey = await ApiKey.findByPk(apiKeyId, { transaction });
     if (!apiKey) {
       throw new Error("API key not found");
     }
 
     const { daily_limit, monthly_limit } = apiKey;
-
-    let usage = await ApiUsage.findOne({
-      where: { api_key_id: apiKeyId },
-      transaction,
-    });
-
-    if (!usage) {
-      usage = await ApiUsage.create(
-        {
-          api_key_id: apiKeyId,
-          total_requests: 1,
-          daily_requests: 1,
-          monthly_requests: 1,
-          last_request_date: new Date(),
-        },
-        { transaction }
-      );
-    } else {
-      await usage.update(
-        {
-          total_requests: sequelize.literal("total_requests + 1"),
-          daily_requests: sequelize.literal(`
-            CASE
-              WHEN last_request_date = CURRENT_DATE THEN daily_requests + 1
-              ELSE 1
-            END
-          `),
-          monthly_requests: sequelize.literal(`
-            CASE
-              WHEN DATE_TRUNC('month', last_request_date) = DATE_TRUNC('month', CURRENT_DATE) THEN monthly_requests + 1
-              ELSE 1
-            END
-          `),
-          last_request_date: new Date(),
-        },
-        { transaction }
-      );
-
-      await usage.reload({ transaction });
-    }
+    const { updated_daily_requests, updated_monthly_requests } = results;
 
     if (
-      (daily_limit !== null && usage.daily_requests > daily_limit) ||
-      (monthly_limit !== null && usage.monthly_requests > monthly_limit)
+      updated_daily_requests === undefined ||
+      updated_monthly_requests === undefined
     ) {
-      logger.warn(`Usage limits exceeded for API key ${apiKeyId}`, {
-        apiKeyId,
-        timestamp: new Date().toISOString(),
-        event: "usage_limit_exceeded",
-      });
-      await transaction.rollback();
-      throw new Error("Usage limits exceeded");
+      logger.error(
+        `Invalid results from reset_and_update_usage: ${JSON.stringify(
+          results
+        )}`
+      );
+      throw new Error("Invalid usage stats update results");
+    }
+
+    if (daily_limit && updated_daily_requests > daily_limit) {
+      throw new UsageLimitExceededError("daily", calculateRetryAfter("daily"));
+    }
+
+    if (monthly_limit && updated_monthly_requests > monthly_limit) {
+      throw new UsageLimitExceededError(
+        "monthly",
+        calculateRetryAfter("monthly")
+      );
     }
 
     await transaction.commit();
-
-    logger.info(`Updated usage stats for API key ${apiKeyId}`, {
-      apiKeyId,
-      timestamp: new Date().toISOString(),
-      daily_requests: usage.daily_requests,
-      monthly_requests: usage.monthly_requests,
-      daily_limit,
-      monthly_limit,
-      event: "usage_stats_updated",
-    });
-
-    return {
-      daily_requests: usage.daily_requests,
-      monthly_requests: usage.monthly_requests,
-      daily_limit,
-      monthly_limit,
-    };
+    return results;
   } catch (error) {
     await transaction.rollback();
-    logger.error(`Error updating usage stats for API key ${apiKeyId}`, {
-      apiKeyId,
-      timestamp: new Date().toISOString(),
-      error: error.message,
-      stack: error.stack,
-      event: "usage_stats_update_error",
-    });
+    logger.error(`Error in updateUsageStats: ${error.message}`);
     throw error;
   }
+}
+
+function calculateRetryAfter(limitType) {
+  const now = new Date();
+  if (limitType === "daily") {
+    const midnight = new Date(now);
+    midnight.setUTCHours(24, 0, 0, 0);
+    return Math.ceil((midnight - now) / 1000);
+  } else if (limitType === "monthly") {
+    const firstOfNextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    return Math.ceil((firstOfNextMonth - now) / 1000);
+  }
+  return 3600; // Default to 1 hour
 }
 
 async function getUsageStats(apiKeyId) {
@@ -160,6 +141,7 @@ async function getUsageStats(apiKeyId) {
       daily_limit: apiKey.daily_limit,
       monthly_limit: apiKey.monthly_limit,
       last_request_date: apiKey.usage ? apiKey.usage.last_request_date : null,
+      timezone: apiKey.timezone, // Add this line
     };
 
     logger.info(`Retrieved usage stats for API key ${apiKeyId}`, {

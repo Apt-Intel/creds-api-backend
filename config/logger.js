@@ -60,7 +60,7 @@ const combinedLogTransport = new winston.transports.File({
 });
 
 const logger = winston.createLogger({
-  level: getLogLevel(),
+  level: process.env.LOG_LEVEL || "info",
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.json(),
@@ -74,7 +74,9 @@ const logger = winston.createLogger({
     })
   ),
   transports: [
-    new winston.transports.Console(),
+    new winston.transports.Console({
+      level: "info", // Only log warnings and errors to console
+    }),
     applicationLogTransport,
     errorLogTransport,
     combinedLogTransport,

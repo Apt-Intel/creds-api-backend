@@ -9,7 +9,8 @@ async function generateApiKey(
   endpointsAllowed = ["all"],
   rateLimit = 1000,
   dailyLimit = 0,
-  monthlyLimit = 0
+  monthlyLimit = 0,
+  timezone = process.env.DEFAULT_TIMEZONE || "UTC"
 ) {
   if (!userId) {
     throw new Error("User ID is required");
@@ -32,6 +33,7 @@ async function generateApiKey(
       rate_limit: rateLimit,
       daily_limit: dailyLimit,
       monthly_limit: monthlyLimit,
+      timezone,
       last_reset_date: new Date(), // Set the initial reset date
     });
 
@@ -40,6 +42,7 @@ async function generateApiKey(
     logger.info(`Rate limit: ${rateLimit}`);
     logger.info(`Daily limit: ${dailyLimit}`);
     logger.info(`Monthly limit: ${monthlyLimit}`);
+    logger.info(`Timezone: ${timezone}`);
 
     return {
       apiKey,
@@ -57,7 +60,8 @@ const updateApiKeyStatus = async (
   endpointsAllowed,
   rateLimit,
   dailyLimit,
-  monthlyLimit
+  monthlyLimit,
+  timezone
 ) => {
   try {
     const hashedApiKey = hashApiKey(apiKey);
@@ -67,6 +71,7 @@ const updateApiKeyStatus = async (
     logger.info(`New rate limit: ${rateLimit}`);
     logger.info(`New daily limit: ${dailyLimit}`);
     logger.info(`New monthly limit: ${monthlyLimit}`);
+    logger.info(`New timezone: ${timezone}`);
 
     const existingApiKey = await ApiKey.findOne({
       where: { api_key: hashedApiKey },
@@ -102,6 +107,7 @@ const updateApiKeyStatus = async (
     if (rateLimit !== undefined) existingApiKey.rate_limit = rateLimit;
     if (dailyLimit !== undefined) existingApiKey.daily_limit = dailyLimit;
     if (monthlyLimit !== undefined) existingApiKey.monthly_limit = monthlyLimit;
+    if (timezone !== undefined) existingApiKey.timezone = timezone;
 
     existingApiKey.updated_at = new Date();
 
@@ -116,6 +122,7 @@ const updateApiKeyStatus = async (
     logger.info(`Updated rate limit: ${existingApiKey.rate_limit}`);
     logger.info(`Updated daily limit: ${existingApiKey.daily_limit}`);
     logger.info(`Updated monthly limit: ${existingApiKey.monthly_limit}`);
+    logger.info(`Updated timezone: ${existingApiKey.timezone}`);
 
     return existingApiKey;
   } catch (error) {

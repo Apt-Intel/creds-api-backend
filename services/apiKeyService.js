@@ -4,38 +4,31 @@ const logger = require("../config/logger");
 
 async function getApiKeyDetails(apiKey) {
   const hashedApiKey = hashApiKey(apiKey);
-  return await ApiKey.findOne({ where: { api_key: hashedApiKey } });
-}
+  const apiKeyData = await ApiKey.findOne({ where: { api_key: hashedApiKey } });
 
-async function updateApiKeyStatus(
-  apiKey,
-  status,
-  endpointsAllowed,
-  rateLimit,
-  dailyLimit,
-  monthlyLimit
-) {
-  const hashedApiKey = hashApiKey(apiKey);
-  const apiKeyRecord = await ApiKey.findOne({
-    where: { api_key: hashedApiKey },
-  });
-
-  if (!apiKeyRecord) {
-    throw new Error("API key not found");
+  if (apiKeyData) {
+    return {
+      id: apiKeyData.id,
+      status: apiKeyData.status,
+      userId: apiKeyData.user_id,
+      hashedApiKey: apiKeyData.api_key,
+      endpointsAllowed: apiKeyData.endpoints_allowed,
+      rateLimit: apiKeyData.rate_limit,
+      dailyLimit: apiKeyData.daily_limit,
+      monthlyLimit: apiKeyData.monthly_limit,
+      metadata: apiKeyData.metadata,
+      timezone: apiKeyData.timezone, // Include the timezone
+    };
   }
-
-  await apiKeyRecord.update({
-    status,
-    endpoints_allowed: endpointsAllowed,
-    rate_limit: rateLimit,
-    daily_limit: dailyLimit,
-    monthly_limit: monthlyLimit,
-  });
-
-  return apiKeyRecord;
+  return null;
 }
 
-async function updateApiKeyLimits(apiKeyId, dailyLimit, monthlyLimit) {
+async function updateApiKeyLimits(
+  apiKeyId,
+  dailyLimit,
+  monthlyLimit,
+  timezone
+) {
   const apiKeyRecord = await ApiKey.findByPk(apiKeyId);
   if (!apiKeyRecord) {
     throw new Error("API key not found");
@@ -44,6 +37,7 @@ async function updateApiKeyLimits(apiKeyId, dailyLimit, monthlyLimit) {
   await apiKeyRecord.update({
     daily_limit: dailyLimit,
     monthly_limit: monthlyLimit,
+    timezone: timezone, // Include timezone in the update
   });
 
   return apiKeyRecord;
@@ -55,7 +49,6 @@ async function getApiKeyWithLimits(apiKeyId) {
 
 module.exports = {
   getApiKeyDetails,
-  updateApiKeyStatus,
   updateApiKeyLimits,
   getApiKeyWithLimits,
 };

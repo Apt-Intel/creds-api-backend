@@ -48,3 +48,60 @@ CREATE INDEX IF NOT EXISTS idx_api_usage_last_request_date ON api_usage(last_req
 
 -- Add unique constraint to api_usage
 ALTER TABLE api_usage ADD CONSTRAINT unique_api_key_id UNIQUE (api_key_id);
+
+-- Function to reset and update usage
+CREATE OR REPLACE FUNCTION reset_and_update_usage(p_api_key_id UUID)
+RETURNS TABLE (updated_daily_requests INTEGER, updated_monthly_requests INTEGER) AS $$
+DECLARE
+    v_last_request_date DATE;
+    v_current_date DATE;
+    v_current_month DATE;
+    v_timezone TEXT;
+BEGIN
+    -- Get the API key's timezone
+    SELECT timezone INTO v_timezone
+    FROM api_keys
+    WHERE id = p_api_key_id;
+
+    IF v_timezone IS NULL THEN
+        RAISE EXCEPTION 'API key not found or timezone not set for id: %', p_api_key_id;
+    END IF;
+
+    -- Set the current date and month based on the API key's timezone
+    v_current_date := (CURRENT_TIMESTAMP AT TIME ZONE v_timezone)::DATE;
+    v_current_month := DATE_TRUNC('month', v_current_date);
+
+    -- Get or create the api_usage record
+    INSERT INTO api_usage (api_key_id, last_request_date)
+    VALUES (p_api_key_id, v_current_date)
+    ON CONFLICT (api_key_id) DO NOTHING;
+
+    -- Get the last request date
+    SELECT last_request_date INTO v_last_request_date
+    FROM api_usage
+    WHERE api_key_id = p_api_key_id;
+
+    -- Reset daily if necessary
+    IF v_last_request_date IS NULL OR v_last_request_date < v_current_date THEN
+        UPDATE api_usage
+        SET daily_requests = 1,
+            monthly_requests = CASE
+                WHEN DATE_TRUNC('month', v_last_request_date) < v_current_month THEN 1
+                ELSE monthly_requests + 1
+            END,
+            last_request_date = v_current_date
+        WHERE api_key_id = p_api_key_id;
+    ELSE
+        UPDATE api_usage
+        SET daily_requests = daily_requests + 1,
+            monthly_requests = monthly_requests + 1
+        WHERE api_key_id = p_api_key_id;
+    END IF;
+
+    -- Return the updated values
+    RETURN QUERY
+    SELECT au.daily_requests AS updated_daily_requests, au.monthly_requests AS updated_monthly_requests
+    FROM api_usage au
+    WHERE au.api_key_id = p_api_key_id;
+END;
+$$ LANGUAGE plpgsql;

@@ -6,16 +6,19 @@ const config = {
     url: process.env.DATABASE_URL,
     dialect: "postgres",
     logging: (msg) => logger.debug(msg),
+    timezone: process.env.DEFAULT_TIMEZONE || "UTC",
   },
   test: {
     url: process.env.TEST_DATABASE_URL,
     dialect: "postgres",
     logging: false,
+    timezone: process.env.DEFAULT_TIMEZONE || "UTC",
   },
   production: {
     url: process.env.DATABASE_URL,
     dialect: "postgres",
     logging: false,
+    timezone: process.env.DEFAULT_TIMEZONE || "UTC",
     dialectOptions: {
       ssl: {
         require: true,

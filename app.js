@@ -28,6 +28,7 @@ const { connectToDatabase, closeDatabase } = require("./config/database");
 const { getApiKeyDetails } = require("./services/apiKeyService");
 const { getUsageStats } = require("./services/loggingService");
 const createError = require("http-errors");
+require("./scheduledJobs"); // Add this line near the top of the file
 
 const app = express();
 

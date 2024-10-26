@@ -67,7 +67,7 @@ const authMiddleware = async (req, res, next) => {
     logger.info(`req.originalUrl: ${req.originalUrl}`);
     logger.info(`Requested endpoint: ${requestedEndpoint}`);
 
-    let allowedEndpoints = apiKeyData.endpoints_allowed;
+    let allowedEndpoints = apiKeyData.endpointsAllowed;
 
     logger.info(`Allowed endpoints (raw): ${JSON.stringify(allowedEndpoints)}`);
 

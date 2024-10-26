@@ -13,12 +13,8 @@ const rateLimiter = rateLimit({
     sendCommand: (...args) => redisClient.call(...args),
   }),
   windowMs: 60 * 1000, // 1 minute
-  max: (req) => {
-    return req.apiKeyData.rate_limit || 1000; // Default to 1000 if not set
-  },
-  keyGenerator: (req) => {
-    return `rate-limit:${req.apiKeyData.id}`;
-  },
+  max: (req) => req.apiKeyData.rate_limit || 1000,
+  keyGenerator: (req) => `rate-limit:${req.apiKeyData.id}`,
   handler: (req, res) => {
     logger.warn(`Rate limit exceeded for API key: ${req.apiKeyData.id}`);
     res.status(429).json({
