@@ -4449,3 +4449,4 @@
 [32m[2024-10-27T00:15:22.253Z] [32mINFO[0m: ::1 - - [27/Oct/2024:00:15:22 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"[0m
 [32m[2024-10-27T00:15:24.669Z] [32mINFO[0m: Inserted 1 logs into api_requests_log[0m
 [32m[2024-10-27T00:15:24.907Z] [32mINFO[0m: Successfully processed log queue[0m
+[32m[2024-10-27T00:30:02.952Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
