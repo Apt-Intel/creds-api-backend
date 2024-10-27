@@ -59,24 +59,46 @@ const combinedLogTransport = new winston.transports.File({
   maxFiles: 5,
 });
 
+const colors = {
+  error: "\x1b[31m", // Red
+  warn: "\x1b[33m", // Yellow
+  info: "\x1b[32m", // Green
+  debug: "\x1b[36m", // Cyan
+  reset: "\x1b[0m",
+};
+
+const colorize = (level, message) => {
+  return `${colors[level] || ""}${message}${colors.reset}`;
+};
+
+const customFormat = winston.format.printf(
+  ({ level, message, timestamp, ...metadata }) => {
+    const colorizedLevel = colorize(level, level.toUpperCase());
+    const colorizedTimestamp = `[${timestamp}]`;
+
+    let formattedMessage = `${colorizedTimestamp} ${colorizedLevel}: ${message}`;
+
+    if (Object.keys(metadata).length > 0) {
+      const metadataString = JSON.stringify(metadata);
+      if (metadataString !== "{}") {
+        formattedMessage += ` ${metadataString}`;
+      }
+    }
+
+    return colorize(level, formattedMessage);
+  }
+);
+
 const logger = winston.createLogger({
   level: process.env.LOG_LEVEL || "info",
   format: winston.format.combine(
     winston.format.timestamp(),
-    winston.format.json(),
-    winston.format.printf(({ timestamp, level, message, ...meta }) => {
-      return JSON.stringify({
-        timestamp,
-        level,
-        message,
-        ...meta,
-      });
-    })
+    winston.format.errors({ stack: true }),
+    winston.format.splat(),
+    customFormat
   ),
   transports: [
-    new winston.transports.Console({
-      level: "info", // Only log warnings and errors to console
-    }),
+    new winston.transports.Console(),
     applicationLogTransport,
     errorLogTransport,
     combinedLogTransport,

@@ -4125,3 +4125,327 @@
 {"timestamp":"2024-10-26T23:42:45.283Z","level":"info","message":"Monthly limit: 150"}
 {"timestamp":"2024-10-26T23:42:45.283Z","level":"info","message":"Timezone: UTC"}
 {"timestamp":"2024-10-26T23:42:45.284Z","level":"info","message":"::1 - admin [26/Oct/2024:23:42:45 +0000] \"POST /admin/generate-api-key HTTP/1.1\" 200 506 \"-\" \"PostmanRuntime/7.39.0\""}
+{"timestamp":"2024-10-26T23:54:47.892Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T23:54:49.955Z","level":"error","message":"Failed to connect to databases","error":"logger.logWithRequestId is not a function"}
+{"timestamp":"2024-10-26T23:55:28.450Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T23:55:30.013Z","level":"error","message":"Failed to connect to databases","error":"logger.logWithRequestId is not a function"}
+{"timestamp":"2024-10-26T23:59:25.146Z","level":"info","message":"Redis client connected"}
+{"timestamp":"2024-10-26T23:59:27.394Z","level":"info","message":"Connected to MongoDB","requestId":"system"}
+{"timestamp":"2024-10-26T23:59:44.116Z","level":"info","message":"req.originalUrl: /api/json/v1/search-by-mail?type=all&page=1"}
+{"timestamp":"2024-10-26T23:59:44.116Z","level":"info","message":"Requested endpoint: /api/json/v1/search-by-mail"}
+{"timestamp":"2024-10-26T23:59:44.117Z","level":"info","message":"Allowed endpoints (raw): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\",\"/api/json/v1/usage\"]"}
+{"timestamp":"2024-10-26T23:59:44.117Z","level":"info","message":"Allowed endpoints (processed): [\"/api/json/v1/search-by-mail/bulk\",\"/api/json/v1/search-by-domain\",\"/api/json/v1/usage\"]"}
+{"timestamp":"2024-10-26T23:59:44.118Z","level":"info","message":"Normalized requested endpoint: /api/json/v1/search-by-mail"}
+{"timestamp":"2024-10-26T23:59:44.118Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/search-by-mail/bulk"}
+{"timestamp":"2024-10-26T23:59:44.119Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/search-by-domain"}
+{"timestamp":"2024-10-26T23:59:44.119Z","level":"info","message":"Comparing /api/json/v1/search-by-mail with /api/json/v1/usage"}
+{"timestamp":"2024-10-26T23:59:44.119Z","level":"info","message":"Access granted: false"}
+{"timestamp":"2024-10-26T23:59:44.119Z","level":"warn","message":"Access denied for endpoint /api/json/v1/search-by-mail with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b"}
+{"timestamp":"2024-10-26T23:59:44.125Z","level":"info","message":"::1 - - [26/Oct/2024:23:59:44 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1 HTTP/1.1\" 403 50 \"-\" \"PostmanRuntime/7.39.0\""}
+[36m[2024-10-27T00:02:08.488Z][39m [32minfo[39m: [37mRedis client connected[39m 
+[36m[2024-10-27T00:02:10.708Z][39m [32minfo[39m: [37mConnected to MongoDB[39m [90m{[39m
+[90m  "requestId": "system"[39m
+[90m}[39m
+[36m[2024-10-27T00:02:17.983Z][39m [32minfo[39m: [37mreq.originalUrl: /api/json/v1/search-by-mail?type=all&page=1[39m 
+[36m[2024-10-27T00:02:17.984Z][39m [32minfo[39m: [37mRequested endpoint: /api/json/v1/search-by-mail[39m 
+[36m[2024-10-27T00:02:17.985Z][39m [32minfo[39m: [37mAllowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:02:17.985Z][39m [32minfo[39m: [37mAllowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:02:17.985Z][39m [32minfo[39m: [37mNormalized requested endpoint: /api/json/v1/search-by-mail[39m 
+[36m[2024-10-27T00:02:17.986Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:02:17.986Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/search-by-domain[39m 
+[36m[2024-10-27T00:02:17.986Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/usage[39m 
+[36m[2024-10-27T00:02:17.986Z][39m [32minfo[39m: [37mAccess granted: false[39m 
+[36m[2024-10-27T00:02:17.986Z][39m [33mwarn[39m: [37mAccess denied for endpoint /api/json/v1/search-by-mail with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b[39m 
+[36m[2024-10-27T00:02:17.991Z][39m [32minfo[39m: [37m::1 - - [27/Oct/2024:00:02:17 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1 HTTP/1.1" 403 50 "-" "PostmanRuntime/7.39.0"[39m 
+[36m[2024-10-27T00:04:34.381Z][39m [32minfo[39m: [37mRedis client connected[39m 
+[36m[2024-10-27T00:04:36.562Z][39m [32minfo[39m: [37mConnected to MongoDB[39m [90m{[39m
+[90m  "requestId": "system"[39m
+[90m}[39m
+[36m[2024-10-27T00:04:40.105Z][39m [32minfo[39m: [37mConnected to MongoDB and PostgreSQL[39m 
+[36m[2024-10-27T00:04:40.112Z][39m [32minfo[39m: [37mServer is running on port 3000[39m 
+[36m[2024-10-27T00:05:06.920Z][39m [32minfo[39m: [37mreq.originalUrl: /api/json/v1/search-by-mail?type=all&page=1[39m 
+[36m[2024-10-27T00:05:06.921Z][39m [32minfo[39m: [37mRequested endpoint: /api/json/v1/search-by-mail[39m 
+[36m[2024-10-27T00:05:06.921Z][39m [32minfo[39m: [37mAllowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:05:06.922Z][39m [32minfo[39m: [37mAllowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:05:06.922Z][39m [32minfo[39m: [37mNormalized requested endpoint: /api/json/v1/search-by-mail[39m 
+[36m[2024-10-27T00:05:06.923Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:05:06.923Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/search-by-domain[39m 
+[36m[2024-10-27T00:05:06.923Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/usage[39m 
+[36m[2024-10-27T00:05:06.923Z][39m [32minfo[39m: [37mAccess granted: false[39m 
+[36m[2024-10-27T00:05:06.924Z][39m [33mwarn[39m: [37mAccess denied for endpoint /api/json/v1/search-by-mail with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b[39m 
+[36m[2024-10-27T00:05:06.928Z][39m [32minfo[39m: [37m::1 - - [27/Oct/2024:00:05:06 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1 HTTP/1.1" 403 50 "-" "PostmanRuntime/7.39.0"[39m 
+[36m[2024-10-27T00:06:47.055Z][39m [32minfo[39m: [37mRedis client connected[39m 
+[36m[2024-10-27T00:06:49.029Z][39m [32minfo[39m: [37mConnected to MongoDB[39m [90m{[39m
+[90m  "requestId": "system"[39m
+[90m}[39m
+[36m[2024-10-27T00:06:52.486Z][39m [32minfo[39m: [37mConnected to PostgreSQL[39m [90m{[39m
+[90m  "requestId": "system"[39m
+[90m}[39m
+[36m[2024-10-27T00:06:52.490Z][39m [32minfo[39m: [37mServer is running on port 3000[39m [90m{[39m
+[90m  "requestId": "system"[39m
+[90m}[39m
+[36m[2024-10-27T00:07:00.329Z][39m [32minfo[39m: [37mreq.originalUrl: /api/json/v1/search-by-mail?type=all&page=1[39m 
+[36m[2024-10-27T00:07:00.329Z][39m [32minfo[39m: [37mRequested endpoint: /api/json/v1/search-by-mail[39m 
+[36m[2024-10-27T00:07:00.330Z][39m [32minfo[39m: [37mAllowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:00.330Z][39m [32minfo[39m: [37mAllowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:00.331Z][39m [32minfo[39m: [37mNormalized requested endpoint: /api/json/v1/search-by-mail[39m 
+[36m[2024-10-27T00:07:00.331Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:00.331Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/search-by-domain[39m 
+[36m[2024-10-27T00:07:00.331Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail with /api/json/v1/usage[39m 
+[36m[2024-10-27T00:07:00.331Z][39m [32minfo[39m: [37mAccess granted: false[39m 
+[36m[2024-10-27T00:07:00.331Z][39m [33mwarn[39m: [37mAccess denied for endpoint /api/json/v1/search-by-mail with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b[39m 
+[36m[2024-10-27T00:07:00.336Z][39m [32minfo[39m: [37m::1 - - [27/Oct/2024:00:07:00 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1 HTTP/1.1" 403 50 "-" "PostmanRuntime/7.39.0"[39m 
+[36m[2024-10-27T00:07:07.740Z][39m [32minfo[39m: [37mreq.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mRequested endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mAllowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mAllowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mNormalized requested endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mAccess granted: true[39m 
+[36m[2024-10-27T00:07:07.741Z][39m [32minfo[39m: [37mAuthenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.977Z][39m [32minfo[39m: [37mreq.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[39m 
+[36m[2024-10-27T00:07:07.977Z][39m [32minfo[39m: [37mRequested endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.977Z][39m [32minfo[39m: [37mAllowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:07.978Z][39m [32minfo[39m: [37mAllowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:07.978Z][39m [32minfo[39m: [37mNormalized requested endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.978Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:07.978Z][39m [32minfo[39m: [37mAccess granted: true[39m 
+[36m[2024-10-27T00:07:07.978Z][39m [32minfo[39m: [37mAuthenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:08.447Z][39m [32minfo[39m: [37mUsage stats update results: {"updated_daily_requests":1,"updated_monthly_requests":14}[39m 
+[36m[2024-10-27T00:07:09.143Z][39m [32minfo[39m: [37mreq.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[39m 
+[36m[2024-10-27T00:07:09.143Z][39m [32minfo[39m: [37mRequested endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:09.143Z][39m [32minfo[39m: [37mAllowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:09.143Z][39m [32minfo[39m: [37mAllowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][39m 
+[36m[2024-10-27T00:07:09.144Z][39m [32minfo[39m: [37mNormalized requested endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:09.144Z][39m [32minfo[39m: [37mComparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:09.144Z][39m [32minfo[39m: [37mAccess granted: true[39m 
+[36m[2024-10-27T00:07:09.144Z][39m [32minfo[39m: [37mAuthenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[39m 
+[36m[2024-10-27T00:07:09.145Z][39m [32minfo[39m: [37mBulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc[39m 
+[36m[2024-10-27T00:07:10.617Z][39m [32minfo[39m: [37mBulk search completed for 2 mails, total results: 9, processing time: 1472.22ms[39m 
+[36m[2024-10-27T00:07:10.618Z][39m [32minfo[39m: [37mDate normalization middleware called[39m 
+[36m[2024-10-27T00:07:10.622Z][39m [32minfo[39m: [37mDate normalization completed[39m 
+[36m[2024-10-27T00:07:10.622Z][39m [32minfo[39m: [37mSorting middleware called[39m 
+[36m[2024-10-27T00:07:10.623Z][39m [32minfo[39m: [37mSorting parameters: sortBy=Log date, sortOrder=asc[39m 
+[36m[2024-10-27T00:07:10.623Z][39m [32minfo[39m: [37mSorting completed[39m 
+[36m[2024-10-27T00:07:10.623Z][39m [32minfo[39m: [37mDocument redesign middleware called[39m 
+[36m[2024-10-27T00:07:10.850Z][39m [32minfo[39m: [37mProcessing bulk search results[39m 
+[36m[2024-10-27T00:07:10.968Z][39m [32minfo[39m: [37mDocument redesign completed[39m 
+[36m[2024-10-27T00:07:10.968Z][39m [32minfo[39m: [37mSending response[39m 
+[36m[2024-10-27T00:07:10.969Z][39m [32minfo[39m: [37m::1 - - [27/Oct/2024:00:07:10 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"[39m 
+[36m[2024-10-27T00:07:12.153Z][39m [32minfo[39m: [37mInserted 1 logs into api_requests_log[39m 
+[36m[2024-10-27T00:07:12.383Z][39m [32minfo[39m: [37mSuccessfully processed log queue[39m 
+[2024-10-27T00:08:37.582Z] info: Redis client connected
+[2024-10-27T00:08:39.559Z] info: Connected to MongoDB {"requestId":"system"}
+[2024-10-27T00:08:43.115Z] info: Connected to PostgreSQL {"requestId":"system"}
+[2024-10-27T00:08:43.118Z] info: Server is running on port 3000 {"requestId":"system"}
+[2024-10-27T00:08:48.369Z] info: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1
+[2024-10-27T00:08:48.371Z] info: Requested endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.371Z] info: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[2024-10-27T00:08:48.372Z] info: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[2024-10-27T00:08:48.374Z] info: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.381Z] info: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.381Z] info: Access granted: true
+[2024-10-27T00:08:48.381Z] info: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.623Z] info: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1
+[2024-10-27T00:08:48.624Z] info: Requested endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.624Z] info: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[2024-10-27T00:08:48.624Z] info: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[2024-10-27T00:08:48.624Z] info: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.624Z] info: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:48.624Z] info: Access granted: true
+[2024-10-27T00:08:48.624Z] info: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:49.112Z] info: Usage stats update results: {"updated_daily_requests":2,"updated_monthly_requests":15}
+[2024-10-27T00:08:49.835Z] info: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1
+[2024-10-27T00:08:49.836Z] info: Requested endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:49.836Z] info: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[2024-10-27T00:08:49.836Z] info: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[2024-10-27T00:08:49.836Z] info: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:49.836Z] info: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:49.836Z] info: Access granted: true
+[2024-10-27T00:08:49.836Z] info: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk
+[2024-10-27T00:08:49.837Z] info: Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc
+[2024-10-27T00:08:51.341Z] info: Bulk search completed for 2 mails, total results: 9, processing time: 1504.64ms
+[2024-10-27T00:08:51.342Z] info: Date normalization middleware called
+[2024-10-27T00:08:51.351Z] info: Date normalization completed
+[2024-10-27T00:08:51.351Z] info: Sorting middleware called
+[2024-10-27T00:08:51.351Z] info: Sorting parameters: sortBy=Log date, sortOrder=asc
+[2024-10-27T00:08:51.351Z] info: Sorting completed
+[2024-10-27T00:08:51.351Z] info: Document redesign middleware called
+[2024-10-27T00:08:51.512Z] info: Processing bulk search results
+[2024-10-27T00:08:51.604Z] info: Document redesign completed
+[2024-10-27T00:08:51.604Z] info: Sending response
+[2024-10-27T00:08:51.606Z] info: ::1 - - [27/Oct/2024:00:08:51 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"
+[2024-10-27T00:08:52.716Z] info: Inserted 1 logs into api_requests_log
+[2024-10-27T00:08:52.977Z] info: Successfully processed log queue
+[36m[2024-10-27T00:09:53.865Z] info: Redis client connected[0m
+[36m[2024-10-27T00:09:55.395Z] info: Connected to MongoDB[0m [36m{"requestId":"system"}[0m
+[36m[2024-10-27T00:09:59.234Z] info: Connected to PostgreSQL[0m [36m{"requestId":"system"}[0m
+[36m[2024-10-27T00:09:59.238Z] info: Server is running on port 3000[0m [36m{"requestId":"system"}[0m
+[36m[2024-10-27T00:10:06.961Z] info: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[36m[2024-10-27T00:10:06.962Z] info: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:06.962Z] info: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[36m[2024-10-27T00:10:06.963Z] info: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[36m[2024-10-27T00:10:06.964Z] info: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:06.964Z] info: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:06.964Z] info: Access granted: true[0m
+[36m[2024-10-27T00:10:06.964Z] info: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:07.212Z] info: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[36m[2024-10-27T00:10:07.212Z] info: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:07.212Z] info: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[36m[2024-10-27T00:10:07.212Z] info: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[36m[2024-10-27T00:10:07.214Z] info: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:07.215Z] info: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:07.215Z] info: Access granted: true[0m
+[36m[2024-10-27T00:10:07.215Z] info: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:07.709Z] info: Usage stats update results: {"updated_daily_requests":3,"updated_monthly_requests":16}[0m
+[36m[2024-10-27T00:10:08.443Z] info: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[36m[2024-10-27T00:10:08.444Z] info: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:08.444Z] info: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[36m[2024-10-27T00:10:08.444Z] info: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[36m[2024-10-27T00:10:08.444Z] info: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:08.444Z] info: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:08.445Z] info: Access granted: true[0m
+[36m[2024-10-27T00:10:08.445Z] info: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[36m[2024-10-27T00:10:08.445Z] info: Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc[0m
+[36m[2024-10-27T00:10:10.593Z] info: Bulk search completed for 2 mails, total results: 9, processing time: 2147.44ms[0m
+[36m[2024-10-27T00:10:10.593Z] info: Date normalization middleware called[0m
+[36m[2024-10-27T00:10:10.599Z] info: Date normalization completed[0m
+[36m[2024-10-27T00:10:10.600Z] info: Sorting middleware called[0m
+[36m[2024-10-27T00:10:10.600Z] info: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[36m[2024-10-27T00:10:10.600Z] info: Sorting completed[0m
+[36m[2024-10-27T00:10:10.601Z] info: Document redesign middleware called[0m
+[36m[2024-10-27T00:10:10.755Z] info: Processing bulk search results[0m
+[36m[2024-10-27T00:10:10.843Z] info: Document redesign completed[0m
+[36m[2024-10-27T00:10:10.844Z] info: Sending response[0m
+[36m[2024-10-27T00:10:10.846Z] info: ::1 - - [27/Oct/2024:00:10:10 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"[0m
+[36m[2024-10-27T00:10:13.994Z] info: Inserted 1 logs into api_requests_log[0m
+[36m[2024-10-27T00:10:14.235Z] info: Successfully processed log queue[0m
+[36m[2024-10-27T00:11:24.230Z][0m [36mINFO[0m: Redis client connected
+[36m[2024-10-27T00:11:25.884Z][0m [36mINFO[0m: Connected to MongoDB [36m{"requestId":"system"}[0m
+[36m[2024-10-27T00:11:29.338Z][0m [36mINFO[0m: Connected to PostgreSQL [36m{"requestId":"system"}[0m
+[36m[2024-10-27T00:11:29.340Z][0m [36mINFO[0m: Server is running on port 3000 [36m{"requestId":"system"}[0m
+[36m[2024-10-27T00:11:36.979Z][0m [36mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1
+[36m[2024-10-27T00:11:36.980Z][0m [36mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:36.980Z][0m [36mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[36m[2024-10-27T00:11:36.981Z][0m [36mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[36m[2024-10-27T00:11:36.981Z][0m [36mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:36.981Z][0m [36mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:36.982Z][0m [36mINFO[0m: Access granted: true
+[36m[2024-10-27T00:11:36.982Z][0m [36mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:37.239Z][0m [36mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1
+[36m[2024-10-27T00:11:37.240Z][0m [36mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:37.240Z][0m [36mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[36m[2024-10-27T00:11:37.240Z][0m [36mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[36m[2024-10-27T00:11:37.241Z][0m [36mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:37.241Z][0m [36mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:37.241Z][0m [36mINFO[0m: Access granted: true
+[36m[2024-10-27T00:11:37.241Z][0m [36mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:37.711Z][0m [36mINFO[0m: Usage stats update results: {"updated_daily_requests":4,"updated_monthly_requests":17}
+[36m[2024-10-27T00:11:38.424Z][0m [36mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1
+[36m[2024-10-27T00:11:38.424Z][0m [36mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:38.424Z][0m [36mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[36m[2024-10-27T00:11:38.424Z][0m [36mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"]
+[36m[2024-10-27T00:11:38.424Z][0m [36mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:38.425Z][0m [36mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:38.425Z][0m [36mINFO[0m: Access granted: true
+[36m[2024-10-27T00:11:38.425Z][0m [36mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk
+[36m[2024-10-27T00:11:38.425Z][0m [36mINFO[0m: Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc
+[36m[2024-10-27T00:11:40.244Z][0m [36mINFO[0m: Bulk search completed for 2 mails, total results: 9, processing time: 1818.58ms
+[36m[2024-10-27T00:11:40.244Z][0m [36mINFO[0m: Date normalization middleware called
+[36m[2024-10-27T00:11:40.248Z][0m [36mINFO[0m: Date normalization completed
+[36m[2024-10-27T00:11:40.248Z][0m [36mINFO[0m: Sorting middleware called
+[36m[2024-10-27T00:11:40.248Z][0m [36mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc
+[36m[2024-10-27T00:11:40.248Z][0m [36mINFO[0m: Sorting completed
+[36m[2024-10-27T00:11:40.249Z][0m [36mINFO[0m: Document redesign middleware called
+[36m[2024-10-27T00:11:40.404Z][0m [36mINFO[0m: Processing bulk search results
+[36m[2024-10-27T00:11:40.497Z][0m [36mINFO[0m: Document redesign completed
+[36m[2024-10-27T00:11:40.497Z][0m [36mINFO[0m: Sending response
+[36m[2024-10-27T00:11:40.499Z][0m [36mINFO[0m: ::1 - - [27/Oct/2024:00:11:40 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"
+[36m[2024-10-27T00:11:44.346Z][0m [36mINFO[0m: Inserted 1 logs into api_requests_log
+[36m[2024-10-27T00:11:44.581Z][0m [36mINFO[0m: Successfully processed log queue
+[32m[2024-10-27T00:13:24.337Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-10-27T00:13:36.153Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-10-27T00:13:39.810Z] [32mINFO[0m: Connected to PostgreSQL {"requestId":"system"}[0m
+[32m[2024-10-27T00:13:39.815Z] [32mINFO[0m: Server is running on port 3000 {"requestId":"system"}[0m
+[32m[2024-10-27T00:13:43.868Z] [32mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[32m[2024-10-27T00:13:43.869Z] [32mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:43.869Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:13:43.869Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:13:43.870Z] [32mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:43.870Z] [32mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:43.870Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-10-27T00:13:43.870Z] [32mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:44.122Z] [32mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[32m[2024-10-27T00:13:44.123Z] [32mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:44.123Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:13:44.123Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:13:44.124Z] [32mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:44.125Z] [32mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:44.125Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-10-27T00:13:44.125Z] [32mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:44.623Z] [32mINFO[0m: Usage stats update results: {"updated_daily_requests":5,"updated_monthly_requests":18}[0m
+[32m[2024-10-27T00:13:45.369Z] [32mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-10-27T00:13:45.370Z] [32mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:13:45.371Z] [32mINFO[0m: Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc[0m
+[32m[2024-10-27T00:13:46.831Z] [32mINFO[0m: Bulk search completed for 2 mails, total results: 9, processing time: 1460.15ms[0m
+[32m[2024-10-27T00:13:46.832Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-10-27T00:13:46.838Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-10-27T00:13:46.838Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-10-27T00:13:46.838Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-10-27T00:13:46.839Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-10-27T00:13:46.839Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-10-27T00:13:47.001Z] [32mINFO[0m: Processing bulk search results[0m
+[32m[2024-10-27T00:13:47.098Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-10-27T00:13:47.098Z] [32mINFO[0m: Sending response[0m
+[32m[2024-10-27T00:13:47.100Z] [32mINFO[0m: ::1 - - [27/Oct/2024:00:13:47 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"[0m
+[32m[2024-10-27T00:13:49.489Z] [32mINFO[0m: Inserted 1 logs into api_requests_log[0m
+[32m[2024-10-27T00:13:49.737Z] [32mINFO[0m: Successfully processed log queue[0m
+[32m[2024-10-27T00:15:04.537Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-10-27T00:15:06.583Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-10-27T00:15:10.070Z] [32mINFO[0m: Connected to PostgreSQL {"requestId":"system"}[0m
+[32m[2024-10-27T00:15:10.079Z] [32mINFO[0m: Server is running on port 3000 {"requestId":"system"}[0m
+[32m[2024-10-27T00:15:18.987Z] [32mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[32m[2024-10-27T00:15:18.994Z] [32mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:18.994Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:15:18.994Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:15:18.995Z] [32mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:18.996Z] [32mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:18.996Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-10-27T00:15:18.996Z] [32mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:19.238Z] [32mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[32m[2024-10-27T00:15:19.239Z] [32mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:19.239Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:15:19.239Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:15:19.240Z] [32mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:19.240Z] [32mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:19.240Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-10-27T00:15:19.240Z] [32mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:19.717Z] [32mINFO[0m: Usage stats update results: {"updated_daily_requests":6,"updated_monthly_requests":19}[0m
+[32m[2024-10-27T00:15:20.436Z] [32mINFO[0m: req.originalUrl: /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1[0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Normalized requested endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Comparing /api/json/v1/search-by-mail/bulk with /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-10-27T00:15:20.437Z] [32mINFO[0m: Authenticated request with API key: 260426937cc56f97cfcc4c53b3dca3a745593110fe2c94afff04889fd7649e2b for endpoint: /api/json/v1/search-by-mail/bulk[0m
+[32m[2024-10-27T00:15:20.445Z] [32mINFO[0m: Bulk search request received for 2 mails, page: 1, installed_software: false, type: strict, sortby: date_compromised, sortorder: asc[0m
+[32m[2024-10-27T00:15:21.987Z] [32mINFO[0m: Bulk search completed for 2 mails, total results: 9, processing time: 1541.34ms[0m
+[32m[2024-10-27T00:15:21.988Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-10-27T00:15:21.996Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-10-27T00:15:21.996Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-10-27T00:15:21.996Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-10-27T00:15:21.996Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-10-27T00:15:21.997Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-10-27T00:15:22.163Z] [32mINFO[0m: Processing bulk search results[0m
+[32m[2024-10-27T00:15:22.251Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-10-27T00:15:22.251Z] [32mINFO[0m: Sending response[0m
+[32m[2024-10-27T00:15:22.253Z] [32mINFO[0m: ::1 - - [27/Oct/2024:00:15:22 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1 HTTP/1.1" 200 178487 "-" "PostmanRuntime/7.39.0"[0m
+[32m[2024-10-27T00:15:24.669Z] [32mINFO[0m: Inserted 1 logs into api_requests_log[0m
+[32m[2024-10-27T00:15:24.907Z] [32mINFO[0m: Successfully processed log queue[0m

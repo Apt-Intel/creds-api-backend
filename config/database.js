@@ -8,19 +8,17 @@ require("dotenv").config();
 const MONGODB_URI = process.env.MONGODB_URI;
 const POOL_TIMEOUT_MS = 30000;
 
-async function connectToDatabase() {
+const connectToDatabase = async () => {
   try {
     await mongoose.connect(MONGODB_URI, {
       serverSelectionTimeoutMS: POOL_TIMEOUT_MS,
     });
-    logger.logWithRequestId("info", "Connected to MongoDB");
+    logger.info("Connected to MongoDB", { requestId: "system" });
   } catch (error) {
-    logger.logWithRequestId("error", "Database connection error:", {
-      error: error.message,
-    });
+    logger.error("MongoDB connection error:", error);
     throw error;
   }
-}
+};
 
 async function getDatabase() {
   if (!mongoose.connection.db) {
@@ -32,11 +30,11 @@ async function getDatabase() {
 async function closeDatabase() {
   if (mongoose.connection.readyState !== 0) {
     await mongoose.connection.close();
-    logger.logWithRequestId("info", "Disconnected from MongoDB");
+    logger.info("Disconnected from MongoDB", { requestId: "system" });
   }
   if (redisClient) {
     redisClient.quit();
-    logger.logWithRequestId("info", "Disconnected from Redis");
+    logger.info("Disconnected from Redis", { requestId: "system" });
   }
 }
 

@@ -269,28 +269,26 @@ const startServer = async () => {
   try {
     await connectToDatabase();
     await sequelize.authenticate();
-    console.log("Connected to MongoDB and PostgreSQL");
+    logger.info("Connected to PostgreSQL", { requestId: "system" });
 
     const server = app.listen(PORT, () => {
-      logger.logWithRequestId("info", `Server is running on port ${PORT}`);
+      logger.info(`Server is running on port ${PORT}`, { requestId: "system" });
     });
 
     server.on("error", (error) => {
       if (error.code === "EADDRINUSE") {
-        logger.logWithRequestId(
-          "error",
-          `Port ${PORT} is already in use. Please check your environment configuration and ensure the port is available.`
+        logger.error(
+          `Port ${PORT} is already in use. Please check your environment configuration and ensure the port is available.`,
+          { requestId: "system" }
         );
       } else {
-        logger.logWithRequestId("error", "Error starting server:", {
-          error: error.message,
-        });
+        logger.error("Error starting server:", error, { requestId: "system" });
       }
       process.exit(1);
     });
   } catch (error) {
-    logger.logWithRequestId("error", "Failed to connect to databases", {
-      error: error.message,
+    logger.error("Failed to connect to databases", error, {
+      requestId: "system",
     });
     process.exit(1);
   }
