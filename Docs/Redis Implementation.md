@@ -1,29 +1,29 @@
-# Redis Usage Documentation
+### Redis Usage Documentation
 
-## Introduction
+#### Introduction
 
 Redis is implemented in this codebase primarily for caching and rate limiting purposes. It provides fast, in-memory data storage that helps improve the application's performance and scalability. Redis is particularly useful for storing temporary data like API key validation results and managing rate limiting counters.
 
-## 1. How is Redis Implemented in This Codebase?
+#### 1. How is Redis Implemented in This Codebase?
 
 Redis is implemented using the `redis` npm package. The Redis client is configured and initialized in the `redisClient.js` file. This client is then used in various middlewares and services to store and retrieve data.
 
-### Redis Data Structures Used
+##### Redis Data Structures Used
 
 - **Strings**: Used for caching API key validation results.
 - **Sorted Sets**: Used for implementing a sliding window rate limiting algorithm.
 
-## 2. What Structure Does It Follow?
+#### 2. What Structure Does It Follow?
 
 The Redis implementation follows a modular structure where the Redis client and its asynchronous methods are encapsulated in a separate module. This module is then imported and used in other parts of the application as needed.
 
-### File Structure:
+##### File Structure:
 
 - `redisClient.js`: Initializes and exports the Redis client and asynchronous methods.
 - `complexRateLimitMiddleware.js`: Uses Redis for rate limiting.
 - `authMiddleware.js`: Uses Redis for caching API key validation results.
 
-## 3. Guidelines for Using Redis for New Features
+#### 3. Guidelines for Using Redis for New Features
 
 When adding new features that require Redis, follow these guidelines:
 
@@ -35,9 +35,9 @@ When adding new features that require Redis, follow these guidelines:
 6. **Choose Appropriate Data Structures**: Select the most suitable Redis data structure for your use case.
 7. **Bulk Operations**: When implementing bulk operations like the new bulk search functionality, consider using Redis for caching frequently requested data or storing intermediate results to improve performance.
 
-## 4. Implementation Details and Code Snippets
+#### 4. Implementation Details and Code Snippets
 
-### Redis Client Initialization
+##### Redis Client Initialization
 
 ```js
 const redis = require("redis");
@@ -60,7 +60,7 @@ const asyncRedis = {
 module.exports = { client, asyncRedis };
 ```
 
-### Rate Limiting Middleware
+##### Rate Limiting Middleware
 
 The `complexRateLimitMiddleware` uses Redis sorted sets to implement a sliding window rate limiting algorithm:
 
@@ -123,7 +123,7 @@ async function checkRateLimit(key) {
 }
 ```
 
-### API Key Validation Middleware
+##### API Key Validation Middleware
 
 The `authMiddleware` uses Redis to cache API key validation results:
 
@@ -157,7 +157,7 @@ const authMiddleware = async (req, res, next) => {
 };
 ```
 
-## 5. Redis Connection Management
+#### 5. Redis Connection Management
 
 The Redis client is created in `redisClient.js`. It's important to handle connection errors and implement reconnection strategies:
 
@@ -199,7 +199,7 @@ client.on("ready", () => {
 });
 ```
 
-## 6. Monitoring and Maintenance
+#### 6. Monitoring and Maintenance
 
 - Use Redis CLI commands like `INFO` and `MONITOR` to check Redis server status and monitor real-time operations.
 - Implement proper logging for Redis operations to track usage and diagnose issues.
@@ -222,7 +222,7 @@ const checkRedisMemory = async () => {
 setInterval(checkRedisMemory, 60000); // Check every minute
 ```
 
-## 7. Environment Configuration
+#### 7. Environment Configuration
 
 Ensure that the Redis connection details are correctly set in the `.env` file:
 

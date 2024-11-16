@@ -1,12 +1,12 @@
-# Date Handling, Normalization, and Sorting: A Comprehensive Guide for API Implementation
+### Date Handling, Normalization, and Sorting: A Comprehensive Guide for API Implementation
 
 This document provides a detailed overview of how dates are handled, normalized, and sorted in our API.
 
-## Overview
+#### Overview
 
 Our API implements a consistent approach to date handling across all routes, ensuring that dates are properly normalized and sorted according to user requests. This process is applied uniformly to both single and bulk search operations.
 
-## Purpose
+#### Purpose
 
 Date normalization is essential in our application to ensure consistent date representations across various data sources and user inputs. This consistency is crucial for:
 
@@ -15,7 +15,7 @@ Date normalization is essential in our application to ensure consistent date rep
 3. Improved data quality and reduced errors in date-based operations.
 4. Facilitating log analysis and user activity tracking.
 
-## Components Involved
+#### Components Involved
 
 1. Controllers
 2. Date Normalization Middleware
@@ -23,7 +23,7 @@ Date normalization is essential in our application to ensure consistent date rep
 4. Date Service
 5. Domain Utils (for domain-specific operations)
 
-## Relevant Files
+#### Relevant Files
 
 1. `services/dateService.js`: Core date parsing and normalization logic.
 2. `middlewares/dateNormalizationMiddleware.js`: Middleware for normalizing dates in responses.
@@ -34,9 +34,9 @@ Date normalization is essential in our application to ensure consistent date rep
 7. `routes/api/v1/searchByLoginBulk.js`: Routes for bulk login search.
 8. `logs/new_date_formats.log`: Log file for unrecognized date formats.
 
-## Data Flow
+#### Data Flow
 
-### Single Search Routes (e.g., search-by-login, search-by-domain)
+##### Single Search Routes (e.g., search-by-login, search-by-domain)
 
 1. Controller (e.g., `loginController.js`, `domainController.js`)
 
@@ -54,10 +54,9 @@ Date normalization is essential in our application to ensure consistent date rep
 
    - Sorts the normalized results based on query parameters (`sortby` and `sortorder`)
 
-4. Send Response Middleware
-   - Sends the final sorted and normalized data
+4. Send Response Middleware 2. Sends the final sorted and normalized data
 
-### Bulk Search Routes (e.g., search-by-login/bulk, search-by-domain/bulk)
+##### Bulk Search Routes (e.g., search-by-login/bulk, search-by-domain/bulk)
 
 1. Controller (e.g., `loginBulkController.js`, `domainBulkController.js`)
 
@@ -75,12 +74,11 @@ Date normalization is essential in our application to ensure consistent date rep
 
    - Sorts the normalized results for each bulk query based on query parameters
 
-4. Send Response Middleware
-   - Sends the final sorted and normalized data
+4. Send Response Middleware 2. Sends the final sorted and normalized data
 
-## Detailed Component Analysis
+#### Detailed Component Analysis
 
-### Controllers
+##### Controllers
 
 Controllers are responsible for fetching data from the database and preparing the initial response. They do not perform any date-related operations.
 
@@ -96,7 +94,7 @@ req.searchResults = response;
 next();
 ```
 
-### Date Normalization Middleware
+##### Date Normalization Middleware
 
 Located in `dateNormalizationMiddleware.js`, this middleware normalizes dates in the `req.searchResults` object.
 
@@ -145,7 +143,7 @@ const dateNormalizationMiddleware = async (req, res, next) => {
 module.exports = dateNormalizationMiddleware;
 ```
 
-### Sorting Middleware
+##### Sorting Middleware
 
 Located in `sortingMiddleware.js`, this middleware sorts the normalized data based on query parameters.
 
@@ -221,7 +219,7 @@ const sortingMiddleware = (req, res, next) => {
 module.exports = sortingMiddleware;
 ```
 
-### Date Service
+##### Date Service
 
 Located in `dateService.js`, this service provides the core date parsing functionality.
 
@@ -349,7 +347,7 @@ module.exports = {
 };
 ```
 
-## Sorting Behavior: "date_compromised" vs "date_uploaded"
+#### Sorting Behavior: "date_compromised" vs "date_uploaded"
 
 Our API supports two sorting options: "date_compromised" and "date_uploaded". Here's how they differ:
 
@@ -360,15 +358,11 @@ Our API supports two sorting options: "date_compromised" and "date_uploaded". He
    - Represents when the credentials were compromised
    - May have various initial formats, which are normalized
 
-2. "date_uploaded":
-   - Uses the "Date" field
-   - This field does not go through the normalization process
-   - Represents when the data was uploaded to the database
-   - Assumed to be in a consistent "YYYY-MM-DD HH:mm:ss" format
+2. "date_uploaded": 2. Uses the "Date" field 3. This field does not go through the normalization process 4. Represents when the data was uploaded to the database 5. Assumed to be in a consistent "YYYY-MM-DD HH:mm:ss" format
 
 The sorting logic in the middleware is the same for both options, but they operate on different fields.
 
-## Domain-Specific Handling
+#### Domain-Specific Handling
 
 For domain-related endpoints, additional sanitization is performed using `domainUtils.js`:
 
@@ -396,7 +390,7 @@ async function sanitizeDomain(input) {
 
 This ensures that domains are properly sanitized before being used in database queries.
 
-## Handling Unrecognized Date Formats
+#### Handling Unrecognized Date Formats
 
 When an unrecognized date format is encountered:
 
@@ -404,7 +398,7 @@ When an unrecognized date format is encountered:
 2. A warning is logged.
 3. The unrecognized format is logged to `logs/new_date_formats.log` with a guessed format.
 
-## Adding New Date Formats
+#### Adding New Date Formats
 
 To add support for new date formats:
 
@@ -414,11 +408,11 @@ To add support for new date formats:
 4. Update the `guessPossibleFormat` function to include the new format.
 5. Test thoroughly with the new format added.
 
-## Date Normalization and Sorting: Input and Output Examples
+#### Date Normalization and Sorting: Input and Output Examples
 
-### Date Normalization Example
+##### Date Normalization Example
 
-#### Input (raw data from database):
+###### Input (raw data from database):
 
 ```json
 {
@@ -442,7 +436,7 @@ To add support for new date formats:
 }
 ```
 
-#### Output (after date normalization):
+###### Output (after date normalization):
 
 ```json
 {
@@ -466,9 +460,9 @@ To add support for new date formats:
 }
 ```
 
-### Sorting Example
+##### Sorting Example
 
-#### Input (normalized data):
+###### Input (normalized data):
 
 ```json
 {
@@ -492,7 +486,7 @@ To add support for new date formats:
 }
 ```
 
-#### Output (sorted by "Log date" in descending order):
+###### Output (sorted by "Log date" in descending order):
 
 ```json
 {
@@ -516,11 +510,11 @@ To add support for new date formats:
 }
 ```
 
-## Implementing Date Normalization and Sorting in a New Endpoint
+#### Implementing Date Normalization and Sorting in a New Endpoint
 
 Here's a complete example of how to implement date normalization and sorting in a new endpoint:
 
-### 1. Route Definition (routes/api/v1/newEndpoint.js)
+##### 1. Route Definition (routes/api/v1/newEndpoint.js)
 
 ```js
 const express = require("express");
@@ -541,7 +535,7 @@ router.get(
 module.exports = router;
 ```
 
-### 2. Controller Function (controllers/v1/newEndpointController.js)
+##### 2. Controller Function (controllers/v1/newEndpointController.js)
 
 ```js
 const { getDatabase } = require("../../config/database");
@@ -591,7 +585,7 @@ module.exports = {
 };
 ```
 
-### 3. Middleware Chain
+##### 3. Middleware Chain
 
 The middleware chain in the route definition ensures that:
 
@@ -602,17 +596,17 @@ The middleware chain in the route definition ensures that:
 
 By following this pattern, you can easily implement date normalization and sorting in any new endpoint you create.
 
-## Efficiency and Performance Considerations
+#### Efficiency and Performance Considerations
 
 1. Caching: Domain sanitization results are cached using LRU cache to improve performance for repeated queries.
 2. Asynchronous Operations: Date parsing and domain sanitization are performed asynchronously to prevent blocking the event loop.
 3. Single Pass: Date normalization and sorting occur exactly once per request, avoiding redundant operations.
 
-## Conclusion
+#### Conclusion
 
 The current implementation ensures consistent and efficient date handling across all API routes. Date normalization occurs only for the "Log date" field, while sorting can be performed on either "Log date" or "Date" fields. This approach provides flexibility for different use cases while maintaining data integrity.
 
-## Recommendations
+#### Recommendations
 
 1. Implement unit tests for date normalization and sorting processes to ensure continued accuracy.
 2. Regularly review the `new_date_formats.log` to identify and add new date formats as needed.
@@ -627,7 +621,7 @@ The current implementation ensures consistent and efficient date handling across
 11. When implementing new features that involve dates, ensure they work correctly with the existing date normalization and sorting flow.
 12. For bulk operations, make sure the date normalization and sorting are applied correctly to nested data structures.
 
-## Best Practices
+#### Best Practices
 
 1. Always use the `parseDate` function from `services/dateService.js` when working with dates.
 2. Regularly review and update the list of known date formats.

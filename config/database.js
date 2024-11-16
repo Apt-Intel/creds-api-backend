@@ -12,19 +12,54 @@ const connectToDatabase = async () => {
   try {
     await mongoose.connect(MONGODB_URI, {
       serverSelectionTimeoutMS: POOL_TIMEOUT_MS,
+      retryWrites: true,
+      retryReads: true,
+      connectTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+      maxPoolSize: 10,
+      minPoolSize: 2,
+      maxIdleTimeMS: 10000,
     });
     logger.info("Connected to MongoDB", { requestId: "system" });
   } catch (error) {
     logger.error("MongoDB connection error:", error);
+    if (error.name === "MongoTimeoutError") {
+      logger.error(
+        "MongoDB connection timed out. Please check network connectivity and MongoDB Atlas status."
+      );
+    }
     throw error;
   }
 };
 
-async function getDatabase() {
-  if (!mongoose.connection.db) {
-    await connectToDatabase();
+mongoose.connection.on("disconnected", () => {
+  logger.warn("MongoDB disconnected. Attempting to reconnect...", {
+    requestId: "system",
+  });
+});
+
+mongoose.connection.on("reconnected", () => {
+  logger.info("MongoDB reconnected", { requestId: "system" });
+});
+
+async function getDatabase(retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      if (!mongoose.connection.db) {
+        await connectToDatabase();
+      }
+      return mongoose.connection.db;
+    } catch (error) {
+      if (attempt === retries) {
+        throw error;
+      }
+      logger.warn(
+        `Database connection attempt ${attempt} failed. Retrying...`,
+        { requestId: "system" }
+      );
+      await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
+    }
   }
-  return mongoose.connection.db;
 }
 
 async function closeDatabase() {

@@ -6,34 +6,9 @@
     "auditLog": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/.2118fff91cc2d8884f8d48dd98572022989e8df9-audit.json",
     "files": [
         {
-            "date": 1729565281723,
-            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-10-22.log",
-            "hash": "dc6e23aeb178ad36e6b8f8745715cc838ab2cb546e8c7eccb31726d05e15e586"
-        },
-        {
-            "date": 1729659098762,
-            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-10-23.log",
-            "hash": "39aa298ad5e2c59a9bdc3044c26f6cff204aca036d07546f010f81ea8e862b55"
-        },
-        {
-            "date": 1729717033725,
-            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-10-24.log",
-            "hash": "3a60651c74108b01befda8c87df8541692b8277077dc0c47658f6157686bec97"
-        },
-        {
-            "date": 1729798390585,
-            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-10-25.log",
-            "hash": "ca348a255a149d4d1ce40365f3b978e082aceae0f87f9c97c3dc821bc84c7496"
-        },
-        {
-            "date": 1729881516741,
-            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-10-26.log",
-            "hash": "61deb136498d300f600e7610f0d2601fa4ad309978397c26b3f697f990d0e514"
-        },
-        {
-            "date": 1729968042976,
-            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-10-27.log",
-            "hash": "b4f6f5fe15f161775dcabd4f6c103632b10336506640c4f66b6c7422fbef3457"
+            "date": 1731767013426,
+            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-11-16.log",
+            "hash": "3e6a28d667e47388d6b83ec5f5c89b3fe644ffe30615e6beec084b7dd4479e85"
         }
     ],
     "hashType": "sha256"

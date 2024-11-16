@@ -28,7 +28,10 @@ const { connectToDatabase, closeDatabase } = require("./config/database");
 const { getApiKeyDetails } = require("./services/apiKeyService");
 const { getUsageStats } = require("./services/loggingService");
 const createError = require("http-errors");
-require("./scheduledJobs"); // Add this line near the top of the file
+const {
+  initializeScheduledJobs,
+  shutdownScheduledJobs,
+} = require("./scheduledJobs");
 
 const app = express();
 
@@ -265,34 +268,44 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-const startServer = async () => {
+let cronJob;
+
+async function startServer() {
   try {
-    await connectToDatabase();
-    await sequelize.authenticate();
-    logger.info("Connected to PostgreSQL", { requestId: "system" });
+    // Initialize other components
+    cronJob = initializeScheduledJobs();
 
-    const server = app.listen(PORT, () => {
-      logger.info(`Server is running on port ${PORT}`, { requestId: "system" });
-    });
+    // Setup graceful shutdown
+    process.on("SIGTERM", gracefulShutdown);
+    process.on("SIGINT", gracefulShutdown);
 
-    server.on("error", (error) => {
-      if (error.code === "EADDRINUSE") {
-        logger.error(
-          `Port ${PORT} is already in use. Please check your environment configuration and ensure the port is available.`,
-          { requestId: "system" }
-        );
-      } else {
-        logger.error("Error starting server:", error, { requestId: "system" });
-      }
-      process.exit(1);
+    // Start your Express app
+    app.listen(PORT, () => {
+      logger.info(`Server running on port ${PORT}`);
     });
   } catch (error) {
-    logger.error("Failed to connect to databases", error, {
-      requestId: "system",
-    });
+    logger.error("Error starting server:", error);
     process.exit(1);
   }
-};
+}
+
+async function gracefulShutdown() {
+  try {
+    logger.info("Received shutdown signal");
+
+    // Stop cron job
+    shutdownScheduledJobs();
+
+    // Close database connections
+    await sequelize.close();
+
+    logger.info("Graceful shutdown completed");
+    process.exit(0);
+  } catch (error) {
+    logger.error("Error during shutdown:", error);
+    process.exit(1);
+  }
+}
 
 startServer();
 

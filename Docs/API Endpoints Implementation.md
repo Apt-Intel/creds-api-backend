@@ -1,18 +1,18 @@
-## API Endpoints and Routes Documentation
+### API Endpoints and Routes Documentation
 
 This document provides a detailed overview of the API endpoints, routes, middlewares, and controllers in the application. It also includes guidelines for implementing new API routes, controllers, and middlewares.
 
-### 1. API Versioning
+#### 1. API Versioning
 
 Our API uses versioning to ensure backward compatibility as we evolve the API. The current version is **v1**, which is reflected in the URL structure: `/api/json/v1/`. We have also introduced internal endpoints under `/api/json/internal/` for internal use.
 
 ---
 
-### 2. API Endpoints and Routes Implementation
+#### 2. API Endpoints and Routes Implementation
 
 API endpoints and routes are defined in the `routes` directory. Each route file corresponds to a specific feature or resource.
 
-#### 2.1 Search By Mail Endpoint
+##### 2.1 Search By Mail Endpoint
 
 **File:** `routes/api/v1/searchByMail.js`
 
@@ -56,10 +56,10 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
   - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-    - `"strict"`: Searches in the `"Employee"` field
-    - `"all"`: Searches in the `"Emails"` field
+  - `"strict"`: Searches in the `"Employee"` field
+  - `"all"`: Searches in the `"Emails"` field
 
-#### 2.2 Search By Mail Bulk Endpoint
+##### 2.2 Search By Mail Bulk Endpoint
 
 **File:** `routes/api/v1/searchByMailBulk.js`
 
@@ -98,7 +98,7 @@ module.exports = router;
 - **Request Body**:
   - `mails` (required): Array of email addresses to search for (max 10 items)
 
-### 2.3 External Search By Domain Endpoint
+#### 2.3 External Search By Domain Endpoint
 
 **File:** `routes/api/v1/searchByDomain.js`
 
@@ -142,10 +142,10 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
   - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-    - `"strict"`: Searches in the `"Employee"` field
-    - `"all"`: Searches in the `"Emails"` field
+  - `"strict"`: Searches in the `"Employee"` field
+  - `"all"`: Searches in the `"Emails"` field
 
-### 2.4 External Search By Domain Bulk Endpoint
+#### 2.4 External Search By Domain Bulk Endpoint
 
 **File:** `routes/api/v1/searchByDomainBulk.js`
 
@@ -181,12 +181,12 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
   - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-    - `"strict"`: Searches in the `"Employee"` field
-    - `"all"`: Searches in the `"Emails"` field
+  - `"strict"`: Searches in the `"Employee"` field
+  - `"all"`: Searches in the `"Emails"` field
 - **Request Body**:
   - `domains` (required): Array of domains to search for (max 10 items)
 
-#### 2.5 Internal Search By Login Endpoint
+##### 2.5 Internal Search By Login Endpoint
 
 **File:** `routes/api/internal/searchByLogin.js`
 
@@ -229,7 +229,7 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
 
-#### 2.6 Internal Search By Login Bulk Endpoint
+##### 2.6 Internal Search By Login Bulk Endpoint
 
 **File:** `routes/api/internal/searchByLoginBulk.js`
 
@@ -265,7 +265,7 @@ module.exports = router;
 - **Request Body**:
   - `logins` (required): Array of logins (usernames) to search for (max 10 items)
 
-#### 2.7 Internal Search By Domain Endpoint
+##### 2.7 Internal Search By Domain Endpoint
 
 **File:** `routes/api/internal/searchByDomain.js`
 
@@ -308,7 +308,7 @@ module.exports = router;
   - `page` (optional): Page number for pagination. Default: `1`
   - `installed_software` (optional): Boolean flag for installed software. Default: `false`
 
-#### 2.8 Internal Search By Domain Bulk Endpoint
+##### 2.8 Internal Search By Domain Bulk Endpoint
 
 **File:** `routes/api/internal/searchByDomainBulk.js`
 
@@ -344,9 +344,9 @@ module.exports = router;
 - **Request Body**:
   - `domains` (required): Array of domains to search for (max 10 items)
 
-### 3. Middlewares Implementation
+#### 3. Middlewares Implementation
 
-#### 3.1 Authentication Middleware
+##### 3.1 Authentication Middleware
 
 **File:** `middlewares/authMiddleware.js`
 
@@ -385,7 +385,7 @@ const authMiddleware = async (req, res, next) => {
 module.exports = authMiddleware;
 ```
 
-#### 3.2 Date Normalization Middleware
+##### 3.2 Date Normalization Middleware
 
 **File:** `middlewares/dateNormalizationMiddleware.js`
 
@@ -430,7 +430,7 @@ const dateNormalizationMiddleware = async (req, res, next) => {
 module.exports = dateNormalizationMiddleware;
 ```
 
-#### 3.3 Sorting Middleware
+##### 3.3 Sorting Middleware
 
 **File:** `middlewares/sortingMiddleware.js`
 
@@ -494,7 +494,7 @@ const sortingMiddleware = (req, res, next) => {
 module.exports = sortingMiddleware;
 ```
 
-#### 3.4 Document Redesign Middleware
+##### 3.4 Document Redesign Middleware
 
 **File:** `middlewares/documentRedesignMiddleware.js`
 
@@ -650,7 +650,7 @@ const documentRedesignMiddleware = async (req, res, next) => {
 module.exports = documentRedesignMiddleware;
 ```
 
-#### 3.5 Send Response Middleware
+##### 3.5 Send Response Middleware
 
 **File:** `middlewares/sendResponseMiddleware.js`
 
@@ -665,7 +665,7 @@ const sendResponseMiddleware = (req, res) => {
 module.exports = sendResponseMiddleware;
 ```
 
-#### 3.6 Complex Rate Limit Middleware
+##### 3.6 Complex Rate Limit Middleware
 
 **File:** `middlewares/complexRateLimitMiddleware.js`
 
@@ -736,11 +736,11 @@ async function checkRateLimit(key) {
 module.exports = complexRateLimitMiddleware;
 ```
 
-### 4. Controllers Implementation
+#### 4. Controllers Implementation
 
 Controllers are organized in separate directories for `v1` and `internal` APIs. They handle the business logic for each route.
 
-#### 4.1 V1 Mail Controller
+##### 4.1 V1 Mail Controller
 
 **File:** `controllers/v1/mailController.js`
 
@@ -849,7 +849,7 @@ module.exports = {
 };
 ```
 
-#### 4.2 V1 Mail Bulk Controller
+##### 4.2 V1 Mail Bulk Controller
 
 **File:** `controllers/v1/mailBulkController.js`
 
@@ -990,7 +990,7 @@ module.exports = {
 };
 ```
 
-### 5. New Date Normalization, Sorting, and Document Redesign Flow
+#### 5. New Date Normalization, Sorting, and Document Redesign Flow
 
 The flow for date normalization, sorting, and document redesign remains the same for both v1 and internal APIs:
 
@@ -1002,14 +1002,12 @@ The flow for date normalization, sorting, and document redesign remains the same
 
 This flow allows for better separation of concerns and makes the code more modular and maintainable. It's applied consistently across both v1 and internal endpoints, ensuring uniform data processing.
 
-### 6. Guidelines for Implementing New API Routes
+#### 6. Guidelines for Implementing New API Routes
 
 When implementing new API routes, follow these steps for both v1 and internal APIs:
 
 1. **Determine** if the route is for v1 (consumer-facing) or internal use.
-2. **Create** a new file in the appropriate directory:
-   - For v1 routes: `routes/api/v1/`
-   - For internal routes: `routes/api/internal/`
+2. **Create** a new file in the appropriate directory: 3. For v1 routes: `routes/api/v1/` 4. For internal routes: `routes/api/internal/`
 3. **Define** the route using Express.
 4. **Apply** necessary middlewares (e.g., authentication, date normalization, sorting, document redesign).
 5. **Call** the appropriate controller function from the corresponding v1 or internal controller.
@@ -1067,7 +1065,7 @@ module.exports = router;
 
 Remember to update the `app.js` file to include the new route, using the appropriate path for v1 or internal APIs.
 
-### 7. Best Practices
+#### 7. Best Practices
 
 - **Use meaningful HTTP methods** (`GET`, `POST`, `PUT`, `DELETE`) for different operations.
 - **Implement proper error handling and logging** in all controllers and middlewares.
@@ -1087,7 +1085,7 @@ Remember to update the `app.js` file to include the new route, using the appropr
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
-### 8. Current File Structure
+#### 8. Current File Structure
 
 The following file structure represents the organization of the codebase, highlighting the key components like the structure of controllers, middlewares, and routes related to API endpoint implementations:
 

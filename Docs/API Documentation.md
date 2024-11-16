@@ -1,38 +1,29 @@
-# API Documentation
+### API Documentation
 
-## Table of Contents
+#### Table of Contents
 
-1. [Authentication](#authentication)
-2. [Rate Limiting](#rate-limiting)
-3. [Pagination](#pagination)
-4. [Date Normalization](#date-normalization)
-5. [Error Responses](#error-responses)
-6. [Health Check](#health-check)
-7. [Endpoints](#endpoints)
-   - [Search by Mail](#1-search-by-mail)
-   - [Search by Mail (Bulk)](#2-search-by-mail-bulk)
-   - [Search by Domain](#3-search-by-domain)
-   - [Search by Domain (Bulk)](#4-search-by-domain-bulk)
-   - [Test Date Normalization](#5-test-date-normalization)
-8. [Internal Endpoints](#internal-endpoints)
-   - [Internal Search by Mail](#6-internal-search-by-mail)
-   - [Internal Search by Mail (Bulk)](#7-internal-search-by-mail-bulk)
-   - [Internal Search by Domain](#8-internal-search-by-domain)
-   - [Internal Search by Domain (Bulk)](#9-internal-search-by-domain-bulk)
-9. [Document Redesign Process](#document-redesign-process)
-10. [Note on Internal Endpoints](#note-on-internal-endpoints)
+1. [Authentication](#authentication "Authentication")
+2. [Rate Limiting](#rate-limiting "Rate Limiting")
+3. [Pagination](#pagination "Pagination")
+4. [Date Normalization](#date-normalization "Date Normalization")
+5. [Error Responses](#error-responses "Error Responses")
+6. [Health Check](#health-check "Health Check")
+7. [Endpoints](#endpoints "Endpoints") 8. [Search by Mail](#1-search-by-mail "1. Search by Mail") 9. [Search by Mail (Bulk)](#2-search-by-mail-bulk "2. Search by Mail (Bulk)") 10. [Search by Domain](#3-search-by-domain "3. Search by Domain") 11. [Search by Domain (Bulk)](#4-search-by-domain-bulk "4. Search by Domain (Bulk)") 12. [Test Date Normalization](#5-test-date-normalization "5. Test Date Normalization")
+8. [Internal Endpoints](#internal-endpoints "Internal Endpoints") 14. [Internal Search by Mail](#6-internal-search-by-mail "6. Internal Search by Mail") 15. [Internal Search by Mail (Bulk)](#7-internal-search-by-mail-bulk "7. Internal Search by Mail (Bulk)") 16. [Internal Search by Domain](#8-internal-search-by-domain "8. Internal Search by Domain") 17. [Internal Search by Domain (Bulk)](#9-internal-search-by-domain-bulk "9. Internal Search by Domain (Bulk)")
+9. [Document Redesign Process](#document-redesign-process "Document Redesign Process")
+10. [Note on Internal Endpoints](#note-on-internal-endpoints "Note on Internal Endpoints")
 
 ---
 
-## Authentication
+#### Authentication
 
 All endpoints (except `/health`) require an API key to be provided in the request headers.
 
-### Header
+##### Header
 
 - `api-key: YOUR_API_KEY`
 
-## Rate Limiting
+#### Rate Limiting
 
 The API implements rate limiting to prevent abuse. The current limits are:
 
@@ -44,15 +35,15 @@ Rate limit information is provided in the response headers:
 - `X-RateLimit-Remaining: 49`
 - `X-RateLimit-Reset: 9`
 
-## Pagination
+#### Pagination
 
 Results are paginated with a default page size of **50 items**. Use the `page` query parameter to navigate through pages.
 
-## Date Normalization
+#### Date Normalization
 
 The API automatically normalizes dates in the `"Log date"` field to **ISO 8601** format (**UTC**) for consistency.
 
-## Error Responses
+#### Error Responses
 
 Error responses follow this format:
 
@@ -63,17 +54,17 @@ Error responses follow this format:
 }
 ```
 
-## Health Check
+#### Health Check
 
-### Endpoint
+##### Endpoint
 
 - `GET /health`
 
-### Description
+##### Description
 
 Check the health status of the API.
 
-### Example Response
+##### Example Response
 
 ```json
 {
@@ -85,20 +76,20 @@ This endpoint does not require authentication and is not subject to rate limitin
 
 ---
 
-## Endpoints
+#### Endpoints
 
-### 1. Search by Mail
+##### 1. Search by Mail
 
-#### Endpoint
+###### Endpoint
 
 - `GET /api/json/v1/search-by-mail`
 - `POST /api/json/v1/search-by-mail`
 
-#### Description
+###### Description
 
 Search for user mail information based on query parameters or request body.
 
-#### Request Parameters
+###### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
@@ -111,7 +102,7 @@ Search for user mail information based on query parameters or request body.
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
-#### Input Validation
+###### Input Validation
 
 - `mail`: Must be a valid email address.
 - `page`: Must be a positive integer.
@@ -119,11 +110,11 @@ Search for user mail information based on query parameters or request body.
 - `sortby`: Must be either "date_compromised" or "date_uploaded".
 - `sortorder`: Must be either "asc" or "desc".
 
-#### Example Request
+###### Example Request
 
 `GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
 
-#### Example Response
+###### Example Response
 
 ```json
 {
@@ -162,7 +153,7 @@ Search for user mail information based on query parameters or request body.
 }
 ```
 
-#### Errors
+###### Errors
 
 | Status Code | Description                               |
 | ----------- | ----------------------------------------- |
@@ -171,17 +162,17 @@ Search for user mail information based on query parameters or request body.
 | 429         | Too Many Requests - Rate limit exceeded   |
 | 500         | Internal Server Error                     |
 
-### 2. Search by Mail (Bulk)
+##### 2. Search by Mail (Bulk)
 
-#### Endpoint
+###### Endpoint
 
 - `POST /api/json/v1/search-by-mail/bulk`
 
-#### Description
+###### Description
 
 Search for multiple user mails in a single request.
 
-#### Request Parameters
+###### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
@@ -193,18 +184,18 @@ Search for multiple user mails in a single request.
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
-#### Request Body
+###### Request Body
 
 | Parameter | Type     | Required | Description                                          |
 | --------- | -------- | -------- | ---------------------------------------------------- |
 | `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
 
-#### Input Validation
+###### Input Validation
 
 - `mails`: Must be an array of 1-10 valid email addresses.
 - Other parameters: Same as single search endpoint.
 
-#### Example Request
+###### Example Request
 
 `POST /api/json/v1/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1&type=all`
 
@@ -214,7 +205,7 @@ Search for multiple user mails in a single request.
 }
 ```
 
-#### Example Response
+###### Example Response
 
 ```json
 {
@@ -293,7 +284,7 @@ Search for multiple user mails in a single request.
 }
 ```
 
-#### Errors
+###### Errors
 
 | Status Code | Description                                           |
 | ----------- | ----------------------------------------------------- |
@@ -302,18 +293,18 @@ Search for multiple user mails in a single request.
 | 429         | Too Many Requests - Rate limit exceeded               |
 | 500         | Internal Server Error                                 |
 
-### 3. Search by Domain
+##### 3. Search by Domain
 
-#### Endpoint
+###### Endpoint
 
 - `GET /api/json/v1/search-by-domain`
 - `POST /api/json/v1/search-by-domain`
 
-#### Description
+###### Description
 
 Search for domain information based on query parameters or request body.
 
-#### Request Parameters
+###### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
@@ -326,16 +317,16 @@ Search for domain information based on query parameters or request body.
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
-#### Input Validation
+###### Input Validation
 
 - `domain`: Must be a valid domain name (sanitized internally).
 - Other parameters: Same as mail search endpoint.
 
-#### Example Request
+###### Example Request
 
 `GET /api/json/v1/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
 
-#### Example Response
+###### Example Response
 
 ```json
 {
@@ -373,7 +364,7 @@ Search for domain information based on query parameters or request body.
 }
 ```
 
-#### Errors
+###### Errors
 
 | Status Code | Description                                      |
 | ----------- | ------------------------------------------------ |
@@ -382,17 +373,17 @@ Search for domain information based on query parameters or request body.
 | 429         | Too Many Requests - Rate limit exceeded          |
 | 500         | Internal Server Error                            |
 
-### 4. Search by Domain (Bulk)
+##### 4. Search by Domain (Bulk)
 
-#### Endpoint
+###### Endpoint
 
 - `POST /api/json/v1/search-by-domain/bulk`
 
-#### Description
+###### Description
 
 Search for multiple domains in a single request.
 
-#### Request Parameters
+###### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
@@ -404,18 +395,18 @@ Search for multiple domains in a single request.
 |                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
 |                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
 
-#### Request Body
+###### Request Body
 
 | Parameter | Type     | Required | Description                                   |
 | --------- | -------- | -------- | --------------------------------------------- |
 | `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
 
-#### Input Validation
+###### Input Validation
 
 - `domains`: Must be an array of 1-10 valid domain names (sanitized internally).
 - Other parameters: Same as single domain search endpoint.
 
-#### Example Request
+###### Example Request
 
 `POST /api/json/v1/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1&type=all`
 
@@ -425,7 +416,7 @@ Search for multiple domains in a single request.
 }
 ```
 
-#### Example Response
+###### Example Response
 
 ```json
 {
@@ -502,7 +493,7 @@ Search for multiple domains in a single request.
 }
 ```
 
-#### Errors
+###### Errors
 
 | Status Code | Description                                             |
 | ----------- | ------------------------------------------------------- |
@@ -511,17 +502,17 @@ Search for multiple domains in a single request.
 | 429         | Too Many Requests - Rate limit exceeded                 |
 | 500         | Internal Server Error                                   |
 
-### 5. Test Date Normalization
+##### 5. Test Date Normalization
 
-#### Endpoint
+###### Endpoint
 
 - `GET /api/json/v1/test-date-normalization`
 
-#### Description
+###### Description
 
 Test endpoint to verify date normalization functionality.
 
-#### Example Response
+###### Example Response
 
 ```json
 {
@@ -535,69 +526,69 @@ Test endpoint to verify date normalization functionality.
 
 ---
 
-## Internal Endpoints
+#### Internal Endpoints
 
-### 6. Internal Search by Mail
+##### 6. Internal Search by Mail
 
-#### Endpoint
+###### Endpoint
 
 - `GET /api/json/internal/search-by-mail`
 - `POST /api/json/internal/search-by-mail`
 
-#### Description
+###### Description
 
 Internal endpoint for searching user mail information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
 
-#### Request Parameters
+###### Request Parameters
 
 (Same as the `/api/json/v1/search-by-mail` endpoint)
 
-#### Example Request
+###### Example Request
 
 `GET /api/json/internal/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1`
 
-#### Example Response
+###### Example Response
 
 (Same format as the `/api/json/v1/search-by-mail` endpoint)
 
-### 7. Internal Search by Mail (Bulk)
+##### 7. Internal Search by Mail (Bulk)
 
-#### Endpoint
+###### Endpoint
 
 - `POST /api/json/internal/search-by-mail/bulk`
 
-#### Description
+###### Description
 
 Internal endpoint for bulk searching of user mails. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
 
-#### Request Parameters
+###### Request Parameters
 
 (Same as the `/api/json/v1/search-by-mail/bulk` endpoint)
 
-#### Request Body
+###### Request Body
 
 (Same as the `/api/json/v1/search-by-mail/bulk` endpoint)
 
-#### Example Request
+###### Example Request
 
 `POST /api/json/internal/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1`
 
-#### Example Response
+###### Example Response
 
 (Same format as the `/api/json/v1/search-by-mail/bulk` endpoint)
 
-### 8. Internal Search by Domain
+##### 8. Internal Search by Domain
 
-#### Endpoint
+###### Endpoint
 
 - `GET /api/json/internal/search-by-domain`
 - `POST /api/json/internal/search-by-domain`
 
-#### Description
+###### Description
 
 Internal endpoint for searching domain information. Intended for internal use only.
 
-#### Request Parameters
+###### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
@@ -607,25 +598,25 @@ Internal endpoint for searching domain information. Intended for internal use on
 | `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
 | `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
 
-#### Example Request
+###### Example Request
 
 `GET /api/json/internal/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1`
 
-#### Example Response
+###### Example Response
 
 (Similar format as the `/api/json/v1/search-by-domain` endpoint)
 
-### 9. Internal Search by Domain (Bulk)
+##### 9. Internal Search by Domain (Bulk)
 
-#### Endpoint
+###### Endpoint
 
 - `POST /api/json/internal/search-by-domain/bulk`
 
-#### Description
+###### Description
 
 Internal endpoint for bulk searching of domains. Intended for internal use only.
 
-#### Request Parameters
+###### Request Parameters
 
 | Parameter            | Type    | Required | Description                                                                    |
 | -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
@@ -634,13 +625,13 @@ Internal endpoint for bulk searching of domains. Intended for internal use only.
 | `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
 | `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
 
-#### Request Body
+###### Request Body
 
 | Parameter | Type     | Required | Description                                   |
 | --------- | -------- | -------- | --------------------------------------------- |
 | `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
 
-#### Example Request
+###### Example Request
 
 `POST /api/json/internal/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1`
 
@@ -650,13 +641,13 @@ Internal endpoint for bulk searching of domains. Intended for internal use only.
 }
 ```
 
-#### Example Response
+###### Example Response
 
 (Similar format as the `/api/json/v1/search-by-domain/bulk` endpoint)
 
 ---
 
-## Document Redesign Process
+#### Document Redesign Process
 
 Both single and bulk search responses go through a document redesign process:
 
@@ -680,7 +671,7 @@ Both single and bulk search responses go through a document redesign process:
 
    - All other fields from the original document are retained.
 
-### Example Redesigned Response
+##### Example Redesigned Response
 
 ```json
 {
@@ -722,7 +713,7 @@ These changes implement the new document redesign feature for the `/search-by-ma
 
 ---
 
-## Note on Internal Endpoints
+#### Note on Internal Endpoints
 
 The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
 
@@ -732,7 +723,7 @@ Please ensure that you have the appropriate permissions and authentication to ac
 
 Remember to test these endpoints thoroughly, especially with various edge cases in the `Credentials` array, to ensure everything works as expected.
 
-## Error Handling and Logging
+#### Error Handling and Logging
 
 All endpoints now include enhanced error handling and logging:
 
@@ -741,12 +732,12 @@ All endpoints now include enhanced error handling and logging:
 - Extensive logging for requests, responses, and errors.
 - In production environments, detailed error messages are not exposed in API responses.
 
-## Security Enhancements
+#### Security Enhancements
 
 - Input sanitization using `validator.escape()` for user-provided strings.
 - Strict type checking and validation for all input parameters.
 - Use of parameterized queries to prevent injection attacks.
 
-## Performance Monitoring
+#### Performance Monitoring
 
 - Bulk operations now include performance logging, measuring processing time for each request.
