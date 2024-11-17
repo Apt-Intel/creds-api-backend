@@ -4566,3 +4566,211 @@
 [32m[2024-11-16T16:30:03.429Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
 [32m[2024-11-16T17:30:02.969Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
 [32m[2024-11-16T18:30:03.614Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
+[32m[2024-11-16T19:30:03.782Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
+[32m[2024-11-16T20:30:03.544Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
+[32m[2024-11-16T20:39:36.705Z] [32mINFO[0m: ::1 - admin [16/Nov/2024:20:39:36 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-16T20:39:39.002Z] [32mINFO[0m: ::1 - admin [16/Nov/2024:20:39:39 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-16T21:20:57.126Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-16T22:53:09.329Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-16T22:53:09.331Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-16T22:53:14.943Z] [32mINFO[0m: ::1 - admin [16/Nov/2024:22:53:14 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-16T23:30:05.550Z] [32mINFO[0m: Usage reset completed for timezone: UTC[0m
+[32m[2024-11-17T00:16:53.212Z] [32mINFO[0m: Received shutdown signal[0m
+[31m[2024-11-17T00:17:42.964Z] [31mERROR[0m: Failed to connect to Redis: client.connect is not a function {"stack":"TypeError: client.connect is not a function\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/config/redisClient.js:30:18\n    at Object.<anonymous> (/Users/agni/Documents/CODE/aptintel/creds-api-backend/config/redisClient.js:34:3)\n    at Module._compile (node:internal/modules/cjs/loader:1546:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)\n    at Module.load (node:internal/modules/cjs/loader:1317:32)\n    at Module._load (node:internal/modules/cjs/loader:1127:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:315:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)\n    at Module.require (node:internal/modules/cjs/loader:1339:12)\n    at require (node:internal/modules/helpers:135:16)"}[0m
+[32m[2024-11-17T00:17:42.995Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:17:42.998Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:17:42.999Z] [32mINFO[0m: Redis client ready[0m
+[33m[2024-11-17T00:17:46.311Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:17:47.769Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[33m[2024-11-17T00:17:58.015Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:18:07.594Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:18:07 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:18:11.943Z] [32mINFO[0m: Generated API key: 32cb706b43b939f79cd05f2a9158389f91dcc730208792cdf3079ecfc88cb91d, Hashed: 57eea1be0375653f7660abb86cfc197608045ff7111ab658e66f6c656ea8ba25[0m
+[32m[2024-11-17T00:18:11.945Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:18:11.945Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-17T00:18:11.945Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-17T00:18:11.945Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-17T00:18:11.945Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-17T00:18:11.947Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:18:11 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[33m[2024-11-17T00:18:22.177Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:20:56.069Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:21:04.512Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:21:04.516Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:21:04.517Z] [32mINFO[0m: Redis client ready[0m
+[33m[2024-11-17T00:21:06.833Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:21:08.337Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:21:18.244Z] [32mINFO[0m: Generated API key: 1fc8dab22f43683162ea3a6905ee2b4b0874d31c4ca2f81e22fd2a85bf1f89f8, Hashed: 888c31217b0d084bd4e0063c175c107c86e4fed45d3ca85a5b690f9d2ff0a6d7[0m
+[32m[2024-11-17T00:21:18.245Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:21:18.245Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-17T00:21:18.245Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-17T00:21:18.246Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-17T00:21:18.246Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-17T00:21:18.256Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:21:18 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:21:20.244Z] [32mINFO[0m: Generated API key: eb653d8dce8b5328d4311ee09a0d84dc4c38ca825becc066ece92bd86e915a41, Hashed: 04978791e141321ecfb7e123dd014e51a31cfcae60f9a7e722cf8edefeafabc5[0m
+[32m[2024-11-17T00:21:20.245Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:21:20.245Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-17T00:21:20.245Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-17T00:21:20.245Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-17T00:21:20.245Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-17T00:21:20.247Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:21:20 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:21:23.612Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:21:23 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[33m[2024-11-17T00:21:30.830Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:21:46.174Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:22:16.507Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:22:46.463Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:23:16.061Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:23:46.518Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:24:10.238Z] [32mINFO[0m: Received shutdown signal[0m
+[33m[2024-11-17T00:24:10.473Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:24:17.473Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:24:17.476Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:24:17.478Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:24:19.221Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:20.392Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:21.536Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:22.732Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:23.958Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:25.407Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:26.877Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:28.060Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:29.490Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:31.072Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:32.301Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:33.289Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:33.429Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:34.495Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:34.555Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:35.708Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:35.724Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:37.111Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:37.375Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:38.740Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:38.929Z] [32mINFO[0m: PostgreSQL connection established[0m
+[32m[2024-11-17T00:24:53.447Z] [32mINFO[0m: Received shutdown signal[0m
+[33m[2024-11-17T00:25:19.327Z] [33mWARN[0m: Failed to set PostgreSQL session parameters: ConnectionManager.getConnection was called after the connection manager was closed! {"stack":"Error: ConnectionManager.getConnection was called after the connection manager was closed!\n    at ConnectionManager.getConnection (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:70:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/sequelize.js:305:111\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/retry-as-promised/dist/index.js:59:25\n    at new Promise (<anonymous>)\n    at retryAsPromised (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/retry-as-promised/dist/index.js:48:12)\n    at Timeout._onTimeout (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/retry-as-promised/dist/index.js:94:21)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"}[0m
+[33m[2024-11-17T00:25:19.556Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[31m[2024-11-17T00:25:19.557Z] [31mERROR[0m: Unable to connect to PostgreSQL database: pool is draining and cannot accept work {"stack":"Error: pool is draining and cannot accept work\n    at Pool.acquire (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize-pool/lib/Pool.js:189:35)\n    at ConnectionManager.getConnection (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:202:32)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/sequelize.js:305:26\n    at async Sequelize.authenticate (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/sequelize.js:457:5)"}[0m
+[33m[2024-11-17T00:25:20.495Z] [33mWARN[0m: Failed to set PostgreSQL session parameters: ConnectionManager.getConnection was called after the connection manager was closed! {"stack":"Error: ConnectionManager.getConnection was called after the connection manager was closed!\n    at ConnectionManager.getConnection (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/abstract/connection-manager.js:70:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/sequelize.js:305:111\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/retry-as-promised/dist/index.js:59:25\n    at new Promise (<anonymous>)\n    at retryAsPromised (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/retry-as-promised/dist/index.js:48:12)\n    at Timeout._onTimeout (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/retry-as-promised/dist/index.js:94:21)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)"}[0m
+[33m[2024-11-17T00:25:21.967Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:22.216Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:22.452Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:22.688Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:22.923Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:23.148Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:23.388Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:23.610Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:23.855Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:24.081Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:24.308Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:24.545Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:24.787Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:25.010Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:25.724Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:25.946Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:26.185Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:26.422Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:26.658Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[33m[2024-11-17T00:25:26.885Z] [33mWARN[0m: PostgreSQL database disconnected[0m
+[32m[2024-11-17T00:26:49.766Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:26:49.769Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:26:49.771Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:26:53.874Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:27:06.870Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:27:06 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:27:10.026Z] [32mINFO[0m: Generated API key: 652b7792e28e088af374b7c1d981de4c9b4df8e785bae34662651b0de3db05a9, Hashed: 0899ab68cf3a6babda8d855bf9491b95e406c57785f47266bdcf8f1f99b4d00d[0m
+[32m[2024-11-17T00:27:10.026Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:27:10.027Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-17T00:27:10.027Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-17T00:27:10.027Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-17T00:27:10.027Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-17T00:27:10.029Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:27:10 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:27:20.079Z] [32mINFO[0m: Received request to check API key: 652b7792e28e088af374b7c1d981de4c9b4df8e785bae34662651b0de3db05a9[0m
+[32m[2024-11-17T00:27:21.072Z] [32mINFO[0m: Retrieved usage stats for API key 8a9076a9-27b4-4fd1-aff0-9c9daa6a3cb2 {"daily_requests":0,"monthly_requests":0,"total_requests":"0","daily_limit":10000,"monthly_limit":200000,"last_request_date":"2024-11-17","timezone":"UTC","status":"active","remaining_daily_requests":10000,"remaining_monthly_requests":200000}[0m
+[32m[2024-11-17T00:27:21.073Z] [32mINFO[0m: API key details retrieved for: 652b7792e28e088af374b7c1d981de4c9b4df8e785bae34662651b0de3db05a9[0m
+[32m[2024-11-17T00:27:21.075Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:27:21 +0000] "GET /admin/check-api-key/652b7792e28e088af374b7c1d981de4c9b4df8e785bae34662651b0de3db05a9 HTTP/1.1" 200 649 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:27:41.889Z] [32mINFO[0m: Updating API key: 0899ab68cf3a6babda8d855bf9491b95e406c57785f47266bdcf8f1f99b4d00d[0m
+[32m[2024-11-17T00:27:42.406Z] [32mINFO[0m: API key updated successfully.[0m
+[32m[2024-11-17T00:27:42.407Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:27:42 +0000] "POST /admin/update-api-key-status HTTP/1.1" 200 521 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:27:46.411Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:27:46 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[31m[2024-11-17T00:30:01.660Z] [31mERROR[0m: Error in scheduled usage reset: ApiUsage is not defined {"stack":"ReferenceError: ApiUsage is not defined\n    at resetUsageForTimezone (/Users/agni/Documents/CODE/aptintel/creds-api-backend/scheduledJobs.js:17:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /Users/agni/Documents/CODE/aptintel/creds-api-backend/scheduledJobs.js:48:11\n    at async Promise.all (index 0)\n    at async processBatchedTimezones (/Users/agni/Documents/CODE/aptintel/creds-api-backend/scheduledJobs.js:45:5)\n    at async Task._execution (/Users/agni/Documents/CODE/aptintel/creds-api-backend/scheduledJobs.js:72:7)"}[0m
+[32m[2024-11-17T00:34:09.101Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:34:09 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:34:09.871Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:34:09 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:37:25.988Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:37:26.454Z] [32mINFO[0m: Graceful shutdown completed[0m
+[31m[2024-11-17T00:39:02.465Z] [31mERROR[0m: Failed to connect to Redis: client.connect is not a function {"stack":"TypeError: client.connect is not a function\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/config/redisClient.js:30:18\n    at Object.<anonymous> (/Users/agni/Documents/CODE/aptintel/creds-api-backend/config/redisClient.js:34:3)\n    at Module._compile (node:internal/modules/cjs/loader:1546:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)\n    at Module.load (node:internal/modules/cjs/loader:1317:32)\n    at Module._load (node:internal/modules/cjs/loader:1127:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:315:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)\n    at Module.require (node:internal/modules/cjs/loader:1339:12)\n    at require (node:internal/modules/helpers:135:16)"}[0m
+[32m[2024-11-17T00:39:02.497Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:39:02.499Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:39:02.501Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:39:08.536Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:39:52.854Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:40:00.404Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:40:00.407Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:40:00.409Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:40:03.717Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:40:14.956Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:40:14 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:40:15.895Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:40:15 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:40:19.878Z] [32mINFO[0m: Generated API key: 6fea436ec7c408cbb983c59b8b77a782d3f64c868e96fa76301f96a24bfa48b3, Hashed: 518593c002ad0a62bffff811e9d83b4a38196457049c8cbe3d9b80b892c8b434[0m
+[32m[2024-11-17T00:40:19.881Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:40:19.882Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-17T00:40:19.883Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-17T00:40:19.883Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-17T00:40:19.883Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-17T00:40:19.886Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:40:19 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:40:50.706Z] [32mINFO[0m: req.originalUrl: /api/json/v1/usage[0m
+[32m[2024-11-17T00:40:50.706Z] [32mINFO[0m: Requested endpoint: /api/json/v1/usage[0m
+[32m[2024-11-17T00:40:50.706Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:40:50.706Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:40:50.706Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-11-17T00:40:50.707Z] [32mINFO[0m: Authenticated request with API key: 6fea436ec7c408cbb983c59b8b77a782d3f64c868e96fa76301f96a24bfa48b3 for endpoint: /api/json/v1/usage[0m
+[32m[2024-11-17T00:40:51.489Z] [32mINFO[0m: Retrieved usage stats for API key 1c3b0ea3-3ad7-4133-a9ee-3578f41a7b02 {"daily_requests":0,"monthly_requests":0,"total_requests":"0","daily_limit":10000,"monthly_limit":200000,"last_request_date":"2024-11-17","timezone":"UTC","status":"active","remaining_daily_requests":10000,"remaining_monthly_requests":200000}[0m
+[32m[2024-11-17T00:40:51.492Z] [32mINFO[0m: ::1 - - [17/Nov/2024:00:40:51 +0000] "GET /api/json/v1/usage HTTP/1.1" 200 193 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:50:55.354Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:51:05.251Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:51:05.255Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:51:05.256Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:51:10.069Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:51:23.532Z] [32mINFO[0m: req.originalUrl: /api/json/v1/usage[0m
+[32m[2024-11-17T00:51:23.533Z] [32mINFO[0m: Requested endpoint: /api/json/v1/usage[0m
+[32m[2024-11-17T00:51:23.533Z] [32mINFO[0m: Allowed endpoints (raw): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:51:23.533Z] [32mINFO[0m: Allowed endpoints (processed): ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T00:51:23.534Z] [32mINFO[0m: Access granted: true[0m
+[32m[2024-11-17T00:51:23.534Z] [32mINFO[0m: Authenticated request with API key: 6fea436ec7c408cbb983c59b8b77a782d3f64c868e96fa76301f96a24bfa48b3 for endpoint: /api/json/v1/usage[0m
+[32m[2024-11-17T00:51:24.009Z] [32mINFO[0m: Retrieved usage stats for API key 1c3b0ea3-3ad7-4133-a9ee-3578f41a7b02 {"daily_requests":0,"monthly_requests":0,"total_requests":"0","daily_limit":10000,"monthly_limit":200000,"last_request_date":"2024-11-17","timezone":"UTC","status":"active","remaining_daily_requests":10000,"remaining_monthly_requests":200000}[0m
+[32m[2024-11-17T00:51:24.019Z] [32mINFO[0m: ::1 - - [17/Nov/2024:00:51:24 +0000] "GET /api/json/v1/usage HTTP/1.1" 200 193 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:51:26.938Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:51:26 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:52:45.565Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:55:01.103Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:55:01.106Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:55:01.107Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:55:04.956Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:56:29.536Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:56:30.444Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:56:30.447Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:56:30.449Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:56:34.569Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:56:50.398Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T00:57:10.164Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T00:57:10.167Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T00:57:10.168Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T00:57:14.478Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T00:57:26.341Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:57:26 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:59:27.939Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:59:27 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T00:59:29.413Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:59:29 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T01:00:05.443Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:01:00:05 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T01:00:10.484Z] [32mINFO[0m: Generated API key: 3a79ffc728ef554c84ed77390c67277dcef1f675d776801e6a9732b590db75a3, Hashed: ba181591652f6bae6edf183a80b5c1354c79cb83f6341a16a2b26f7255720dd1[0m
+[32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-17T01:00:10.486Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-17T01:00:10.490Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:01:00:10 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T01:10:58.221Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T01:10:59.104Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T01:10:59.107Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T01:10:59.109Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T01:11:02.766Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T01:11:20.634Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-17T01:12:06.838Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-17T01:12:06.842Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-17T01:12:06.843Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-17T01:12:11.115Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-17T01:12:23.689Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:01:12:23 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-17T01:12:36.610Z] [32mINFO[0m: Received shutdown signal[0m

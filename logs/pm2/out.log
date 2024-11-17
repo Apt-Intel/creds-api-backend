@@ -1,0 +1,32 @@
+2024-11-17 06:27:10 +05:30: [32m[2024-11-17T00:57:10.164Z] [32mINFO[0m: Server running on port 3000[0m
+2024-11-17 06:27:10 +05:30: [32m[2024-11-17T00:57:10.167Z] [32mINFO[0m: Redis client connected[0m
+2024-11-17 06:27:10 +05:30: [32m[2024-11-17T00:57:10.168Z] [32mINFO[0m: Redis client ready[0m
+2024-11-17 06:27:14 +05:30: [32m[2024-11-17T00:57:14.478Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+2024-11-17 06:27:26 +05:30: [32m[2024-11-17T00:57:26.341Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:57:26 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+2024-11-17 06:29:27 +05:30: [32m[2024-11-17T00:59:27.939Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:59:27 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+2024-11-17 06:29:29 +05:30: [32m[2024-11-17T00:59:29.413Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:00:59:29 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+2024-11-17 06:30:05 +05:30: [32m[2024-11-17T01:00:05.443Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:01:00:05 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.484Z] [32mINFO[0m: Generated API key: 3a79ffc728ef554c84ed77390c67277dcef1f675d776801e6a9732b590db75a3, Hashed: ba181591652f6bae6edf183a80b5c1354c79cb83f6341a16a2b26f7255720dd1[0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Rate limit: 500[0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Daily limit: 10000[0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.485Z] [32mINFO[0m: Monthly limit: 200000[0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.486Z] [32mINFO[0m: Timezone: UTC[0m
+2024-11-17 06:30:10 +05:30: [32m[2024-11-17T01:00:10.490Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:01:00:10 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+2024-11-17 06:40:58 +05:30: [32m[2024-11-17T01:10:58.221Z] [32mINFO[0m: Received shutdown signal[0m
+2024-11-17 06:40:58 +05:30: [32m[2024-11-17T01:10:58.224Z] [32mINFO[0m: Graceful shutdown completed[0m
+2024-11-17 06:40:59 +05:30: [32m[2024-11-17T01:10:59.104Z] [32mINFO[0m: Server running on port 3000[0m
+2024-11-17 06:40:59 +05:30: [32m[2024-11-17T01:10:59.107Z] [32mINFO[0m: Redis client connected[0m
+2024-11-17 06:40:59 +05:30: [32m[2024-11-17T01:10:59.109Z] [32mINFO[0m: Redis client ready[0m
+2024-11-17 06:41:02 +05:30: [32m[2024-11-17T01:11:02.766Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+2024-11-17 06:41:20 +05:30: [32m[2024-11-17T01:11:20.634Z] [32mINFO[0m: Received shutdown signal[0m
+2024-11-17 06:41:20 +05:30: [32m[2024-11-17T01:11:20.634Z] [32mINFO[0m: Shutting down gracefully {"requestId":"system"}[0m
+2024-11-17 06:41:20 +05:30: [32m[2024-11-17T01:11:20.634Z] [32mINFO[0m: Sequelize connection closed[0m
+2024-11-17 06:42:06 +05:30: [32m[2024-11-17T01:12:06.838Z] [32mINFO[0m: Server running on port 3000[0m
+2024-11-17 06:42:06 +05:30: [32m[2024-11-17T01:12:06.842Z] [32mINFO[0m: Redis client connected[0m
+2024-11-17 06:42:06 +05:30: [32m[2024-11-17T01:12:06.843Z] [32mINFO[0m: Redis client ready[0m
+2024-11-17 06:42:11 +05:30: [32m[2024-11-17T01:12:11.115Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+2024-11-17 06:42:23 +05:30: [32m[2024-11-17T01:12:23.689Z] [32mINFO[0m: ::1 - admin [17/Nov/2024:01:12:23 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+2024-11-17 06:42:36 +05:30: [32m[2024-11-17T01:12:36.610Z] [32mINFO[0m: Received shutdown signal[0m
+2024-11-17 06:42:36 +05:30: [32m[2024-11-17T01:12:36.610Z] [32mINFO[0m: Shutting down gracefully {"requestId":"system"}[0m
+2024-11-17 06:42:36 +05:30: [32m[2024-11-17T01:12:36.611Z] [32mINFO[0m: Sequelize connection closed[0m

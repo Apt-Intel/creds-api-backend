@@ -3,60 +3,40 @@ const { sequelize } = require("./config/sequelize");
 const logger = require("./config/logger");
 const moment = require("moment-timezone");
 const { checkPostgresConnection } = require("./utils/databaseHealth");
+const { Op } = require("sequelize");
+const { ApiUsage } = require("./models");
 
 let cronJob;
 
 async function resetUsageForTimezone(timezone) {
-  const now = moment().tz(timezone);
-  const isFirstOfMonth = now.date() === 1;
-
+  const transaction = await sequelize.transaction();
   try {
-    await Promise.race([
-      sequelize.transaction(async (t) => {
-        // Daily reset
-        await sequelize.query(
-          `
-          UPDATE api_usage au
-          SET daily_requests = 0
-          FROM api_keys ak
-          WHERE au.api_key_id = ak.id
-            AND ak.timezone = :timezone
-            AND au.last_request_date < :currentDate
-        `,
-          {
-            replacements: { timezone, currentDate: now.format("YYYY-MM-DD") },
-            transaction: t,
-            timeout: 30000, // 30 second timeout
-          }
-        );
+    // Get the current date in the specified timezone
+    const currentDate = moment().tz(timezone).format("YYYY-MM-DD");
 
-        // Monthly reset if needed
-        if (isFirstOfMonth) {
-          await sequelize.query(
-            `
-            UPDATE api_usage au
-            SET monthly_requests = 0
-            FROM api_keys ak
-            WHERE au.api_key_id = ak.id
-              AND ak.timezone = :timezone
-              AND DATE_TRUNC('month', au.last_request_date) < DATE_TRUNC('month', :currentDate::DATE)
-          `,
-            {
-              replacements: { timezone, currentDate: now.format("YYYY-MM-DD") },
-              transaction: t,
-              timeout: 30000,
-            }
-          );
-        }
-      }),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Query timeout")), 35000)
-      ),
-    ]);
+    // Reset daily usage where last reset date is before today
+    await ApiUsage.update(
+      {
+        daily_requests: 0,
+        last_request_date: new Date(),
+      },
+      {
+        where: {
+          last_request_date: {
+            [Op.lt]: currentDate,
+          },
+        },
+        transaction,
+      }
+    );
 
-    logger.info(`Usage reset completed for timezone: ${timezone}`);
+    // Commit the transaction
+    await transaction.commit();
   } catch (error) {
-    logger.error(`Error resetting usage for timezone ${timezone}:`, error);
+    logger.error("Error in scheduled usage reset:", error);
+    if (!transaction.finished) {
+      await transaction.rollback();
+    }
   }
 }
 

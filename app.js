@@ -266,6 +266,16 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Error-handling middleware (should be after all other middleware and routes)
+app.use((err, req, res, next) => {
+  logger.error("Unhandled error:", err);
+
+  res.status(500).json({
+    error: "Internal server error",
+    message: "An unexpected error occurred",
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 
 let cronJob;
@@ -322,3 +332,13 @@ process.on("SIGINT", async () => {
 async function updateApiKey(req, res) {
   // ... existing update logic ...
 }
+
+process.on("uncaughtException", (err) => {
+  logger.error("Uncaught Exception:", err);
+  // Consider exiting the process gracefully
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  logger.error("Unhandled Rejection at:", promise, "reason:", reason);
+  // Consider exiting the process gracefully
+});

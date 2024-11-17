@@ -42,6 +42,18 @@ mongoose.connection.on("reconnected", () => {
   logger.info("MongoDB reconnected", { requestId: "system" });
 });
 
+mongoose.connection.on("connected", () => {
+  logger.info("MongoDB connected");
+});
+
+mongoose.connection.on("error", (err) => {
+  logger.error("MongoDB connection error:", err);
+});
+
+mongoose.connection.on("disconnected", () => {
+  logger.warn("MongoDB disconnected");
+});
+
 async function getDatabase(retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {

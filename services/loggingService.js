@@ -45,63 +45,61 @@ function logRequest(logData) {
   });
 }
 
-async function updateUsageStats(apiKeyId) {
+async function updateUsageStats(apiKeyData) {
   const transaction = await sequelize.transaction();
   try {
-    const [results] = await sequelize.query(
-      "SELECT * FROM reset_and_update_usage(:apiKeyId)",
-      {
-        replacements: { apiKeyId },
-        type: sequelize.QueryTypes.SELECT,
-        transaction,
-      }
-    );
+    // Fetch the current usage record
+    const usageRecord = await ApiUsage.findOne({
+      where: { api_key_id: apiKeyData.id },
+      transaction,
+    });
 
-    if (!results) {
-      logger.error(
-        `No results returned from reset_and_update_usage for API key: ${apiKeyId}`
-      );
-      throw new Error("Failed to update usage stats");
+    // Determine if reset is needed
+    const needsDailyReset =
+      !usageRecord.last_request_date ||
+      usageRecord.last_request_date.toDateString() !==
+        new Date().toDateString();
+    const needsMonthlyReset =
+      !usageRecord.last_request_date ||
+      usageRecord.last_request_date.getMonth() !== new Date().getMonth();
+
+    // Reset counts if needed
+    if (needsDailyReset) {
+      usageRecord.daily_requests = 0;
+    }
+    if (needsMonthlyReset) {
+      usageRecord.monthly_requests = 0;
     }
 
-    logger.info(`Usage stats update results: ${JSON.stringify(results)}`);
+    // Increment usage counts
+    usageRecord.total_requests += 1;
+    usageRecord.daily_requests += 1;
+    usageRecord.monthly_requests += 1;
+    usageRecord.last_request_date = new Date();
 
-    const apiKey = await ApiKey.findByPk(apiKeyId, { transaction });
-    if (!apiKey) {
-      throw new Error("API key not found");
-    }
-
-    const { daily_limit, monthly_limit } = apiKey;
-    const { updated_daily_requests, updated_monthly_requests } = results;
-
+    // Check limits
     if (
-      updated_daily_requests === undefined ||
-      updated_monthly_requests === undefined
+      usageRecord.daily_requests > apiKeyData.daily_limit ||
+      usageRecord.monthly_requests > apiKeyData.monthly_limit
     ) {
-      logger.error(
-        `Invalid results from reset_and_update_usage: ${JSON.stringify(
-          results
-        )}`
-      );
-      throw new Error("Invalid usage stats update results");
+      // Throw custom error to be caught in middleware
+      throw new UsageLimitExceededError("Usage limits exceeded");
     }
 
-    if (daily_limit && updated_daily_requests > daily_limit) {
-      throw new UsageLimitExceededError("daily", calculateRetryAfter("daily"));
-    }
-
-    if (monthly_limit && updated_monthly_requests > monthly_limit) {
-      throw new UsageLimitExceededError(
-        "monthly",
-        calculateRetryAfter("monthly")
-      );
-    }
+    // Save the updated usage record
+    await usageRecord.save({ transaction });
 
     await transaction.commit();
-    return results;
   } catch (error) {
-    await transaction.rollback();
-    logger.error(`Error in updateUsageStats: ${error.message}`);
+    // Log the error
+    logger.error("Error updating usage stats:", error);
+
+    // Rollback the transaction if it's still active
+    if (!transaction.finished) {
+      await transaction.rollback();
+    }
+
+    // Rethrow the error to be handled by the middleware
     throw error;
   }
 }
