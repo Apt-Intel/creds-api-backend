@@ -3,12 +3,12 @@ const autocannon = require("autocannon");
 const instance = autocannon(
   {
     url: "http://localhost:3000/api/json/v1/search-by-login",
-    connections: 10, // Reduced from 100 to avoid overwhelming the rate limit immediately
+    connections: 10, // Adjusted to avoid overwhelming the server
     pipelining: 1,
-    duration: 30, // Increased to 30 seconds to observe rate limiting behavior
+    duration: 30, // Duration of the test in seconds
     method: "POST",
     headers: {
-      "api-key": process.env.API_KEY || "test", // Use environment variable if available, fallback to "test"
+      "api-key": process.env.API_KEY || "test",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ login: "test@example.com" }),
@@ -18,7 +18,6 @@ const instance = autocannon(
 
 autocannon.track(instance, { renderProgressBar: true });
 
-// Log the results
 instance.on("done", (results) => {
   console.log("Test completed");
   console.log("Latency (ms):", results.latency);
@@ -29,7 +28,6 @@ instance.on("done", (results) => {
   console.log("Non-2xx responses:", results.non2xx);
 });
 
-// Handle any errors
 instance.on("error", (err) => {
   console.error("Error during load test:", err);
 });
