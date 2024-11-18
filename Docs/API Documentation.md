@@ -37,7 +37,145 @@ Rate limit information is provided in the response headers:
 
 #### Pagination
 
-Results are paginated with a default page size of **50 items**. Use the `page` query parameter to navigate through pages.
+### Overview
+
+The API supports dynamic pagination through the following query parameters:
+
+#### Pagination Parameters
+
+| Parameter   | Type    | Required | Default | Description                                |
+| ----------- | ------- | -------- | ------- | ------------------------------------------ |
+| `page`      | Integer | No       | 1       | The page number to retrieve                |
+| `page_size` | Integer | No       | 50      | Number of items per page (min: 1, max: 50) |
+
+#### Pagination Response Structure
+
+All paginated responses follow this structure:
+
+```json
+{
+  "pagination": {
+    "total_items": 100,
+    "total_pages": 5,
+    "current_page": 2,
+    "page_size": 20,
+    "has_next_page": true,
+    "has_previous_page": true,
+    "next_page": 3,
+    "previous_page": 1
+  },
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    }
+  },
+  "results": [
+    // Array of result items
+  ]
+}
+```
+
+#### Bulk Operation Response Structure
+
+Bulk operations return paginated results for each query:
+
+```json
+{
+  "pagination": {
+    "total_items": 150,
+    "current_page": 1,
+    "page_size": 20
+  },
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "results": [
+    {
+      "mail": "example@domain.com",
+      "total": 50,
+      "pagination": {
+        "total_items": 50,
+        "total_pages": 3,
+        "current_page": 1,
+        "page_size": 20
+      },
+      "data": [
+        // Array of results for this query
+      ]
+    }
+    // More results...
+  ]
+}
+```
+
+### Pagination Guidelines
+
+1. **Page Size Limits**
+
+   - Minimum: 1 item per page
+   - Maximum: 50 items per page
+   - Default: 50 items per page
+
+2. **Error Handling**
+
+   - Invalid page numbers return a 400 error
+   - Invalid page sizes return a 400 error
+   - Error responses include detailed messages
+
+3. **Navigation Helpers**
+   - `has_next_page`: Boolean indicating if there are more pages
+   - `has_previous_page`: Boolean indicating if there are previous pages
+   - `next_page`: Next page number (null if no next page)
+   - `previous_page`: Previous page number (null if no previous page)
+
+### Example Usage
+
+#### Basic Pagination
+
+```http
+GET /api/json/v1/search-by-mail?mail=example@domain.com&page=2&page_size=20
+```
+
+#### Default Pagination
+
+```http
+GET /api/json/v1/search-by-mail?mail=example@domain.com
+```
+
+Returns first page with default page size (50 items)
+
+#### Maximum Page Size
+
+```http
+GET /api/json/v1/search-by-mail?mail=example@domain.com&page_size=50
+```
+
+### Error Responses
+
+#### Invalid Page Number
+
+```json
+{
+  "errors": ["Invalid 'page' parameter. Must be a positive integer."]
+}
+```
+
+#### Invalid Page Size
+
+```json
+{
+  "errors": [
+    "Invalid 'page_size' parameter. Must be an integer between 1 and 50."
+  ]
+}
+```
 
 #### Date Normalization
 

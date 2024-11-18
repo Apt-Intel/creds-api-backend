@@ -5,14 +5,17 @@ const { USAGE_ENDPOINT } = require("../config/constants");
 
 const complexRateLimitMiddleware = async (req, res, next) => {
   try {
-    const apiKeyData = req.apiKeyData;
-    if (!apiKeyData) {
-      logger.error("API key data is missing in the request");
-      return res.status(500).json({
-        error: "Internal server error",
-        message: "API key data is missing",
+    if (!req.apiKeyData || !req.apiKeyData.id) {
+      logger.error("Missing API key data in rate limiter", {
+        requestId: req.requestId,
       });
+      return res
+        .status(500)
+        .json({ error: "API key data not properly initialized" });
     }
+
+    const apiKey = req.apiKeyData.key;
+    const ip = req.ip;
 
     // Exempt the usage endpoint from complex rate limiting
     if (req.path === USAGE_ENDPOINT) {
@@ -20,11 +23,11 @@ const complexRateLimitMiddleware = async (req, res, next) => {
     }
 
     try {
-      await updateUsageStats(apiKeyData.id);
+      await updateUsageStats(req);
       next();
     } catch (error) {
       if (error instanceof UsageLimitExceededError) {
-        logger.warn(`Usage limits exceeded for API key: ${apiKeyData.id}`);
+        logger.warn(`Usage limits exceeded for API key: ${apiKey}`);
         res.set("Retry-After", error.retryAfter);
         return res.status(429).json({
           error: "Usage limit exceeded",
@@ -40,13 +43,12 @@ const complexRateLimitMiddleware = async (req, res, next) => {
       }
     }
   } catch (error) {
-    logger.error(
-      `Unexpected error in complexRateLimitMiddleware: ${error.message}`
-    );
-    res.status(500).json({
-      error: "Internal server error",
-      message: "An unexpected error occurred",
+    logger.error("Error in rate limit middleware:", {
+      error: error.message,
+      stack: error.stack,
+      requestId: req.requestId,
     });
+    next(error);
   }
 };
 

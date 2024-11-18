@@ -1,49 +1,81 @@
-const { logRequest } = require("../services/loggingService");
 const logger = require("../config/logger");
+const { DEFAULT_PAGE_SIZE } = require("../config/constants");
 
 const requestLogger = (req, res, next) => {
-  const startTime = process.hrtime();
+  // Extract pagination parameters
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
 
-  // Capture the original end function
-  const originalEnd = res.end;
+  // Log request details with pagination info
+  logger.info(`API Request`, {
+    method: req.method,
+    path: req.path,
+    requestId: req.requestId,
+    apiKeyId: req.apiKeyData?.id,
+    query: {
+      ...req.query,
+      page,
+      page_size: pageSize,
+    },
+    body: sanitizeLogData(req.body),
+    pagination: {
+      page,
+      page_size: pageSize,
+    },
+  });
 
-  // Override the end function
-  res.end = function (chunk, encoding) {
-    // Restore the original end function
-    res.end = originalEnd;
+  // Store start time for response time calculation
+  req.requestStartTime = Date.now();
 
-    // Call the original end function
-    res.end(chunk, encoding);
+  // Capture response using response event
+  res.on("finish", () => {
+    const responseTime = Date.now() - req.requestStartTime;
 
-    const duration = process.hrtime(startTime);
-    const responseTimeMs = Math.round(duration[0] * 1e3 + duration[1] / 1e6);
-
-    const logData = {
-      api_key_id: req.apiKeyData.id,
-      timestamp: new Date(),
-      endpoint: req.originalUrl,
+    logger.info(`API Response`, {
       method: req.method,
-      status_code: res.statusCode,
-      response_time_ms: responseTimeMs,
-      ip_address: req.ip,
-      user_agent: req.get("user-agent"),
-    };
-
-    logRequest(logData)
-      .then(() => {
-        logger.debug(
-          `Request logged: ${req.method} ${req.originalUrl} - ${res.statusCode} (${responseTimeMs}ms)`
-        );
-      })
-      .catch((error) => {
-        logger.error(
-          `Error logging request for API key ${req.apiKeyData.id}:`,
-          error
-        );
-      });
-  };
+      path: req.path,
+      requestId: req.requestId,
+      statusCode: res.statusCode,
+      responseTime: `${responseTime}ms`,
+      pagination: {
+        page,
+        page_size: pageSize,
+      },
+    });
+  });
 
   next();
+};
+
+// Helper function to sanitize sensitive data before logging
+const sanitizeLogData = (data) => {
+  if (!data) return data;
+
+  const sanitized = { ...data };
+
+  // Remove sensitive fields
+  const sensitiveFields = ["password", "api_key", "token"];
+  sensitiveFields.forEach((field) => {
+    if (field in sanitized) {
+      sanitized[field] = "[REDACTED]";
+    }
+  });
+
+  // Handle arrays (like in bulk operations)
+  if (Array.isArray(data)) {
+    return data.map((item) => sanitizeLogData(item));
+  }
+
+  // Handle nested objects
+  if (typeof data === "object") {
+    Object.keys(data).forEach((key) => {
+      if (typeof data[key] === "object") {
+        sanitized[key] = sanitizeLogData(data[key]);
+      }
+    });
+  }
+
+  return sanitized;
 };
 
 module.exports = requestLogger;

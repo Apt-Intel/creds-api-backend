@@ -1,50 +1,50 @@
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
+const {
+  getPaginationParams,
+  validatePaginationParams,
+} = require("../../utils/paginationUtils");
+const { performance } = require("perf_hooks");
 const validator = require("validator");
+const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
+const { createBulkPaginatedResponse } = require("../../utils/responseUtils");
 
 async function internalSearchByLoginBulk(req, res, next) {
+  const startTime = performance.now();
   const { logins } = req.body;
-  const page = parseInt(req.query.page, 10);
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
   const installedSoftware = req.query.installed_software === "true";
   const sortby = req.query.sortby || "date_compromised";
   const sortorder = req.query.sortorder || "desc";
-  const route = req.baseUrl + req.path;
 
-  logger.info(
-    `Internal bulk search initiated for ${logins?.length} logins, page: ${page}, installed_software: ${installedSoftware}, sortby: ${sortby}, sortorder: ${sortorder}, route: ${route}`
-  );
+  logger.info(`Internal bulk login search initiated`, {
+    loginCount: logins?.length,
+    page,
+    pageSize,
+    sortby,
+    sortorder,
+    requestId: req.requestId,
+  });
 
   try {
-    // Validate 'logins' parameter
+    // Validate logins array
     if (!Array.isArray(logins) || logins.length === 0 || logins.length > 10) {
-      logger.warn(`Invalid logins array: ${logins?.length}, route: ${route}`);
+      logger.warn("Invalid logins array", { loginCount: logins?.length });
       return res.status(400).json({
-        error: "Invalid logins array. Must contain 1-10 login addresses.",
+        error: "Invalid logins array. Must contain 1-10 usernames.",
       });
     }
 
-    // Validate 'page' parameter
-    if (isNaN(page) || page < 1) {
-      logger.warn(`Invalid page parameter: ${req.query.page}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    // Validate pagination parameters
+    const paginationValidation = validatePaginationParams(page, pageSize);
+    if (!paginationValidation.isValid) {
+      logger.warn("Invalid pagination parameters", {
+        errors: paginationValidation.errors,
+      });
+      return res.status(400).json({ errors: paginationValidation.errors });
     }
 
-    // Validate 'sortby' parameter
-    const validSortBy = ["date_compromised", "date_uploaded"];
-    if (!validSortBy.includes(sortby)) {
-      logger.warn(`Invalid sortby parameter: ${sortby}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
-    }
-
-    // Validate 'sortorder' parameter
-    const validSortOrder = ["asc", "desc"];
-    if (!validSortOrder.includes(sortorder)) {
-      logger.warn(`Invalid sortorder parameter: ${sortorder}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
-    }
-
-    // Sanitize each login in the 'logins' array
     const sanitizedLogins = logins.map((login) => validator.escape(login));
 
     const db = await getDatabase();
@@ -53,47 +53,59 @@ async function internalSearchByLoginBulk(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const { limit, skip } = getPaginationParams(page);
+    const { limit, skip } = getPaginationParams(page, pageSize);
 
     const searchPromises = sanitizedLogins.map(async (login) => {
-      // Use parameterized query with sanitized input
       const query = { Usernames: login };
-
-      // TODO: Implement projection to limit returned fields
-      // This will optimize query performance and reduce data transfer
-      // Example: const projection = { _id: 0, Usernames: 1, "Log date": 1, Date: 1 };
-      // Discuss with the product team to determine which fields are necessary
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
         collection.countDocuments(query),
       ]);
-      return { login, total, data: results };
+
+      return {
+        login,
+        total,
+        data: results,
+      };
     });
 
     const searchResults = await Promise.all(searchPromises);
-
-    const response = {
-      total: searchResults.reduce((sum, result) => sum + result.total, 0),
-      page,
-      results: searchResults,
-    };
-
-    logger.info(
-      `Internal bulk search completed, total results: ${response.total}, route: ${route}`
+    const totalResults = searchResults.reduce(
+      (sum, result) => sum + result.total,
+      0
     );
+
+    const response = createBulkPaginatedResponse({
+      totalResults,
+      page,
+      pageSize: limit,
+      results: searchResults,
+      metadata: {
+        sort: {
+          field: sortby,
+          order: sortorder,
+        },
+        processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
+      },
+    });
+
+    logger.info(`Internal bulk login search completed`, {
+      loginCount: logins.length,
+      totalResults,
+      processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      requestId: req.requestId,
+    });
 
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error(
-      `Error in internalSearchByLoginBulk: ${error}, route: ${route}`
-    );
-    res.status(500).json({
-      error: "Internal server error",
-      details:
-        process.env.NODE_ENV === "production" ? undefined : error.message,
+    logger.error("Error in internalSearchByLoginBulk:", {
+      error: error.message,
+      stack: error.stack,
+      requestId: req.requestId,
     });
+    next(error);
   }
 }
 

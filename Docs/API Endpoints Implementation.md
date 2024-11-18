@@ -98,252 +98,6 @@ module.exports = router;
 - **Request Body**:
   - `mails` (required): Array of email addresses to search for (max 10 items)
 
-#### 2.3 External Search By Domain Endpoint
-
-**File:** `routes/api/v1/searchByDomain.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const { searchByDomain } = require("../../../controllers/v1/domainController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.get(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  documentRedesignDomainMiddleware,
-  sendResponseMiddleware
-);
-
-router.post(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  documentRedesignDomainMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/v1/search-by-domain`
-- **Methods**: `GET`, `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `domain` (required): The domain to search for
-  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-  - `"strict"`: Searches in the `"Employee"` field
-  - `"all"`: Searches in the `"Emails"` field
-
-#### 2.4 External Search By Domain Bulk Endpoint
-
-**File:** `routes/api/v1/searchByDomainBulk.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  searchByDomainBulk,
-} = require("../../../controllers/v1/domainBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.post(
-  "/search-by-domain/bulk",
-  searchByDomainBulk,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  documentRedesignDomainMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/v1/search-by-domain/bulk`
-- **Method**: `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: `date_compromised` (default), `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc` (default), `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-  - `type` (optional): Search type. Options: `"strict"` (default), `"all"`
-  - `"strict"`: Searches in the `"Employee"` field
-  - `"all"`: Searches in the `"Emails"` field
-- **Request Body**:
-  - `domains` (required): Array of domains to search for (max 10 items)
-
-##### 2.5 Internal Search By Login Endpoint
-
-**File:** `routes/api/internal/searchByLogin.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  internalSearchByLogin,
-} = require("../../../controllers/internal/loginController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.get(
-  "/search-by-login",
-  internalSearchByLogin,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-router.post(
-  "/search-by-login",
-  internalSearchByLogin,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-login`
-- **Methods**: `GET`, `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `login` (required): The login (username) to search for
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-
-##### 2.6 Internal Search By Login Bulk Endpoint
-
-**File:** `routes/api/internal/searchByLoginBulk.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  internalSearchByLoginBulk,
-} = require("../../../controllers/internal/loginBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.post(
-  "/search-by-login/bulk",
-  internalSearchByLoginBulk,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-login/bulk`
-- **Method**: `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-- **Request Body**:
-  - `logins` (required): Array of logins (usernames) to search for (max 10 items)
-
-##### 2.7 Internal Search By Domain Endpoint
-
-**File:** `routes/api/internal/searchByDomain.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  searchByDomain,
-} = require("../../../controllers/internal/domainController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.get(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-router.post(
-  "/search-by-domain",
-  searchByDomain,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-domain`
-- **Methods**: `GET`, `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `domain` (required): The domain to search for
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-
-##### 2.8 Internal Search By Domain Bulk Endpoint
-
-**File:** `routes/api/internal/searchByDomainBulk.js`
-
-```js
-const express = require("express");
-const router = express.Router();
-const {
-  searchByDomainBulk,
-} = require("../../../controllers/internal/domainBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
-const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-
-router.post(
-  "/search-by-domain/bulk",
-  searchByDomainBulk,
-  dateNormalizationMiddleware,
-  sortingMiddleware,
-  sendResponseMiddleware
-);
-
-module.exports = router;
-```
-
-- **URL**: `/api/json/internal/search-by-domain/bulk`
-- **Method**: `POST`
-- **Auth Required**: Yes
-- **Query Parameters**:
-  - `sortby` (optional): Field to sort by. Options: `date_compromised`, `date_uploaded`
-  - `sortorder` (optional): Sort order. Options: `desc`, `asc`
-  - `page` (optional): Page number for pagination. Default: `1`
-  - `installed_software` (optional): Boolean flag for installed software. Default: `false`
-- **Request Body**:
-  - `domains` (required): Array of domains to search for (max 10 items)
-
 #### 3. Middlewares Implementation
 
 ##### 3.1 Authentication Middleware
@@ -736,273 +490,255 @@ async function checkRateLimit(key) {
 module.exports = complexRateLimitMiddleware;
 ```
 
-#### 4. Controllers Implementation
+#### 4. Dynamic Pagination Implementation
 
-Controllers are organized in separate directories for `v1` and `internal` APIs. They handle the business logic for each route.
+The API implements dynamic pagination across all endpoints using a standardized approach.
 
-##### 4.1 V1 Mail Controller
+##### 4.1 Pagination Configuration
 
-**File:** `controllers/v1/mailController.js`
+**File:** `config/constants.js`
 
 ```js
-const { getDatabase } = require("../../config/database");
-const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
-const validator = require("validator");
-
-async function searchByMail(req, res, next) {
-  const mail = req.body.mail || req.query.mail;
-  const page = parseInt(req.query.page, 10);
-  const installedSoftware = req.query.installed_software === "true";
-  const type = req.query.type || "strict";
-  const sortby = req.query.sortby || "date_compromised";
-  const sortorder = req.query.sortorder || "desc";
-
-  logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
-  );
-
-  try {
-    // Validate 'mail' parameter
-    if (!mail || !validator.isEmail(mail)) {
-      logger.warn(`Invalid mail parameter: ${mail}`);
-      return res
-        .status(400)
-        .json({ error: "Valid mail parameter is required" });
-    }
-
-    // Sanitize 'mail' parameter
-    const sanitizedMail = validator.escape(mail);
-
-    // Validate 'page' parameter
-    if (isNaN(page) || page < 1) {
-      logger.warn(`Invalid page parameter: ${req.query.page}`);
-      return res.status(400).json({ error: "Invalid 'page' parameter" });
-    }
-
-    // Validate 'type' parameter
-    const validTypes = ["strict", "all"];
-    if (!validTypes.includes(type)) {
-      logger.warn(`Invalid type parameter: ${type}`);
-      return res.status(400).json({ error: "Invalid 'type' parameter" });
-    }
-
-    // Validate 'sortby' parameter
-    const validSortBy = ["date_compromised", "date_uploaded"];
-    if (!validSortBy.includes(sortby)) {
-      logger.warn(`Invalid sortby parameter: ${sortby}`);
-      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
-    }
-
-    // Validate 'sortorder' parameter
-    const validSortOrder = ["asc", "desc"];
-    if (!validSortOrder.includes(sortorder)) {
-      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
-      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
-    }
-
-    const db = await getDatabase();
-    if (!db) {
-      throw new Error("Database connection not established");
-    }
-    const collection = db.collection("logs");
-
-    // Use parameterized query
-    const query =
-      type === "all" ? { Emails: sanitizedMail } : { Employee: sanitizedMail };
-    const { limit, skip } = getPaginationParams(page);
-
-    // TODO: Implement projection to limit returned fields
-    // This will optimize query performance and reduce data transfer
-    // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
-    // Discuss with the product team to determine which fields are necessary
-
-    const [results, total] = await Promise.all([
-      collection.find(query).skip(skip).limit(limit).toArray(),
-      collection.countDocuments(query),
-    ]);
-
-    const response = {
-      total,
-      page,
-      results,
-    };
-
-    logger.info(
-      `Search completed for mail: ${sanitizedMail}, total results: ${total}`
-    );
-
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByMail:", error);
-    res.status(500).json({
-      error: "Internal server error",
-      details:
-        process.env.NODE_ENV === "production" ? undefined : error.message,
-    });
-  }
-}
-
 module.exports = {
-  searchByMail,
+  // Pagination Constants
+  DEFAULT_PAGE_SIZE: 50,
+  MIN_PAGE_SIZE: 1,
+  MAX_PAGE_SIZE: 50,
+  // ... other constants
 };
 ```
 
-##### 4.2 V1 Mail Bulk Controller
+##### 4.2 Pagination Utilities
 
-**File:** `controllers/v1/mailBulkController.js`
+**File:** `utils/paginationUtils.js`
 
 ```js
-const { getDatabase } = require("../../config/database");
-const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
-const { performance } = require("perf_hooks");
-const validator = require("validator");
-
-async function searchByMailBulk(req, res, next) {
-  const startTime = performance.now();
-  const { mails } = req.body;
-  const page = parseInt(req.query.page, 10);
-  const installedSoftware = req.query.installed_software === "true";
-  const type = req.query.type || "strict";
-  const sortby = req.query.sortby || "date_compromised";
-  const sortorder = req.query.sortorder || "desc";
-
-  logger.info(
-    `Bulk search request received for ${mails?.length} mails, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
+const getPaginationParams = (page = 1, pageSize = DEFAULT_PAGE_SIZE) => {
+  const validatedPage = Math.max(1, parseInt(page, 10) || 1);
+  const validatedPageSize = Math.min(
+    Math.max(parseInt(pageSize, 10) || DEFAULT_PAGE_SIZE, MIN_PAGE_SIZE),
+    MAX_PAGE_SIZE
   );
 
-  try {
-    // Validate 'mails' parameter
-    if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-      logger.warn("Invalid input: mails array", { mailCount: mails?.length });
-      return res.status(400).json({
-        error: "Invalid mails array. Must contain 1-10 email addresses.",
-      });
-    }
+  const skip = (validatedPage - 1) * validatedPageSize;
+  const limit = validatedPageSize;
 
-    // Validate each email in the 'mails' array
-    const invalidEmails = mails.filter((email) => !validator.isEmail(email));
-    if (invalidEmails.length > 0) {
-      logger.warn("Invalid email formats detected", { invalidEmails });
-      return res.status(400).json({
-        error: "Invalid email formats",
-        invalidEmails,
-      });
-    }
+  return { limit, skip };
+};
 
-    // Sanitize each email in the 'mails' array
-    const sanitizedMails = mails.map((email) => validator.escape(email));
+const validatePaginationParams = (page, pageSize) => {
+  // Validation logic for pagination parameters
+};
+```
 
-    // Validate 'page' parameter
-    if (isNaN(page) || page < 1) {
-      logger.warn(`Invalid page parameter: ${req.query.page}`);
-      return res.status(400).json({ error: "Invalid 'page' parameter" });
-    }
+##### 4.3 Response Structure Utilities
 
-    // Validate 'type' parameter
-    const validTypes = ["strict", "all"];
-    if (!validTypes.includes(type)) {
-      logger.warn(`Invalid type parameter: ${type}`);
-      return res.status(400).json({ error: "Invalid 'type' parameter" });
-    }
+**File:** `utils/responseUtils.js`
 
-    // Validate 'sortby' parameter
-    const validSortBy = ["date_compromised", "date_uploaded"];
-    if (!validSortBy.includes(sortby)) {
-      logger.warn(`Invalid sortby parameter: ${sortby}`);
-      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
-    }
+```js
+const createPaginatedResponse = ({
+  total,
+  page,
+  pageSize,
+  results,
+  metadata = {},
+}) => {
+  const totalPages = Math.ceil(total / pageSize);
+  const hasNextPage = page < totalPages;
+  const hasPreviousPage = page > 1;
 
-    // Validate 'sortorder' parameter
-    const validSortOrder = ["asc", "desc"];
-    if (!validSortOrder.includes(sortorder)) {
-      logger.warn(`Invalid sortorder parameter: ${sortorder}`);
-      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
-    }
+  return {
+    pagination: {
+      total_items: total,
+      total_pages: totalPages,
+      current_page: page,
+      page_size: pageSize,
+      has_next_page: hasNextPage,
+      has_previous_page: hasPreviousPage,
+      next_page: hasNextPage ? page + 1 : null,
+      previous_page: hasPreviousPage ? page - 1 : null,
+    },
+    metadata,
+    results,
+  };
+};
 
-    const db = await getDatabase();
-    if (!db) {
-      throw new Error("Database connection not established");
-    }
-    const collection = db.collection("logs");
+const createBulkPaginatedResponse = ({
+  totalResults,
+  page,
+  pageSize,
+  results,
+  metadata = {},
+}) => {
+  // Bulk response structure with pagination
+};
+```
 
-    const searchPromises = sanitizedMails.map(async (mail) => {
-      // Use parameterized query
-      const query = type === "all" ? { Emails: mail } : { Employee: mail };
-      const { limit, skip } = getPaginationParams(page);
+##### 4.4 Controller Implementation Pattern
 
-      // TODO: Implement projection to limit returned fields
-      // This will optimize query performance and reduce data transfer
-      // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
-      // Discuss with the product team to determine which fields are necessary
+Controllers should follow this pattern for handling pagination:
 
+```js
+async function searchEndpoint(req, res, next) {
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
+
+  // Validate pagination parameters
+  const paginationValidation = validatePaginationParams(page, pageSize);
+  if (!paginationValidation.isValid) {
+    return res.status(400).json({ errors: paginationValidation.errors });
+  }
+
+  // Get pagination parameters
+  const { limit, skip } = getPaginationParams(page, pageSize);
+
+  // Execute query with pagination
+  const [results, total] = await Promise.all([
+    collection.find(query).skip(skip).limit(limit).toArray(),
+    collection.countDocuments(query),
+  ]);
+
+  // Create paginated response
+  const response = createPaginatedResponse({
+    total,
+    page,
+    pageSize: limit,
+    results,
+    metadata: {
+      // Additional metadata
+    },
+  });
+
+  req.searchResults = response;
+  next();
+}
+```
+
+##### 4.5 Bulk Operation Pattern
+
+For bulk operations, use this pattern:
+
+```js
+async function bulkSearchEndpoint(req, res, next) {
+  const { items } = req.body;
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
+
+  // Validation and pagination setup
+  const { limit, skip } = getPaginationParams(page, pageSize);
+
+  // Execute bulk queries
+  const searchResults = await Promise.all(
+    items.map(async (item) => {
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
         collection.countDocuments(query),
       ]);
+      return { item, total, data: results };
+    })
+  );
 
-      return {
-        mail,
-        total,
-        data: results,
-      };
-    });
+  // Create bulk paginated response
+  const response = createBulkPaginatedResponse({
+    totalResults,
+    page,
+    pageSize: limit,
+    results: searchResults,
+    metadata: {
+      // Additional metadata
+    },
+  });
 
-    const searchResults = await Promise.all(searchPromises);
-
-    const totalResults = searchResults.reduce(
-      (sum, result) => sum + result.total,
-      0
-    );
-    const response = {
-      total: totalResults,
-      page,
-      results: searchResults,
-    };
-
-    const endTime = performance.now();
-    const totalTime = endTime - startTime;
-
-    logger.info(
-      `Bulk search completed for ${
-        mails.length
-      } mails, total results: ${totalResults}, processing time: ${totalTime.toFixed(
-        2
-      )}ms`
-    );
-
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByMailBulk:", error);
-    res.status(500).json({
-      error: "Internal server error",
-      details:
-        process.env.NODE_ENV === "production" ? undefined : error.message,
-    });
-  }
+  req.searchResults = response;
+  next();
 }
-
-module.exports = {
-  searchByMailBulk,
-};
 ```
 
-#### 5. New Date Normalization, Sorting, and Document Redesign Flow
+#### 5. Endpoint Response Structures
 
-The flow for date normalization, sorting, and document redesign remains the same for both v1 and internal APIs:
+##### 5.1 Single Search Response
 
-1. **Controller** fetches raw data from the database.
-2. **Date Normalization Middleware** normalizes the `"Log date"` and `"Date"` fields.
-3. **Sorting Middleware** sorts the normalized data based on query parameters.
-4. **Document Redesign Middleware** processes the documents to redesign the structure.
-5. **Send Response Middleware** sends the final response.
+```json
+{
+  "pagination": {
+    "total_items": 100,
+    "total_pages": 5,
+    "current_page": 2,
+    "page_size": 20,
+    "has_next_page": true,
+    "has_previous_page": true,
+    "next_page": 3,
+    "previous_page": 1
+  },
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    }
+  },
+  "results": [
+    // Array of results
+  ]
+}
+```
 
-This flow allows for better separation of concerns and makes the code more modular and maintainable. It's applied consistently across both v1 and internal endpoints, ensuring uniform data processing.
+##### 5.2 Bulk Search Response
 
-#### 6. Guidelines for Implementing New API Routes
+```json
+{
+  "pagination": {
+    "total_items": 150,
+    "current_page": 1,
+    "page_size": 20
+  },
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "results": [
+    {
+      "item": "search_item",
+      "total": 50,
+      "pagination": {
+        "total_items": 50,
+        "total_pages": 3,
+        "current_page": 1,
+        "page_size": 20
+      },
+      "data": [
+        // Array of results
+      ]
+    }
+  ]
+}
+```
+
+#### 6. Error Handling for Pagination
+
+##### 6.1 Invalid Page Number
+
+```json
+{
+  "errors": ["Invalid 'page' parameter. Must be a positive integer."]
+}
+```
+
+##### 6.2 Invalid Page Size
+
+```json
+{
+  "errors": [
+    "Invalid 'page_size' parameter. Must be an integer between 1 and 50."
+  ]
+}
+```
+
+#### 7. Guidelines for Implementing New API Routes
 
 When implementing new API routes, follow these steps for both v1 and internal APIs:
 
@@ -1065,7 +801,7 @@ module.exports = router;
 
 Remember to update the `app.js` file to include the new route, using the appropriate path for v1 or internal APIs.
 
-#### 7. Best Practices
+#### 8. Best Practices
 
 - **Use meaningful HTTP methods** (`GET`, `POST`, `PUT`, `DELETE`) for different operations.
 - **Implement proper error handling and logging** in all controllers and middlewares.
@@ -1085,7 +821,7 @@ Remember to update the `app.js` file to include the new route, using the appropr
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
-#### 8. Current File Structure
+#### 9. Current File Structure
 
 The following file structure represents the organization of the codebase, highlighting the key components like the structure of controllers, middlewares, and routes related to API endpoint implementations:
 

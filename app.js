@@ -32,6 +32,7 @@ const {
   initializeScheduledJobs,
   shutdownScheduledJobs,
 } = require("./scheduledJobs");
+const apiKeyDataMiddleware = require("./middlewares/apiKeyDataMiddleware");
 
 const app = express();
 
@@ -72,6 +73,7 @@ app.use("/api/json/v1", authMiddleware, rateLimiter, usageRouter);
 app.use(
   /^(?!\/health$|\/admin\/).*/,
   authMiddleware,
+  apiKeyDataMiddleware,
   rateLimiter,
   complexRateLimitMiddleware,
   requestLogger
@@ -342,3 +344,31 @@ process.on("unhandledRejection", (reason, promise) => {
   logger.error("Unhandled Rejection at:", promise, "reason:", reason);
   // Consider exiting the process gracefully
 });
+
+app.set("trust proxy", true);
+
+// Add this near your route registration
+process.on("unhandledRejection", (reason, promise) => {
+  logger.error("Unhandled Rejection at:", {
+    promise,
+    reason,
+    stack: reason.stack,
+  });
+});
+
+// Update the route registration with error handling
+try {
+  app.use(
+    "/api/json/internal",
+    require("./routes/api/internal/searchByDomain")
+  );
+  app.use(
+    "/api/json/internal",
+    require("./routes/api/internal/searchByDomainBulk")
+  );
+} catch (error) {
+  logger.error("Error registering routes:", {
+    error: error.message,
+    stack: error.stack,
+  });
+}

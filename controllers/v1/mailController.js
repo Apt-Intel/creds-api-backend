@@ -1,18 +1,24 @@
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
+const {
+  getPaginationParams,
+  validatePaginationParams,
+} = require("../../utils/paginationUtils");
 const validator = require("validator");
+const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
+const { createPaginatedResponse } = require("../../utils/responseUtils");
 
 async function searchByMail(req, res, next) {
   const mail = req.body.mail || req.query.mail;
-  const page = parseInt(req.query.page, 10);
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
   const installedSoftware = req.query.installed_software === "true";
   const type = req.query.type || "strict";
   const sortby = req.query.sortby || "date_compromised";
   const sortorder = req.query.sortorder || "desc";
 
   logger.info(
-    `Search initiated for mail: ${mail}, page: ${page}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
+    `Search initiated for mail: ${mail}, page: ${page}, page_size: ${pageSize}, installed_software: ${installedSoftware}, type: ${type}, sortby: ${sortby}, sortorder: ${sortorder}`
   );
 
   try {
@@ -24,14 +30,17 @@ async function searchByMail(req, res, next) {
         .json({ error: "Valid mail parameter is required" });
     }
 
+    // Validate pagination parameters
+    const paginationValidation = validatePaginationParams(page, pageSize);
+    if (!paginationValidation.isValid) {
+      logger.warn("Invalid pagination parameters", {
+        errors: paginationValidation.errors,
+      });
+      return res.status(400).json({ errors: paginationValidation.errors });
+    }
+
     // Sanitize 'mail' parameter
     const sanitizedMail = validator.escape(mail);
-
-    // Validate 'page' parameter
-    if (isNaN(page) || page < 1) {
-      logger.warn(`Invalid page parameter: ${req.query.page}`);
-      return res.status(400).json({ error: "Invalid 'page' parameter" });
-    }
 
     // Validate 'type' parameter
     const validTypes = ["strict", "all"];
@@ -63,7 +72,7 @@ async function searchByMail(req, res, next) {
     // Use parameterized query
     const query =
       type === "all" ? { Emails: sanitizedMail } : { Employee: sanitizedMail };
-    const { limit, skip } = getPaginationParams(page);
+    const { limit, skip } = getPaginationParams(page, pageSize);
 
     // TODO: Implement projection to limit returned fields
     // This will optimize query performance and reduce data transfer
@@ -75,15 +84,26 @@ async function searchByMail(req, res, next) {
       collection.countDocuments(query),
     ]);
 
-    const response = {
+    const response = createPaginatedResponse({
       total,
       page,
+      pageSize: limit,
       results,
-    };
+      metadata: {
+        query_type: type,
+        sort: {
+          field: sortby,
+          order: sortorder,
+        },
+      },
+    });
 
-    logger.info(
-      `Search completed for mail: ${sanitizedMail}, total results: ${total}`
-    );
+    logger.info(`Search completed for mail: ${sanitizedMail}`, {
+      total,
+      page,
+      pageSize: limit,
+      requestId: req.requestId,
+    });
 
     req.searchResults = response;
     next();

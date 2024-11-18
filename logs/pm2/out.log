@@ -30,3 +30,13 @@
 2024-11-17 06:42:36 +05:30: [32m[2024-11-17T01:12:36.610Z] [32mINFO[0m: Received shutdown signal[0m
 2024-11-17 06:42:36 +05:30: [32m[2024-11-17T01:12:36.610Z] [32mINFO[0m: Shutting down gracefully {"requestId":"system"}[0m
 2024-11-17 06:42:36 +05:30: [32m[2024-11-17T01:12:36.611Z] [32mINFO[0m: Sequelize connection closed[0m
+2024-11-18 05:17:27 +05:30: [32m[2024-11-17T23:47:27.398Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:27 +05:30: [32m[2024-11-17T23:47:27.915Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:28 +05:30: [32m[2024-11-17T23:47:28.435Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:28 +05:30: [32m[2024-11-17T23:47:28.965Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:29 +05:30: [32m[2024-11-17T23:47:29.514Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:30 +05:30: [32m[2024-11-17T23:47:30.034Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:30 +05:30: [32m[2024-11-17T23:47:30.559Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:31 +05:30: [32m[2024-11-17T23:47:31.087Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:31 +05:30: [32m[2024-11-17T23:47:31.605Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+2024-11-18 05:17:32 +05:30: [32m[2024-11-17T23:47:32.117Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m

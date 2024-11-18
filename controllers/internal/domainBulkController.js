@@ -1,56 +1,67 @@
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
+const {
+  getPaginationParams,
+  validatePaginationParams,
+} = require("../../utils/paginationUtils");
 const { sanitizeDomain } = require("../../utils/domainUtils");
 const { performance } = require("perf_hooks");
-const validator = require("validator");
+const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
+const { createBulkPaginatedResponse } = require("../../utils/responseUtils");
 
-async function searchByDomainBulk(req, res, next) {
+async function internalSearchByDomainBulk(req, res, next) {
   const startTime = performance.now();
   const { domains } = req.body;
-  const page = parseInt(req.query.page, 10);
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
   const installedSoftware = req.query.installed_software === "true";
   const sortby = req.query.sortby || "date_compromised";
   const sortorder = req.query.sortorder || "desc";
-  const route = req.baseUrl + req.path;
 
-  logger.info(
-    `Bulk search request received for ${domains?.length} domains, page: ${page}, installed_software: ${installedSoftware}, sortby: ${sortby}, sortorder: ${sortorder}, route: ${route}`
-  );
+  logger.info(`Internal bulk domain search initiated`, {
+    domainCount: domains?.length,
+    page,
+    pageSize,
+    sortby,
+    sortorder,
+    requestId: req.requestId,
+  });
 
   try {
-    // Validate 'domains' parameter
+    // Validate domains array
     if (
       !Array.isArray(domains) ||
       domains.length === 0 ||
       domains.length > 10
     ) {
-      logger.warn(
-        `Invalid input: domains array, count: ${domains?.length}, route: ${route}`
-      );
+      logger.warn("Invalid domains array", { domainCount: domains?.length });
       return res.status(400).json({
         error: "Invalid domains array. Must contain 1-10 domains.",
       });
     }
 
-    // Validate 'page' parameter
-    if (isNaN(page) || page < 1) {
-      logger.warn(`Invalid page parameter: ${req.query.page}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    // Validate pagination parameters
+    const paginationValidation = validatePaginationParams(page, pageSize);
+    if (!paginationValidation.isValid) {
+      logger.warn("Invalid pagination parameters", {
+        errors: paginationValidation.errors,
+      });
+      return res.status(400).json({ errors: paginationValidation.errors });
     }
 
-    // Validate 'sortby' parameter
-    const validSortBy = ["date_compromised", "date_uploaded"];
-    if (sortby && !validSortBy.includes(sortby)) {
-      logger.warn(`Invalid sortby parameter: ${sortby}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
-    }
+    const sanitizedDomains = await Promise.all(
+      domains.map((domain) => sanitizeDomain(domain))
+    );
 
-    // Validate 'sortorder' parameter
-    const validSortOrder = ["asc", "desc"];
-    if (sortorder && !validSortOrder.includes(sortorder)) {
-      logger.warn(`Invalid sortorder parameter: ${sortorder}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
+    const invalidDomains = sanitizedDomains.filter((domain) => !domain);
+    if (invalidDomains.length > 0) {
+      logger.warn("Invalid domain formats detected", {
+        invalidCount: invalidDomains.length,
+      });
+      return res.status(400).json({
+        error: "Invalid domain formats detected",
+        invalidCount: invalidDomains.length,
+      });
     }
 
     const db = await getDatabase();
@@ -59,23 +70,10 @@ async function searchByDomainBulk(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    const searchPromises = domains.map(async (rawDomain) => {
-      const domain = await sanitizeDomain(rawDomain);
-      if (!domain) {
-        logger.warn(
-          `Invalid domain after sanitization: ${rawDomain}, route: ${route}`
-        );
-        return { domain: rawDomain, error: "Invalid domain" };
-      }
+    const { limit, skip } = getPaginationParams(page, pageSize);
 
-      // Use parameterized query with sanitized input
+    const searchPromises = sanitizedDomains.map(async (domain) => {
       const query = { Domains: domain };
-      const { limit, skip } = getPaginationParams(page);
-
-      // TODO: Implement projection to limit returned fields
-      // This will optimize query performance and reduce data transfer
-      // Example: const projection = { _id: 0, Domains: 1, "Log date": 1, Date: 1 };
-      // Discuss with the product team to determine which fields are necessary
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
@@ -90,40 +88,44 @@ async function searchByDomainBulk(req, res, next) {
     });
 
     const searchResults = await Promise.all(searchPromises);
-
     const totalResults = searchResults.reduce(
-      (sum, result) => sum + (result.total || 0),
+      (sum, result) => sum + result.total,
       0
     );
-    const response = {
-      total: totalResults,
+
+    const response = createBulkPaginatedResponse({
+      totalResults,
       page,
+      pageSize: limit,
       results: searchResults,
-    };
+      metadata: {
+        sort: {
+          field: sortby,
+          order: sortorder,
+        },
+        processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
+      },
+    });
 
-    const endTime = performance.now();
-    const totalTime = endTime - startTime;
-
-    logger.info(
-      `Bulk search completed for ${
-        domains.length
-      } domains, total results: ${totalResults}, processing time: ${totalTime.toFixed(
-        2
-      )}ms, route: ${route}`
-    );
+    logger.info(`Internal bulk domain search completed`, {
+      domainCount: domains.length,
+      totalResults,
+      processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      requestId: req.requestId,
+    });
 
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error(`Error in searchByDomainBulk: ${error}, route: ${route}`);
-    res.status(500).json({
-      error: "Internal server error",
-      details:
-        process.env.NODE_ENV === "production" ? undefined : error.message,
+    logger.error("Error in internalSearchByDomainBulk:", {
+      error: error.message,
+      stack: error.stack,
+      requestId: req.requestId,
     });
+    next(error);
   }
 }
 
 module.exports = {
-  searchByDomainBulk,
+  internalSearchByDomainBulk,
 };

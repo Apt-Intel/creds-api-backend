@@ -1,55 +1,50 @@
 const { getDatabase } = require("../../config/database");
 const logger = require("../../config/logger");
-const { getPaginationParams } = require("../../utils/paginationUtils");
+const {
+  getPaginationParams,
+  validatePaginationParams,
+} = require("../../utils/paginationUtils");
 const { sanitizeDomain } = require("../../utils/domainUtils");
-const validator = require("validator");
+const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
+const { createPaginatedResponse } = require("../../utils/responseUtils");
 
-async function searchByDomain(req, res, next) {
-  const rawDomain = req.body.domain || req.query.domain;
-  const page = parseInt(req.query.page, 10);
+async function internalSearchByDomain(req, res, next) {
+  const domain = req.body.domain || req.query.domain;
+  const page = parseInt(req.query.page, 10) || 1;
+  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
   const installedSoftware = req.query.installed_software === "true";
   const sortby = req.query.sortby || "date_compromised";
   const sortorder = req.query.sortorder || "desc";
-  const route = req.baseUrl + req.path;
 
-  logger.info(
-    `Search initiated for domain: ${rawDomain}, page: ${page}, installed_software: ${installedSoftware}, sortby: ${sortby}, sortorder: ${sortorder}, route: ${route}`
-  );
+  logger.info(`Internal domain search initiated`, {
+    domain,
+    page,
+    pageSize,
+    sortby,
+    sortorder,
+    requestId: req.requestId,
+  });
 
   try {
-    // Validate 'domain' parameter
-    if (!rawDomain) {
-      logger.warn(`No domain provided in the request, route: ${route}`);
+    // Validate domain
+    if (!domain) {
+      logger.warn("Missing domain parameter");
       return res.status(400).json({ error: "Domain parameter is required" });
     }
 
-    // Validate 'page' parameter
-    if (isNaN(page) || page < 1) {
-      logger.warn(`Invalid page parameter: ${req.query.page}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'page' parameter" });
+    // Validate pagination parameters
+    const paginationValidation = validatePaginationParams(page, pageSize);
+    if (!paginationValidation.isValid) {
+      logger.warn("Invalid pagination parameters", {
+        errors: paginationValidation.errors,
+      });
+      return res.status(400).json({ errors: paginationValidation.errors });
     }
 
-    // Validate 'sortby' parameter
-    const validSortBy = ["date_compromised", "date_uploaded"];
-    if (sortby && !validSortBy.includes(sortby)) {
-      logger.warn(`Invalid sortby parameter: ${sortby}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'sortby' parameter" });
-    }
-
-    // Validate 'sortorder' parameter
-    const validSortOrder = ["asc", "desc"];
-    if (sortorder && !validSortOrder.includes(sortorder)) {
-      logger.warn(`Invalid sortorder parameter: ${sortorder}, route: ${route}`);
-      return res.status(400).json({ error: "Invalid 'sortorder' parameter" });
-    }
-
-    const domain = await sanitizeDomain(rawDomain);
-
-    if (!domain) {
-      logger.warn(
-        `Invalid domain after sanitization: ${rawDomain}, route: ${route}`
-      );
-      return res.status(400).json({ error: "Invalid domain parameter" });
+    const sanitizedDomain = await sanitizeDomain(domain);
+    if (!sanitizedDomain) {
+      logger.warn(`Invalid domain format: ${domain}`);
+      return res.status(400).json({ error: "Invalid domain format" });
     }
 
     const db = await getDatabase();
@@ -58,42 +53,45 @@ async function searchByDomain(req, res, next) {
     }
     const collection = db.collection("logs");
 
-    // Use parameterized query with sanitized input
-    const query = { Domains: domain };
-    const { limit, skip } = getPaginationParams(page);
-
-    // TODO: Implement projection to limit returned fields
-    // This will optimize query performance and reduce data transfer
-    // Example: const projection = { _id: 0, Domains: 1, "Log date": 1, Date: 1 };
-    // Discuss with the product team to determine which fields are necessary
+    const query = { Domains: sanitizedDomain };
+    const { limit, skip } = getPaginationParams(page, pageSize);
 
     const [results, total] = await Promise.all([
       collection.find(query).skip(skip).limit(limit).toArray(),
       collection.countDocuments(query),
     ]);
 
-    const response = {
+    const response = createPaginatedResponse({
       total,
       page,
+      pageSize: limit,
       results,
-    };
+      metadata: {
+        sort: {
+          field: sortby,
+          order: sortorder,
+        },
+      },
+    });
 
-    logger.info(
-      `Search completed for domain: ${domain}, total results: ${total}, route: ${route}`
-    );
+    logger.info(`Internal domain search completed`, {
+      domain: sanitizedDomain,
+      total,
+      requestId: req.requestId,
+    });
 
     req.searchResults = response;
     next();
   } catch (error) {
-    logger.error(`Error in searchByDomain: ${error}, route: ${route}`);
-    res.status(500).json({
-      error: "Internal server error",
-      details:
-        process.env.NODE_ENV === "production" ? undefined : error.message,
+    logger.error("Error in internalSearchByDomain:", {
+      error: error.message,
+      stack: error.stack,
+      requestId: req.requestId,
     });
+    next(error);
   }
 }
 
 module.exports = {
-  searchByDomain,
+  internalSearchByDomain,
 };

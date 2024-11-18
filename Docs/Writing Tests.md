@@ -1,104 +1,121 @@
 # Writing Tests
 
-## Overview
+## Table of Contents
 
-This document outlines the standards and guidelines for writing, organizing, and maintaining tests in the codebase. Adhering to these practices ensures code reliability, facilitates collaboration, and streamlines the development process.
+1. [Overview](#overview)
+2. [Test Structure](#test-structure)
+3. [Testing Pagination](#testing-pagination)
+4. [Testing Response Formats](#testing-response-formats)
+5. [Testing Backward Compatibility](#testing-backward-compatibility)
 
-## Directory Structure
+## Testing Pagination
 
-```
-project-root/
-├── __tests__/           # Unit and integration tests
-│   ├── dateService.test.js
-│   ├── documentRedesignDomainMiddleware.test.js
-│   └── loginController.test.js
-├── tests/
-│   ├── performance/     # Performance tests
-│   │   └── loadTest.js
-│   └── e2e/            # End-to-end tests
-├── scripts/            # Manual test scripts
-└── all other files     # Application source code
-```
+### Pagination Test Cases
 
-## Test Types
+When writing tests for endpoints that support pagination, ensure coverage of the following scenarios:
 
-1. **Unit Tests:** Test individual units of code (functions, methods).
-2. **Integration Tests:** Test the interaction between different modules or components.
-3. **Performance Tests:** Assess the application's performance under load.
-4. **End-to-End (E2E) Tests:** Test the complete application flow.
-5. **Manual Test Scripts:** Utility scripts for ad-hoc testing.
-
-## Naming Conventions
-
-- **Test Files:** Use the format `<module>.test.js`.
-- **Test Suites:** Use `describe` blocks with clear and descriptive names.
-- **Test Cases:** Use `it` or `test` blocks with statements that express the expected behavior.
-
-## Writing Tests with Jest
-
-### Setup
-
-- Ensure Jest is installed as a development dependency.
-- Configure Jest in `package.json` or use a `jest.config.js` file if custom configuration is needed.
-
-### Example Test File
+1. **Basic Pagination Parameters**
 
 ```javascript
-// __tests__/exampleModule.test.js
-
-const { functionToTest } = require("../src/exampleModule");
-
-describe("Example Module", () => {
-  it("should perform the expected behavior when condition is met", () => {
-    // Arrange
-    const input = "test input";
-    const expectedOutput = "expected output";
-
-    // Act
-    const result = functionToTest(input);
-
-    // Assert
-    expect(result).toBe(expectedOutput);
+describe("Pagination Parameters", () => {
+  it("should use default pagination values when none provided", async () => {
+    // Test default values (page=1, page_size=50)
   });
-  // Additional test cases...
+
+  it("should use custom page_size within limits", async () => {
+    // Test with valid page_size
+  });
+
+  it("should handle invalid page_size parameter", async () => {
+    // Test error handling for invalid page_size
+  });
 });
 ```
 
-### Guidelines
+2. **Edge Cases**
 
-- **Arrange, Act, Assert Pattern:** Structure tests clearly to improve readability.
-- **Isolate Tests:** Use mocking to isolate the unit under test.
-- **Avoid Side Effects:** Tests should not modify global state or interfere with each other.
-- **Clean Up:** Use `beforeEach` and `afterEach` to set up and tear down test environments.
+```javascript
+describe("Pagination Edge Cases", () => {
+  it("should handle page_size at minimum limit", async () => {
+    // Test with MIN_PAGE_SIZE
+  });
 
-## Running Tests
+  it("should handle page_size at maximum limit", async () => {
+    // Test with MAX_PAGE_SIZE
+  });
 
-Add the following scripts to `package.json`:
-
-```json
-"scripts": {
-  "test": "jest --coverage",
-  "test:unit": "jest __tests__",
-  "test:performance": "node tests/performance/loadTest.js"
-}
+  it("should handle empty result sets", async () => {
+    // Test pagination with no results
+  });
+});
 ```
 
-- **Run All Tests:** `npm test`
-- **Run Unit Tests Only:** `npm run test:unit`
-- **Run Performance Tests:** `npm run test:performance`
+3. **Response Format**
 
-## Continuous Integration
+```javascript
+describe("Pagination Response Format", () => {
+  it("should include correct pagination metadata", async () => {
+    // Test pagination metadata structure
+  });
 
-- Configure CI pipelines to run tests on each commit or pull request.
-- Set up code coverage thresholds and enforce them in CI.
-- Integrate static code analysis tools where appropriate.
+  it("should maintain backward compatibility", async () => {
+    // Test legacy fields presence
+  });
+});
+```
 
-## Best Practices
+### Testing Backward Compatibility
 
-- **Keep Tests Up-to-Date:** Update tests when code changes.
-- **Focus on Edge Cases:** Write tests for both expected and unexpected inputs.
-- **Document Test Cases:** Use comments if the test logic is not immediately clear.
-- **Review and Refactor:** Regularly review tests to improve clarity and coverage.
+1. **Response Structure Tests**
+
+```javascript
+describe("Backward Compatibility", () => {
+  it("should maintain legacy fields while adding new pagination structure", () => {
+    // Test both old and new fields
+  });
+
+  it("should work with default page size for legacy clients", () => {
+    // Test default behavior
+  });
+});
+```
+
+2. **Error Response Tests**
+
+```javascript
+describe("Error Handling", () => {
+  it("should return consistent error format", () => {
+    // Test error response structure
+  });
+});
+```
+
+### Example Test Implementation
+
+```javascript
+const request = require("supertest");
+const app = require("../app");
+
+describe("API Endpoint Tests", () => {
+  describe("GET /api/search", () => {
+    it("should paginate results correctly", async () => {
+      const response = await request(app).get("/api/search").query({
+        page: 2,
+        page_size: 20,
+      });
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty("pagination");
+      expect(response.body.pagination).toMatchObject({
+        total_items: expect.any(Number),
+        total_pages: expect.any(Number),
+        current_page: 2,
+        page_size: 20,
+      });
+    });
+  });
+});
+```
 
 ---
 
