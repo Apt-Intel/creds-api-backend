@@ -4,10 +4,10 @@ const {
   getPaginationParams,
   validatePaginationParams,
 } = require("../../utils/paginationUtils");
-const { performance } = require("perf_hooks");
-const validator = require("validator");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createBulkPaginatedResponse } = require("../../utils/responseUtils");
+const { createStandardResponse } = require("../../utils/responseUtils");
+const { errorUtils } = require("../../utils/errorUtils");
+const { performance } = require("perf_hooks");
 
 async function internalSearchByLoginBulk(req, res, next) {
   const startTime = performance.now();
@@ -30,33 +30,52 @@ async function internalSearchByLoginBulk(req, res, next) {
   try {
     // Validate logins array
     if (!Array.isArray(logins) || logins.length === 0 || logins.length > 10) {
-      logger.warn("Invalid logins array", { loginCount: logins?.length });
-      return res.status(400).json({
-        error: "Invalid logins array. Must contain 1-10 usernames.",
-      });
+      throw errorUtils.validationError(
+        "Invalid logins array. Must contain 1-10 logins.",
+        {
+          received: logins?.length,
+        }
+      );
     }
 
     // Validate pagination parameters
     const paginationValidation = validatePaginationParams(page, pageSize);
     if (!paginationValidation.isValid) {
-      logger.warn("Invalid pagination parameters", {
+      throw errorUtils.validationError("Invalid pagination parameters", {
         errors: paginationValidation.errors,
       });
-      return res.status(400).json({ errors: paginationValidation.errors });
     }
 
-    const sanitizedLogins = logins.map((login) => validator.escape(login));
+    // Validate sort parameters
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      throw errorUtils.validationError("Invalid sortby parameter", {
+        parameter: "sortby",
+        received: sortby,
+        allowed: validSortBy,
+      });
+    }
+
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      throw errorUtils.validationError("Invalid sortorder parameter", {
+        parameter: "sortorder",
+        received: sortorder,
+        allowed: validSortOrder,
+      });
+    }
 
     const db = await getDatabase();
     if (!db) {
-      throw new Error("Database connection not established");
+      throw errorUtils.serverError("Database connection not established");
     }
-    const collection = db.collection("logs");
 
+    const collection = db.collection("logs");
     const { limit, skip } = getPaginationParams(page, pageSize);
 
-    const searchPromises = sanitizedLogins.map(async (login) => {
-      const query = { Usernames: login };
+    // Process each login
+    const searchPromises = logins.map(async (login) => {
+      const query = { "Credentials.Username": login };
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
@@ -76,10 +95,10 @@ async function internalSearchByLoginBulk(req, res, next) {
       0
     );
 
-    const response = createBulkPaginatedResponse({
-      totalResults,
+    const response = createStandardResponse({
+      total: totalResults,
       page,
-      pageSize: limit,
+      pageSize,
       results: searchResults,
       metadata: {
         sort: {
@@ -87,24 +106,21 @@ async function internalSearchByLoginBulk(req, res, next) {
           order: sortorder,
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
+        search_counts: Object.fromEntries(
+          searchResults.map((result) => [result.login, result.total])
+        ),
       },
     });
 
-    logger.info(`Internal bulk login search completed`, {
-      loginCount: logins.length,
-      totalResults,
+    logger.info("Internal bulk login search completed", {
       processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      totalResults,
+      loginCount: logins.length,
       requestId: req.requestId,
     });
 
-    req.searchResults = response;
-    next();
+    return res.json(response);
   } catch (error) {
-    logger.error("Error in internalSearchByLoginBulk:", {
-      error: error.message,
-      stack: error.stack,
-      requestId: req.requestId,
-    });
     next(error);
   }
 }

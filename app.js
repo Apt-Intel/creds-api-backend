@@ -33,6 +33,9 @@ const {
   shutdownScheduledJobs,
 } = require("./scheduledJobs");
 const apiKeyDataMiddleware = require("./middlewares/apiKeyDataMiddleware");
+const {
+  errorHandlerMiddleware,
+} = require("./middlewares/errorHandlerMiddleware");
 
 const app = express();
 
@@ -261,22 +264,7 @@ app.use((req, res, next) => {
   next(createError(405, "Method Not Allowed"));
 });
 
-app.use((err, req, res, next) => {
-  logger.error(`Error: ${err.message}`, { stack: err.stack });
-  res.status(err.status || 500).json({
-    error: err.message || "Internal Server Error",
-  });
-});
-
-// Error-handling middleware (should be after all other middleware and routes)
-app.use((err, req, res, next) => {
-  logger.error("Unhandled error:", err);
-
-  res.status(500).json({
-    error: "Internal server error",
-    message: "An unexpected error occurred",
-  });
-});
+app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 3000;
 

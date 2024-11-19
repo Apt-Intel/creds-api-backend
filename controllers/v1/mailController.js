@@ -6,9 +6,11 @@ const {
 } = require("../../utils/paginationUtils");
 const validator = require("validator");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createPaginatedResponse } = require("../../utils/responseUtils");
+const { createStandardResponse } = require("../../utils/responseUtils");
+const { errorUtils } = require("../../utils/errorUtils");
 
 async function searchByMail(req, res, next) {
+  const startTime = performance.now();
   const mail = req.body.mail || req.query.mail;
   const page = parseInt(req.query.page, 10) || 1;
   const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
@@ -24,10 +26,10 @@ async function searchByMail(req, res, next) {
   try {
     // Validate 'mail' parameter
     if (!mail || !validator.isEmail(mail)) {
-      logger.warn(`Invalid mail parameter: ${mail}`);
-      return res
-        .status(400)
-        .json({ error: "Valid mail parameter is required" });
+      throw errorUtils.validationError("Valid mail parameter is required", {
+        parameter: "mail",
+        received: mail,
+      });
     }
 
     // Validate pagination parameters
@@ -84,10 +86,10 @@ async function searchByMail(req, res, next) {
       collection.countDocuments(query),
     ]);
 
-    const response = createPaginatedResponse({
+    const response = createStandardResponse({
       total,
       page,
-      pageSize: limit,
+      pageSize: pageSize,
       results,
       metadata: {
         query_type: type,
@@ -101,19 +103,20 @@ async function searchByMail(req, res, next) {
     logger.info(`Search completed for mail: ${sanitizedMail}`, {
       total,
       page,
-      pageSize: limit,
+      pageSize: pageSize,
       requestId: req.requestId,
     });
 
-    req.searchResults = response;
-    next();
-  } catch (error) {
-    logger.error("Error in searchByMail:", error);
-    res.status(500).json({
-      error: "Internal server error",
-      details:
-        process.env.NODE_ENV === "production" ? undefined : error.message,
+    logger.info("Search by mail completed", {
+      processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      total,
+      page,
+      pageSize: pageSize,
     });
+
+    return res.json(response);
+  } catch (error) {
+    next(error);
   }
 }
 

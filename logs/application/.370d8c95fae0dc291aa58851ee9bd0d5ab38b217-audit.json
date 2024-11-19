@@ -19,6 +19,11 @@
             "date": 1731887152141,
             "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/application/application-2024-11-18.log",
             "hash": "f4a7a7ac50cfb8ae69fad1deade5e9c11f425dcc893b4cb19c14c112ba188910"
+        },
+        {
+            "date": 1731957438401,
+            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/application/application-2024-11-19.log",
+            "hash": "aab410efc437c663222eb29a86be4846cbdce6d943542d79cf578cbc61d7cd31"
         }
     ],
     "hashType": "sha256"

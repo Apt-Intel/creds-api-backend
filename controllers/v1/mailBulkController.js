@@ -4,10 +4,11 @@ const {
   getPaginationParams,
   validatePaginationParams,
 } = require("../../utils/paginationUtils");
-const { performance } = require("perf_hooks");
 const validator = require("validator");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createBulkPaginatedResponse } = require("../../utils/responseUtils");
+const { createStandardResponse } = require("../../utils/responseUtils");
+const { errorUtils } = require("../../utils/errorUtils");
+const { performance } = require("perf_hooks");
 
 async function searchByMailBulk(req, res, next) {
   const startTime = performance.now();
@@ -30,20 +31,20 @@ async function searchByMailBulk(req, res, next) {
   });
 
   try {
-    // Validate 'mails' parameter
+    // Validate mails array
     if (!Array.isArray(mails) || mails.length === 0 || mails.length > 10) {
-      logger.warn("Invalid input: mails array", { mailCount: mails?.length });
-      return res.status(400).json({
-        error: "Invalid mails array. Must contain 1-10 email addresses.",
-      });
+      throw errorUtils.validationError(
+        "Invalid mails array. Must contain 1-10 email addresses.",
+        {
+          received: mails?.length,
+        }
+      );
     }
 
     // Validate each email
     const invalidEmails = mails.filter((email) => !validator.isEmail(email));
     if (invalidEmails.length > 0) {
-      logger.warn("Invalid email formats detected", { invalidEmails });
-      return res.status(400).json({
-        error: "Invalid email formats",
+      throw errorUtils.validationError("Invalid email formats detected", {
         invalidEmails,
       });
     }
@@ -51,24 +52,55 @@ async function searchByMailBulk(req, res, next) {
     // Validate pagination parameters
     const paginationValidation = validatePaginationParams(page, pageSize);
     if (!paginationValidation.isValid) {
-      logger.warn("Invalid pagination parameters", {
+      throw errorUtils.validationError("Invalid pagination parameters", {
         errors: paginationValidation.errors,
       });
-      return res.status(400).json({ errors: paginationValidation.errors });
     }
 
-    const sanitizedMails = mails.map((email) => validator.escape(email));
+    // Validate type parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      throw errorUtils.validationError("Invalid type parameter", {
+        parameter: "type",
+        received: type,
+        allowed: validTypes,
+      });
+    }
+
+    // Validate sort parameters
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      throw errorUtils.validationError("Invalid sortby parameter", {
+        parameter: "sortby",
+        received: sortby,
+        allowed: validSortBy,
+      });
+    }
+
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      throw errorUtils.validationError("Invalid sortorder parameter", {
+        parameter: "sortorder",
+        received: sortorder,
+        allowed: validSortOrder,
+      });
+    }
 
     const db = await getDatabase();
     if (!db) {
-      throw new Error("Database connection not established");
+      throw errorUtils.serverError("Database connection not established");
     }
-    const collection = db.collection("logs");
 
+    const collection = db.collection("logs");
     const { limit, skip } = getPaginationParams(page, pageSize);
 
-    const searchPromises = sanitizedMails.map(async (mail) => {
-      const query = type === "all" ? { Emails: mail } : { Employee: mail };
+    // Process each mail
+    const searchPromises = mails.map(async (mail) => {
+      const sanitizedMail = validator.escape(mail);
+      const query =
+        type === "all"
+          ? { Emails: sanitizedMail }
+          : { Employee: sanitizedMail };
 
       const [results, total] = await Promise.all([
         collection.find(query).skip(skip).limit(limit).toArray(),
@@ -76,7 +108,7 @@ async function searchByMailBulk(req, res, next) {
       ]);
 
       return {
-        mail,
+        mail: sanitizedMail,
         total,
         data: results,
       };
@@ -88,10 +120,10 @@ async function searchByMailBulk(req, res, next) {
       0
     );
 
-    const response = createBulkPaginatedResponse({
-      totalResults,
+    const response = createStandardResponse({
+      total: totalResults,
       page,
-      pageSize: limit,
+      pageSize,
       results: searchResults,
       metadata: {
         query_type: type,
@@ -100,24 +132,21 @@ async function searchByMailBulk(req, res, next) {
           order: sortorder,
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
+        search_counts: Object.fromEntries(
+          searchResults.map((result) => [result.mail, result.total])
+        ),
       },
     });
 
-    logger.info(`Bulk search completed`, {
-      mailCount: mails.length,
-      totalResults,
+    logger.info("Bulk search completed", {
       processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
+      totalResults,
+      mailCount: mails.length,
       requestId: req.requestId,
     });
 
-    req.searchResults = response;
-    next();
+    return res.json(response);
   } catch (error) {
-    logger.error("Error in searchByMailBulk:", {
-      error: error.message,
-      stack: error.stack,
-      requestId: req.requestId,
-    });
     next(error);
   }
 }

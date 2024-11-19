@@ -4,11 +4,15 @@ const {
   getPaginationParams,
   validatePaginationParams,
 } = require("../../utils/paginationUtils");
-const { sanitizeDomain } = require("../../utils/domainUtils");
+const validator = require("validator");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createPaginatedResponse } = require("../../utils/responseUtils");
+const { createStandardResponse } = require("../../utils/responseUtils");
+const { errorUtils } = require("../../utils/errorUtils");
+const { sanitizeDomain } = require("../../utils/domainUtils");
+const { performance } = require("perf_hooks");
 
 async function searchByDomain(req, res, next) {
+  const startTime = performance.now();
   const domain = req.body.domain || req.query.domain;
   const page = parseInt(req.query.page, 10) || 1;
   const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
@@ -28,45 +32,79 @@ async function searchByDomain(req, res, next) {
   });
 
   try {
-    // Validate domain
+    // Validate domain parameter
     if (!domain) {
-      logger.warn("Missing domain parameter");
-      return res.status(400).json({ error: "Domain parameter is required" });
+      throw errorUtils.validationError("Domain parameter is required");
+    }
+
+    // Sanitize domain
+    const sanitizedDomain = await sanitizeDomain(domain);
+    if (!sanitizedDomain) {
+      throw errorUtils.validationError("Invalid domain format", {
+        parameter: "domain",
+        received: domain,
+      });
     }
 
     // Validate pagination parameters
     const paginationValidation = validatePaginationParams(page, pageSize);
     if (!paginationValidation.isValid) {
-      logger.warn("Invalid pagination parameters", {
+      throw errorUtils.validationError("Invalid pagination parameters", {
         errors: paginationValidation.errors,
       });
-      return res.status(400).json({ errors: paginationValidation.errors });
     }
 
-    const sanitizedDomain = await sanitizeDomain(domain);
-    if (!sanitizedDomain) {
-      logger.warn(`Invalid domain format: ${domain}`);
-      return res.status(400).json({ error: "Invalid domain format" });
+    // Validate type parameter
+    const validTypes = ["strict", "all"];
+    if (!validTypes.includes(type)) {
+      throw errorUtils.validationError("Invalid type parameter", {
+        parameter: "type",
+        received: type,
+        allowed: validTypes,
+      });
+    }
+
+    // Validate sort parameters
+    const validSortBy = ["date_compromised", "date_uploaded"];
+    if (!validSortBy.includes(sortby)) {
+      throw errorUtils.validationError("Invalid sortby parameter", {
+        parameter: "sortby",
+        received: sortby,
+        allowed: validSortBy,
+      });
+    }
+
+    const validSortOrder = ["asc", "desc"];
+    if (!validSortOrder.includes(sortorder)) {
+      throw errorUtils.validationError("Invalid sortorder parameter", {
+        parameter: "sortorder",
+        received: sortorder,
+        allowed: validSortOrder,
+      });
     }
 
     const db = await getDatabase();
     if (!db) {
-      throw new Error("Database connection not established");
+      throw errorUtils.serverError("Database connection not established");
     }
-    const collection = db.collection("logs");
 
-    const query = { Domains: sanitizedDomain };
+    const collection = db.collection("logs");
     const { limit, skip } = getPaginationParams(page, pageSize);
+
+    const query =
+      type === "all"
+        ? { Domains: sanitizedDomain }
+        : { "Credentials.URL": new RegExp(sanitizedDomain, "i") };
 
     const [results, total] = await Promise.all([
       collection.find(query).skip(skip).limit(limit).toArray(),
       collection.countDocuments(query),
     ]);
 
-    const response = createPaginatedResponse({
+    const response = createStandardResponse({
       total,
       page,
-      pageSize: limit,
+      pageSize,
       results,
       metadata: {
         query_type: type,
@@ -74,23 +112,19 @@ async function searchByDomain(req, res, next) {
           field: sortby,
           order: sortorder,
         },
+        processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
       },
     });
 
-    logger.info(`Domain search completed`, {
+    logger.info("Domain search completed", {
       domain: sanitizedDomain,
       total,
+      processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
       requestId: req.requestId,
     });
 
-    req.searchResults = response;
-    next();
+    return res.json(response);
   } catch (error) {
-    logger.error("Error in searchByDomain:", {
-      error: error.message,
-      stack: error.stack,
-      requestId: req.requestId,
-    });
     next(error);
   }
 }

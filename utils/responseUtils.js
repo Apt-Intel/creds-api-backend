@@ -6,9 +6,16 @@ const {
 const logger = require("../config/logger");
 
 /**
- * Creates a standardized paginated response structure with backward compatibility
+ * Creates a standardized response object for single endpoints
+ * @param {Object} params
+ * @param {number} params.total - Total number of items
+ * @param {number} params.page - Current page number
+ * @param {number} params.pageSize - Number of items per page
+ * @param {Array} params.results - Array of result items
+ * @param {Object} params.metadata - Additional metadata (query_type, sort, etc.)
+ * @returns {Object} Standardized response object
  */
-function createPaginatedResponse({
+function createStandardResponse({
   total,
   page,
   pageSize,
@@ -19,84 +26,98 @@ function createPaginatedResponse({
   const hasNextPage = page < totalPages;
   const hasPreviousPage = page > 1;
 
-  // Create new response structure
-  const response = {
-    // Legacy fields for backward compatibility
-    total,
-    page,
-    page_size: pageSize,
-    // New pagination structure
-    pagination: {
-      total_items: total,
-      total_pages: totalPages,
-      current_page: page,
-      page_size: pageSize,
-      has_next_page: hasNextPage,
-      has_previous_page: hasPreviousPage,
-      next_page: hasNextPage ? page + 1 : null,
-      previous_page: hasPreviousPage ? page - 1 : null,
+  return {
+    meta: {
+      pagination: {
+        total_items: total,
+        total_pages: totalPages,
+        current_page: page,
+        page_size: pageSize,
+        has_next_page: hasNextPage,
+        has_previous_page: hasPreviousPage,
+        next_page: hasNextPage ? page + 1 : null,
+        previous_page: hasPreviousPage ? page - 1 : null,
+      },
+      ...metadata,
     },
-    metadata,
-    results,
+    data: results,
   };
-
-  logger.debug("Created paginated response with backward compatibility", {
-    total,
-    page,
-    pageSize,
-    totalPages,
-  });
-
-  return response;
 }
 
 /**
- * Creates a standardized bulk operation paginated response with backward compatibility
+ * Creates a standardized response object for bulk endpoints
+ * @param {Object} params
+ * @param {number} params.total - Total number of items
+ * @param {number} params.page - Current page number
+ * @param {number} params.pageSize - Number of items per page
+ * @param {Array} params.results - Array of result items with their identifiers
+ * @param {Object} params.metadata - Additional metadata (query_type, sort, processing_time)
+ * @param {Object} params.searchCounts - Count of results per search term
+ * @returns {Object} Standardized bulk response object
  */
-function createBulkPaginatedResponse({
-  totalResults,
+function createBulkResponse({
+  total,
   page,
   pageSize,
   results,
   metadata = {},
+  searchCounts = {},
 }) {
-  // Create new response structure with legacy support
-  const response = {
-    // Legacy fields
-    total: totalResults,
-    page,
-    page_size: pageSize,
-    // New pagination structure
-    pagination: {
-      total_items: totalResults,
-      current_page: page,
-      page_size: pageSize,
-    },
-    metadata,
-    results: results.map((result) => ({
-      ...result,
-      // Legacy fields for each result
-      total: result.total,
-      // New pagination structure for each result
+  const totalPages = Math.ceil(total / pageSize);
+  const hasNextPage = page < totalPages;
+  const hasPreviousPage = page > 1;
+
+  return {
+    meta: {
       pagination: {
-        total_items: result.total,
-        total_pages: Math.ceil(result.total / pageSize),
+        total_items: total,
+        total_pages: totalPages,
         current_page: page,
         page_size: pageSize,
+        has_next_page: hasNextPage,
+        has_previous_page: hasPreviousPage,
+        next_page: hasNextPage ? page + 1 : null,
+        previous_page: hasPreviousPage ? page - 1 : null,
       },
-    })),
+      ...metadata,
+      search_counts: searchCounts,
+    },
+    data: results,
   };
+}
 
-  logger.debug("Created bulk paginated response with backward compatibility", {
-    totalResults,
-    page,
-    pageSize,
+/**
+ * Flattens bulk search results and computes search counts
+ * @param {Array} searchResults - Array of search results with identifiers
+ * @param {string} identifierKey - Key name for the identifier (mail, domain, login)
+ * @returns {Object} Object containing flattened data and search counts
+ */
+function processBulkResults(searchResults, identifierKey) {
+  const flattenedData = [];
+  const searchCounts = {};
+
+  searchResults.forEach((result) => {
+    const identifier = result[identifierKey];
+    const dataItems = result.data || [];
+
+    searchCounts[identifier] = dataItems.length;
+
+    dataItems.forEach((item) => {
+      flattenedData.push({
+        [identifierKey]: identifier,
+        item,
+      });
+    });
   });
 
-  return response;
+  return {
+    flattenedData,
+    searchCounts,
+  };
 }
 
 module.exports = {
-  createPaginatedResponse,
-  createBulkPaginatedResponse,
+  createStandardResponse,
+  createBulkResponse,
+  processBulkResults,
 };
