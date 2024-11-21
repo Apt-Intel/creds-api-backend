@@ -1,0 +1,21 @@
+[32m[2024-11-21T18:58:44.177Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T18:58:44.179Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T18:58:44.190Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T18:58:44.193Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T18:58:44.195Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T18:58:51.227Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T18:58:52.991Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T18:58:53.245Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a9b65ac4-de16-4444-a251-2c409af6fb82"}[0m
+[32m[2024-11-21T18:58:53.246Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T18:58:55.390Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T18:58:55.391Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T18:59:02.744Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"a9b65ac4-de16-4444-a251-2c409af6fb82"}[0m
+[32m[2024-11-21T18:59:02.745Z] [32mINFO[0m: Search by mail completed {"processingTime":"9498.98ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T18:59:02.745Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T18:59:02.750Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T18:59:02.750Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T18:59:02.750Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T18:59:02.751Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T18:59:02.751Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T18:59:02.753Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T18:59:02.756Z] [32mINFO[0m: ::1 - - [21/Nov/2024:18:59:02 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 109176 "-" "PostmanRuntime/7.42.0"[0m

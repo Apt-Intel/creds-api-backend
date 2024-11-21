@@ -5,8 +5,11 @@ const {
   validatePaginationParams,
 } = require("../../utils/paginationUtils");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createStandardResponse } = require("../../utils/responseUtils");
-const { errorUtils } = require("../../utils/errorUtils");
+const {
+  createStandardResponse,
+  createBulkItemResponse,
+} = require("../../utils/responseUtils");
+const errorUtils = require("../../utils/errorUtils");
 const { sanitizeDomain } = require("../../utils/domainUtils");
 const { performance } = require("perf_hooks");
 
@@ -78,14 +81,23 @@ async function internalSearchByDomainBulk(req, res, next) {
     const collection = db.collection("logs");
     const { limit, skip } = getPaginationParams(page, pageSize);
 
-    // Process each domain
+    // Process each domain with individual pagination
     const searchPromises = domains.map(async (domain) => {
       const sanitizedDomain = await sanitizeDomain(domain);
       if (!sanitizedDomain) {
         logger.warn(`Invalid domain format skipped: ${domain}`);
         return {
           domain,
-          total: 0,
+          pagination: {
+            total_items: 0,
+            total_pages: 0,
+            current_page: page,
+            page_size: pageSize,
+            has_next_page: false,
+            has_previous_page: false,
+            next_page: null,
+            previous_page: null,
+          },
           data: [],
           error: "Invalid domain format",
         };
@@ -98,35 +110,41 @@ async function internalSearchByDomainBulk(req, res, next) {
         collection.countDocuments(query),
       ]);
 
-      return {
-        domain: sanitizedDomain,
+      return createBulkItemResponse({
+        identifier: sanitizedDomain,
         total,
-        data: results,
-      };
+        page,
+        pageSize,
+        results,
+      });
     });
 
     const searchResults = await Promise.all(searchPromises);
     const totalResults = searchResults.reduce(
-      (sum, result) => sum + result.total,
+      (sum, result) => sum + result.pagination.total_items,
       0
     );
 
-    const response = createStandardResponse({
-      total: totalResults,
-      page,
-      pageSize,
-      results: searchResults,
-      metadata: {
+    // Set searchResults on req object for middleware processing
+    req.searchResults = {
+      meta: {
         sort: {
           field: sortby,
           order: sortorder,
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
-        search_counts: Object.fromEntries(
-          searchResults.map((result) => [result.domain, result.total])
-        ),
       },
-    });
+      search_counts: Object.fromEntries(
+        searchResults.map((result) => [
+          result.domain,
+          result.pagination.total_items,
+        ])
+      ),
+      total: totalResults,
+      page,
+      pageSize,
+      data: searchResults,
+    };
 
     logger.info("Internal bulk domain search completed", {
       processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
@@ -135,7 +153,7 @@ async function internalSearchByDomainBulk(req, res, next) {
       requestId: req.requestId,
     });
 
-    return res.json(response);
+    next();
   } catch (error) {
     next(error);
   }

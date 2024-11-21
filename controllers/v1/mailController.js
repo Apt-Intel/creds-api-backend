@@ -86,19 +86,21 @@ async function searchByMail(req, res, next) {
       collection.countDocuments(query),
     ]);
 
-    const response = createStandardResponse({
-      total,
-      page,
-      pageSize: pageSize,
-      results,
-      metadata: {
+    // Attach searchResults to req for further processing
+    req.searchResults = {
+      meta: {
         query_type: type,
         sort: {
           field: sortby,
           order: sortorder,
         },
+        processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
       },
-    });
+      total,
+      page,
+      pageSize,
+      data: results, // Raw data at the bottom
+    };
 
     logger.info(`Search completed for mail: ${sanitizedMail}`, {
       total,
@@ -114,7 +116,7 @@ async function searchByMail(req, res, next) {
       pageSize: pageSize,
     });
 
-    return res.json(response);
+    next();
   } catch (error) {
     next(error);
   }

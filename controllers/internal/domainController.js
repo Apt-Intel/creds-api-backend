@@ -85,19 +85,20 @@ async function internalSearchByDomain(req, res, next) {
       collection.countDocuments(query),
     ]);
 
-    const response = createStandardResponse({
-      total,
-      page,
-      pageSize,
-      results,
-      metadata: {
+    // Set searchResults on req object for middleware processing
+    req.searchResults = {
+      meta: {
         sort: {
           field: sortby,
           order: sortorder,
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
       },
-    });
+      total,
+      page,
+      pageSize,
+      data: results, // Raw data at the bottom
+    };
 
     logger.info("Internal domain search completed", {
       domain: sanitizedDomain,
@@ -106,7 +107,7 @@ async function internalSearchByDomain(req, res, next) {
       requestId: req.requestId,
     });
 
-    return res.json(response);
+    next();
   } catch (error) {
     next(error);
   }

@@ -7,10 +7,6 @@ const documentRedesignDomainMiddleware = async (req, res, next) => {
   }
 
   logger.info("Document redesign domain middleware called");
-  logger.debug(
-    "req.searchResults structure:",
-    JSON.stringify(req.searchResults, null, 2)
-  );
 
   const redesignDocument = async (doc, searchedDomain) => {
     logger.debug("Redesigning document:", JSON.stringify(doc, null, 2));
@@ -35,36 +31,37 @@ const documentRedesignDomainMiddleware = async (req, res, next) => {
     const categorizedCredentials = {
       InternalCredentials: [],
       ExternalCredentials: [],
+      CustomerCredentials: [],
       OtherCredentials: [],
     };
+
+    const searchedDomainName = searchedDomain.split(".")[0];
 
     if (Array.isArray(Credentials)) {
       logger.debug("Processing Credentials array");
       for (const cred of Credentials) {
         try {
-          const credUrlDomain = cred.URL
-            ? await sanitizeDomain(new URL(cred.URL).hostname)
-            : null;
-          const credUsernameDomain =
-            cred.Username && cred.Username.includes("@")
-              ? await sanitizeDomain(cred.Username.split("@")[1])
-              : null;
+          const credUrl = cred.URL?.toLowerCase() || "";
+          const credUsername = cred.Username?.toLowerCase();
 
-          logger.debug("Credential domains:", {
-            credUrlDomain,
-            credUsernameDomain,
-            searchedDomain,
-          });
-
-          if (
-            credUrlDomain === searchedDomain &&
-            credUsernameDomain === searchedDomain
-          ) {
-            categorizedCredentials.InternalCredentials.push(cred);
-          } else if (credUsernameDomain === searchedDomain) {
-            categorizedCredentials.ExternalCredentials.push(cred);
+          if (credUrl.includes(searchedDomainName)) {
+            // URL contains searched domain name
+            if (credUsername?.includes(`@${searchedDomain}`)) {
+              // Employee credentials: company domain URL + company email
+              categorizedCredentials.InternalCredentials.push(cred);
+            } else {
+              // Customer credentials: company domain URL + non-company email
+              categorizedCredentials.CustomerCredentials.push(cred);
+            }
           } else {
-            categorizedCredentials.OtherCredentials.push(cred);
+            // URL doesn't contain searched domain name
+            if (credUsername?.includes(`@${searchedDomain}`)) {
+              // External service credentials: non-company URL + company email
+              categorizedCredentials.ExternalCredentials.push(cred);
+            } else {
+              // Completely unrelated credentials
+              categorizedCredentials.OtherCredentials.push(cred);
+            }
           }
         } catch (error) {
           logger.warn(`Error processing credential: ${error.message}`, {
@@ -91,18 +88,18 @@ const documentRedesignDomainMiddleware = async (req, res, next) => {
   try {
     if (
       req.searchResults &&
-      req.searchResults.results &&
-      Array.isArray(req.searchResults.results)
+      req.searchResults.data &&
+      Array.isArray(req.searchResults.data)
     ) {
       if (
-        req.searchResults.results.length > 0 &&
-        req.searchResults.results[0] &&
-        "data" in req.searchResults.results[0]
+        req.searchResults.data.length > 0 &&
+        req.searchResults.data[0] &&
+        "data" in req.searchResults.data[0]
       ) {
         // Bulk search
         logger.info("Processing bulk domain search results");
-        req.searchResults.results = await Promise.all(
-          req.searchResults.results.map(async (result) => {
+        req.searchResults.data = await Promise.all(
+          req.searchResults.data.map(async (result) => {
             logger.debug("Processing result for domain:", result.domain);
             const searchedDomain = result.domain;
             if (result.data && Array.isArray(result.data)) {
@@ -117,8 +114,8 @@ const documentRedesignDomainMiddleware = async (req, res, next) => {
         // Single search
         logger.info("Processing single domain search results");
         const searchedDomain = req.query.domain || req.body.domain;
-        req.searchResults.results = await Promise.all(
-          req.searchResults.results.map((doc) =>
+        req.searchResults.data = await Promise.all(
+          req.searchResults.data.map((doc) =>
             redesignDocument(doc, searchedDomain)
           )
         );
@@ -131,7 +128,7 @@ const documentRedesignDomainMiddleware = async (req, res, next) => {
     next();
   } catch (error) {
     logger.error("Error in document redesign domain middleware:", error);
-    res.status(500).json({ error: "Internal server error" });
+    next(error);
   }
 };
 

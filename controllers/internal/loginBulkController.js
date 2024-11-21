@@ -5,8 +5,11 @@ const {
   validatePaginationParams,
 } = require("../../utils/paginationUtils");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createStandardResponse } = require("../../utils/responseUtils");
-const { errorUtils } = require("../../utils/errorUtils");
+const {
+  createStandardResponse,
+  createBulkItemResponse,
+} = require("../../utils/responseUtils");
+const errorUtils = require("../../utils/errorUtils");
 const { performance } = require("perf_hooks");
 
 async function internalSearchByLoginBulk(req, res, next) {
@@ -73,7 +76,7 @@ async function internalSearchByLoginBulk(req, res, next) {
     const collection = db.collection("logs");
     const { limit, skip } = getPaginationParams(page, pageSize);
 
-    // Process each login
+    // Process each login with individual pagination
     const searchPromises = logins.map(async (login) => {
       const query = { "Credentials.Username": login };
 
@@ -82,35 +85,41 @@ async function internalSearchByLoginBulk(req, res, next) {
         collection.countDocuments(query),
       ]);
 
-      return {
-        login,
+      return createBulkItemResponse({
+        identifier: login,
         total,
-        data: results,
-      };
+        page,
+        pageSize,
+        results,
+      });
     });
 
     const searchResults = await Promise.all(searchPromises);
     const totalResults = searchResults.reduce(
-      (sum, result) => sum + result.total,
+      (sum, result) => sum + result.pagination.total_items,
       0
     );
 
-    const response = createStandardResponse({
-      total: totalResults,
-      page,
-      pageSize,
-      results: searchResults,
-      metadata: {
+    // Set searchResults on req object for middleware processing
+    req.searchResults = {
+      meta: {
         sort: {
           field: sortby,
           order: sortorder,
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
-        search_counts: Object.fromEntries(
-          searchResults.map((result) => [result.login, result.total])
-        ),
       },
-    });
+      search_counts: Object.fromEntries(
+        searchResults.map((result) => [
+          result.login,
+          result.pagination.total_items,
+        ])
+      ),
+      total: totalResults,
+      page,
+      pageSize,
+      data: searchResults,
+    };
 
     logger.info("Internal bulk login search completed", {
       processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
@@ -119,7 +128,7 @@ async function internalSearchByLoginBulk(req, res, next) {
       requestId: req.requestId,
     });
 
-    return res.json(response);
+    next();
   } catch (error) {
     next(error);
   }

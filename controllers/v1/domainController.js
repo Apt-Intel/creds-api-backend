@@ -92,7 +92,7 @@ async function searchByDomain(req, res, next) {
     const { limit, skip } = getPaginationParams(page, pageSize);
 
     const query =
-      type === "all"
+      type === "strict"
         ? { Domains: sanitizedDomain }
         : { "Credentials.URL": new RegExp(sanitizedDomain, "i") };
 
@@ -101,12 +101,9 @@ async function searchByDomain(req, res, next) {
       collection.countDocuments(query),
     ]);
 
-    const response = createStandardResponse({
-      total,
-      page,
-      pageSize,
-      results,
-      metadata: {
+    // Set searchResults on req object for middleware processing
+    req.searchResults = {
+      meta: {
         query_type: type,
         sort: {
           field: sortby,
@@ -114,7 +111,11 @@ async function searchByDomain(req, res, next) {
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
       },
-    });
+      total,
+      page,
+      pageSize,
+      data: results, // Raw data at the bottom
+    };
 
     logger.info("Domain search completed", {
       domain: sanitizedDomain,
@@ -123,7 +124,7 @@ async function searchByDomain(req, res, next) {
       requestId: req.requestId,
     });
 
-    return res.json(response);
+    next();
   } catch (error) {
     next(error);
   }

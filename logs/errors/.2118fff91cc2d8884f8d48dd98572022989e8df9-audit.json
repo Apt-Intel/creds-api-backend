@@ -24,6 +24,21 @@
             "date": 1731968582763,
             "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-11-19.log",
             "hash": "6a80ba2adb788a57ca6164ea759f0ade5b8932ddd22de4325527e679201fda46"
+        },
+        {
+            "date": 1732052465838,
+            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-11-20.log",
+            "hash": "98735d869f4c906cdd2008921b5d2747a7916ed01658522fcc3f4d3aa89b77fb"
+        },
+        {
+            "date": 1732169387910,
+            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-11-21.log",
+            "hash": "e7b77775896360c8806467b636da5dd9e1451018a45f28f54e50eb67dec0517d"
+        },
+        {
+            "date": 1732215523719,
+            "name": "/Users/agni/Documents/CODE/aptintel/creds-api-backend/logs/errors/error-2024-11-22.log",
+            "hash": "1411064b8362cf674854dfc6ccfb216e6ccb8d0b7444e19fcb8370f25a90e4fa"
         }
     ],
     "hashType": "sha256"

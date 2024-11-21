@@ -6,8 +6,11 @@ const {
 } = require("../../utils/paginationUtils");
 const validator = require("validator");
 const { DEFAULT_PAGE_SIZE } = require("../../config/constants");
-const { createStandardResponse } = require("../../utils/responseUtils");
-const { errorUtils } = require("../../utils/errorUtils");
+const {
+  createStandardResponse,
+  createBulkItemResponse,
+} = require("../../utils/responseUtils");
+const errorUtils = require("../../utils/errorUtils");
 const { performance } = require("perf_hooks");
 
 async function searchByMailBulk(req, res, next) {
@@ -94,7 +97,7 @@ async function searchByMailBulk(req, res, next) {
     const collection = db.collection("logs");
     const { limit, skip } = getPaginationParams(page, pageSize);
 
-    // Process each mail
+    // Process each mail with individual pagination
     const searchPromises = mails.map(async (mail) => {
       const sanitizedMail = validator.escape(mail);
       const query =
@@ -107,36 +110,50 @@ async function searchByMailBulk(req, res, next) {
         collection.countDocuments(query),
       ]);
 
+      // Create bulk item response with mail identifier
       return {
         mail: sanitizedMail,
-        total,
-        data: results,
+        pagination: {
+          total_items: total,
+          total_pages: Math.ceil(total / pageSize),
+          current_page: page,
+          page_size: pageSize,
+          has_next_page: skip + limit < total,
+          has_previous_page: page > 1,
+          next_page: skip + limit < total ? page + 1 : null,
+          previous_page: page > 1 ? page - 1 : null,
+        },
+        data: results, // Raw results for middleware processing
       };
     });
 
     const searchResults = await Promise.all(searchPromises);
     const totalResults = searchResults.reduce(
-      (sum, result) => sum + result.total,
+      (sum, result) => sum + result.pagination.total_items,
       0
     );
 
-    const response = createStandardResponse({
-      total: totalResults,
-      page,
-      pageSize,
-      results: searchResults,
-      metadata: {
+    // Set searchResults on req object for middleware processing
+    req.searchResults = {
+      meta: {
         query_type: type,
         sort: {
           field: sortby,
           order: sortorder,
         },
         processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
-        search_counts: Object.fromEntries(
-          searchResults.map((result) => [result.mail, result.total])
-        ),
       },
-    });
+      search_counts: Object.fromEntries(
+        searchResults.map((result) => [
+          result.mail,
+          result.pagination.total_items,
+        ])
+      ),
+      total: totalResults,
+      page,
+      pageSize,
+      data: searchResults, // Data at the bottom
+    };
 
     logger.info("Bulk search completed", {
       processingTime: `${(performance.now() - startTime).toFixed(2)}ms`,
@@ -145,7 +162,7 @@ async function searchByMailBulk(req, res, next) {
       requestId: req.requestId,
     });
 
-    return res.json(response);
+    next();
   } catch (error) {
     next(error);
   }

@@ -1,8 +1,11 @@
 const logger = require("../config/logger");
 
 const sendResponseMiddleware = (req, res) => {
-  logger.info("Sending response");
-  res.json(req.searchResults);
+  if (req.searchResults) {
+    return res.json(req.searchResults);
+  } else {
+    return res.status(204).send();
+  }
 };
 
 module.exports = sendResponseMiddleware;

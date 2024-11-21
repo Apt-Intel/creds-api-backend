@@ -2,16 +2,24 @@
 
 #### Table of Contents
 
-1. [Authentication](#authentication "Authentication")
-2. [Rate Limiting](#rate-limiting "Rate Limiting")
-3. [Pagination](#pagination "Pagination")
-4. [Date Normalization](#date-normalization "Date Normalization")
-5. [Error Responses](#error-responses "Error Responses")
-6. [Health Check](#health-check "Health Check")
-7. [Endpoints](#endpoints "Endpoints") 8. [Search by Mail](#1-search-by-mail "1. Search by Mail") 9. [Search by Mail (Bulk)](#2-search-by-mail-bulk "2. Search by Mail (Bulk)") 10. [Search by Domain](#3-search-by-domain "3. Search by Domain") 11. [Search by Domain (Bulk)](#4-search-by-domain-bulk "4. Search by Domain (Bulk)") 12. [Test Date Normalization](#5-test-date-normalization "5. Test Date Normalization")
-8. [Internal Endpoints](#internal-endpoints "Internal Endpoints") 14. [Internal Search by Mail](#6-internal-search-by-mail "6. Internal Search by Mail") 15. [Internal Search by Mail (Bulk)](#7-internal-search-by-mail-bulk "7. Internal Search by Mail (Bulk)") 16. [Internal Search by Domain](#8-internal-search-by-domain "8. Internal Search by Domain") 17. [Internal Search by Domain (Bulk)](#9-internal-search-by-domain-bulk "9. Internal Search by Domain (Bulk)")
-9. [Document Redesign Process](#document-redesign-process "Document Redesign Process")
-10. [Note on Internal Endpoints](#note-on-internal-endpoints "Note on Internal Endpoints")
+1. [Authentication](#authentication)
+2. [Rate Limiting](#rate-limiting)
+3. [Pagination](#pagination)
+4. [Date Normalization](#date-normalization)
+5. [Error Responses](#error-responses)
+6. [Health Check](#health-check)
+7. [V1 Routes](#v1-routes)
+   - [Search by Mail](#search-by-mail)
+   - [Search by Mail Bulk](#search-by-mail-bulk)
+   - [Search by Domain](#search-by-domain)
+   - [Search by Domain Bulk](#search-by-domain-bulk)
+8. [Internal Routes](#internal-routes)
+   - [Search by Login](#search-by-login)
+   - [Search by Login Bulk](#search-by-login-bulk)
+   - [Search by Domain](#internal-search-by-domain)
+   - [Search by Domain Bulk](#internal-search-by-domain-bulk)
+9. [Credential Segregation](#credential-segregation)
+10. [Usage Endpoint](#usage-endpoint)
 
 ---
 
@@ -19,76 +27,76 @@
 
 All endpoints (except `/health`) require an API key to be provided in the request headers.
 
-##### Header
+##### Header Format
 
-- `api-key: YOUR_API_KEY`
+```http
+api-key: YOUR_API_KEY
+```
+
+The API validates the key and stores relevant data for rate limiting and usage tracking.
+
+---
 
 #### Rate Limiting
 
-The API implements rate limiting to prevent abuse. The current limits are:
+The API implements a multi-level rate limiting system:
 
-- **50 requests per 10-second window**
-
-Rate limit information is provided in the response headers:
-
-- `X-RateLimit-Limit: 50`
-- `X-RateLimit-Remaining: 49`
-- `X-RateLimit-Reset: 9`
-
-#### Pagination
-
-### Overview
-
-The API supports dynamic pagination through the following query parameters:
-
-#### Pagination Parameters
-
-| Parameter   | Type    | Required | Default | Description                                |
-| ----------- | ------- | -------- | ------- | ------------------------------------------ |
-| `page`      | Integer | No       | 1       | The page number to retrieve                |
-| `page_size` | Integer | No       | 50      | Number of items per page (min: 1, max: 50) |
-
-#### Pagination Response Structure
-
-All paginated responses follow this structure:
+1. **Basic Rate Limiting**
 
 ```json
 {
-  "pagination": {
-    "total_items": 100,
-    "total_pages": 5,
-    "current_page": 2,
-    "page_size": 20,
-    "has_next_page": true,
-    "has_previous_page": true,
-    "next_page": 3,
-    "previous_page": 1
-  },
-  "metadata": {
-    "query_type": "strict",
-    "sort": {
-      "field": "date_compromised",
-      "order": "desc"
-    }
-  },
-  "results": [
-    // Array of result items
-  ]
+  "windowMs": 60000, // 1 minute window
+  "max": "dynamic", // Based on API key configuration
+  "headers": true
 }
 ```
 
-#### Bulk Operation Response Structure
+2. **Complex Usage Limits**
+   - Daily request limits
+   - Monthly request limits
+   - Endpoint-specific limits
 
-Bulk operations return paginated results for each query:
+Rate limit information is provided in response headers:
+
+```http
+X-RateLimit-Limit: {limit}
+X-RateLimit-Remaining: {remaining}
+X-RateLimit-Reset: {reset_time}
+```
+
+When rate limit is exceeded:
 
 ```json
 {
-  "pagination": {
-    "total_items": 150,
-    "current_page": 1,
-    "page_size": 20
+  "meta": {
+    "error": {
+      "code": "RATE_LIMIT_EXCEEDED",
+      "message": "Rate limit exceeded",
+      "retryAfter": 60
+    }
   },
-  "metadata": {
+  "data": null
+}
+```
+
+#### Pagination
+
+The API implements standardized pagination across all endpoints. Pagination information is included in the response metadata.
+
+##### Pagination Parameters
+
+| Parameter  | Type   | Default | Description              |
+| ---------- | ------ | ------- | ------------------------ |
+| `page`     | Number | 1       | Page number to retrieve  |
+| `pageSize` | Number | 50      | Items per page (max: 50) |
+
+##### Pagination Response Structure
+
+For single search endpoints:
+
+```json
+{
+  "meta": {
     "query_type": "strict",
     "sort": {
       "field": "date_compromised",
@@ -96,171 +104,178 @@ Bulk operations return paginated results for each query:
     },
     "processing_time": "123.45ms"
   },
-  "results": [
+  "total": 100,
+  "page": 2,
+  "pageSize": 50,
+  "data": [...]
+}
+```
+
+For bulk search endpoints:
+
+```json
+{
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "234.56ms"
+  },
+  "search_counts": {
+    "example1@domain.com": 100,
+    "example2@domain.com": 50
+  },
+  "total": 150,
+  "page": 1,
+  "pageSize": 50,
+  "data": [
     {
-      "mail": "example@domain.com",
-      "total": 50,
+      "identifier": "example1@domain.com",
       "pagination": {
-        "total_items": 50,
-        "total_pages": 3,
+        "total_items": 100,
+        "total_pages": 2,
         "current_page": 1,
-        "page_size": 20
+        "page_size": 50,
+        "has_next_page": true,
+        "has_previous_page": false,
+        "next_page": 2,
+        "previous_page": null
       },
-      "data": [
-        // Array of results for this query
-      ]
+      "data": [...]
     }
-    // More results...
   ]
 }
 ```
-
-### Pagination Guidelines
-
-1. **Page Size Limits**
-
-   - Minimum: 1 item per page
-   - Maximum: 50 items per page
-   - Default: 50 items per page
-
-2. **Error Handling**
-
-   - Invalid page numbers return a 400 error
-   - Invalid page sizes return a 400 error
-   - Error responses include detailed messages
-
-3. **Navigation Helpers**
-   - `has_next_page`: Boolean indicating if there are more pages
-   - `has_previous_page`: Boolean indicating if there are previous pages
-   - `next_page`: Next page number (null if no next page)
-   - `previous_page`: Previous page number (null if no previous page)
-
-### Example Usage
-
-#### Basic Pagination
-
-```http
-GET /api/json/v1/search-by-mail?mail=example@domain.com&page=2&page_size=20
-```
-
-#### Default Pagination
-
-```http
-GET /api/json/v1/search-by-mail?mail=example@domain.com
-```
-
-Returns first page with default page size (50 items)
-
-#### Maximum Page Size
-
-```http
-GET /api/json/v1/search-by-mail?mail=example@domain.com&page_size=50
-```
-
-### Error Responses
-
-#### Invalid Page Number
-
-```json
-{
-  "errors": ["Invalid 'page' parameter. Must be a positive integer."]
-}
-```
-
-#### Invalid Page Size
-
-```json
-{
-  "errors": [
-    "Invalid 'page_size' parameter. Must be an integer between 1 and 50."
-  ]
-}
-```
-
-#### Date Normalization
-
-The API automatically normalizes dates in the `"Log date"` field to **ISO 8601** format (**UTC**) for consistency.
-
-#### Error Responses
-
-Error responses follow this format:
-
-```json
-{
-  "error": "Error message",
-  "details": "Additional error details (if available)"
-}
-```
-
-#### Health Check
-
-##### Endpoint
-
-- `GET /health`
-
-##### Description
-
-Check the health status of the API.
-
-##### Example Response
-
-```json
-{
-  "status": "OK"
-}
-```
-
-This endpoint does not require authentication and is not subject to rate limiting.
 
 ---
 
-#### Endpoints
+#### Date Normalization
 
-##### 1. Search by Mail
+The API automatically normalizes dates in the response to ISO 8601 format (UTC). Date normalization applies to:
 
-###### Endpoint
+- `Log date` field
+- `Date` field
+
+Example of normalized dates:
+
+```json
+{
+  "Log date": "2023-07-23T09:38:30.000Z",
+  "Date": "2023-07-23T09:38:30.000Z"
+}
+```
+
+---
+
+#### Error Responses
+
+All error responses follow a standardized format:
+
+```json
+{
+  "meta": {
+    "error": {
+      "code": "ERROR_CODE",
+      "message": "Detailed error message",
+      "details": {
+        "parameter": "affected_parameter",
+        "received": "received_value",
+        "allowed": ["allowed", "values"]
+      }
+    }
+  },
+  "data": null
+}
+```
+
+##### Common Error Codes
+
+| Status Code | Error Code            | Description                |
+| ----------- | --------------------- | -------------------------- |
+| 400         | BAD_REQUEST           | Invalid input parameters   |
+| 401         | UNAUTHORIZED          | Missing or invalid API key |
+| 403         | FORBIDDEN             | Insufficient permissions   |
+| 404         | NOT_FOUND             | Resource not found         |
+| 429         | RATE_LIMIT_EXCEEDED   | Rate limit exceeded        |
+| 500         | INTERNAL_SERVER_ERROR | Server error               |
+
+##### Example Error Responses
+
+Invalid Parameter:
+
+```json
+{
+  "meta": {
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "Invalid pagination parameters",
+      "details": {
+        "errors": ["Page size must be between 1 and 50"]
+      }
+    }
+  },
+  "data": null
+}
+```
+
+Rate Limit Exceeded:
+
+```json
+{
+  "meta": {
+    "error": {
+      "code": "RATE_LIMIT_EXCEEDED",
+      "message": "Rate limit exceeded",
+      "retryAfter": 60,
+      "details": {
+        "limit": "daily",
+        "reset": "2023-07-24T00:00:00.000Z"
+      }
+    }
+  },
+  "data": null
+}
+```
+
+#### V1 Routes
+
+##### Search by Mail
+
+###### Endpoints
 
 - `GET /api/json/v1/search-by-mail`
 - `POST /api/json/v1/search-by-mail`
 
-###### Description
+###### Parameters
 
-Search for user mail information based on query parameters or request body.
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `mail`      | String | Yes      | Email address to search                                     |
+| `type`      | String | No       | Search type: "strict" (default) or "all"                    |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
 
-###### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `mail`               | String  | Yes      | The mail address to search for.                                                |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
-| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
-|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
-|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
-
-###### Input Validation
-
-- `mail`: Must be a valid email address.
-- `page`: Must be a positive integer.
-- `type`: Must be either "strict" or "all".
-- `sortby`: Must be either "date_compromised" or "date_uploaded".
-- `sortorder`: Must be either "asc" or "desc".
-
-###### Example Request
-
-`GET /api/json/v1/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
-
-###### Example Response
+###### Response Structure
 
 ```json
 {
-  "total": 100,
+  "meta": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "total": 17,
   "page": 1,
-  "results": [
+  "pageSize": 5,
+  "data": [
     {
-      "Usernames": "example@email.com",
       "Log date": "2023-07-23T09:38:30.000Z",
       "Date": "2023-07-23T09:38:30.000Z",
       "InternalCredentials": [
@@ -277,200 +292,130 @@ Search for user mail information based on query parameters or request body.
           "Password": "password456"
         }
       ],
+      "CustomerCredentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "customer@external.com",
+          "Password": "password789"
+        }
+      ],
       "OtherCredentials": [
         {
           "URL": "https://thirdsite.com",
-          "Username": "user@thirdsite.com",
-          "Password": "password789"
+          "Username": "other@domain.com",
+          "Password": "password000"
         }
       ]
-      // Other fields...
     }
-    // More results...
   ]
 }
 ```
 
-###### Errors
-
-| Status Code | Description                               |
-| ----------- | ----------------------------------------- |
-| 400         | Bad Request - Invalid input parameters    |
-| 401         | Unauthorized - Invalid or missing API key |
-| 429         | Too Many Requests - Rate limit exceeded   |
-| 500         | Internal Server Error                     |
-
-##### 2. Search by Mail (Bulk)
+##### Search by Mail Bulk
 
 ###### Endpoint
 
 - `POST /api/json/v1/search-by-mail/bulk`
 
-###### Description
-
-Search for multiple user mails in a single request.
-
-###### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
-| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
-|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
-|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
-
 ###### Request Body
-
-| Parameter | Type     | Required | Description                                          |
-| --------- | -------- | -------- | ---------------------------------------------------- |
-| `mails`   | String[] | Yes      | Array of mail addresses to search for (max 10 items) |
-
-###### Input Validation
-
-- `mails`: Must be an array of 1-10 valid email addresses.
-- Other parameters: Same as single search endpoint.
-
-###### Example Request
-
-`POST /api/json/v1/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1&type=all`
 
 ```json
 {
-  "mails": ["example1@email.com", "example2@email.com"]
+  "mails": ["example1@domain.com", "example2@domain.com"]
 }
 ```
 
-###### Example Response
+###### Parameters
+
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `type`      | String | No       | Search type: "strict" (default) or "all"                    |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
+
+###### Response Structure
 
 ```json
 {
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "asc"
+    },
+    "processing_time": "234.56ms"
+  },
+  "search_counts": {
+    "example1@domain.com": 100,
+    "example2@domain.com": 50
+  },
   "total": 150,
   "page": 1,
-  "results": [
+  "pageSize": 50,
+  "data": [
     {
-      "mail": "example1@email.com",
-      "total": 100,
+      "mail": "example1@domain.com",
+      "pagination": {
+        "total_items": 100,
+        "total_pages": 2,
+        "current_page": 1,
+        "page_size": 50,
+        "has_next_page": true,
+        "has_previous_page": false,
+        "next_page": 2,
+        "previous_page": null
+      },
       "data": [
         {
-          "Usernames": "example1@email.com",
           "Log date": "2023-07-23T09:38:30.000Z",
           "Date": "2023-07-23T09:38:30.000Z",
-          "InternalCredentials": [
-            {
-              "URL": "https://example.com",
-              "Username": "user@example.com",
-              "Password": "password123"
-            }
-          ],
-          "ExternalCredentials": [
-            {
-              "URL": "https://othersite.com",
-              "Username": "user@example.com",
-              "Password": "password456"
-            }
-          ],
-          "OtherCredentials": [
-            {
-              "URL": "https://thirdsite.com",
-              "Username": "user@thirdsite.com",
-              "Password": "password789"
-            }
-          ]
-          // Other fields...
+          "InternalCredentials": [...],
+          "ExternalCredentials": [...],
+          "CustomerCredentials": [...],
+          "OtherCredentials": [...]
         }
-        // More results...
-      ]
-    },
-    {
-      "mail": "example2@email.com",
-      "total": 50,
-      "data": [
-        {
-          "Usernames": "example2@email.com",
-          "Log date": "2023-07-24T10:15:45.000Z",
-          "Date": "2023-07-24T10:15:45.000Z",
-          "InternalCredentials": [
-            {
-              "URL": "https://example.com",
-              "Username": "user@example.com",
-              "Password": "password123"
-            }
-          ],
-          "ExternalCredentials": [
-            {
-              "URL": "https://othersite.com",
-              "Username": "user@example.com",
-              "Password": "password456"
-            }
-          ],
-          "OtherCredentials": [
-            {
-              "URL": "https://thirdsite.com",
-              "Username": "user@thirdsite.com",
-              "Password": "password789"
-            }
-          ]
-          // Other fields...
-        }
-        // More results...
       ]
     }
   ]
 }
 ```
 
-###### Errors
+##### Search by Domain
 
-| Status Code | Description                                           |
-| ----------- | ----------------------------------------------------- |
-| 400         | Bad Request - Invalid input parameters or mails array |
-| 401         | Unauthorized - Invalid or missing API key             |
-| 429         | Too Many Requests - Rate limit exceeded               |
-| 500         | Internal Server Error                                 |
-
-##### 3. Search by Domain
-
-###### Endpoint
+###### Endpoints
 
 - `GET /api/json/v1/search-by-domain`
 - `POST /api/json/v1/search-by-domain`
 
-###### Description
+###### Parameters
 
-Search for domain information based on query parameters or request body.
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `domain`    | String | Yes      | Domain name to search                                       |
+| `type`      | String | No       | Search type: "strict" (default) or "all"                    |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
 
-###### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `domain`             | String  | Yes      | The domain to search for.                                                      |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
-| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
-|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
-|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
-
-###### Input Validation
-
-- `domain`: Must be a valid domain name (sanitized internally).
-- Other parameters: Same as mail search endpoint.
-
-###### Example Request
-
-`GET /api/json/v1/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1&type=all`
-
-###### Example Response
+###### Response Structure
 
 ```json
 {
-  "total": 100,
+  "meta": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "total": 17,
   "page": 1,
-  "results": [
+  "pageSize": 5,
+  "data": [
     {
       "Log date": "2023-07-23T09:38:30.000Z",
       "Date": "2023-07-23T09:38:30.000Z",
@@ -488,65 +433,32 @@ Search for domain information based on query parameters or request body.
           "Password": "password456"
         }
       ],
+      "CustomerCredentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "customer@external.com",
+          "Password": "password789"
+        }
+      ],
       "OtherCredentials": [
         {
           "URL": "https://thirdsite.com",
-          "Username": "user@thirdsite.com",
-          "Password": "password789"
+          "Username": "other@domain.com",
+          "Password": "password000"
         }
       ]
-      // Other fields...
     }
-    // More results...
   ]
 }
 ```
 
-###### Errors
-
-| Status Code | Description                                      |
-| ----------- | ------------------------------------------------ |
-| 400         | Bad Request - Invalid input parameters or domain |
-| 401         | Unauthorized - Invalid or missing API key        |
-| 429         | Too Many Requests - Rate limit exceeded          |
-| 500         | Internal Server Error                            |
-
-##### 4. Search by Domain (Bulk)
+##### Search by Domain Bulk
 
 ###### Endpoint
 
 - `POST /api/json/v1/search-by-domain/bulk`
 
-###### Description
-
-Search for multiple domains in a single request.
-
-###### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
-| `type`               | String  | No       | Search type: `"strict"` (default) or `"all"`.                                  |
-|                      |         |          | - `"strict"`: Searches in the `"Employee"` array.                              |
-|                      |         |          | - `"all"`: Searches in the `"Emails"` array.                                   |
-
 ###### Request Body
-
-| Parameter | Type     | Required | Description                                   |
-| --------- | -------- | -------- | --------------------------------------------- |
-| `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
-
-###### Input Validation
-
-- `domains`: Must be an array of 1-10 valid domain names (sanitized internally).
-- Other parameters: Same as single domain search endpoint.
-
-###### Example Request
-
-`POST /api/json/v1/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1&type=all`
 
 ```json
 {
@@ -554,328 +466,401 @@ Search for multiple domains in a single request.
 }
 ```
 
-###### Example Response
+###### Parameters
+
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `type`      | String | No       | Search type: "strict" (default) or "all"                    |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
+
+###### Response Structure
 
 ```json
 {
+  "metadata": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "asc"
+    },
+    "processing_time": "234.56ms"
+  },
+  "search_counts": {
+    "example1.com": 100,
+    "example2.com": 50
+  },
   "total": 150,
   "page": 1,
-  "results": [
+  "pageSize": 50,
+  "data": [
     {
       "domain": "example1.com",
-      "total": 100,
+      "pagination": {
+        "total_items": 100,
+        "total_pages": 2,
+        "current_page": 1,
+        "page_size": 50,
+        "has_next_page": true,
+        "has_previous_page": false,
+        "next_page": 2,
+        "previous_page": null
+      },
       "data": [
         {
           "Log date": "2023-07-23T09:38:30.000Z",
           "Date": "2023-07-23T09:38:30.000Z",
-          "InternalCredentials": [
-            {
-              "URL": "https://example1.com",
-              "Username": "user@example1.com",
-              "Password": "password123"
-            }
-          ],
-          "ExternalCredentials": [
-            {
-              "URL": "https://othersite.com",
-              "Username": "user@example1.com",
-              "Password": "password456"
-            }
-          ],
-          "OtherCredentials": [
-            {
-              "URL": "https://thirdsite.com",
-              "Username": "user@thirdsite.com",
-              "Password": "password789"
-            }
-          ]
-          // Other fields...
+          "InternalCredentials": [...],
+          "ExternalCredentials": [...],
+          "CustomerCredentials": [...],
+          "OtherCredentials": [...]
         }
-        // More results...
-      ]
-    },
-    {
-      "domain": "example2.com",
-      "total": 50,
-      "data": [
-        {
-          "Log date": "2023-07-24T10:15:45.000Z",
-          "Date": "2023-07-24T10:15:45.000Z",
-          "InternalCredentials": [
-            {
-              "URL": "https://example2.com",
-              "Username": "user@example2.com",
-              "Password": "password123"
-            }
-          ],
-          "ExternalCredentials": [
-            {
-              "URL": "https://othersite.com",
-              "Username": "user@example2.com",
-              "Password": "password456"
-            }
-          ],
-          "OtherCredentials": [
-            {
-              "URL": "https://thirdsite.com",
-              "Username": "user@thirdsite.com",
-              "Password": "password789"
-            }
-          ]
-          // Other fields...
-        }
-        // More results...
       ]
     }
   ]
 }
 ```
 
-###### Errors
+#### Internal Routes
 
-| Status Code | Description                                             |
-| ----------- | ------------------------------------------------------- |
-| 400         | Bad Request - Invalid input parameters or domains array |
-| 401         | Unauthorized - Invalid or missing API key               |
-| 429         | Too Many Requests - Rate limit exceeded                 |
-| 500         | Internal Server Error                                   |
+Internal routes follow a similar structure but do not include credential segregation.
 
-##### 5. Test Date Normalization
+##### Search by Login
 
-###### Endpoint
+###### Endpoints
 
-- `GET /api/json/v1/test-date-normalization`
+- `GET /api/json/internal/search-by-login`
+- `POST /api/json/internal/search-by-login`
 
-###### Description
+###### Parameters
 
-Test endpoint to verify date normalization functionality.
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `login`     | String | Yes      | Login to search                                             |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
 
-###### Example Response
-
-```json
-{
-  "testLogDate1": "2022-05-17T05:28:48.000Z",
-  "testLogDate2": "2022-05-17T05:28:48.375Z",
-  "testLogDate3": "2022-05-17T05:28:48.000Z",
-  "Date": "2023-10-21 14:30:00",
-  "nonDateField": "This is not a date"
-}
-```
-
----
-
-#### Internal Endpoints
-
-##### 6. Internal Search by Mail
-
-###### Endpoint
-
-- `GET /api/json/internal/search-by-mail`
-- `POST /api/json/internal/search-by-mail`
-
-###### Description
-
-Internal endpoint for searching user mail information. This endpoint mirrors the functionality of the v1 endpoint but is intended for internal use only.
-
-###### Request Parameters
-
-(Same as the `/api/json/v1/search-by-mail` endpoint)
-
-###### Example Request
-
-`GET /api/json/internal/search-by-mail?mail=example@email.com&sortby=date_uploaded&sortorder=asc&page=1`
-
-###### Example Response
-
-(Same format as the `/api/json/v1/search-by-mail` endpoint)
-
-##### 7. Internal Search by Mail (Bulk)
-
-###### Endpoint
-
-- `POST /api/json/internal/search-by-mail/bulk`
-
-###### Description
-
-Internal endpoint for bulk searching of user mails. This endpoint mirrors the functionality of the v1 bulk endpoint but is intended for internal use only.
-
-###### Request Parameters
-
-(Same as the `/api/json/v1/search-by-mail/bulk` endpoint)
-
-###### Request Body
-
-(Same as the `/api/json/v1/search-by-mail/bulk` endpoint)
-
-###### Example Request
-
-`POST /api/json/internal/search-by-mail/bulk?sortby=date_uploaded&sortorder=asc&page=1`
-
-###### Example Response
-
-(Same format as the `/api/json/v1/search-by-mail/bulk` endpoint)
-
-##### 8. Internal Search by Domain
-
-###### Endpoint
-
-- `GET /api/json/internal/search-by-domain`
-- `POST /api/json/internal/search-by-domain`
-
-###### Description
-
-Internal endpoint for searching domain information. Intended for internal use only.
-
-###### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `domain`             | String  | Yes      | The domain to search for.                                                      |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
-
-###### Example Request
-
-`GET /api/json/internal/search-by-domain?domain=example.com&sortby=date_uploaded&sortorder=asc&page=1`
-
-###### Example Response
-
-(Similar format as the `/api/json/v1/search-by-domain` endpoint)
-
-##### 9. Internal Search by Domain (Bulk)
-
-###### Endpoint
-
-- `POST /api/json/internal/search-by-domain/bulk`
-
-###### Description
-
-Internal endpoint for bulk searching of domains. Intended for internal use only.
-
-###### Request Parameters
-
-| Parameter            | Type    | Required | Description                                                                    |
-| -------------------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| `sortby`             | String  | No       | The field to sort by. Options: `date_compromised` (default) or `date_uploaded` |
-| `sortorder`          | String  | No       | The sort order (`asc` or `desc`). Default: `desc`                              |
-| `page`               | Number  | No       | The page number for pagination. Default: `1`                                   |
-| `installed_software` | Boolean | No       | Filter by installed software. Default: `false`                                 |
-
-###### Request Body
-
-| Parameter | Type     | Required | Description                                   |
-| --------- | -------- | -------- | --------------------------------------------- |
-| `domains` | String[] | Yes      | Array of domains to search for (max 10 items) |
-
-###### Example Request
-
-`POST /api/json/internal/search-by-domain/bulk?sortby=date_uploaded&sortorder=asc&page=1`
+###### Response Structure
 
 ```json
 {
-  "domains": ["example1.com", "example2.com"]
-}
-```
-
-###### Example Response
-
-(Similar format as the `/api/json/v1/search-by-domain/bulk` endpoint)
-
----
-
-#### Document Redesign Process
-
-Both single and bulk search responses go through a document redesign process:
-
-1. **Removed Fields**:
-
-   - `Folder Name`
-   - `Build ID`
-   - `Hash`
-   - `Usernames`
-   - `Domains`
-   - `Emails`
-   - `Employee`
-
-2. **Credential Categorization**:
-
-   - `InternalCredentials`: Credentials where the searched email's domain matches the domain in `Credentials.URL`.
-   - `ExternalCredentials`: Credentials where the searched email's domain matches the domain in `Credentials.Username`.
-   - `OtherCredentials`: All remaining credentials.
-
-3. **Field Retention**:
-
-   - All other fields from the original document are retained.
-
-##### Example Redesigned Response
-
-```json
-{
-  "total": 100,
+  "meta": {
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "total": 17,
   "page": 1,
-  "results": [
+  "pageSize": 5,
+  "data": [
     {
       "Log date": "2023-07-23T09:38:30.000Z",
       "Date": "2023-07-23T09:38:30.000Z",
-      "InternalCredentials": [
+      "Credentials": [
         {
           "URL": "https://example.com",
           "Username": "user@example.com",
           "Password": "password123"
         }
-      ],
-      "ExternalCredentials": [
-        {
-          "URL": "https://othersite.com",
-          "Username": "user@example.com",
-          "Password": "password456"
-        }
-      ],
-      "OtherCredentials": [
-        {
-          "URL": "https://thirdsite.com",
-          "Username": "user@thirdsite.com",
-          "Password": "password789"
-        }
       ]
-      // Other fields...
     }
-    // More results...
   ]
 }
 ```
 
-These changes implement the new document redesign feature for the `/search-by-mail` and `/search-by-mail/bulk` routes. The new middleware processes the documents after sorting and before sending the response.
+##### Search by Login Bulk
 
----
+###### Endpoint
 
-#### Note on Internal Endpoints
+- `POST /api/json/internal/search-by-login/bulk`
 
-The `/api/json/internal` endpoints have been created to separate internal usage from consumer-facing endpoints. While they currently mirror the functionality of the `/api/json/v1` endpoints, they may be modified independently in the future to better suit internal needs without affecting the public API contract.
+###### Request Body
 
-Please ensure that you have the appropriate permissions and authentication to access these internal endpoints.
+```json
+{
+  "logins": ["user1", "user2"]
+}
+```
 
----
+###### Parameters
 
-Remember to test these endpoints thoroughly, especially with various edge cases in the `Credentials` array, to ensure everything works as expected.
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
 
-#### Error Handling and Logging
+###### Response Structure
 
-All endpoints now include enhanced error handling and logging:
+```json
+{
+  "meta": {
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "234.56ms"
+  },
+  "search_counts": {
+    "user1": 100,
+    "user2": 50
+  },
+  "total": 150,
+  "page": 1,
+  "pageSize": 50,
+  "data": [
+    {
+      "login": "user1",
+      "pagination": {
+        "total_items": 100,
+        "total_pages": 2,
+        "current_page": 1,
+        "page_size": 50,
+        "has_next_page": true,
+        "has_previous_page": false,
+        "next_page": 2,
+        "previous_page": null
+      },
+      "data": [
+        {
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z",
+          "Credentials": [
+            {
+              "URL": "https://example.com",
+              "Username": "user1",
+              "Password": "password123"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
-- Detailed error messages for invalid inputs.
-- Consistent HTTP status codes for different types of errors.
-- Extensive logging for requests, responses, and errors.
-- In production environments, detailed error messages are not exposed in API responses.
+##### Internal Search by Domain
 
-#### Security Enhancements
+###### Endpoints
 
-- Input sanitization using `validator.escape()` for user-provided strings.
-- Strict type checking and validation for all input parameters.
-- Use of parameterized queries to prevent injection attacks.
+- `GET /api/json/internal/search-by-domain`
+- `POST /api/json/internal/search-by-domain`
 
-#### Performance Monitoring
+###### Parameters
 
-- Bulk operations now include performance logging, measuring processing time for each request.
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `domain`    | String | Yes      | Domain to search                                            |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
+
+###### Response Structure
+
+```json
+{
+  "meta": {
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "total": 17,
+  "page": 1,
+  "pageSize": 5,
+  "data": [
+    {
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "Credentials": [
+        {
+          "URL": "https://example.com",
+          "Username": "user@example.com",
+          "Password": "password123"
+        }
+      ]
+    }
+  ]
+}
+```
+
+##### Internal Search by Domain Bulk
+
+###### Endpoint
+
+- `POST /api/json/internal/search-by-domain/bulk`
+
+###### Request Body
+
+```json
+{
+  "domains": ["example1.com", "example2.com"]
+}
+```
+
+###### Parameters
+
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+| `page`      | Number | No       | Page number (default: 1)                                    |
+| `pageSize`  | Number | No       | Results per page (default: 50, max: 50)                     |
+
+###### Response Structure
+
+```json
+{
+  "meta": {
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "234.56ms"
+  },
+  "search_counts": {
+    "example1.com": 100,
+    "example2.com": 50
+  },
+  "total": 150,
+  "page": 1,
+  "pageSize": 50,
+  "data": [
+    {
+      "domain": "example1.com",
+      "pagination": {
+        "total_items": 100,
+        "total_pages": 2,
+        "current_page": 1,
+        "page_size": 50,
+        "has_next_page": true,
+        "has_previous_page": false,
+        "next_page": 2,
+        "previous_page": null
+      },
+      "data": [
+        {
+          "Log date": "2023-07-23T09:38:30.000Z",
+          "Date": "2023-07-23T09:38:30.000Z",
+          "Credentials": [
+            {
+              "URL": "https://example.com",
+              "Username": "user@example.com",
+              "Password": "password123"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### Credential Segregation
+
+Credential segregation is only available in V1 routes. The credentials are categorized into four distinct arrays based on the following criteria:
+
+##### For Mail Searches:
+
+1. **InternalCredentials**
+
+   - URL contains searched email's domain AND username contains searched email
+   - Example: Searching for "user@example.com" finds credentials where URL contains "example.com" and username is "user@example.com"
+
+2. **ExternalCredentials**
+
+   - URL does NOT contain searched email's domain BUT username contains searched email
+   - Example: Searching for "user@example.com" finds credentials where URL is "othersite.com" but username is "user@example.com"
+
+3. **CustomerCredentials**
+
+   - URL contains searched email's domain BUT username does NOT contain searched email
+   - Example: Searching for "user@example.com" finds credentials where URL contains "example.com" but username is different
+
+4. **OtherCredentials**
+   - All remaining credentials that don't match any of the above criteria
+
+##### For Domain Searches:
+
+1. **InternalCredentials**
+
+   - URL contains searched domain AND username contains the domain
+   - Example: Searching for "example.com" finds credentials where URL contains "example.com" and username contains "@example.com"
+
+2. **ExternalCredentials**
+
+   - URL does NOT contain searched domain BUT username contains the domain
+   - Example: Searching for "example.com" finds credentials where URL is different but username contains "@example.com"
+
+3. **CustomerCredentials**
+
+   - URL contains searched domain BUT username does NOT contain the domain
+   - Example: Searching for "example.com" finds credentials where URL contains "example.com" but username has different domain
+
+4. **OtherCredentials**
+   - All remaining credentials that don't match any of the above criteria
+
+Note: Internal routes return credentials in their original format without segregation, using a single `Credentials` array in the response.
+
+#### Usage Endpoint
+
+The usage endpoint provides information about API key usage and limits.
+
+##### Endpoint
+
+- `GET /api/json/v1/usage`
+
+##### Authentication
+
+Requires API key authentication like other endpoints.
+
+##### Response Structure
+
+```json
+{
+  "remaining_daily_requests": 982,
+  "remaining_monthly_requests": 9842,
+  "total_daily_limit": 1000,
+  "total_monthly_limit": 10000,
+  "current_daily_usage": 18,
+  "current_monthly_usage": 158,
+  "status": "active"
+}
+```
+
+##### Response Fields
+
+| Field                        | Type   | Description                                  |
+| ---------------------------- | ------ | -------------------------------------------- |
+| `remaining_daily_requests`   | Number | Remaining requests for current day           |
+| `remaining_monthly_requests` | Number | Remaining requests for current month         |
+| `total_daily_limit`          | Number | Maximum daily request limit                  |
+| `total_monthly_limit`        | Number | Maximum monthly request limit                |
+| `current_daily_usage`        | Number | Requests used today                          |
+| `current_monthly_usage`      | Number | Requests used this month                     |
+| `status`                     | String | API key status ("active", "suspended", etc.) |
+
+##### Error Responses
+
+Follows the standard error response format:
+
+```json
+{
+  "meta": {
+    "error": {
+      "code": "NOT_FOUND",
+      "message": "Usage statistics not found"
+    }
+  },
+  "data": null
+}
+```

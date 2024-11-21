@@ -1,0 +1,537 @@
+[32m[2024-11-21T06:09:48.397Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:09:48.399Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:09:48.411Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:09:48.413Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:09:48.417Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:09:52.814Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:09:57.763Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:09:57.995Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"d6bd5fc3-2bff-4a0c-8f5d-519c74a6f1b6"}[0m
+[32m[2024-11-21T06:09:57.997Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T06:10:03.410Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:10:03.411Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:10:13.002Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"d6bd5fc3-2bff-4a0c-8f5d-519c74a6f1b6"}[0m
+[32m[2024-11-21T06:10:13.003Z] [32mINFO[0m: Search by mail completed {"processingTime":"15005.60ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T06:10:13.012Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:10:13 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 118556 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:11:50.111Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T06:12:17.840Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:12:17.843Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:12:17.854Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:12:17.858Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:12:17.859Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:12:21.624Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:12:29.897Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:12:30.145Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"e64f93ff-32e3-41c1-8f62-3aa92a7c1866"}[0m
+[32m[2024-11-21T06:12:30.147Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T06:12:33.886Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:12:33.887Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:12:38.305Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"e64f93ff-32e3-41c1-8f62-3aa92a7c1866"}[0m
+[32m[2024-11-21T06:12:38.305Z] [32mINFO[0m: Search by mail completed {"processingTime":"8157.83ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T06:12:38.314Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:12:38 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 118556 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:14:12.073Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T06:14:26.102Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:14:26.104Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:14:26.115Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:14:26.118Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:14:26.119Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:14:30.889Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:14:33.208Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:14:33.451Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"91760354-5f3e-4191-8e9f-4c88a017285d"}[0m
+[32m[2024-11-21T06:14:33.452Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T06:14:35.324Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:14:35.325Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:14:36.251Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"91760354-5f3e-4191-8e9f-4c88a017285d"}[0m
+[32m[2024-11-21T06:14:36.251Z] [32mINFO[0m: Search by mail completed {"processingTime":"2798.86ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T06:14:36.258Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:14:36 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 118556 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:20:00.996Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T06:20:45.387Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:20:45.389Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:20:45.400Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:20:45.403Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:20:45.404Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:20:49.819Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:20:58.267Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:20:58.506Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"923d4dfc-5575-4b54-b90d-84f0d1b2ba30"}[0m
+[32m[2024-11-21T06:20:58.508Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T06:21:01.053Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:21:01.053Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:21:02.058Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"923d4dfc-5575-4b54-b90d-84f0d1b2ba30"}[0m
+[32m[2024-11-21T06:21:02.059Z] [32mINFO[0m: Search by mail completed {"processingTime":"3550.33ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T06:21:02.059Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T06:21:02.063Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T06:21:02.064Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T06:21:02.064Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T06:21:02.064Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T06:21:02.064Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T06:21:02.206Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T06:21:02.209Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:21:02 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 109055 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:23:18.477Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:23:20.225Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35"}[0m
+[32m[2024-11-21T06:23:20.235Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:23:20.480Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35"}[0m
+[32m[2024-11-21T06:23:21.779Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35"}[0m
+[32m[2024-11-21T06:23:21.780Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":1,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:23:21.781Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:23:22.017Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35"}[0m
+[32m[2024-11-21T06:23:22.020Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35"}[0m
+[32m[2024-11-21T06:23:24.465Z] [32mINFO[0m: Bulk search completed {"processingTime":"2444.56ms","totalResults":9,"mailCount":2,"requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35"}[0m
+[32m[2024-11-21T06:23:24.470Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:23:24 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1&page_size=5 HTTP/1.1" 200 123871 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:23:24.470Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"a2391ba4-c7dd-4273-b5de-caab7d362f35","statusCode":200,"responseTime":"2690ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:27:14.347Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T06:27:25.121Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:27:25.123Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:27:25.133Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:27:25.136Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:27:25.137Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:27:30.539Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:27:40.956Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:27:40.963Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098"}[0m
+[32m[2024-11-21T06:27:40.965Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:27:41.191Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098"}[0m
+[32m[2024-11-21T06:27:42.867Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098"}[0m
+[32m[2024-11-21T06:27:42.869Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":1,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:27:42.870Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:27:43.098Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098"}[0m
+[32m[2024-11-21T06:27:43.100Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098"}[0m
+[32m[2024-11-21T06:27:44.714Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:27:44.715Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:27:50.380Z] [32mINFO[0m: Bulk search completed {"processingTime":"7280.51ms","totalResults":9,"mailCount":2,"requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098"}[0m
+[32m[2024-11-21T06:27:50.381Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T06:27:50.389Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T06:27:50.389Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T06:27:50.389Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-11-21T06:27:50.389Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T06:27:50.390Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T06:27:50.547Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T06:27:50.549Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:27:50 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1&page_size=5 HTTP/1.1" 200 113870 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:27:50.549Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"2b5aa5d7-ce7a-4e73-93a5-959b17b8a098","statusCode":200,"responseTime":"7679ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:38:40.846Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T06:38:48.630Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:38:48.632Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:38:48.644Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:38:48.646Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:38:48.647Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:38:55.435Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:39:05.480Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:39:07.536Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d"}[0m
+[32m[2024-11-21T06:39:07.541Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:39:07.773Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d"}[0m
+[32m[2024-11-21T06:39:08.998Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d"}[0m
+[32m[2024-11-21T06:39:09.000Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":1,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:39:09.001Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:39:09.230Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d"}[0m
+[32m[2024-11-21T06:39:09.231Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d"}[0m
+[32m[2024-11-21T06:39:12.947Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:39:12.948Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:39:16.133Z] [32mINFO[0m: Bulk search completed {"processingTime":"6901.88ms","totalResults":9,"mailCount":2,"requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d"}[0m
+[32m[2024-11-21T06:39:16.134Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T06:39:16.139Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T06:39:16.139Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T06:39:16.139Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-11-21T06:39:16.139Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T06:39:16.140Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T06:39:16.142Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T06:39:16.148Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:39:16 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1&page_size=5 HTTP/1.1" 200 113865 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:39:16.148Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"b4119b5c-939c-4c3e-850f-b6efeac2ae2d","statusCode":200,"responseTime":"7148ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:58:35.210Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T06:58:41.938Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T06:58:41.940Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T06:58:41.955Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T06:58:41.957Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T06:58:41.959Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T06:58:57.726Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:58:58.005Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T06:58:58.242Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72"}[0m
+[32m[2024-11-21T06:58:58.248Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:58:58.484Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72"}[0m
+[32m[2024-11-21T06:58:59.708Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72"}[0m
+[32m[2024-11-21T06:58:59.709Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":1,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T06:58:59.710Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T06:59:00.416Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72"}[0m
+[32m[2024-11-21T06:59:00.419Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72"}[0m
+[32m[2024-11-21T06:59:05.979Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T06:59:05.979Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T06:59:10.923Z] [32mINFO[0m: Bulk search completed {"processingTime":"10503.77ms","totalResults":9,"mailCount":2,"requestId":"b357a608-0630-448e-9b2b-bf3c27443b72"}[0m
+[32m[2024-11-21T06:59:10.923Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T06:59:10.931Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T06:59:10.931Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T06:59:10.931Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-11-21T06:59:10.932Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T06:59:10.932Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T06:59:10.934Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T06:59:10.939Z] [32mINFO[0m: ::1 - - [21/Nov/2024:06:59:10 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=1&page_size=5 HTTP/1.1" 200 113866 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T06:59:10.939Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"b357a608-0630-448e-9b2b-bf3c27443b72","statusCode":200,"responseTime":"11229ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:01:22.996Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:01:24.770Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c"}[0m
+[32m[2024-11-21T07:01:24.774Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:01:25.021Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c"}[0m
+[32m[2024-11-21T07:01:26.268Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c"}[0m
+[32m[2024-11-21T07:01:26.269Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":2,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-21T07:01:26.269Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:01:26.509Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c"}[0m
+[32m[2024-11-21T07:01:26.510Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":2,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c"}[0m
+[32m[2024-11-21T07:01:27.975Z] [32mINFO[0m: Bulk search completed {"processingTime":"1465.10ms","totalResults":9,"mailCount":2,"requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c"}[0m
+[32m[2024-11-21T07:01:27.976Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:01:27.976Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:01:27.976Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:01:27.976Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-11-21T07:01:27.977Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:01:27.977Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T07:01:27.979Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T07:01:27.982Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:01:27 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=2&page_size=5 HTTP/1.1" 200 65987 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:01:27.982Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"8fb2da4c-381e-4447-a24a-d4d614a75f6c","statusCode":200,"responseTime":"1713ms","pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-21T07:08:54.093Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T07:09:04.818Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T07:09:04.820Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T07:09:04.832Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T07:09:04.836Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T07:09:04.838Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T07:09:10.411Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:09:11.805Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f"}[0m
+[32m[2024-11-21T07:09:11.809Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:09:11.948Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T07:09:12.041Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f"}[0m
+[32m[2024-11-21T07:09:13.254Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f"}[0m
+[32m[2024-11-21T07:09:13.257Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":2,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-21T07:09:13.258Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:09:13.492Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f"}[0m
+[32m[2024-11-21T07:09:13.493Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":2,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f"}[0m
+[32m[2024-11-21T07:09:16.739Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T07:09:16.739Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T07:09:22.028Z] [32mINFO[0m: Bulk search completed {"processingTime":"8534.01ms","totalResults":9,"mailCount":2,"requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f"}[0m
+[32m[2024-11-21T07:09:22.029Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:09:22.033Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:09:22.033Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:09:22.033Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-11-21T07:09:22.033Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:09:22.034Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T07:09:22.036Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T07:09:22.040Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:09:22 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=2&page_size=5 HTTP/1.1" 200 65987 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:09:22.041Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"5efe5d3c-7b04-48d1-bdc0-f4952197be0f","statusCode":200,"responseTime":"8784ms","pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-21T07:10:17.468Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:10:18.845Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"4fd64ea5-6993-45eb-82e9-f7f334ca7783"}[0m
+[32m[2024-11-21T07:10:18.847Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T07:10:20.295Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"4fd64ea5-6993-45eb-82e9-f7f334ca7783"}[0m
+[32m[2024-11-21T07:10:20.296Z] [32mINFO[0m: Search by mail completed {"processingTime":"1448.74ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T07:10:20.296Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:10:20.303Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:10:20.303Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:10:20.303Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:10:20.303Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:10:20.303Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T07:10:20.306Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T07:10:20.309Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:10:20 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 109185 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:10:30.770Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:10:32.527Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"1611c21a-afd7-4272-93ca-f068271b8a6b"}[0m
+[32m[2024-11-21T07:10:32.528Z] [32mINFO[0m: Search initiated for mail: leo_sonnek@hotmail.com, page: 1, page_size: 50, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T07:10:33.490Z] [32mINFO[0m: Search completed for mail: leo_sonnek@hotmail.com {"total":8,"page":1,"pageSize":50,"requestId":"1611c21a-afd7-4272-93ca-f068271b8a6b"}[0m
+[32m[2024-11-21T07:10:33.490Z] [32mINFO[0m: Search by mail completed {"processingTime":"962.08ms","total":8,"page":1,"pageSize":50}[0m
+[32m[2024-11-21T07:10:33.490Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:10:33.492Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:10:33.492Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:10:33.492Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:10:33.492Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:10:33.493Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T07:10:33.493Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T07:10:33.496Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:10:33 +0000] "GET /api/json/v1/search-by-mail?sortby=date_compromised&sortorder=desc&page=1&type=all HTTP/1.1" 200 174542 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:10:58.715Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:11:00.092Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7fa8a728-aca1-432d-8450-f001156b1047"}[0m
+[32m[2024-11-21T07:11:00.094Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:11:00.325Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7fa8a728-aca1-432d-8450-f001156b1047"}[0m
+[32m[2024-11-21T07:11:01.522Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7fa8a728-aca1-432d-8450-f001156b1047"}[0m
+[32m[2024-11-21T07:11:01.523Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"7fa8a728-aca1-432d-8450-f001156b1047","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"prosegur.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:11:01.523Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:11:01.754Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7fa8a728-aca1-432d-8450-f001156b1047"}[0m
+[32m[2024-11-21T07:11:01.755Z] [32mINFO[0m: Domain search initiated {"domain":"prosegur.com","page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"desc","requestId":"7fa8a728-aca1-432d-8450-f001156b1047"}[0m
+[32m[2024-11-21T07:11:03.795Z] [32mINFO[0m: Domain search completed {"domain":"prosegur.com","total":17,"processingTime":"2040.36ms","requestId":"7fa8a728-aca1-432d-8450-f001156b1047"}[0m
+[32m[2024-11-21T07:11:03.800Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:11:03 +0000] "GET /api/json/v1/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 237122 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:11:03.801Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"7fa8a728-aca1-432d-8450-f001156b1047","statusCode":200,"responseTime":"2278ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:30:41.871Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T07:31:05.071Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T07:31:05.073Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T07:31:05.085Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T07:31:05.088Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T07:31:05.090Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T07:31:08.320Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T07:31:12.328Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:31:12.565Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626"}[0m
+[32m[2024-11-21T07:31:12.569Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:31:12.798Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626"}[0m
+[32m[2024-11-21T07:31:14.005Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626"}[0m
+[32m[2024-11-21T07:31:14.013Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"prosegur.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:31:14.014Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:31:14.250Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626"}[0m
+[32m[2024-11-21T07:31:14.253Z] [32mINFO[0m: Domain search initiated {"domain":"prosegur.com","page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"desc","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626"}[0m
+[32m[2024-11-21T07:31:17.262Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T07:31:17.263Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T07:31:21.854Z] [32mINFO[0m: Domain search completed {"domain":"prosegur.com","total":17,"processingTime":"7601.31ms","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626"}[0m
+[32m[2024-11-21T07:31:21.855Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:31:21.860Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:31:21.860Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:31:21.860Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:31:21.860Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:31:21.861Z] [32mINFO[0m: Document redesign domain middleware called[0m
+[32m[2024-11-21T07:31:22.010Z] [32mINFO[0m: Processing single domain search results[0m
+[32m[2024-11-21T07:31:22.119Z] [32mINFO[0m: Document redesign for domain completed[0m
+[32m[2024-11-21T07:31:22.122Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:31:22 +0000] "GET /api/json/v1/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 221375 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:31:22.122Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"6e36ca9c-1f45-4a08-9ba7-1d8cdbebe626","statusCode":200,"responseTime":"8109ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:31:47.064Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:31:48.865Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133"}[0m
+[32m[2024-11-21T07:31:48.870Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:31:49.120Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133"}[0m
+[32m[2024-11-21T07:31:50.878Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133"}[0m
+[32m[2024-11-21T07:31:50.879Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":2,"page_size":5},"body":{"domains":[{"0":"p","1":"r","2":"o","3":"s","4":"e","5":"g","6":"u","7":"r","8":".","9":"c","10":"o","11":"m"},{"0":"h","1":"p","2":".","3":"c","4":"o","5":"m"}]},"pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-21T07:31:50.879Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:31:51.623Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133"}[0m
+[32m[2024-11-21T07:31:51.624Z] [32mINFO[0m: Bulk domain search initiated {"domainCount":2,"page":2,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133"}[0m
+[32m[2024-11-21T07:31:56.665Z] [32mINFO[0m: Bulk domain search completed {"processingTime":"5040.64ms","totalResults":794,"domainCount":2,"requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133"}[0m
+[32m[2024-11-21T07:31:56.665Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:31:56.670Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:31:56.670Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:31:56.670Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=asc[0m
+[32m[2024-11-21T07:31:56.671Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:31:56.671Z] [32mINFO[0m: Document redesign domain middleware called[0m
+[32m[2024-11-21T07:31:56.915Z] [32mINFO[0m: Processing bulk domain search results[0m
+[32m[2024-11-21T07:31:57.069Z] [32mINFO[0m: Document redesign for domain completed[0m
+[32m[2024-11-21T07:31:57.071Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:31:57 +0000] "POST /api/json/v1/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=2&page_size=5 HTTP/1.1" 200 310747 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:31:57.072Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-domain/bulk","requestId":"257b4101-e6fa-439f-8b59-834cfc5d8133","statusCode":200,"responseTime":"6192ms","pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-21T07:32:10.145Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:32:11.594Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"1b1d4c06-300e-481e-bf46-c87e832c4480"}[0m
+[32m[2024-11-21T07:32:13.343Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"1b1d4c06-300e-481e-bf46-c87e832c4480"}[0m
+[32m[2024-11-21T07:32:13.344Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"1b1d4c06-300e-481e-bf46-c87e832c4480","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"login":"leo_sonnek@hotmail.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:32:13.345Z] [32mINFO[0m: Internal login search initiated {"login":"leo_sonnek@hotmail.com","page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"1b1d4c06-300e-481e-bf46-c87e832c4480"}[0m
+[32m[2024-11-21T07:32:22.884Z] [32mINFO[0m: Internal login search completed {"login":"leo_sonnek@hotmail.com","total":8,"processingTime":"9538.73ms","requestId":"1b1d4c06-300e-481e-bf46-c87e832c4480"}[0m
+[32m[2024-11-21T07:32:22.884Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:32:22.886Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:32:22.886Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:32:22.886Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:32:22.886Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:32:22.891Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:32:22 +0000] "GET /api/json/internal/search-by-login?page=1&page_size=5 HTTP/1.1" 200 118442 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:32:22.891Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-login","requestId":"1b1d4c06-300e-481e-bf46-c87e832c4480","statusCode":200,"responseTime":"9547ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:32:40.729Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:32:42.161Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"4f5267ff-1376-4453-9f33-9490561e0017"}[0m
+[32m[2024-11-21T07:32:44.407Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"4f5267ff-1376-4453-9f33-9490561e0017"}[0m
+[32m[2024-11-21T07:32:44.408Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"4f5267ff-1376-4453-9f33-9490561e0017","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":50},"body":{"login":"admin"},"pagination":{"page":1,"page_size":50}}[0m
+[32m[2024-11-21T07:32:44.409Z] [32mINFO[0m: Internal login search initiated {"login":"admin","page":1,"pageSize":50,"sortby":"date_compromised","sortorder":"desc","requestId":"4f5267ff-1376-4453-9f33-9490561e0017"}[0m
+[32m[2024-11-21T07:33:08.569Z] [32mINFO[0m: Internal login search completed {"login":"admin","total":8564,"processingTime":"24159.75ms","requestId":"4f5267ff-1376-4453-9f33-9490561e0017"}[0m
+[32m[2024-11-21T07:33:08.569Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:33:08.581Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:33:08.582Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:33:08.582Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:33:08.582Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:33:08.594Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:33:08 +0000] "GET /api/json/internal/search-by-login?page=1 HTTP/1.1" 200 1933849 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:33:08.594Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-login","requestId":"4f5267ff-1376-4453-9f33-9490561e0017","statusCode":200,"responseTime":"24186ms","pagination":{"page":1,"page_size":50}}[0m
+[32m[2024-11-21T07:35:39.265Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:35:42.138Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"981b067e-eb04-494f-93f1-596346d33456"}[0m
+[32m[2024-11-21T07:35:43.414Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"981b067e-eb04-494f-93f1-596346d33456"}[0m
+[32m[2024-11-21T07:35:43.415Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"981b067e-eb04-494f-93f1-596346d33456","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"login":"leo_sonnek@hotmail.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:35:43.417Z] [32mINFO[0m: Internal login search initiated {"login":"leo_sonnek@hotmail.com","page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"981b067e-eb04-494f-93f1-596346d33456"}[0m
+[32m[2024-11-21T07:35:48.851Z] [32mINFO[0m: Internal login search completed {"login":"leo_sonnek@hotmail.com","total":8,"processingTime":"5434.57ms","requestId":"981b067e-eb04-494f-93f1-596346d33456"}[0m
+[32m[2024-11-21T07:35:48.851Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:35:48.853Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:35:48.853Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:35:48.853Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:35:48.853Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:35:48.856Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:35:48 +0000] "GET /api/json/internal/search-by-login?page=1&page_size=5 HTTP/1.1" 200 118442 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:35:48.856Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-login","requestId":"981b067e-eb04-494f-93f1-596346d33456","statusCode":200,"responseTime":"5440ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:35:56.664Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:35:58.163Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"fd4dd067-8ba2-423e-ad15-e41d97dccec4"}[0m
+[32m[2024-11-21T07:35:59.447Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"fd4dd067-8ba2-423e-ad15-e41d97dccec4"}[0m
+[32m[2024-11-21T07:35:59.448Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"fd4dd067-8ba2-423e-ad15-e41d97dccec4","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"desc","page":1,"page_size":5},"body":{"logins":[{"0":"l","1":"e","2":"o","3":"_","4":"s","5":"o","6":"n","7":"n","8":"e","9":"k","10":"@","11":"h","12":"o","13":"t","14":"m","15":"a","16":"i","17":"l","18":".","19":"c","20":"o","21":"m"},{"0":"l","1":"e","2":"o","3":"s","4":"o","5":"n","6":"n","7":"e","8":"k","9":"2","10":"8","11":"@","12":"g","13":"m","14":"a","15":"i","16":"l","17":".","18":"c","19":"o","20":"m"}]},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:35:59.449Z] [32mINFO[0m: Internal bulk login search initiated {"loginCount":2,"page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"fd4dd067-8ba2-423e-ad15-e41d97dccec4"}[0m
+[32m[2024-11-21T07:36:07.925Z] [32mINFO[0m: Internal bulk login search completed {"processingTime":"8475.93ms","totalResults":16,"loginCount":2,"requestId":"fd4dd067-8ba2-423e-ad15-e41d97dccec4"}[0m
+[32m[2024-11-21T07:36:07.926Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:36:07.929Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:36:07.929Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:36:07.929Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:36:07.929Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:36:07.933Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:36:07 +0000] "POST /api/json/internal/search-by-login/bulk?sortby=date_compromised&sortorder=desc&page=1&page_size=5 HTTP/1.1" 200 237186 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:36:07.933Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-login/bulk","requestId":"fd4dd067-8ba2-423e-ad15-e41d97dccec4","statusCode":200,"responseTime":"8485ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:36:46.953Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:36:49.797Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"ee1eea7e-0ef9-4950-ac7e-9af27c7b8b3f"}[0m
+[32m[2024-11-21T07:36:52.211Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"ee1eea7e-0ef9-4950-ac7e-9af27c7b8b3f"}[0m
+[32m[2024-11-21T07:36:52.211Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"ee1eea7e-0ef9-4950-ac7e-9af27c7b8b3f","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"testingdomainapi.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:36:52.213Z] [32mINFO[0m: Internal domain search initiated {"domain":"testingdomainapi.com","page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"ee1eea7e-0ef9-4950-ac7e-9af27c7b8b3f"}[0m
+[32m[2024-11-21T07:36:55.373Z] [32mINFO[0m: Internal domain search completed {"domain":"testingdomainapi.com","total":0,"processingTime":"3159.89ms","requestId":"ee1eea7e-0ef9-4950-ac7e-9af27c7b8b3f"}[0m
+[32m[2024-11-21T07:36:55.373Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:36:55.373Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:36:55.373Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:36:55.374Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:36:55.374Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:36:55.375Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:36:55 +0000] "GET /api/json/internal/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 137 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:36:55.376Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"ee1eea7e-0ef9-4950-ac7e-9af27c7b8b3f","statusCode":200,"responseTime":"3164ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:37:02.280Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:37:02.530Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"63609d79-adfe-43e6-8c7a-3868b643cfa6"}[0m
+[32m[2024-11-21T07:37:03.826Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"63609d79-adfe-43e6-8c7a-3868b643cfa6"}[0m
+[32m[2024-11-21T07:37:03.827Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"63609d79-adfe-43e6-8c7a-3868b643cfa6","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":50},"body":{"domain":"pornhub.com"},"pagination":{"page":1,"page_size":50}}[0m
+[32m[2024-11-21T07:37:03.827Z] [32mINFO[0m: Internal domain search initiated {"domain":"pornhub.com","page":1,"pageSize":50,"sortby":"date_compromised","sortorder":"desc","requestId":"63609d79-adfe-43e6-8c7a-3868b643cfa6"}[0m
+[32m[2024-11-21T07:37:07.101Z] [32mINFO[0m: Internal domain search completed {"domain":"pornhub.com","total":898,"processingTime":"3273.92ms","requestId":"63609d79-adfe-43e6-8c7a-3868b643cfa6"}[0m
+[32m[2024-11-21T07:37:07.101Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:37:07.128Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:37:07.128Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:37:07.128Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:37:07.129Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:37:07.153Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:37:07 +0000] "GET /api/json/internal/search-by-domain?page=1 HTTP/1.1" 200 2354012 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:37:07.153Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"63609d79-adfe-43e6-8c7a-3868b643cfa6","statusCode":200,"responseTime":"3326ms","pagination":{"page":1,"page_size":50}}[0m
+[32m[2024-11-21T07:58:23.016Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T07:58:33.162Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T07:58:33.164Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T07:58:33.176Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T07:58:33.178Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T07:58:33.180Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T07:58:38.821Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T07:58:46.528Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:58:46.764Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6"}[0m
+[32m[2024-11-21T07:58:46.769Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:58:46.995Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6"}[0m
+[32m[2024-11-21T07:58:48.174Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6"}[0m
+[32m[2024-11-21T07:58:48.175Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"prosegur.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T07:58:48.176Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T07:58:48.400Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6"}[0m
+[32m[2024-11-21T07:58:48.401Z] [32mINFO[0m: Domain search initiated {"domain":"prosegur.com","page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"desc","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6"}[0m
+[32m[2024-11-21T07:58:53.533Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T07:58:53.534Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T07:59:12.374Z] [32mINFO[0m: Domain search completed {"domain":"prosegur.com","total":17,"processingTime":"23972.40ms","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6"}[0m
+[32m[2024-11-21T07:59:12.374Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T07:59:12.382Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T07:59:12.383Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T07:59:12.383Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T07:59:12.383Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T07:59:12.383Z] [32mINFO[0m: Document redesign domain middleware called[0m
+[32m[2024-11-21T07:59:12.383Z] [32mINFO[0m: Processing single domain search results[0m
+[32m[2024-11-21T07:59:12.504Z] [32mINFO[0m: Document redesign for domain completed[0m
+[32m[2024-11-21T07:59:12.507Z] [32mINFO[0m: ::1 - - [21/Nov/2024:07:59:12 +0000] "GET /api/json/v1/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 221496 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T07:59:12.507Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"9cb2cd4b-9132-49ed-9b0d-07e8235fa7b6","statusCode":200,"responseTime":"24332ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:13:55.385Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T08:14:18.967Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T08:14:18.969Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T08:14:18.981Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T08:14:18.984Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T08:14:18.986Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T08:14:22.707Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T08:14:24.252Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:14:24.495Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad"}[0m
+[32m[2024-11-21T08:14:24.499Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:14:24.736Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad"}[0m
+[32m[2024-11-21T08:14:26.942Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad"}[0m
+[32m[2024-11-21T08:14:26.943Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"prosegur.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:14:26.944Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:14:27.183Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad"}[0m
+[32m[2024-11-21T08:14:27.186Z] [32mINFO[0m: Domain search initiated {"domain":"prosegur.com","page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"desc","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad"}[0m
+[32m[2024-11-21T08:14:29.103Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T08:14:29.105Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T08:14:36.001Z] [32mINFO[0m: Domain search completed {"domain":"prosegur.com","total":17,"processingTime":"8814.98ms","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad"}[0m
+[32m[2024-11-21T08:14:36.002Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T08:14:36.008Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T08:14:36.008Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T08:14:36.008Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T08:14:36.008Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T08:14:36.009Z] [32mINFO[0m: Document redesign domain middleware called[0m
+[32m[2024-11-21T08:14:36.009Z] [32mINFO[0m: Processing single domain search results[0m
+[32m[2024-11-21T08:14:36.137Z] [32mINFO[0m: Document redesign for domain completed[0m
+[32m[2024-11-21T08:14:36.140Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:14:36 +0000] "GET /api/json/v1/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 221494 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:14:36.140Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"28927d89-89b6-4b7b-a6aa-b325d526dbad","statusCode":200,"responseTime":"9197ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:16:07.928Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:16:10.501Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"60d71496-d3f4-4d42-9d46-654b3da585c5"}[0m
+[32m[2024-11-21T08:16:10.503Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-21T08:16:11.480Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"60d71496-d3f4-4d42-9d46-654b3da585c5"}[0m
+[32m[2024-11-21T08:16:11.481Z] [32mINFO[0m: Search by mail completed {"processingTime":"977.42ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-21T08:16:11.481Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T08:16:11.483Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T08:16:11.484Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T08:16:11.484Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T08:16:11.485Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T08:16:11.486Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-21T08:16:11.488Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-21T08:16:11.491Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:16:11 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 109179 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:16:29.404Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:16:30.787Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a7d5cc91-5719-4e5f-bd40-72605dd61ed7"}[0m
+[32m[2024-11-21T08:16:31.990Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"a7d5cc91-5719-4e5f-bd40-72605dd61ed7"}[0m
+[32m[2024-11-21T08:16:31.991Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"a7d5cc91-5719-4e5f-bd40-72605dd61ed7","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"login":"leo_sonnek@hotmail.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:16:31.993Z] [32mINFO[0m: Internal login search initiated {"login":"leo_sonnek@hotmail.com","page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"a7d5cc91-5719-4e5f-bd40-72605dd61ed7"}[0m
+[32m[2024-11-21T08:16:34.075Z] [32mINFO[0m: Internal login search completed {"login":"leo_sonnek@hotmail.com","total":8,"processingTime":"2082.10ms","requestId":"a7d5cc91-5719-4e5f-bd40-72605dd61ed7"}[0m
+[32m[2024-11-21T08:16:34.075Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T08:16:34.076Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T08:16:34.076Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T08:16:34.076Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T08:16:34.076Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T08:16:34.079Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:16:34 +0000] "GET /api/json/internal/search-by-login?page=1&page_size=5 HTTP/1.1" 200 118442 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:16:34.079Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-login","requestId":"a7d5cc91-5719-4e5f-bd40-72605dd61ed7","statusCode":200,"responseTime":"2087ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:24:52.436Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:24:54.204Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"04939d02-38d4-47e1-89ca-41cfc867eee0"}[0m
+[32m[2024-11-21T08:24:55.445Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"04939d02-38d4-47e1-89ca-41cfc867eee0"}[0m
+[32m[2024-11-21T08:24:55.446Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"04939d02-38d4-47e1-89ca-41cfc867eee0","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"testingdomainapi.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:24:55.447Z] [32mINFO[0m: Internal domain search initiated {"domain":"testingdomainapi.com","page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"04939d02-38d4-47e1-89ca-41cfc867eee0"}[0m
+[32m[2024-11-21T08:24:59.525Z] [32mINFO[0m: Internal domain search completed {"domain":"testingdomainapi.com","total":0,"processingTime":"4077.95ms","requestId":"04939d02-38d4-47e1-89ca-41cfc867eee0"}[0m
+[32m[2024-11-21T08:24:59.526Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T08:24:59.526Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T08:24:59.526Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T08:24:59.526Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T08:24:59.526Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T08:24:59.529Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:24:59 +0000] "GET /api/json/internal/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 137 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:24:59.529Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"04939d02-38d4-47e1-89ca-41cfc867eee0","statusCode":200,"responseTime":"4083ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:25:09.429Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:25:10.817Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"d7d27315-d247-4d66-a00e-20bf7b26777f"}[0m
+[32m[2024-11-21T08:25:12.018Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"d7d27315-d247-4d66-a00e-20bf7b26777f"}[0m
+[32m[2024-11-21T08:25:12.019Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"d7d27315-d247-4d66-a00e-20bf7b26777f","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":50},"body":{"domain":"pornhub.com"},"pagination":{"page":1,"page_size":50}}[0m
+[32m[2024-11-21T08:25:12.020Z] [32mINFO[0m: Internal domain search initiated {"domain":"pornhub.com","page":1,"pageSize":50,"sortby":"date_compromised","sortorder":"desc","requestId":"d7d27315-d247-4d66-a00e-20bf7b26777f"}[0m
+[32m[2024-11-21T08:25:15.247Z] [32mINFO[0m: Internal domain search completed {"domain":"pornhub.com","total":898,"processingTime":"3226.72ms","requestId":"d7d27315-d247-4d66-a00e-20bf7b26777f"}[0m
+[32m[2024-11-21T08:25:15.247Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T08:25:15.282Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T08:25:15.282Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T08:25:15.282Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T08:25:15.282Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T08:25:15.304Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:25:15 +0000] "GET /api/json/internal/search-by-domain?page=1 HTTP/1.1" 200 2354012 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:25:15.304Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"d7d27315-d247-4d66-a00e-20bf7b26777f","statusCode":200,"responseTime":"3284ms","pagination":{"page":1,"page_size":50}}[0m
+[32m[2024-11-21T08:25:46.856Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:25:48.254Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"d2ae4285-5107-401c-b5a9-8989bbd84efa"}[0m
+[32m[2024-11-21T08:25:48.724Z] [32mINFO[0m: Retrieved usage stats for API key d7f10e14-d3c1-4973-af22-b59070ee24bd {"daily_requests":20,"monthly_requests":97,"total_requests":"97","daily_limit":50,"monthly_limit":150,"last_request_date":"2024-11-21","timezone":"UTC","status":"active","remaining_daily_requests":30,"remaining_monthly_requests":53}[0m
+[32m[2024-11-21T08:25:48.726Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:25:48 +0000] "GET /api/json/v1/usage HTTP/1.1" 200 182 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:28:13.264Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:28:15.309Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737"}[0m
+[32m[2024-11-21T08:28:15.313Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:28:16.093Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737"}[0m
+[32m[2024-11-21T08:28:17.462Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737"}[0m
+[32m[2024-11-21T08:28:17.463Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"prosegur.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T08:28:17.464Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T08:28:17.708Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737"}[0m
+[32m[2024-11-21T08:28:17.709Z] [32mINFO[0m: Domain search initiated {"domain":"prosegur.com","page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"desc","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737"}[0m
+[32m[2024-11-21T08:28:19.364Z] [32mINFO[0m: Domain search completed {"domain":"prosegur.com","total":17,"processingTime":"1655.30ms","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737"}[0m
+[32m[2024-11-21T08:28:19.365Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T08:28:19.369Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T08:28:19.369Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T08:28:19.369Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T08:28:19.369Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T08:28:19.369Z] [32mINFO[0m: Document redesign domain middleware called[0m
+[32m[2024-11-21T08:28:19.369Z] [32mINFO[0m: Processing single domain search results[0m
+[32m[2024-11-21T08:28:19.519Z] [32mINFO[0m: Document redesign for domain completed[0m
+[32m[2024-11-21T08:28:19.521Z] [32mINFO[0m: ::1 - - [21/Nov/2024:08:28:19 +0000] "GET /api/json/v1/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 221494 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T08:28:19.521Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"baee8c9b-bc1e-49c6-95aa-0cbccfdb2737","statusCode":200,"responseTime":"2058ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T17:53:42.612Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-21T17:53:51.090Z] [32mINFO[0m: Registering internal domain search routes {"endpoints":["GET /search-by-domain","POST /search-by-domain"]}[0m
+[32m[2024-11-21T17:53:51.092Z] [32mINFO[0m: Registering internal domain bulk search route {"endpoints":["POST /search-by-domain/bulk"]}[0m
+[32m[2024-11-21T17:53:51.105Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-21T17:53:51.108Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-21T17:53:51.109Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-21T17:53:58.127Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T17:54:00.254Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786"}[0m
+[32m[2024-11-21T17:54:00.257Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T17:54:00.319Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-21T17:54:00.486Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786"}[0m
+[32m[2024-11-21T17:54:01.691Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786"}[0m
+[32m[2024-11-21T17:54:01.693Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"prosegur.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-21T17:54:01.694Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-21T17:54:01.940Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786"}[0m
+[32m[2024-11-21T17:54:01.943Z] [32mINFO[0m: Domain search initiated {"domain":"prosegur.com","page":1,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"desc","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786"}[0m
+[32m[2024-11-21T17:54:03.591Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-21T17:54:03.591Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-21T17:54:15.666Z] [32mINFO[0m: Domain search completed {"domain":"prosegur.com","total":17,"processingTime":"13723.31ms","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786"}[0m
+[32m[2024-11-21T17:54:15.666Z] [32mINFO[0m: Date normalization middleware called[0m
+[32m[2024-11-21T17:54:15.673Z] [32mINFO[0m: Date normalization completed[0m
+[32m[2024-11-21T17:54:15.673Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-21T17:54:15.673Z] [32mINFO[0m: Sorting parameters: sortBy=Log date, sortOrder=desc[0m
+[32m[2024-11-21T17:54:15.673Z] [32mINFO[0m: Sorting completed[0m
+[32m[2024-11-21T17:54:15.673Z] [32mINFO[0m: Document redesign domain middleware called[0m
+[32m[2024-11-21T17:54:15.673Z] [32mINFO[0m: Processing single domain search results[0m
+[32m[2024-11-21T17:54:15.800Z] [32mINFO[0m: Document redesign for domain completed[0m
+[32m[2024-11-21T17:54:15.803Z] [32mINFO[0m: ::1 - - [21/Nov/2024:17:54:15 +0000] "GET /api/json/v1/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 221495 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-21T17:54:15.803Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"c41b2f5b-f826-4513-8142-e669cb06a786","statusCode":200,"responseTime":"14110ms","pagination":{"page":1,"page_size":5}}[0m

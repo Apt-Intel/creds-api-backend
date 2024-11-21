@@ -574,125 +574,133 @@ const createBulkPaginatedResponse = ({
 };
 ```
 
-##### 4.4 Controller Implementation Pattern
+#### 4. Controller Implementation Pattern
 
-Controllers should follow this pattern for handling pagination:
+##### 4.1 Standard Controller Pattern
 
-```js
-async function searchEndpoint(req, res, next) {
-  const page = parseInt(req.query.page, 10) || 1;
-  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
+```javascript
+async function controllerFunction(req, res, next) {
+  const startTime = performance.now();
+  try {
+    // 1. Extract and validate parameters
+    const page = parseInt(req.query.page, 10) || 1;
+    const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
+    const sortby = req.query.sortby || "date_compromised";
+    const sortorder = req.query.sortorder || "desc";
+    const type = req.query.type || "strict";
 
-  // Validate pagination parameters
-  const paginationValidation = validatePaginationParams(page, pageSize);
-  if (!paginationValidation.isValid) {
-    return res.status(400).json({ errors: paginationValidation.errors });
-  }
-
-  // Get pagination parameters
-  const { limit, skip } = getPaginationParams(page, pageSize);
-
-  // Execute query with pagination
-  const [results, total] = await Promise.all([
-    collection.find(query).skip(skip).limit(limit).toArray(),
-    collection.countDocuments(query),
-  ]);
-
-  // Create paginated response
-  const response = createPaginatedResponse({
-    total,
-    page,
-    pageSize: limit,
-    results,
-    metadata: {
-      // Additional metadata
-    },
-  });
-
-  req.searchResults = response;
-  next();
-}
-```
-
-##### 4.5 Bulk Operation Pattern
-
-For bulk operations, use this pattern:
-
-```js
-async function bulkSearchEndpoint(req, res, next) {
-  const { items } = req.body;
-  const page = parseInt(req.query.page, 10) || 1;
-  const pageSize = parseInt(req.query.page_size, 10) || DEFAULT_PAGE_SIZE;
-
-  // Validation and pagination setup
-  const { limit, skip } = getPaginationParams(page, pageSize);
-
-  // Execute bulk queries
-  const searchResults = await Promise.all(
-    items.map(async (item) => {
-      const [results, total] = await Promise.all([
-        collection.find(query).skip(skip).limit(limit).toArray(),
-        collection.countDocuments(query),
-      ]);
-      return { item, total, data: results };
-    })
-  );
-
-  // Create bulk paginated response
-  const response = createBulkPaginatedResponse({
-    totalResults,
-    page,
-    pageSize: limit,
-    results: searchResults,
-    metadata: {
-      // Additional metadata
-    },
-  });
-
-  req.searchResults = response;
-  next();
-}
-```
-
-#### 5. Endpoint Response Structures
-
-##### 5.1 Single Search Response
-
-```json
-{
-  "pagination": {
-    "total_items": 100,
-    "total_pages": 5,
-    "current_page": 2,
-    "page_size": 20,
-    "has_next_page": true,
-    "has_previous_page": true,
-    "next_page": 3,
-    "previous_page": 1
-  },
-  "metadata": {
-    "query_type": "strict",
-    "sort": {
-      "field": "date_compromised",
-      "order": "desc"
+    // 2. Validate parameters
+    const paginationValidation = validatePaginationParams(page, pageSize);
+    if (!paginationValidation.isValid) {
+      throw errorUtils.validationError("Invalid pagination parameters", {
+        errors: paginationValidation.errors,
+      });
     }
-  },
-  "results": [
-    // Array of results
-  ]
+
+    // 3. Execute query
+    const { limit, skip } = getPaginationParams(page, pageSize);
+    const [results, total] = await Promise.all([
+      collection.find(query).skip(skip).limit(limit).toArray(),
+      collection.countDocuments(query),
+    ]);
+
+    // 4. Set searchResults for middleware processing
+    req.searchResults = {
+      meta: {
+        // Changed from metadata to meta
+        query_type: type,
+        sort: {
+          field: sortby,
+          order: sortorder,
+        },
+        processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
+      },
+      total,
+      page,
+      pageSize,
+      data: results,
+    };
+
+    next();
+  } catch (error) {
+    next(error);
+  }
 }
 ```
 
-##### 5.2 Bulk Search Response
+##### 4.2 Bulk Controller Pattern
+
+```javascript
+async function bulkControllerFunction(req, res, next) {
+  const startTime = performance.now();
+  try {
+    // Similar parameter extraction and validation...
+
+    // Process each item
+    const searchResults = await Promise.all(
+      items.map(async (item) => {
+        const [results, total] = await Promise.all([
+          collection.find(query).skip(skip).limit(limit).toArray(),
+          collection.countDocuments(query),
+        ]);
+
+        return {
+          identifier: item, // mail, domain, or login
+          pagination: {
+            total_items: total,
+            total_pages: Math.ceil(total / pageSize),
+            current_page: page,
+            page_size: pageSize,
+            has_next_page: skip + limit < total,
+            has_previous_page: page > 1,
+            next_page: skip + limit < total ? page + 1 : null,
+            previous_page: page > 1 ? page - 1 : null,
+          },
+          data: results,
+        };
+      })
+    );
+
+    // Set searchResults
+    req.searchResults = {
+      meta: {
+        // Changed from metadata to meta
+        query_type: type,
+        sort: {
+          field: sortby,
+          order: sortorder,
+        },
+        processing_time: `${(performance.now() - startTime).toFixed(2)}ms`,
+      },
+      search_counts: Object.fromEntries(
+        searchResults.map((result) => [
+          result.identifier,
+          result.pagination.total_items,
+        ])
+      ),
+      total: searchResults.reduce(
+        (sum, result) => sum + result.pagination.total_items,
+        0
+      ),
+      page,
+      pageSize,
+      data: searchResults,
+    };
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+```
+
+#### 5. Response Structures
+
+##### 5.1 V1 Single Search Response
 
 ```json
 {
-  "pagination": {
-    "total_items": 150,
-    "current_page": 1,
-    "page_size": 20
-  },
-  "metadata": {
+  "meta": {
     "query_type": "strict",
     "sort": {
       "field": "date_compromised",
@@ -700,19 +708,79 @@ async function bulkSearchEndpoint(req, res, next) {
     },
     "processing_time": "123.45ms"
   },
-  "results": [
+  "total": 17,
+  "page": 1,
+  "pageSize": 5,
+  "data": [
     {
-      "item": "search_item",
-      "total": 50,
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "InternalCredentials": [...],
+      "ExternalCredentials": [...],
+      "CustomerCredentials": [...],
+      "OtherCredentials": [...]
+    }
+  ]
+}
+```
+
+##### 5.2 V1 Bulk Search Response
+
+```json
+{
+  "meta": {
+    "query_type": "strict",
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "234.56ms"
+  },
+  "search_counts": {
+    "identifier1": 100,
+    "identifier2": 50
+  },
+  "total": 150,
+  "page": 1,
+  "pageSize": 50,
+  "data": [
+    {
+      "identifier": "identifier1",
       "pagination": {
-        "total_items": 50,
-        "total_pages": 3,
+        "total_items": 100,
+        "total_pages": 2,
         "current_page": 1,
-        "page_size": 20
+        "page_size": 50,
+        "has_next_page": true,
+        "has_previous_page": false,
+        "next_page": 2,
+        "previous_page": null
       },
-      "data": [
-        // Array of results
-      ]
+      "data": [...]
+    }
+  ]
+}
+```
+
+##### 5.3 Internal Routes Response
+
+```json
+{
+  "meta": {
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "total": 17,
+  "page": 1,
+  "pageSize": 5,
+  "data": [
+    {
+      "Log date": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z",
+      "Credentials": [...]
     }
   ]
 }
@@ -801,34 +869,188 @@ module.exports = router;
 
 Remember to update the `app.js` file to include the new route, using the appropriate path for v1 or internal APIs.
 
-#### 8. Best Practices
+#### 8. Error Handling Implementation
 
-- **Use meaningful HTTP methods** (`GET`, `POST`, `PUT`, `DELETE`) for different operations.
-- **Implement proper error handling and logging** in all controllers and middlewares.
-- **Use environment variables** for configuration and sensitive information.
-- **Follow RESTful naming conventions** for endpoints.
-- **Implement input validation** for all incoming data.
-- **Use the logger** for consistent logging across the application.
-- **Store sensitive information** like API keys in the `.env` file.
-- **Ensure proper error handling** in controllers and middlewares.
-- **Use the middleware chain** (`dateNormalizationMiddleware`, `sortingMiddleware`, `documentRedesignMiddleware`, `sendResponseMiddleware`) for consistent data processing and response handling.
-- **Clearly distinguish** between v1 (consumer-facing) and internal routes and controllers.
-- Implement thorough input validation for all parameters.
-- Use `validator` library for input validation and sanitization.
-- Implement detailed logging for better traceability and debugging.
-- Handle errors gracefully and provide meaningful error messages.
-- Use environment variables to control the level of error details exposed in production.
+##### 8.1 Error Handler Middleware
+
+```javascript
+const errorHandlerMiddleware = (err, req, res, next) => {
+  const statusCode = err.status || err.statusCode || 500;
+  const errorCode = ERROR_CODES[statusCode] || "UNKNOWN_ERROR";
+
+  const errorResponse = {
+    meta: {
+      error: {
+        code: errorCode,
+        message: err.message || "An unexpected error occurred",
+        details:
+          process.env.NODE_ENV === "production"
+            ? undefined
+            : {
+                stack: err.stack,
+                requestId: req.requestId,
+              },
+      },
+    },
+    data: null,
+  };
+
+  res.status(statusCode).json(errorResponse);
+};
+```
+
+##### 8.2 Error Utility Functions
+
+```javascript
+const createAPIError = (message, statusCode = 500, details = {}) => {
+  return new APIError(message, statusCode, details);
+};
+
+class APIError extends Error {
+  constructor(message, statusCode, details = {}) {
+    super(message);
+    this.name = "APIError";
+    this.statusCode = statusCode;
+    this.details = details;
+  }
+}
+```
+
+#### 9. Rate Limiting Implementation
+
+##### 9.1 Basic Rate Limiter
+
+```javascript
+const rateLimiter = rateLimit({
+  store: new RedisStore({
+    sendCommand: (...args) => redisClient.call(...args),
+  }),
+  windowMs: 60 * 1000, // 1 minute
+  max: (req) => req.apiKeyData.rate_limit || 1000,
+  keyGenerator: (req) => `rate-limit:${req.apiKeyData.id}`,
+});
+```
+
+##### 9.2 Complex Rate Limiter
+
+```javascript
+const complexRateLimitMiddleware = async (req, res, next) => {
+  try {
+    if (req.path === USAGE_ENDPOINT) {
+      return next();
+    }
+
+    await updateUsageStats(req);
+    next();
+  } catch (error) {
+    if (error instanceof UsageLimitExceededError) {
+      res.set("Retry-After", error.retryAfter);
+      return res.status(429).json({
+        meta: {
+          error: {
+            code: "RATE_LIMIT_EXCEEDED",
+            message: `Your ${error.limitType} usage limit has been exceeded.`,
+            retryAfter: error.retryAfter,
+          },
+        },
+        data: null,
+      });
+    }
+    next(error);
+  }
+};
+```
+
+#### 10. Usage Tracking Implementation
+
+##### 10.1 Usage Service
+
+```javascript
+const updateUsageStats = async (req) => {
+  const apiKeyId = req.apiKeyData.id;
+  const now = new Date();
+
+  // Update daily and monthly usage
+  await Promise.all([
+    updateDailyUsage(apiKeyId, now),
+    updateMonthlyUsage(apiKeyId, now),
+  ]);
+
+  // Check limits
+  await checkUsageLimits(apiKeyId);
+};
+```
+
+##### 10.2 Usage Endpoint Implementation
+
+```javascript
+router.get("/usage", async (req, res) => {
+  try {
+    const apiKeyId = req.apiKeyData.id;
+    const usageStats = await getUsageStats(apiKeyId);
+
+    res.json({
+      remaining_daily_requests: usageStats.remaining_daily_requests,
+      remaining_monthly_requests: usageStats.remaining_monthly_requests,
+      total_daily_limit: usageStats.daily_limit,
+      total_monthly_limit: usageStats.monthly_limit,
+      current_daily_usage: usageStats.daily_requests,
+      current_monthly_usage: usageStats.monthly_requests,
+      status: usageStats.status,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+```
+
+#### 11. Best Practices for Implementation
+
+##### 11.1 Controller Implementation
+
+- Use async/await for asynchronous operations
+- Implement proper error handling using try/catch
+- Use the standard response structure
+- Include request timing measurements
+- Log important operations
+
+##### 11.2 Middleware Implementation
+
+- Keep middleware focused on a single responsibility
+- Use next(error) for error propagation
+- Implement proper logging
+- Handle edge cases appropriately
+
+##### 11.3 Route Implementation
+
+- Use proper HTTP methods
+- Implement proper middleware chain
+- Include all necessary validations
+- Follow RESTful naming conventions
+
+##### 11.4 Error Handling
+
+- Use standardized error responses
+- Include appropriate error codes
+- Provide meaningful error messages
+- Handle all possible error scenarios
+
+##### 11.5 Security Best Practices
+
+- Validate all input parameters
+- Implement proper rate limiting
+- Use secure headers
+- Implement proper authentication checks
 
 By following these guidelines and examples, new engineers can effectively implement and maintain API endpoints, routes, controllers, and middlewares in this application.
 
-#### 9. Current File Structure
-
-The following file structure represents the organization of the codebase, highlighting the key components like the structure of controllers, middlewares, and routes related to API endpoint implementations:
+#### 12. Current File Structure
 
 ```
 creds-api-backend
 ├── app.js
 ├── config/
+│   ├── constants.js
 │   ├── database.js
 │   ├── logger.js
 │   └── redisClient.js
@@ -838,37 +1060,818 @@ creds-api-backend
 │   │   ├── mailBulkController.js
 │   │   ├── domainController.js
 │   │   └── domainBulkController.js
-│   ├── internal/
+│   └── internal/
 │       ├── loginController.js
 │       ├── loginBulkController.js
 │       ├── domainController.js
 │       └── domainBulkController.js
 ├── middlewares/
+│   ├── apiKeyDataMiddleware.js
 │   ├── authMiddleware.js
+│   ├── complexRateLimitMiddleware.js
 │   ├── dateNormalizationMiddleware.js
-│   ├── sortingMiddleware.js
 │   ├── documentRedesignMiddleware.js
 │   ├── documentRedesignDomainMiddleware.js
-│   ├── sendResponseMiddleware.js
-│   ├── complexRateLimitMiddleware.js
+│   ├── errorHandlerMiddleware.js
+│   ├── rateLimiter.js
 │   ├── requestIdMiddleware.js
-│   └── rateLimitMiddleware.js
+│   ├── requestLogger.js
+│   ├── sendResponseMiddleware.js
+│   └── sortingMiddleware.js
 ├── routes/
 │   └── api/
 │       ├── v1/
-│           ├── searchByMail.js
-│           ├── searchByMailBulk.js
-│           ├── searchByDomain.js
-│           └── searchByDomainBulk.js
+│       │   ├── searchByMail.js
+│       │   ├── searchByMailBulk.js
+│       │   ├── searchByDomain.js
+│       │   ├── searchByDomainBulk.js
+│       │   └── usage.js
 │       └── internal/
 │           ├── searchByLogin.js
 │           ├── searchByLoginBulk.js
 │           ├── searchByDomain.js
 │           └── searchByDomainBulk.js
 ├── services/
-│   └── dateService.js
+│   ├── apiKeyService.js
+│   ├── dateService.js
+│   └── loggingService.js
 ├── utils/
+│   ├── apiKeyUtils.js
+│   ├── domainUtils.js
+│   ├── errorUtils.js
+│   ├── hashUtils.js
 │   ├── paginationUtils.js
-│   └── domainUtils.js
+│   └── responseUtils.js
 └── .env
+```
+
+#### 13. Middleware Chain Implementation
+
+##### 13.1 V1 Routes Middleware Chain
+
+```javascript
+router.get(
+  "/endpoint-path",
+  requestIdMiddleware, // Add request ID
+  authMiddleware, // API key validation
+  apiKeyDataMiddleware, // Attach API key data
+  rateLimiter, // Basic rate limiting
+  complexRateLimitMiddleware, // Usage-based rate limiting
+  requestLogger, // Request logging
+  controllerFunction, // Main controller logic
+  dateNormalizationMiddleware, // Date standardization
+  sortingMiddleware, // Result sorting
+  documentRedesignMiddleware, // Credential segregation
+  sendResponseMiddleware // Standard response formatting
+);
+```
+
+##### 13.2 Internal Routes Middleware Chain
+
+```javascript
+router.get(
+  "/endpoint-path",
+  requestIdMiddleware, // Add request ID
+  authMiddleware, // API key validation
+  apiKeyDataMiddleware, // Attach API key data
+  rateLimiter, // Basic rate limiting
+  complexRateLimitMiddleware, // Usage-based rate limiting
+  requestLogger, // Request logging
+  controllerFunction, // Main controller logic
+  dateNormalizationMiddleware, // Date standardization
+  sortingMiddleware, // Result sorting
+  sendResponseMiddleware // Standard response formatting
+);
+```
+
+#### 14. API Key Implementation
+
+##### 14.1 API Key Service
+
+```javascript
+const getApiKeyDetails = async (apiKey) => {
+  // Get API key details including:
+  // - Rate limits
+  // - Usage limits
+  // - Allowed endpoints
+  // - Status
+  return apiKeyData;
+};
+
+const updateApiKeyDetails = async (apiKey, updates) => {
+  // Update API key configuration
+  return updatedApiKeyData;
+};
+```
+
+##### 14.2 Usage Tracking
+
+```javascript
+const updateUsageStats = async (req) => {
+  const apiKeyId = req.apiKeyData.id;
+
+  // Update usage statistics
+  await Promise.all([updateDailyUsage(apiKeyId), updateMonthlyUsage(apiKeyId)]);
+
+  // Check limits
+  await checkUsageLimits(apiKeyId);
+};
+```
+
+#### 15. Detailed Implementation Guidelines
+
+##### 15.1 Controller Implementation Details
+
+###### Input Validation Pattern
+
+```javascript
+const validateSearchParams = (params) => {
+  const { mail, type, sortby, sortorder, page, pageSize } = params;
+
+  // Validate required fields
+  if (!mail) {
+    throw errorUtils.validationError("Mail parameter is required");
+  }
+
+  // Validate email format
+  if (!validator.isEmail(mail)) {
+    throw errorUtils.validationError("Invalid email format", {
+      parameter: "mail",
+      received: mail,
+    });
+  }
+
+  // Validate type parameter
+  const validTypes = ["strict", "all"];
+  if (type && !validTypes.includes(type)) {
+    throw errorUtils.validationError("Invalid type parameter", {
+      parameter: "type",
+      received: type,
+      allowed: validTypes,
+    });
+  }
+
+  // Validate sort parameters
+  const validSortBy = ["date_compromised", "date_uploaded"];
+  if (sortby && !validSortBy.includes(sortby)) {
+    throw errorUtils.validationError("Invalid sortby parameter", {
+      parameter: "sortby",
+      received: sortby,
+      allowed: validSortBy,
+    });
+  }
+};
+```
+
+###### Query Building Pattern
+
+```javascript
+const buildSearchQuery = (params) => {
+  const { mail, type } = params;
+
+  // Build base query
+  const query = type === "strict" ? { Employee: mail } : { Emails: mail };
+
+  // Add additional filters if needed
+  if (params.installed_software) {
+    query.installed_software = true;
+  }
+
+  return query;
+};
+```
+
+###### Error Handling Pattern
+
+```javascript
+const handleControllerError = (error, req) => {
+  logger.error("Controller error:", {
+    error: error.message,
+    stack: error.stack,
+    requestId: req.requestId,
+  });
+
+  if (error.name === "ValidationError") {
+    throw errorUtils.validationError(error.message, error.details);
+  }
+
+  if (error.name === "MongoError" && error.code === 11000) {
+    throw errorUtils.conflictError("Duplicate key error");
+  }
+
+  throw errorUtils.serverError("Internal server error", {
+    originalError: error.message,
+  });
+};
+```
+
+##### 15.2 Middleware Implementation Details
+
+###### Rate Limiting Configuration
+
+```javascript
+const rateLimiterConfig = {
+  redis: {
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD,
+    enableOfflineQueue: false,
+  },
+  keyPrefix: "ratelimit:",
+  points: 10, // Number of points
+  duration: 1, // Per second(s)
+  blockDuration: 600, // Block duration in seconds
+  inmemoryBlockOnConsumed: 301, // Block if consumed more than 300 points
+  inmemoryBlockDuration: 600,
+  clearExpiredKeysInterval: undefined, // Disabled
+  execEvenly: false, // Do not delay actions evenly
+  keyGenerator: (req) => {
+    return `${req.ip}-${req.apiKeyData.id}`;
+  },
+};
+```
+
+###### Error Propagation Pattern
+
+```javascript
+const errorPropagationMiddleware = (middleware) => async (req, res, next) => {
+  try {
+    await middleware(req, res, next);
+  } catch (error) {
+    logger.error("Middleware error:", {
+      middleware: middleware.name,
+      error: error.message,
+      requestId: req.requestId,
+    });
+
+    if (!error.statusCode) {
+      error.statusCode = 500;
+    }
+
+    next(error);
+  }
+};
+```
+
+###### Middleware Chain Builder
+
+```javascript
+const buildMiddlewareChain = (isV1Route = true) => {
+  const chain = [
+    requestIdMiddleware,
+    authMiddleware,
+    apiKeyDataMiddleware,
+    rateLimiter,
+    complexRateLimitMiddleware,
+    requestLogger,
+    dateNormalizationMiddleware,
+    sortingMiddleware,
+  ];
+
+  if (isV1Route) {
+    chain.push(documentRedesignMiddleware);
+  }
+
+  chain.push(sendResponseMiddleware);
+
+  return chain.map((middleware) => errorPropagationMiddleware(middleware));
+};
+```
+
+#### 16. Database Query Implementation
+
+##### 16.1 Query Building Patterns
+
+```javascript
+const buildQuery = (params, type = "strict") => {
+  // For mail searches
+  if (params.mail) {
+    return type === "strict"
+      ? { Employee: params.mail }
+      : { Emails: params.mail };
+  }
+
+  // For domain searches
+  if (params.domain) {
+    return type === "strict"
+      ? { Domains: params.domain }
+      : { "Credentials.URL": new RegExp(params.domain, "i") };
+  }
+
+  // For login searches (internal)
+  if (params.login) {
+    return { "Credentials.Username": params.login };
+  }
+};
+```
+
+##### 16.2 Query Execution Pattern
+
+```javascript
+const executeQuery = async (query, pagination) => {
+  const { limit, skip } = pagination;
+
+  return Promise.all([
+    collection.find(query).skip(skip).limit(limit).toArray(),
+    collection.countDocuments(query),
+  ]);
+};
+```
+
+##### 16.3 Bulk Query Execution
+
+```javascript
+const executeBulkQueries = async (items, queryBuilder, pagination) => {
+  return Promise.all(
+    items.map(async (item) => {
+      const query = queryBuilder(item);
+      const [results, total] = await executeQuery(query, pagination);
+
+      return {
+        identifier: item,
+        total,
+        data: results,
+      };
+    })
+  );
+};
+```
+
+#### 17. Response Formatting Implementation
+
+##### 17.1 Response Structure Builder
+
+```javascript
+const buildResponse = (results, metadata, timing) => {
+  return {
+    meta: {
+      ...metadata,
+      processing_time: `${timing.toFixed(2)}ms`,
+    },
+    ...results,
+  };
+};
+```
+
+##### 17.2 Bulk Response Builder
+
+```javascript
+const buildBulkResponse = (searchResults, metadata, timing) => {
+  return {
+    meta: {
+      ...metadata,
+      processing_time: `${timing.toFixed(2)}ms`,
+    },
+    search_counts: Object.fromEntries(
+      searchResults.map((result) => [result.identifier, result.total])
+    ),
+    total: searchResults.reduce((sum, result) => sum + result.total, 0),
+    data: searchResults,
+  };
+};
+```
+
+#### 18. Logging Implementation
+
+##### 18.1 Request Logging
+
+```javascript
+const logRequest = (req) => {
+  logger.info("API Request", {
+    method: req.method,
+    path: req.path,
+    query: sanitizeLogData(req.query),
+    body: sanitizeLogData(req.body),
+    requestId: req.requestId,
+    apiKeyId: req.apiKeyData?.id,
+  });
+};
+```
+
+##### 18.2 Response Logging
+
+```javascript
+const logResponse = (req, responseTime) => {
+  logger.info("API Response", {
+    method: req.method,
+    path: req.path,
+    requestId: req.requestId,
+    responseTime: `${responseTime}ms`,
+    statusCode: res.statusCode,
+  });
+};
+```
+
+##### 18.3 Error Logging
+
+```javascript
+const logError = (error, req) => {
+  logger.error("API Error", {
+    error: error.message,
+    stack: error.stack,
+    requestId: req.requestId,
+    path: req.path,
+    method: req.method,
+  });
+};
+```
+
+#### 19. Testing Implementation Patterns
+
+##### 19.1 Controller Test Pattern
+
+```javascript
+describe("Controller Tests", () => {
+  const mockReq = {
+    query: {},
+    body: {},
+    apiKeyData: { id: "test-api-key" },
+    requestId: "test-request-id",
+  };
+
+  const mockRes = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn(),
+  };
+
+  const mockNext = jest.fn();
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should handle valid search request", async () => {
+    mockReq.query = {
+      mail: "test@example.com",
+      page: "1",
+      pageSize: "50",
+    };
+
+    await searchByMail(mockReq, mockRes, mockNext);
+
+    expect(mockNext).toHaveBeenCalled();
+    expect(mockReq.searchResults).toBeDefined();
+    expect(mockReq.searchResults.meta).toBeDefined();
+  });
+});
+```
+
+##### 19.2 Middleware Test Pattern
+
+```javascript
+describe("Middleware Tests", () => {
+  const mockReq = {
+    searchResults: {
+      data: [
+        {
+          "Log date": "2023-07-23",
+          Credentials: [],
+        },
+      ],
+    },
+  };
+
+  it("should normalize dates correctly", async () => {
+    await dateNormalizationMiddleware(mockReq, {}, () => {});
+
+    expect(mockReq.searchResults.data[0]["Log date"]).toMatch(
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/
+    );
+  });
+});
+```
+
+#### 20. Security Implementation
+
+##### 20.1 Input Sanitization
+
+```javascript
+const sanitizeInput = (input) => {
+  if (typeof input === "string") {
+    return validator.escape(input);
+  }
+  if (Array.isArray(input)) {
+    return input.map(sanitizeInput);
+  }
+  if (typeof input === "object" && input !== null) {
+    return Object.fromEntries(
+      Object.entries(input).map(([key, value]) => [key, sanitizeInput(value)])
+    );
+  }
+  return input;
+};
+```
+
+##### 20.2 API Key Validation
+
+```javascript
+const validateApiKey = async (apiKey) => {
+  // Hash the API key
+  const hashedKey = await hashApiKey(apiKey);
+
+  // Check against database
+  const apiKeyData = await ApiKey.findOne({
+    where: { hashedKey },
+    include: ["usageLimits", "permissions"],
+  });
+
+  if (!apiKeyData) {
+    throw new APIError("Invalid API key", 401);
+  }
+
+  // Check if key is active
+  if (apiKeyData.status !== "active") {
+    throw new APIError("API key is not active", 403);
+  }
+
+  return apiKeyData;
+};
+```
+
+#### 21. Performance Optimization
+
+##### 21.1 Query Optimization
+
+```javascript
+const optimizeQuery = (query, options = {}) => {
+  // Add necessary indexes
+  const indexes = [];
+
+  if (query.Employee) {
+    indexes.push({ Employee: 1 });
+  }
+
+  if (query.Domains) {
+    indexes.push({ Domains: 1 });
+  }
+
+  if (query["Credentials.URL"]) {
+    indexes.push({ "Credentials.URL": 1 });
+  }
+
+  // Add query hints
+  const queryOptions = {
+    hint: indexes[0],
+    explain: process.env.NODE_ENV === "development",
+  };
+
+  return { query, queryOptions };
+};
+```
+
+##### 21.2 Response Caching
+
+```javascript
+const cacheResponse = async (key, data, ttl = 3600) => {
+  try {
+    const cacheKey = `cache:${key}`;
+    await redisClient.setex(
+      cacheKey,
+      ttl,
+      JSON.stringify({
+        data,
+        timestamp: Date.now(),
+      })
+    );
+  } catch (error) {
+    logger.error("Cache error:", error);
+  }
+};
+
+const getCachedResponse = async (key) => {
+  try {
+    const cacheKey = `cache:${key}`;
+    const cached = await redisClient.get(cacheKey);
+
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      const age = Date.now() - parsed.timestamp;
+
+      logger.info("Cache hit", {
+        key: cacheKey,
+        age: `${age}ms`,
+      });
+
+      return parsed.data;
+    }
+  } catch (error) {
+    logger.error("Cache retrieval error:", error);
+  }
+
+  return null;
+};
+```
+
+##### 21.3 Bulk Operation Optimization
+
+```javascript
+const optimizeBulkOperation = async (items, operation) => {
+  const batchSize = 5;
+  const results = [];
+
+  // Process in batches
+  for (let i = 0; i < items.length; i += batchSize) {
+    const batch = items.slice(i, i + batchSize);
+    const batchPromises = batch.map(operation);
+
+    const batchResults = await Promise.all(batchPromises);
+    results.push(...batchResults);
+
+    // Add delay between batches if needed
+    if (i + batchSize < items.length) {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+  }
+
+  return results;
+};
+```
+
+#### 22. Monitoring Implementation
+
+##### 22.1 Health Check Pattern
+
+```javascript
+const healthCheck = async (req, res) => {
+  try {
+    // Check database connection
+    const dbStatus = await checkDatabaseConnection();
+
+    // Check Redis connection
+    const redisStatus = await checkRedisConnection();
+
+    // Check other dependencies
+    const dependencyStatus = await checkDependencies();
+
+    res.json({
+      status: "OK",
+      timestamp: new Date().toISOString(),
+      services: {
+        database: dbStatus,
+        redis: redisStatus,
+        dependencies: dependencyStatus,
+      },
+      uptime: process.uptime(),
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: "ERROR",
+      error: error.message,
+    });
+  }
+};
+```
+
+##### 22.2 Service Status Checks
+
+```javascript
+const checkDatabaseConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    return { status: "OK", latency: `${latency}ms` };
+  } catch (error) {
+    return { status: "ERROR", error: error.message };
+  }
+};
+
+const checkRedisConnection = async () => {
+  try {
+    const startTime = performance.now();
+    await redisClient.ping();
+    const latency = performance.now() - startTime;
+
+    return {
+      status: "OK",
+      latency: `${latency.toFixed(2)}ms`,
+    };
+  } catch (error) {
+    return { status: "ERROR", error: error.message };
+  }
+};
+```
+
+#### 23. Graceful Shutdown Implementation
+
+##### 23.1 Shutdown Handler
+
+```javascript
+const gracefulShutdown = async (signal) => {
+  logger.info(`Received ${signal}. Starting graceful shutdown...`);
+
+  try {
+    // Stop accepting new requests
+    server.close(() => {
+      logger.info("HTTP server closed");
+    });
+
+    // Close database connections
+    await Promise.all([sequelize.close(), closeDatabase(), redisClient.quit()]);
+
+    // Cleanup scheduled jobs
+    await shutdownScheduledJobs();
+
+    logger.info("Graceful shutdown completed");
+    process.exit(0);
+  } catch (error) {
+    logger.error("Error during shutdown:", error);
+    process.exit(1);
+  }
+};
+```
+
+##### 23.2 Process Handlers
+
+```javascript
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+
+process.on("uncaughtException", (error) => {
+  logger.error("Uncaught Exception:", {
+    error: error.message,
+    stack: error.stack,
+  });
+  gracefulShutdown("uncaughtException");
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  logger.error("Unhandled Rejection:", {
+    reason,
+    stack: reason.stack,
+  });
+  gracefulShutdown("unhandledRejection");
+});
+```
+
+#### 24. Documentation Generation
+
+##### 24.1 API Documentation Generator
+
+```javascript
+const generateApiDocs = () => {
+  const routes = [];
+
+  // Collect all routes
+  app._router.stack.forEach((middleware) => {
+    if (middleware.route) {
+      const path = middleware.route.path;
+      const methods = Object.keys(middleware.route.methods);
+
+      routes.push({
+        path,
+        methods,
+        middleware: middleware.route.stack
+          .map((layer) => layer.name)
+          .filter((name) => name !== "<anonymous>"),
+      });
+    }
+  });
+
+  // Generate documentation
+  return routes.map((route) => ({
+    endpoint: route.path,
+    methods: route.methods,
+    middleware: route.middleware,
+    authentication: route.middleware.includes("authMiddleware"),
+    rateLimiting: route.middleware.includes("rateLimiter"),
+  }));
+};
+```
+
+##### 24.2 Response Example Generator
+
+```javascript
+const generateResponseExamples = (route) => {
+  const examples = {
+    success: {
+      meta: {
+        query_type: "strict",
+        sort: {
+          field: "date_compromised",
+          order: "desc",
+        },
+        processing_time: "123.45ms",
+      },
+      total: 17,
+      page: 1,
+      pageSize: 5,
+      data: [
+        /* Example data */
+      ],
+    },
+    error: {
+      meta: {
+        error: {
+          code: "BAD_REQUEST",
+          message: "Invalid parameters",
+          details: {
+            /* Example details */
+          },
+        },
+      },
+      data: null,
+    },
+  };
+
+  return examples;
+};
 ```
