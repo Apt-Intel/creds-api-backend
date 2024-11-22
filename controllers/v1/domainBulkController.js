@@ -120,8 +120,17 @@ async function searchByDomainBulk(req, res, next) {
           ? { Domains: domain }
           : { "Credentials.URL": new RegExp(domain, "i") };
 
+      const sortField =
+        sortby === "date_uploaded" ? "Date" : "Date Compromised";
+      const sortDirection = sortorder === "desc" ? -1 : 1;
+
       const [results, total] = await Promise.all([
-        collection.find(query).skip(skip).limit(limit).toArray(),
+        collection
+          .find(query)
+          .sort({ [sortField]: sortDirection })
+          .skip(skip)
+          .limit(limit)
+          .toArray(),
         collection.countDocuments(query),
       ]);
 

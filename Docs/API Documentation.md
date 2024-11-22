@@ -864,3 +864,38 @@ Follows the standard error response format:
   "data": null
 }
 ```
+
+#### Date Handling
+
+The API uses the "Date Compromised" field for all date-based operations. This field is stored in a standardized format (YYYY-MM-DD HH:mm:ss) in the database.
+
+##### Sort Parameters
+
+| Parameter   | Type   | Required | Description                                                 |
+| ----------- | ------ | -------- | ----------------------------------------------------------- |
+| `sortby`    | String | No       | Sort field: "date_compromised" (default) or "date_uploaded" |
+| `sortorder` | String | No       | Sort order: "desc" (default) or "asc"                       |
+
+When `sortby=date_compromised`, the API sorts using the "Date Compromised" field.
+When `sortby=date_uploaded`, the API sorts using the "Date" field.
+
+Example Response with Sort Information:
+
+```json
+{
+  "meta": {
+    "sort": {
+      "field": "date_compromised",
+      "order": "desc"
+    },
+    "processing_time": "123.45ms"
+  },
+  "data": [
+    {
+      "Date Compromised": "2023-07-23T09:38:30.000Z",
+      "Date": "2023-07-23T09:38:30.000Z"
+      // ... other fields
+    }
+  ]
+}
+```

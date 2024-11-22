@@ -1118,10 +1118,9 @@ router.get(
   rateLimiter, // Basic rate limiting
   complexRateLimitMiddleware, // Usage-based rate limiting
   requestLogger, // Request logging
-  controllerFunction, // Main controller logic
-  dateNormalizationMiddleware, // Date standardization
-  sortingMiddleware, // Result sorting
-  documentRedesignMiddleware, // Credential segregation
+  controllerFunction, // Main controller logic with DB-level sorting
+  sortingMiddleware, // Sort parameter validation
+  documentRedesignMiddleware, // Credential segregation (v1 routes only)
   sendResponseMiddleware // Standard response formatting
 );
 ```
@@ -1137,9 +1136,8 @@ router.get(
   rateLimiter, // Basic rate limiting
   complexRateLimitMiddleware, // Usage-based rate limiting
   requestLogger, // Request logging
-  controllerFunction, // Main controller logic
-  dateNormalizationMiddleware, // Date standardization
-  sortingMiddleware, // Result sorting
+  controllerFunction, // Main controller logic with DB-level sorting
+  sortingMiddleware, // Sort parameter validation
   sendResponseMiddleware // Standard response formatting
 );
 ```

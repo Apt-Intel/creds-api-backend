@@ -76,13 +76,17 @@ async function searchByMail(req, res, next) {
       type === "all" ? { Emails: sanitizedMail } : { Employee: sanitizedMail };
     const { limit, skip } = getPaginationParams(page, pageSize);
 
-    // TODO: Implement projection to limit returned fields
-    // This will optimize query performance and reduce data transfer
-    // Example: const projection = { _id: 0, Emails: 1, Employee: 1, "Log date": 1, Date: 1 };
-    // Discuss with the product team to determine which fields are necessary
+    // Determine sort field based on sortby parameter
+    const sortField = sortby === "date_uploaded" ? "Date" : "Date Compromised";
+    const sortDirection = sortorder === "desc" ? -1 : 1;
 
     const [results, total] = await Promise.all([
-      collection.find(query).skip(skip).limit(limit).toArray(),
+      collection
+        .find(query)
+        .sort({ [sortField]: sortDirection })
+        .skip(skip)
+        .limit(limit)
+        .toArray(),
       collection.countDocuments(query),
     ]);
 

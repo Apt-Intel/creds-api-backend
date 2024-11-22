@@ -6,7 +6,6 @@ const morgan = require("morgan");
 const authMiddleware = require("./middlewares/authMiddleware");
 const rateLimiter = require("./middlewares/rateLimiter");
 const complexRateLimitMiddleware = require("./middlewares/complexRateLimitMiddleware");
-const dateNormalizationMiddleware = require("./middlewares/dateNormalizationMiddleware");
 const requestIdMiddleware = require("./middlewares/requestIdMiddleware");
 const requestLogger = require("./middlewares/requestLogger");
 const logger = require("./config/logger");

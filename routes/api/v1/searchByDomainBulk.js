@@ -3,19 +3,15 @@ const router = express.Router();
 const {
   searchByDomainBulk,
 } = require("../../../controllers/v1/domainBulkController");
-const dateNormalizationMiddleware = require("../../../middlewares/dateNormalizationMiddleware");
 const sortingMiddleware = require("../../../middlewares/sortingMiddleware");
-const documentRedesignDomainMiddleware = require("../../../middlewares/documentRedesignDomainMiddleware");
+const documentRedesignMiddleware = require("../../../middlewares/documentRedesignMiddleware");
 const sendResponseMiddleware = require("../../../middlewares/sendResponseMiddleware");
-const authMiddleware = require("../../../middlewares/authMiddleware");
 
 router.post(
   "/search-by-domain/bulk",
-  authMiddleware,
   searchByDomainBulk,
-  dateNormalizationMiddleware,
   sortingMiddleware,
-  documentRedesignDomainMiddleware,
+  documentRedesignMiddleware,
   sendResponseMiddleware
 );
 
