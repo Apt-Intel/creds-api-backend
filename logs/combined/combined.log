@@ -7211,3 +7211,100 @@
 [32m[2024-11-22T00:22:35.688Z] [32mINFO[0m: Document redesign completed[0m
 [32m[2024-11-22T00:22:35.706Z] [32mINFO[0m: ::1 - - [22/Nov/2024:00:22:35 +0000] "GET /api/json/v1/search-by-domain?sortby=date_compromised&sortorder=asc&page=2&type=all HTTP/1.1" 200 1335958 "-" "PostmanRuntime/7.42.0"[0m
 [32m[2024-11-22T00:22:35.706Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"28eb51f1-2bae-441b-93e7-0f8170b8b779","statusCode":200,"responseTime":"19702ms","pagination":{"page":2,"page_size":50}}[0m
+[32m[2024-11-23T06:11:21.609Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-23T08:12:47.234Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-23T08:12:47.239Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-23T08:12:47.245Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-23T08:12:52.585Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-23T08:12:52.843Z] [32mINFO[0m: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc[0m
+[32m[2024-11-23T08:12:56.192Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-23T08:12:56.195Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-23T08:12:58.595Z] [32mINFO[0m: Search completed for mail: br02413515@prosegur.com {"total":8,"page":1,"pageSize":5,"requestId":"33e66806-8c45-4504-aa5c-ff64ef1171d5"}[0m
+[32m[2024-11-23T08:12:58.596Z] [32mINFO[0m: Search by mail completed {"processingTime":"5752.89ms","total":8,"page":1,"pageSize":5}[0m
+[32m[2024-11-23T08:12:58.598Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-23T08:12:58.599Z] [32mINFO[0m: Sorting parameters: sortBy=Date Compromised, sortOrder=desc[0m
+[32m[2024-11-23T08:12:58.599Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-23T08:12:58.601Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-23T08:12:58.607Z] [32mINFO[0m: ::1 - - [23/Nov/2024:08:12:58 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 200 109286 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T08:13:31.248Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-23T08:13:33.206Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc"}[0m
+[32m[2024-11-23T08:13:33.211Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-23T08:13:33.984Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc"}[0m
+[32m[2024-11-23T08:13:35.200Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc"}[0m
+[32m[2024-11-23T08:13:35.201Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":2,"page_size":5},"body":{"mails":[{"0":"b","1":"r","2":"0","3":"2","4":"4","5":"1","6":"3","7":"5","8":"1","9":"5","10":"@","11":"p","12":"r","13":"o","14":"s","15":"e","16":"g","17":"u","18":"r","19":".","20":"c","21":"o","22":"m"},{"0":"s","1":"a","2":"n","3":"t","4":"a","5":"n","6":"a","7":".","8":"j","9":"o","10":"n","11":"e","12":"s","13":".","14":"g","15":"@","16":"h","17":"p","18":".","19":"c","20":"o","21":"m"}]},"pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-23T08:13:35.201Z] [32mINFO[0m: Bulk search request received {"mailCount":2,"page":2,"pageSize":5,"type":"strict","sortby":"date_compromised","sortorder":"asc","requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc"}[0m
+[32m[2024-11-23T08:13:37.107Z] [32mINFO[0m: Bulk search completed {"processingTime":"1905.80ms","totalResults":9,"mailCount":2,"requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc"}[0m
+[32m[2024-11-23T08:13:37.108Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-23T08:13:37.108Z] [32mINFO[0m: Sorting parameters: sortBy=Date Compromised, sortOrder=asc[0m
+[32m[2024-11-23T08:13:37.108Z] [32mINFO[0m: Document redesign middleware called[0m
+[32m[2024-11-23T08:13:37.109Z] [32mINFO[0m: Document redesign completed[0m
+[32m[2024-11-23T08:13:37.112Z] [32mINFO[0m: ::1 - - [23/Nov/2024:08:13:37 +0000] "POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=2&page_size=5 HTTP/1.1" 200 66072 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T08:13:37.113Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-mail/bulk","requestId":"3336dfba-3aa4-4915-aba3-4babd53409fc","statusCode":200,"responseTime":"1912ms","pagination":{"page":2,"page_size":5}}[0m
+[32m[2024-11-23T15:42:07.257Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-23T15:42:14.700Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-23T15:42:14.707Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-23T15:42:14.715Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-23T15:42:21.257Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-23T15:42:31.880Z] [32mINFO[0m: Received API key: undefined[0m
+[33m[2024-11-23T15:42:31.881Z] [33mWARN[0m: No API key provided[0m
+[32m[2024-11-23T15:42:31.886Z] [32mINFO[0m: ::1 - admin [23/Nov/2024:15:42:31 +0000] "GET /test/test-error%0A HTTP/1.1" 401 31 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T15:43:48.410Z] [32mINFO[0m: Received shutdown signal[0m
+[32m[2024-11-23T15:43:57.567Z] [32mINFO[0m: Server running on port 3000[0m
+[32m[2024-11-23T15:43:57.572Z] [32mINFO[0m: Redis client connected[0m
+[32m[2024-11-23T15:43:57.575Z] [32mINFO[0m: Redis client ready[0m
+[32m[2024-11-23T15:44:01.437Z] [32mINFO[0m: Received GET request for /test/test-error%0A[0m
+[31m[2024-11-23T15:44:01.438Z] [31mERROR[0m: API Error: {"error":"Method Not Allowed","code":"UNKNOWN_ERROR","stack":"MethodNotAllowedError: Method Not Allowed\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/app.js:263:8\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/app.js:258:3\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9","requestId":"40f2a3af-ebca-49e0-878e-42d90770e561","endpoint":"GET /test/test-error%0A","statusCode":405}[0m
+[32m[2024-11-23T15:44:01.446Z] [32mINFO[0m: ::1 - admin [23/Nov/2024:15:44:01 +0000] "GET /test/test-error%0A HTTP/1.1" 405 1356 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T15:44:02.380Z] [32mINFO[0m: Connected to PostgreSQL database[0m
+[32m[2024-11-23T15:44:04.707Z] [32mINFO[0m: Received GET request for /test/test-error%0A[0m
+[31m[2024-11-23T15:44:04.709Z] [31mERROR[0m: API Error: {"error":"Method Not Allowed","code":"UNKNOWN_ERROR","stack":"MethodNotAllowedError: Method Not Allowed\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/app.js:263:8\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/app.js:258:3\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9","requestId":"0450346d-4333-45e0-a5b9-9a22a208478e","endpoint":"GET /test/test-error%0A","statusCode":405}[0m
+[32m[2024-11-23T15:44:04.711Z] [32mINFO[0m: ::1 - admin [23/Nov/2024:15:44:04 +0000] "GET /test/test-error%0A HTTP/1.1" 405 1356 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T16:09:05.727Z] [32mINFO[0m: ::1 - admin [23/Nov/2024:16:09:05 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T16:09:22.272Z] [32mINFO[0m: Received API key: undefined[0m
+[33m[2024-11-23T16:09:22.273Z] [33mWARN[0m: No API key provided[0m
+[32m[2024-11-23T16:09:22.277Z] [32mINFO[0m: ::1 - - [23/Nov/2024:16:09:22 +0000] "GET /apple-touch-icon.png HTTP/1.1" 401 31 "-" "com.apple.WebKit.Networking/20619.2.8.11.10 CFNetwork/1568.200.51 Darwin/24.1.0"[0m
+[32m[2024-11-23T16:09:22.278Z] [32mINFO[0m: Received API key: undefined[0m
+[33m[2024-11-23T16:09:22.278Z] [33mWARN[0m: No API key provided[0m
+[32m[2024-11-23T16:09:22.280Z] [32mINFO[0m: ::1 - - [23/Nov/2024:16:09:22 +0000] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 401 31 "-" "com.apple.WebKit.Networking/20619.2.8.11.10 CFNetwork/1568.200.51 Darwin/24.1.0"[0m
+[32m[2024-11-23T16:09:22.281Z] [32mINFO[0m: Received API key: undefined[0m
+[33m[2024-11-23T16:09:22.281Z] [33mWARN[0m: No API key provided[0m
+[32m[2024-11-23T16:09:22.282Z] [32mINFO[0m: ::1 - - [23/Nov/2024:16:09:22 +0000] "GET /favicon.ico HTTP/1.1" 401 31 "-" "com.apple.WebKit.Networking/20619.2.8.11.10 CFNetwork/1568.200.51 Darwin/24.1.0"[0m
+[32m[2024-11-23T16:09:22.324Z] [32mINFO[0m: Received GET request for /admin/generate-api-key[0m
+[31m[2024-11-23T16:09:22.325Z] [31mERROR[0m: API Error: {"error":"Method Not Allowed","code":"UNKNOWN_ERROR","stack":"MethodNotAllowedError: Method Not Allowed\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/app.js:263:8\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/app.js:258:3\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9","requestId":"ebd3d890-f274-462c-890c-7df21e471107","endpoint":"GET /admin/generate-api-key","statusCode":405}[0m
+[32m[2024-11-23T16:09:22.330Z] [32mINFO[0m: ::1 - - [23/Nov/2024:16:09:22 +0000] "GET /admin/generate-api-key HTTP/1.1" 405 1356 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"[0m
+[32m[2024-11-23T16:10:49.437Z] [32mINFO[0m: Generated API key: a3f3d36dd9e638280c2d215dbceba2e5534f81db949c76b8de4384a69b28a47a, Hashed: 2f77cb67c9c3f377c6709d6989574827178455a5c4d7e6fbdae18f4c75e00cd4[0m
+[32m[2024-11-23T16:10:49.438Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-23T16:10:49.438Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-23T16:10:49.438Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-23T16:10:49.438Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-23T16:10:49.438Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-23T16:10:49.442Z] [32mINFO[0m: ::1 - admin [23/Nov/2024:16:10:49 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 637 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T16:12:24.382Z] [32mINFO[0m: Generated API key: 23d3a76fc58c406feda1d5b5d5cfbbb131d38f9081b0166855a912ccbe79dc94, Hashed: dc57264b483770cf8280cd8fb93edbbcbbc36353850cdd9b5cde0502fb6256aa[0m
+[32m[2024-11-23T16:12:24.382Z] [32mINFO[0m: Endpoints allowed: ["/api/json/v1/search-by-mail/bulk","/api/json/v1/search-by-domain","/api/json/v1/usage"][0m
+[32m[2024-11-23T16:12:24.382Z] [32mINFO[0m: Rate limit: 500[0m
+[32m[2024-11-23T16:12:24.382Z] [32mINFO[0m: Daily limit: 10000[0m
+[32m[2024-11-23T16:12:24.382Z] [32mINFO[0m: Monthly limit: 200000[0m
+[32m[2024-11-23T16:12:24.383Z] [32mINFO[0m: Timezone: UTC[0m
+[32m[2024-11-23T16:12:24.386Z] [32mINFO[0m: ::1 - admin [23/Nov/2024:16:12:24 +0000] "POST /admin/generate-api-key HTTP/1.1" 200 653 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T16:22:51.483Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-23T16:22:53.357Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7ea73f4a-7882-44ce-a541-df9999926547"}[0m
+[32m[2024-11-23T16:22:54.666Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7ea73f4a-7882-44ce-a541-df9999926547"}[0m
+[32m[2024-11-23T16:22:54.668Z] [32mINFO[0m: API Request {"method":"GET","path":"/","requestId":"7ea73f4a-7882-44ce-a541-df9999926547","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"page":1,"page_size":5},"body":{"domain":"testingdomainapi.com"},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-23T16:22:54.673Z] [32mINFO[0m: Internal domain search initiated {"domain":"testingdomainapi.com","page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"desc","requestId":"7ea73f4a-7882-44ce-a541-df9999926547"}[0m
+[32m[2024-11-23T16:22:57.090Z] [32mINFO[0m: MongoDB connected[0m
+[32m[2024-11-23T16:22:57.091Z] [32mINFO[0m: Connected to MongoDB {"requestId":"system"}[0m
+[32m[2024-11-23T16:23:01.526Z] [32mINFO[0m: Internal domain search completed {"domain":"testingdomainapi.com","total":0,"processingTime":"6853.25ms","requestId":"7ea73f4a-7882-44ce-a541-df9999926547"}[0m
+[32m[2024-11-23T16:23:01.526Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-23T16:23:01.526Z] [32mINFO[0m: Sorting parameters: sortBy=Date Compromised, sortOrder=desc[0m
+[32m[2024-11-23T16:23:01.528Z] [32mINFO[0m: ::1 - - [23/Nov/2024:16:23:01 +0000] "GET /api/json/internal/search-by-domain?page=1&page_size=5 HTTP/1.1" 200 133 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T16:23:01.528Z] [32mINFO[0m: API Response {"method":"GET","path":"/search-by-domain","requestId":"7ea73f4a-7882-44ce-a541-df9999926547","statusCode":200,"responseTime":"6860ms","pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-23T16:23:08.010Z] [32mINFO[0m: Received API key: 03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee[0m
+[32m[2024-11-23T16:23:10.065Z] [32mINFO[0m: API key validated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"d5338a2c-9684-4c99-b422-eb0cba884d86"}[0m
+[32m[2024-11-23T16:23:11.308Z] [32mINFO[0m: Usage stats updated successfully {"apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"d5338a2c-9684-4c99-b422-eb0cba884d86"}[0m
+[32m[2024-11-23T16:23:11.310Z] [32mINFO[0m: API Request {"method":"POST","path":"/","requestId":"d5338a2c-9684-4c99-b422-eb0cba884d86","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","query":{"sortby":"date_compromised","sortorder":"asc","page":1,"page_size":5},"body":{"domains":[{"0":"t","1":"e","2":"s","3":"t","4":"i","5":"n","6":"g","7":"d","8":"o","9":"m","10":"a","11":"i","12":"n","13":"a","14":"p","15":"i","16":".","17":"c","18":"o","19":"m"},{"0":"t","1":"e","2":"s","3":"t","4":"i","5":"n","6":"g","7":"d","8":"o","9":"m","10":"a","11":"i","12":"n","13":"a","14":"p","15":"i","16":"2","17":".","18":"c","19":"o","20":"m"}]},"pagination":{"page":1,"page_size":5}}[0m
+[32m[2024-11-23T16:23:11.312Z] [32mINFO[0m: Internal bulk domain search initiated {"domainCount":2,"page":1,"pageSize":5,"sortby":"date_compromised","sortorder":"asc","requestId":"d5338a2c-9684-4c99-b422-eb0cba884d86"}[0m
+[32m[2024-11-23T16:23:17.472Z] [32mINFO[0m: Internal bulk domain search completed {"processingTime":"6160.15ms","totalResults":0,"domainCount":2,"requestId":"d5338a2c-9684-4c99-b422-eb0cba884d86"}[0m
+[32m[2024-11-23T16:23:17.473Z] [32mINFO[0m: Sorting middleware called[0m
+[32m[2024-11-23T16:23:17.473Z] [32mINFO[0m: Sorting parameters: sortBy=Date Compromised, sortOrder=asc[0m
+[32m[2024-11-23T16:23:17.475Z] [32mINFO[0m: ::1 - - [23/Nov/2024:16:23:17 +0000] "POST /api/json/internal/search-by-domain/bulk?sortby=date_compromised&sortorder=asc&page=1&page_size=5 HTTP/1.1" 200 617 "-" "PostmanRuntime/7.42.0"[0m
+[32m[2024-11-23T16:23:17.476Z] [32mINFO[0m: API Response {"method":"POST","path":"/search-by-domain/bulk","requestId":"d5338a2c-9684-4c99-b422-eb0cba884d86","statusCode":200,"responseTime":"6166ms","pagination":{"page":1,"page_size":5}}[0m

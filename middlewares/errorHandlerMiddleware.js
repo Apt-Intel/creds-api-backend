@@ -37,21 +37,16 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         code: errorCode,
         message: err.message || "An unexpected error occurred",
         details:
-          process.env.NODE_ENV === "production"
-            ? undefined
-            : {
+          process.env.NODE_ENV === "development"
+            ? {
                 stack: err.stack,
                 requestId: req.requestId,
-              },
+              }
+            : undefined,
       },
     },
     data: null,
   };
-
-  // Add rate limit information if applicable
-  if (statusCode === 429) {
-    errorResponse.meta.error.retryAfter = err.retryAfter;
-  }
 
   // Send response
   res.status(statusCode).json(errorResponse);

@@ -1,0 +1,765 @@
+2024-11-23 11:42:09.712 [INFO]: Scheduled jobs initialized {"environment":"development"}
+2024-11-23 11:42:09.715 [INFO]: Server running on port 3000 {"environment":"development"}
+2024-11-23 11:42:09.719 [INFO]: Successfully connected to Redis {"environment":"development"}
+2024-11-23 11:42:09.724 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:09.830 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:09.941 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.052 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.167 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.283 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.400 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.520 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.642 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.764 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.888 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.015 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.145 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.277 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.410 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.544 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.680 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.818 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.958 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.100 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.245 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.391 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.539 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.689 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.842 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.996 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.152 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.310 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.471 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.633 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.797 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.964 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.133 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.302 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.474 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.648 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.824 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.003 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.138 [DEBUG]: Executing (default): SELECT 1+1 AS result {"environment":"development"}
+2024-11-23 11:42:15.185 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.367 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.376 [INFO]: Connected to PostgreSQL database {"environment":"development"}
+2024-11-23 11:42:15.552 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.738 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.926 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.116 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.308 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.504 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.701 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.898 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.098 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.299 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.503 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.709 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.919 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.131 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.343 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.559 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.775 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.992 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.213 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.435 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.659 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.884 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.111 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.342 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.574 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.808 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.047 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.287 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.527 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.769 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.014 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.262 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.511 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.761 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.015 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.270 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.527 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.786 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.046 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.308 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.572 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.849 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.116 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.385 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.657 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.930 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:26.209 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:26.488 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:26.527 [INFO]: Received shutdown signal {"environment":"development"}
+2024-11-23 11:42:26.527 [INFO]: Scheduled jobs stopped {"environment":"development"}
+2024-11-23 11:42:26.532 [INFO]: Redis connection closed gracefully {"environment":"development"}
+2024-11-23 11:43:18.279 [INFO]: Scheduled jobs initialized {"environment":"development"}
+2024-11-23 11:43:18.286 [INFO]: Server running on port 3000 {"environment":"development"}
+2024-11-23 11:43:18.289 [INFO]: Successfully connected to Redis {"environment":"development"}
+2024-11-23 11:43:24.440 [DEBUG]: Executing (default): SELECT 1+1 AS result {"environment":"development"}
+2024-11-23 11:43:25.254 [INFO]: Connected to PostgreSQL database {"environment":"development"}
+2024-11-23 11:43:36.618 [INFO]: Request ID assigned {"requestId":"b8e6eeeb-69ba-4c08-ab37-90d193e26a39","method":"GET","path":"/health","environment":"development"}
+2024-11-23 11:43:36.625 [INFO]: ::1 - admin [23/Nov/2024:06:13:36 +0000] "GET /health HTTP/1.1" 200 15 "-" "PostmanRuntime/7.42.0" {"environment":"development"}
+2024-11-23 11:48:04.192 [INFO]: Received shutdown signal {"environment":"development"}
+2024-11-23 11:48:04.194 [INFO]: Scheduled jobs stopped {"environment":"development"}
+2024-11-23 11:48:04.200 [INFO]: Redis connection closed gracefully {"environment":"development"}
+{"timestamp":"2024-11-23 11:48:12.154","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 11:48:12.160","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 11:48:12.163","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 11:48:18.556","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 11:48:19.347","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 11:48:27.038","level":"INFO","message":"Request ID assigned","requestId":"00e53529-2067-416d-8865-5f7058fe5d52","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 11:48:27.054","level":"INFO","message":"Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc","environment":"development"}
+{"timestamp":"2024-11-23 11:48:27.060","level":"ERROR","message":"API Error:","error":"getDatabase is not a function","statusCode":500,"stack":"TypeError: getDatabase is not a function\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:68:22)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"00e53529-2067-416d-8865-5f7058fe5d52","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 11:48:27.063","level":"INFO","message":"::1 - - [23/Nov/2024:06:18:27 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 500 2023 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 11:55:40.116","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 11:55:40.119","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 11:55:44.715","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 11:55:44.721","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 11:55:44.724","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 11:55:48.309","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 11:55:48.551","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 11:55:48.860","level":"INFO","message":"Request ID assigned","requestId":"b142243c-720e-437b-a49f-0cf518449f29","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 11:55:48.876","level":"INFO","message":"Search initiated for mail:","page":"1","page_size":"5","type":"all","environment":"development"}
+{"timestamp":"2024-11-23 11:55:51.304","level":"INFO","message":"Successfully connected to MongoDB","environment":"development"}
+{"timestamp":"2024-11-23 11:55:51.835","level":"INFO","message":"::1 - - [23/Nov/2024:06:25:51 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 200 59 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 11:56:07.247","level":"INFO","message":"Request ID assigned","requestId":"df5c66ca-c289-4395-abde-bc03933964b2","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 11:56:07.249","level":"INFO","message":"Search initiated for mail:","page":"1","type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 11:56:07.751","level":"INFO","message":"::1 - - [23/Nov/2024:06:26:07 +0000] \"GET /api/json/v1/search-by-mail?sortby=date_compromised&sortorder=desc&page=1&type=all HTTP/1.1\" 200 60 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 11:57:53.496","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 11:57:53.497","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 11:57:53.509","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 11:58:01.821","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 11:58:01.827","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 11:58:01.832","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.109","level":"INFO","message":"Request ID assigned","requestId":"b9d4e9fd-5a6e-432d-aed3-538e48ff852b","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.126","level":"ERROR","message":"Search by mail failed:","error":"Email parameter is required","stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.128","level":"ERROR","message":"API Error:","error":"Email parameter is required","code":"VALIDATION_ERROR","statusCode":400,"stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"b9d4e9fd-5a6e-432d-aed3-538e48ff852b","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.132","level":"INFO","message":"::1 - - [23/Nov/2024:06:28:05 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 400 2017 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.690","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.937","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 11:58:59.420","level":"INFO","message":"Request ID assigned","requestId":"27212ca8-cd6b-46ce-868e-1331984e2935","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 11:58:59.422","level":"ERROR","message":"Search by mail failed:","error":"Email parameter is required","stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","environment":"development"}
+{"timestamp":"2024-11-23 11:58:59.423","level":"ERROR","message":"API Error:","error":"Email parameter is required","code":"VALIDATION_ERROR","statusCode":400,"stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"27212ca8-cd6b-46ce-868e-1331984e2935","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 11:58:59.425","level":"INFO","message":"::1 - - [23/Nov/2024:06:28:59 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 400 2017 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:00:13.615","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:00:13.616","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:00:13.618","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 12:00:19.174","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:00:19.180","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:00:19.182","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:00:25.066","level":"INFO","message":"Request ID assigned","requestId":"41d505bb-dd86-40ed-b34a-56cfc3ddc622","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:00:25.079","level":"INFO","message":"Search initiated for mail:","mail":"br02413515@prosegur.com","page":"1","page_size":"5","type":"all","environment":"development"}
+{"timestamp":"2024-11-23 12:00:25.080","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:00:25.080","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:00:26.744","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:00:26.992","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:00:27.590","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:00:27.592","level":"DEBUG","message":"Executing MongoDB query","query":{"email":{"$regex":{}}},"options":{"limit":5,"skip":0},"collection":"credentials","environment":"development"}
+{"timestamp":"2024-11-23 12:00:29.647","level":"INFO","message":"Search completed","resultsCount":0,"totalCount":0,"mail":"br02413515@prosegur.com","environment":"development"}
+{"timestamp":"2024-11-23 12:00:29.659","level":"INFO","message":"::1 - - [23/Nov/2024:06:30:29 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 200 59 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:07:21.630","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:07:21.632","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:07:29.073","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:07:29.080","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:07:29.082","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:07:35.780","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:07:36.007","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:07:41.749","level":"INFO","message":"Request ID assigned","requestId":"63b178f4-6851-40b8-997d-afbbdeb109b9","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:07:41.765","level":"ERROR","message":"Search failed","error":"Email parameter is required in query parameters","stack":"Error: Email parameter is required in query parameters\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:12:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","mail":"br02413515@prosegur.com","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:07:41.768","level":"ERROR","message":"API Error:","error":"Email parameter is required in query parameters","code":"VALIDATION_ERROR","statusCode":400,"stack":"Error: Email parameter is required in query parameters\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:12:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"63b178f4-6851-40b8-997d-afbbdeb109b9","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:07:41.770","level":"INFO","message":"::1 - - [23/Nov/2024:06:37:41 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 400 2057 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:09:30.005","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:09:30.011","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:09:34.963","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:09:34.970","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:09:34.973","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:09:41.853","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:09:42.085","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:09:44.786","level":"INFO","message":"Request ID assigned","requestId":"52fa4bac-1a61-4a7a-871c-95919ca5f42a","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:09:44.804","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","method":"GET","params":{"page":"1","page_size":"5","type":"all"},"environment":"development"}
+{"timestamp":"2024-11-23 12:09:44.804","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:09:44.804","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:09:47.070","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:09:47.304","level":"DEBUG","message":"Available collections","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:09:47.306","level":"DEBUG","message":"MongoDB query","query":{"email":{"$regex":{}}},"options":{"limit":5,"skip":0},"collection":"credentials","environment":"development"}
+{"timestamp":"2024-11-23 12:09:48.756","level":"INFO","message":"Search completed","resultsCount":0,"totalCount":0,"mail":"br02413515@prosegur.com","environment":"development"}
+{"timestamp":"2024-11-23 12:09:48.766","level":"INFO","message":"::1 - - [23/Nov/2024:06:39:48 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 200 59 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:10:07.756","level":"INFO","message":"Request ID assigned","requestId":"dae8d95f-cc18-4f26-a801-d3a37ffafdd4","method":"POST","path":"/api/json/v1/search-by-mail/bulk","environment":"development"}
+{"timestamp":"2024-11-23 12:10:07.759","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"dae8d95f-cc18-4f26-a801-d3a37ffafdd4","path":"/api/json/v1/search-by-mail/bulk","method":"POST","environment":"development"}
+{"timestamp":"2024-11-23 12:10:07.761","level":"INFO","message":"::1 - - [23/Nov/2024:06:40:07 +0000] \"POST /api/json/v1/search-by-mail/bulk?sortby=date_compromised&sortorder=asc&page=2&page_size=5 HTTP/1.1\" 401 2071 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:14:59.882","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:14:59.890","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:14:59.896","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 12:15:06.168","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:15:06.174","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:15:06.177","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:15:08.095","level":"INFO","message":"Request ID assigned","requestId":"6f291ccd-85ce-4c1a-9659-39581828359c","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:15:08.113","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","method":"GET","params":{"page":"1","page_size":"5","type":"all"},"environment":"development"}
+{"timestamp":"2024-11-23 12:15:08.114","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:15:08.114","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:15:09.686","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:15:09.908","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:15:10.809","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:15:11.048","level":"DEBUG","message":"Available collections","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:15:11.053","level":"DEBUG","message":"MongoDB query","query":{"email":{}},"options":{"limit":5,"skip":0},"collection":"credentials","mailBeforeEscape":"br02413515@prosegur.com","mailAfterEscape":"br02413515@prosegur\\.com","environment":"development"}
+{"timestamp":"2024-11-23 12:15:12.613","level":"INFO","message":"Search completed","resultsCount":0,"totalCount":0,"mail":"br02413515@prosegur.com","environment":"development"}
+{"timestamp":"2024-11-23 12:15:12.624","level":"INFO","message":"::1 - - [23/Nov/2024:06:45:12 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 200 59 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:28:13.737","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:28:13.739","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:28:19.988","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:28:19.994","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:28:19.999","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:28:23.470","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:28:23.709","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:28:25.999","level":"INFO","message":"Request ID assigned","requestId":"d22a8e15-72ed-4d68-bcc7-5d366fa2684d","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:28:26.015","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","method":"GET","params":{"page":"1","page_size":"5","type":"all"},"environment":"development"}
+{"timestamp":"2024-11-23 12:28:26.016","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:28:26.016","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:28:28.583","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.291","level":"DEBUG","message":"Available collections","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.293","level":"ERROR","message":"Credentials collection not found","environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.294","level":"ERROR","message":"Search failed","error":"Required collection not found","stack":"Error: Required collection not found\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:45:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","mail":"br02413515@prosegur.com","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.298","level":"ERROR","message":"API Error:","error":"Required collection not found","code":"DB_ERROR","statusCode":500,"stack":"Error: Required collection not found\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:45:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"d22a8e15-72ed-4d68-bcc7-5d366fa2684d","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.306","level":"INFO","message":"::1 - - [23/Nov/2024:06:58:29 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 500 993 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:30:02.171","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:30:02.171","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:30:02.172","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 12:30:07.896","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:30:07.911","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:30:07.916","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:30:11.307","level":"INFO","message":"Request ID assigned","requestId":"c0545e7c-fe5d-4b0d-be6e-1ffde7c6a759","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:30:11.323","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","method":"GET","params":{"page":"1","page_size":"5","type":"all"},"environment":"development"}
+{"timestamp":"2024-11-23 12:30:11.324","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:30:11.324","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:30:13.916","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:30:14.155","level":"DEBUG","message":"Available collections","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:30:14.158","level":"DEBUG","message":"Raw query","mail":"br02413515@prosegur.com","query":"{\"$or\":[{\"email\":\"br02413515@prosegur.com\"},{\"email\":{\"$regex\":{}}}]}","environment":"development"}
+{"timestamp":"2024-11-23 12:30:14.159","level":"DEBUG","message":"MongoDB query","query":{"$or":[{"email":"br02413515@prosegur.com"},{"email":{"$regex":{}}}]},"options":{"limit":5,"skip":0},"collection":"logs","mailBeforeEscape":"br02413515@prosegur.com","mailAfterEscape":"br02413515@prosegur\\.com","environment":"development"}
+{"timestamp":"2024-11-23 12:30:14.323","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:30:14.562","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:30:16.217","level":"INFO","message":"Search completed","resultsCount":0,"totalCount":0,"mail":"br02413515@prosegur.com","query":"{\"$or\":[{\"email\":\"br02413515@prosegur.com\"},{\"email\":{\"$regex\":{}}}]}","environment":"development"}
+{"timestamp":"2024-11-23 12:30:16.227","level":"INFO","message":"::1 - - [23/Nov/2024:07:00:16 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 200 59 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:33:30.871","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:33:30.875","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:33:30.879","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 12:33:39.542","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:33:39.549","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:33:39.554","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:33:42.876","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:33:43.111","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:33:46.091","level":"INFO","message":"Request ID assigned","requestId":"4093abc6-7b69-4e18-b1c0-517151ce5ab1","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:33:46.105","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 12:33:46.106","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:33:46.106","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:33:49.758","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:33:52.289","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"6184.89ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 12:33:52.297","level":"INFO","message":"::1 - - [23/Nov/2024:07:03:52 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 200 118575 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:35:57.781","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:35:57.782","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:36:08.444","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:36:08.450","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:36:08.455","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:36:12.443","level":"INFO","message":"Request ID assigned","requestId":"1a9da210-03f3-451e-a3f2-49ee774a3329","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:36:12.460","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 12:36:12.461","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:36:12.461","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:36:12.614","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:36:12.864","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:36:16.576","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:36:30.628","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"18169.54ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 12:36:30.629","level":"INFO","message":"Document redesign middleware called","requestId":"1a9da210-03f3-451e-a3f2-49ee774a3329","environment":"development"}
+{"timestamp":"2024-11-23 12:36:30.629","level":"INFO","message":"Document redesign completed","requestId":"1a9da210-03f3-451e-a3f2-49ee774a3329","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 12:36:30.635","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"1a9da210-03f3-451e-a3f2-49ee774a3329","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:36:30.640","level":"INFO","message":"::1 - - [23/Nov/2024:07:06:30 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 401 2047 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:37:22.258","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:37:22.259","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:37:22.260","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 12:37:28.196","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:37:28.202","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:37:28.205","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:37:35.651","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:37:35.869","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:37:36.826","level":"INFO","message":"Request ID assigned","requestId":"4e0d5f31-51e3-4a67-bd72-12771221a289","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:37:36.846","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 12:37:36.847","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:37:36.847","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:37:39.881","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:37:42.304","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"5458.64ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 12:37:42.305","level":"INFO","message":"Document redesign middleware called","requestId":"4e0d5f31-51e3-4a67-bd72-12771221a289","environment":"development"}
+{"timestamp":"2024-11-23 12:37:42.305","level":"INFO","message":"Document redesign completed","requestId":"4e0d5f31-51e3-4a67-bd72-12771221a289","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 12:37:42.310","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"4e0d5f31-51e3-4a67-bd72-12771221a289","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:37:42.315","level":"INFO","message":"::1 - - [23/Nov/2024:07:07:42 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 401 2014 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:39:41.008","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:39:41.009","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:39:46.777","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:39:46.783","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:39:46.785","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:39:50.465","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:39:50.690","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:39:53.001","level":"INFO","message":"Request ID assigned","requestId":"4d5582ef-2332-4475-a3d6-3229ce1befd1","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:39:53.018","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 12:39:53.019","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:39:53.019","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:39:56.014","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:39:58.280","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"5263.83ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 12:39:58.281","level":"INFO","message":"Document redesign middleware called","requestId":"4d5582ef-2332-4475-a3d6-3229ce1befd1","environment":"development"}
+{"timestamp":"2024-11-23 12:39:58.282","level":"INFO","message":"Document redesign completed","requestId":"4d5582ef-2332-4475-a3d6-3229ce1befd1","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 12:39:58.286","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"4d5582ef-2332-4475-a3d6-3229ce1befd1","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:39:58.291","level":"INFO","message":"::1 - - [23/Nov/2024:07:09:58 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 401 2014 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:42:32.768","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:42:32.770","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:42:39.250","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:42:39.256","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:42:39.261","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:42:43.408","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:42:43.649","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:42:46.164","level":"INFO","message":"Request ID assigned","requestId":"e6d2c7bb-6fcd-4cd6-8ff7-4dc17dddcac1","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:42:46.180","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 12:42:46.181","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:42:46.182","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:42:48.519","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:42:50.529","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"4350.42ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 12:42:50.531","level":"INFO","message":"Document redesign middleware called","requestId":"e6d2c7bb-6fcd-4cd6-8ff7-4dc17dddcac1","environment":"development"}
+{"timestamp":"2024-11-23 12:42:50.532","level":"INFO","message":"Document redesign completed","requestId":"e6d2c7bb-6fcd-4cd6-8ff7-4dc17dddcac1","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 12:42:50.536","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"e6d2c7bb-6fcd-4cd6-8ff7-4dc17dddcac1","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:42:50.543","level":"INFO","message":"::1 - - [23/Nov/2024:07:12:50 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 401 2014 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 12:44:12.307","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 12:44:12.308","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 12:44:12.310","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 12:44:18.124","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 12:44:18.130","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 12:44:18.133","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 12:44:23.352","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 12:44:23.588","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 12:44:27.541","level":"INFO","message":"Request ID assigned","requestId":"95c9ba19-5465-4d4c-9598-bdf5e9c1fddd","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 12:44:27.558","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 12:44:27.559","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 12:44:27.559","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 12:44:29.961","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.394","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"3838.00ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.395","level":"INFO","message":"Document redesign middleware called","requestId":"95c9ba19-5465-4d4c-9598-bdf5e9c1fddd","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.396","level":"INFO","message":"Document redesign completed","requestId":"95c9ba19-5465-4d4c-9598-bdf5e9c1fddd","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.407","level":"DEBUG","message":"Executing (default): SELECT \"id\", \"user_id\", \"api_key\", \"status\", \"metadata\", \"endpoints_allowed\", \"rate_limit\", \"daily_limit\", \"monthly_limit\", \"timezone\", \"created_at\", \"updated_at\", \"last_reset_date\" FROM \"api_keys\" AS \"ApiKey\" WHERE \"ApiKey\".\"apiKey\" = '8e1b703df5c6d1a3277026140094c5a428437a2992e7a7b3478c27c0492fd3f9' LIMIT 1;","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.647","level":"ERROR","message":"API key validation failed:","error":"column ApiKey.apiKey does not exist","stack":"Error\n    at Query.run (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1140:21)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:16:24)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.655","level":"ERROR","message":"API Error:","error":"Failed to validate API key","code":"VALIDATION_ERROR","statusCode":500,"stack":"Error: Failed to validate API key\n    at validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:39:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","requestId":"95c9ba19-5465-4d4c-9598-bdf5e9c1fddd","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.661","level":"INFO","message":"::1 - - [23/Nov/2024:07:14:31 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 500 1001 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 13:00:30.406","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 13:00:30.408","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 13:00:36.003","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 13:00:36.009","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 13:00:36.012","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 13:00:40.415","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 13:00:40.649","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 13:00:43.509","level":"INFO","message":"Request ID assigned","requestId":"685ae812-be4b-425a-af19-7f776c93b758","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 13:00:43.527","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 13:00:43.528","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 13:00:43.529","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 13:00:47.063","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.482","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"5957.08ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.483","level":"INFO","message":"Document redesign middleware called","requestId":"685ae812-be4b-425a-af19-7f776c93b758","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.483","level":"INFO","message":"Document redesign completed","requestId":"685ae812-be4b-425a-af19-7f776c93b758","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.494","level":"DEBUG","message":"Executing (default): SELECT \"id\", \"user_id\", \"api_key\", \"status\", \"metadata\", \"endpoints_allowed\", \"rate_limit\", \"daily_limit\", \"monthly_limit\", \"timezone\", \"created_at\", \"updated_at\", \"last_reset_date\" FROM \"api_keys\" AS \"ApiKey\" WHERE \"ApiKey\".\"api_key\" = '8e1b703df5c6d1a3277026140094c5a428437a2992e7a7b3478c27c0492fd3f9' LIMIT 1;","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.735","level":"ERROR","message":"API key validation failed:","error":"redisService.set is not a function","stack":"TypeError: redisService.set is not a function\n    at validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:27:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.737","level":"ERROR","message":"API Error:","error":"Failed to validate API key","code":"VALIDATION_ERROR","statusCode":500,"stack":"Error: Failed to validate API key\n    at validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:39:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","requestId":"685ae812-be4b-425a-af19-7f776c93b758","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.744","level":"INFO","message":"::1 - - [23/Nov/2024:07:30:49 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 500 1001 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 13:01:49.433","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 13:01:49.436","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 13:01:54.958","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 13:01:54.964","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 13:01:54.970","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 13:01:58.415","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 13:01:58.655","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 13:02:00.244","level":"INFO","message":"Request ID assigned","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 13:02:00.263","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 13:02:00.264","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 13:02:00.265","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 13:02:02.149","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 13:02:03.976","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"3713.90ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 13:02:03.977","level":"INFO","message":"Document redesign middleware called","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","environment":"development"}
+{"timestamp":"2024-11-23 13:02:03.978","level":"INFO","message":"Document redesign completed","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 13:02:03.981","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:02:03.988","level":"DEBUG","message":"Executing (default): SELECT \"id\", \"user_id\", \"api_key\", \"status\", \"metadata\", \"endpoints_allowed\", \"rate_limit\", \"daily_limit\", \"monthly_limit\", \"timezone\", \"created_at\", \"updated_at\", \"last_reset_date\" FROM \"api_keys\" AS \"ApiKey\" WHERE \"ApiKey\".\"api_key\" = '8e1b703df5c6d1a3277026140094c5a428437a2992e7a7b3478c27c0492fd3f9' LIMIT 1;","environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.237","level":"DEBUG","message":"Redis cache set","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","expiry":3600,"environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.238","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.242","level":"DEBUG","message":"Redis rate limit increment","key":"rate-limit:d7f10e14-d3c1-4973-af22-b59070ee24bd","expiry":60,"environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.248","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.249","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.250","level":"ERROR","message":"API Error:","error":"getApiKeyDetails is not a function","statusCode":500,"stack":"TypeError: getApiKeyDetails is not a function\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:13:30)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:29:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.256","level":"INFO","message":"::1 - - [23/Nov/2024:07:32:04 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 500 1657 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 13:04:29.456","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 13:04:29.459","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 13:04:40.386","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 13:04:40.393","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 13:04:40.397","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 13:04:45.031","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 13:04:45.285","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 13:04:46.676","level":"INFO","message":"Request ID assigned","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 13:04:46.693","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 13:04:46.694","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 13:04:46.694","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 13:04:49.618","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.794","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"17102.93ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.796","level":"INFO","message":"Document redesign middleware called","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.797","level":"INFO","message":"Document redesign completed","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.798","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.799","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.801","level":"DEBUG","message":"Redis rate limit increment","key":"rate-limit:d7f10e14-d3c1-4973-af22-b59070ee24bd","expiry":60,"environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.807","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.808","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","environment":"development"}
+{"timestamp":"2024-11-23 13:05:03.810","level":"DEBUG","message":"Redis cache get","key":"api_key:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:05:04.972","level":"DEBUG","message":"Executing (default): SELECT \"id\", \"user_id\", \"api_key\", \"status\", \"metadata\", \"endpoints_allowed\", \"rate_limit\", \"daily_limit\", \"monthly_limit\", \"timezone\", \"created_at\", \"updated_at\", \"last_reset_date\" FROM \"api_keys\" AS \"ApiKey\" WHERE \"ApiKey\".\"api_key\" = '8e1b703df5c6d1a3277026140094c5a428437a2992e7a7b3478c27c0492fd3f9' LIMIT 1;","environment":"development"}
+{"timestamp":"2024-11-23 13:05:05.210","level":"DEBUG","message":"Redis cache set","key":"api_key:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","expiry":3600,"environment":"development"}
+{"timestamp":"2024-11-23 13:05:05.212","level":"ERROR","message":"API Error:","error":"Cannot read properties of undefined (reading 'includes')","statusCode":500,"stack":"TypeError: Cannot read properties of undefined (reading 'includes')\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:22:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:05:05.218","level":"INFO","message":"::1 - - [23/Nov/2024:07:35:05 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 500 958 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 13:06:06.304","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 13:06:06.304","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 13:06:12.849","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 13:06:12.855","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 13:06:12.858","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 13:06:16.767","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 13:06:17.001","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 13:06:21.282","level":"INFO","message":"Request ID assigned","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 13:06:21.298","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 13:06:21.299","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 13:06:21.300","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 13:06:23.532","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.130","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"5833.21ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.131","level":"INFO","message":"Document redesign middleware called","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.131","level":"INFO","message":"Document redesign completed","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.136","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.136","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.139","level":"DEBUG","message":"Redis rate limit increment","key":"rate-limit:d7f10e14-d3c1-4973-af22-b59070ee24bd","expiry":60,"environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.143","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.143","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.145","level":"DEBUG","message":"Redis cache get","key":"api_key:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.147","level":"ERROR","message":"API Error:","error":"Endpoint not allowed for this API key","code":"FORBIDDEN","statusCode":403,"stack":"Error: Endpoint not allowed for this API key\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:29:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.152","level":"INFO","message":"::1 - - [23/Nov/2024:07:36:27 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 403 911 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 13:07:35.509","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 13:07:35.510","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+{"timestamp":"2024-11-23 13:07:35.513","level":"INFO","message":"Redis connection closed gracefully","environment":"development"}
+{"timestamp":"2024-11-23 13:07:43.074","level":"INFO","message":"Scheduled jobs initialized","environment":"development"}
+{"timestamp":"2024-11-23 13:07:43.081","level":"INFO","message":"Server running on port 3000","environment":"development"}
+{"timestamp":"2024-11-23 13:07:43.084","level":"INFO","message":"Successfully connected to Redis","environment":"development"}
+{"timestamp":"2024-11-23 13:07:46.396","level":"DEBUG","message":"Executing (default): SELECT 1+1 AS result","environment":"development"}
+{"timestamp":"2024-11-23 13:07:46.622","level":"INFO","message":"Connected to PostgreSQL database","environment":"development"}
+{"timestamp":"2024-11-23 13:07:53.145","level":"INFO","message":"Request ID assigned","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","method":"GET","path":"/api/json/v1/search-by-mail","environment":"development"}
+{"timestamp":"2024-11-23 13:07:53.162","level":"INFO","message":"Search initiated","mail":"br02413515@prosegur.com","page":1,"pageSize":5,"installedSoftware":false,"type":"all","sortby":"date_compromised","sortorder":"desc","environment":"development"}
+{"timestamp":"2024-11-23 13:07:53.163","level":"INFO","message":"Initializing new database connection","environment":"development"}
+{"timestamp":"2024-11-23 13:07:53.163","level":"DEBUG","message":"MongoDB connection config:","uri":"mongodb+srv://***:***@aptintel-dev.ft5lokt.mongodb.net/dev?retryWrites=true&w=majority&appName=APTINTEL","environment":"development"}
+{"timestamp":"2024-11-23 13:07:56.425","level":"INFO","message":"Successfully connected to MongoDB","collections":["logs_usernames","logs_usernames_domains","logs"],"environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.928","level":"INFO","message":"Search completed","resultsCount":5,"totalCount":8,"mail":"br02413515@prosegur.com","processingTime":"4767.62ms","query":"{\"Emails\":\"br02413515@prosegur.com\"}","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.930","level":"INFO","message":"Document redesign middleware called","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.931","level":"INFO","message":"Document redesign completed","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","itemsProcessed":5,"environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.934","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.934","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.937","level":"DEBUG","message":"Redis rate limit increment","key":"rate-limit:d7f10e14-d3c1-4973-af22-b59070ee24bd","expiry":60,"environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.939","level":"DEBUG","message":"Redis cache get","key":"validation:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.939","level":"INFO","message":"Authentication successful","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.940","level":"DEBUG","message":"Redis cache get","key":"api_key:03deafcf448d0882000b66ccd8ae235a95e6a2a8560973ca807595383ed537ee","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.940","level":"WARN","message":"Endpoint access denied","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","endpoint":"/","allowedEndpoints":["all","/api/json/v1/usage"],"environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.943","level":"ERROR","message":"API Error:","error":"Endpoint not allowed for this API key","code":"FORBIDDEN","statusCode":403,"stack":"Error: Endpoint not allowed for this API key\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:40:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.950","level":"INFO","message":"::1 - - [23/Nov/2024:07:37:57 +0000] \"GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1\" 403 911 \"-\" \"PostmanRuntime/7.42.0\"","environment":"development"}
+{"timestamp":"2024-11-23 13:15:06.029","level":"INFO","message":"Received shutdown signal","environment":"development"}
+{"timestamp":"2024-11-23 13:15:06.031","level":"INFO","message":"Scheduled jobs stopped","environment":"development"}
+2024-11-23 13:16:02.106 [INFO]: Scheduled jobs initialized {"environment":"development"}
+2024-11-23 13:16:02.110 [INFO]: Server running on port 3000 {"environment":"development"}
+2024-11-23 13:16:02.114 [INFO]: Redis client connected {"environment":"development"}
+2024-11-23 13:16:02.116 [INFO]: Redis client ready {"environment":"development"}
+2024-11-23 13:16:05.800 [DEBUG]: Executing (default): SELECT 1+1 AS result {"environment":"development"}
+2024-11-23 13:16:06.043 [INFO]: Connected to PostgreSQL database {"environment":"development"}
+2024-11-23 13:17:08.656 [INFO]: Received shutdown signal {"environment":"development"}
+2024-11-23 13:17:14.484 [INFO]: Scheduled jobs initialized
+2024-11-23 13:17:14.486 [INFO]: Server running on port 3000
+2024-11-23 13:17:14.488 [INFO]: Redis client connected
+2024-11-23 13:17:14.490 [INFO]: Redis client ready
+2024-11-23 13:17:17.710 [DEBUG]: Executing (default): SELECT 1+1 AS result
+2024-11-23 13:17:17.955 [INFO]: Connected to PostgreSQL database
+2024-11-23 13:29:05.477 [INFO]: Received shutdown signal
+2024-11-23 13:29:10.496 [INFO]: Scheduled jobs initialized
+2024-11-23 13:29:10.499 [INFO]: Server running on port 3000
+2024-11-23 13:29:10.500 [INFO]: Redis client connected
+2024-11-23 13:29:10.502 [INFO]: Redis client ready
+2024-11-23 13:29:15.130 [DEBUG]: Executing (default): SELECT 1+1 AS result
+2024-11-23 13:29:15.444 [INFO]: Connected to PostgreSQL database
+2024-11-23 13:29:16.597 [INFO]: Request ID assigned {"requestId":"52778570-e9c4-4ffe-b4e6-5cf3c59cb8f4","method":"GET","path":"/api/json/v1/search-by-mail"}
+2024-11-23 13:29:16.609 [INFO]: Search initiated for mail: br02413515@prosegur.com, page: 1, page_size: 5, installed_software: false, type: all, sortby: date_compromised, sortorder: desc
+2024-11-23T07:59:16.612Z [ERROR]: API Error: {"error":"getDatabase is not a function","statusCode":500,"requestId":"52778570-e9c4-4ffe-b4e6-5cf3c59cb8f4","path":"/api/json/v1/search-by-mail","method":"GET"}
+TypeError: getDatabase is not a function
+    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:68:22)
+    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)
+2024-11-23 13:29:16.615 [INFO]: ::1 - - [23/Nov/2024:07:59:16 +0000] "GET /api/json/v1/search-by-mail?type=all&page=1&page_size=5 HTTP/1.1" 500 2023 "-" "PostmanRuntime/7.42.0"
+2024-11-23 13:41:51.409 [INFO]: Received shutdown signal

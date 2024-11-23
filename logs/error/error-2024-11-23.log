@@ -1,0 +1,387 @@
+2024-11-23 11:42:09.724 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:09.830 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:09.940 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.052 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.167 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.283 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.400 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.520 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.642 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.764 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:10.888 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.015 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.145 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.276 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.410 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.544 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.680 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.818 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:11.958 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.100 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.245 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.391 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.539 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.689 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.841 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:12.995 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.151 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.310 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.470 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.633 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.797 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:13.964 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.133 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.302 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.474 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.647 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:14.823 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.003 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.184 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.367 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.551 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.738 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:15.926 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.116 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.308 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.503 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.701 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:16.898 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.098 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.299 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.502 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.709 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:17.918 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.131 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.343 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.558 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.774 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:18.992 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.213 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.435 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.659 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:19.884 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.111 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.342 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.573 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:20.808 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.046 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.286 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.526 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:21.769 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.014 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.261 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.511 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:22.761 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.014 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.269 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.527 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:23.786 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.046 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.308 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.572 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:24.849 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.116 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.385 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.656 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:25.930 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:26.209 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+2024-11-23 11:42:26.488 [ERROR]: Redis reconnection error: {"error":"ERR This instance has cluster support disabled","environment":"development"}
+ReplyError: ERR This instance has cluster support disabled
+    at parseError (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:179:12)
+    at parseType (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/redis-parser/lib/parser.js:302:14)
+{"timestamp":"2024-11-23 11:48:27.060","level":"ERROR","message":"API Error:","error":"getDatabase is not a function","statusCode":500,"stack":"TypeError: getDatabase is not a function\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:68:22)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"00e53529-2067-416d-8865-5f7058fe5d52","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.125","level":"ERROR","message":"Search by mail failed:","error":"Email parameter is required","stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","environment":"development"}
+{"timestamp":"2024-11-23 11:58:05.128","level":"ERROR","message":"API Error:","error":"Email parameter is required","code":"VALIDATION_ERROR","statusCode":400,"stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"b9d4e9fd-5a6e-432d-aed3-538e48ff852b","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 11:58:59.422","level":"ERROR","message":"Search by mail failed:","error":"Email parameter is required","stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","environment":"development"}
+{"timestamp":"2024-11-23 11:58:59.423","level":"ERROR","message":"API Error:","error":"Email parameter is required","code":"VALIDATION_ERROR","statusCode":400,"stack":"Error: Email parameter is required\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"27212ca8-cd6b-46ce-868e-1331984e2935","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:07:41.765","level":"ERROR","message":"Search failed","error":"Email parameter is required in query parameters","stack":"Error: Email parameter is required in query parameters\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:12:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","mail":"br02413515@prosegur.com","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:07:41.768","level":"ERROR","message":"API Error:","error":"Email parameter is required in query parameters","code":"VALIDATION_ERROR","statusCode":400,"stack":"Error: Email parameter is required in query parameters\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:12:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"63b178f4-6851-40b8-997d-afbbdeb109b9","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:10:07.759","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)\n    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)","requestId":"dae8d95f-cc18-4f26-a801-d3a37ffafdd4","path":"/api/json/v1/search-by-mail/bulk","method":"POST","environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.292","level":"ERROR","message":"Credentials collection not found","environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.294","level":"ERROR","message":"Search failed","error":"Required collection not found","stack":"Error: Required collection not found\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:45:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","mail":"br02413515@prosegur.com","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:28:29.298","level":"ERROR","message":"API Error:","error":"Required collection not found","code":"DB_ERROR","statusCode":500,"stack":"Error: Required collection not found\n    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:45:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"d22a8e15-72ed-4d68-bcc7-5d366fa2684d","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:36:30.634","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"1a9da210-03f3-451e-a3f2-49ee774a3329","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:37:42.309","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"4e0d5f31-51e3-4a67-bd72-12771221a289","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:39:58.286","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"4d5582ef-2332-4475-a3d6-3229ce1befd1","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:42:50.535","level":"ERROR","message":"API Error:","error":"API key is missing in request headers","code":"AUTHENTICATION_ERROR","statusCode":401,"stack":"Error: API key is missing in request headers\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:10:13)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:646:15\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:265:14)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:141:14)\n    at documentRedesignMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/documentRedesignMiddleware.js:48:5)","requestId":"e6d2c7bb-6fcd-4cd6-8ff7-4dc17dddcac1","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.647","level":"ERROR","message":"API key validation failed:","error":"column ApiKey.apiKey does not exist","stack":"Error\n    at Query.run (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/sequelize.js:315:28\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async PostgresQueryInterface.select (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)\n    at async ApiKey.findAll (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1140:21)\n    at async ApiKey.findOne (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/sequelize/lib/model.js:1240:12)\n    at async validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:16:24)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","environment":"development"}
+{"timestamp":"2024-11-23 12:44:31.653","level":"ERROR","message":"API Error:","error":"Failed to validate API key","code":"VALIDATION_ERROR","statusCode":500,"stack":"Error: Failed to validate API key\n    at validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:39:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","requestId":"95c9ba19-5465-4d4c-9598-bdf5e9c1fddd","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.735","level":"ERROR","message":"API key validation failed:","error":"redisService.set is not a function","stack":"TypeError: redisService.set is not a function\n    at validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:27:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","environment":"development"}
+{"timestamp":"2024-11-23 13:00:49.737","level":"ERROR","message":"API Error:","error":"Failed to validate API key","code":"VALIDATION_ERROR","statusCode":500,"stack":"Error: Failed to validate API key\n    at validateApiKey (/Users/agni/Documents/CODE/aptintel/creds-api-backend/services/apiKeyService.js:39:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:13:24)","requestId":"685ae812-be4b-425a-af19-7f776c93b758","path":"/api/json/v1/search-by-mail","method":"GET","environment":"development"}
+{"timestamp":"2024-11-23 13:02:04.250","level":"ERROR","message":"API Error:","error":"getApiKeyDetails is not a function","statusCode":500,"stack":"TypeError: getApiKeyDetails is not a function\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:13:30)\n    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)\n    at trim_prefix (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:328:13)\n    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:286:9\n    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)\n    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)\n    at authMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/authMiddleware.js:29:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"7bdd1da3-0408-4738-959e-1fb7de86c74f","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:05:05.212","level":"ERROR","message":"API Error:","error":"Cannot read properties of undefined (reading 'includes')","statusCode":500,"stack":"TypeError: Cannot read properties of undefined (reading 'includes')\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:22:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"f4dd8d1d-4dec-4e56-ab6e-4eaca8b0ee19","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:06:27.147","level":"ERROR","message":"API Error:","error":"Endpoint not allowed for this API key","code":"FORBIDDEN","statusCode":403,"stack":"Error: Endpoint not allowed for this API key\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:29:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"6baf6376-0e92-4883-b214-aaa2c59f7f13","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+{"timestamp":"2024-11-23 13:07:57.943","level":"ERROR","message":"API Error:","error":"Endpoint not allowed for this API key","code":"FORBIDDEN","statusCode":403,"stack":"Error: Endpoint not allowed for this API key\n    at apiKeyDataMiddleware (/Users/agni/Documents/CODE/aptintel/creds-api-backend/middlewares/apiKeyDataMiddleware.js:40:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","requestId":"c53613b7-65df-42b8-a725-5d274a46456a","path":"/api/json/v1/search-by-mail","method":"GET","apiKeyId":"d7f10e14-d3c1-4973-af22-b59070ee24bd","environment":"development"}
+2024-11-23T07:59:16.612Z [ERROR]: API Error: {"error":"getDatabase is not a function","statusCode":500,"requestId":"52778570-e9c4-4ffe-b4e6-5cf3c59cb8f4","path":"/api/json/v1/search-by-mail","method":"GET"}
+TypeError: getDatabase is not a function
+    at searchByMail (/Users/agni/Documents/CODE/aptintel/creds-api-backend/controllers/v1/mailController.js:68:22)
+    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/agni/Documents/CODE/aptintel/creds-api-backend/node_modules/express/lib/router/index.js:47:12)

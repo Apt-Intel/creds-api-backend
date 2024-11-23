@@ -4,6 +4,60 @@
 
 You are building a continuously augmented cybercrime API composed of millions of machine credentials compromised by info-stealers in global malware-spreading campaigns. It provides clients the ability to query a MongoDB database of over **29,919,523** computers compromised through global info-stealer campaigns performed by threat actors. The database is updated daily with new compromised computers, offering cybersecurity providers the ability to alert security teams ahead of imminent attacks when users get compromised and have their credentials stolen.
 
+The application leverages MongoDB for handling the core business logic related to compromised credentials, ensuring efficient data storage and retrieval. Additionally, PostgreSQL is utilized for managing API keys, providing robust and secure access control mechanisms.
+
+## Data Flow
+
+### API Key Management
+
+1. **API Key Generation**:
+
+   - API keys are generated using a secure random byte generator and stored in PostgreSQL with associated metadata, including user ID, status, and rate limits.
+   - The keys are hashed using SHA-256 before storage to ensure security.
+
+2. **API Key Validation**:
+
+   - Incoming requests include an API key in the headers.
+   - The `authMiddleware` checks Redis for a cached validation result. If not found, it queries PostgreSQL to validate the key.
+   - Valid keys are cached in Redis to improve performance for subsequent requests.
+
+3. **Rate Limiting**:
+
+   - Rate limits are enforced using Redis, which tracks request counts within a specified time window.
+   - PostgreSQL tracks daily and monthly usage limits, resetting counters based on the API key's timezone.
+
+4. **Usage Logging**:
+   - Each request is logged in PostgreSQL, capturing details like endpoint, method, and response time.
+   - Logs are processed in batches to optimize database writes.
+
+### Typical v1 Route (e.g., Search by Mail)
+
+1. **Request Handling**:
+
+   - A client sends a request to a v1 endpoint, such as `/api/json/v1/search-by-mail`, with query parameters like `mail`, `sortby`, and `page`.
+
+2. **Authentication and Rate Limiting**:
+
+   - The request passes through the `authMiddleware` and `rateLimitMiddleware` to ensure the API key is valid and within usage limits.
+
+3. **Data Retrieval**:
+
+   - The controller queries MongoDB to fetch data based on the provided parameters.
+   - MongoDB is used for its flexibility and scalability in handling large datasets of compromised credentials.
+
+4. **Data Processing**:
+
+   - The `dateNormalizationMiddleware` normalizes date fields to a consistent format.
+   - The `sortingMiddleware` sorts the results based on the specified criteria.
+
+5. **Response Construction**:
+
+   - The `documentRedesignMiddleware` restructures the data to match the API's response format.
+   - The `sendResponseMiddleware` sends the final response back to the client.
+
+6. **Logging**:
+   - The request and response details are logged using Winston, with request IDs for traceability.
+
 ## Project Dependencies and Technologies
 
 This document provides an overview of the packages, libraries, and technologies used in the project, along with a brief description of their usage and where they are implemented.
@@ -236,7 +290,7 @@ creds-api-backend/
 │   ├── complexRateLimitMiddleware.js
 │   ├── dateNormalizationMiddleware.js
 │   ├── documentRedesignDomainMiddleware.js
-│   ├── documentRedesignMiddleware.js
+│ �� ├── documentRedesignMiddleware.js
 │   ├── rateLimiter.js
 │   ├── requestIdMiddleware.js
 │   ├── requestLogger.js
@@ -1882,7 +1936,7 @@ async function checkRateLimit(key) {
       if (err) reject(err);
       else resolve(results);
     });
-  });
+  };
 
   const requestTimestamps = results[2];
 
@@ -2467,14 +2521,11 @@ const sortData = (data, sortBy, sortOrder) => {
       return sortOrder === "asc" ? comparison : -comparison;
     });
   }
-
   if (typeof data === "object" && data !== null) {
     const newData = { ...data };
-
     if ("data" in newData && Array.isArray(newData.data)) {
       newData.data = sortData(newData.data, sortBy, sortOrder);
     }
-
     if ("results" in newData && Array.isArray(newData.results)) {
       if (newData.results.length > 0 && "data" in newData.results[0]) {
         // Bulk search results
@@ -2487,16 +2538,13 @@ const sortData = (data, sortBy, sortOrder) => {
         newData.results = sortData(newData.results, sortBy, sortOrder);
       }
     }
-
     return newData;
   }
-
   return data;
 };
 
 const sortingMiddleware = (req, res, next) => {
   logger.info("Sorting middleware called");
-
   try {
     const sortBy = req.query.sortby || "date_compromised";
     const sortOrder = req.query.sortorder || "desc";
